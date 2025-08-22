@@ -16,33 +16,35 @@ function App() {
           <span className="brand-name">moments</span>
         </div>
       </header>
-      
-      <section className="hero">
-        <div className="hero-heading">
+
+      {/* Liquid-glass scene is scoped INSIDE the white frame */}
+      <section className="hero lg-root">
+
+        {/* Left column — glass pane */}
+        <div className="hero-heading lg-pane lg-pane--tight">
           <div className="hero-title-wrap">
             <h1 className="hero-title">The in-person social network.</h1>
           </div>
         </div>
-        
+
+        {/* Phone — wrapped in a stronger glass slab */}
         <div className="hero-phone">
-          <PhoneDemo />
+          <div className="lg-pane lg-pane--phone">
+            <PhoneDemo />
+          </div>
         </div>
-        
-        <div className="hero-details">
-          <ul className="big-bullets">
-            <li>😊 Meaningful connections</li>
-            <li>⚠️ Spontaneous moments</li>
-            <li>🤳 Authentic real life</li>
-          </ul>
-          <p className="big-copy">
-            Every day, get a notification to make a Moment — connect authentically with new people and friends in real life, whether it's meeting one-on-one or joining group events.
-          </p>
+
+        {/* Right column — glass pane */}
+        <div className="hero-details lg-pane">
+          
           <EarlyAccessCTA />
         </div>
       </section>
 
       <footer className="site-footer">
-        <div className="footer-left">&copy; {new Date().getFullYear()} moments</div>
+        <div className="footer-left">
+          &copy; {new Date().getFullYear()}&nbsp;&nbsp;&nbsp;&nbsp;moments
+        </div>
         <nav className="footer-nav">
           <a href="/terms">terms</a>
           <a href="/privacy">privacy</a>
@@ -59,6 +61,26 @@ function PhoneDemo() {
       <div className="phone-notch" />
       <div className="phone-screen">
         <div className="phone-topbar">
+          <div className="phone-status-bar">
+            <div className="status-left">
+              <img
+                className="status-time"
+                src="https://i.imgur.com/KKAfgbH.png"
+                alt="signal wifi battery"
+                decoding="async"
+                loading="eager"
+              />
+            </div>
+            <div className="status-right">
+              <img
+                className="status-symbols"
+                src="https://i.imgur.com/b1QsrHK.png"
+                alt="9:27"
+                decoding="async"
+                loading="eager"
+              />
+            </div>
+          </div>
           <div className="phone-brand">
             <img
               className="phone-brand-logo"
@@ -69,6 +91,7 @@ function PhoneDemo() {
             />
           </div>
         </div>
+
         <div className="phone-cards">
           <div className="phone-card primary">
             <div className="pill">ALEX</div>
@@ -80,6 +103,7 @@ function PhoneDemo() {
               <div className="avatar light">92%</div>
             </div>
           </div>
+
           <div className="phone-card surface">
             <div className="row">
               <span className="icon">📍</span>
@@ -93,17 +117,21 @@ function PhoneDemo() {
               <button className="small-cta">confirm</button>
             </div>
           </div>
+
           <div className="countdown-card">
             <div className="countdown-label">moment starts in</div>
             <div className="countdown-time">00:00:23</div>
           </div>
         </div>
+
         <MomentsNearby />
       </div>
+
+      {/* Keep your existing overlays; these sit above the phone-screen */}
       <img
         className="phone-underlay"
         src="https://i.imgur.com/bTFDcto.jpeg"
-        alt=""
+        alt="iPhone status bar overlay"
         decoding="async"
         loading="eager"
         aria-hidden
@@ -131,7 +159,7 @@ function MomentsNearby() {
     <div className="nearby-section">
       <div className="nearby-title">moments happening nearby</div>
       <div className="nearby-list">
-        {items.map(item => (
+        {items.map((item) => (
           <div key={item.id} className="nearby-item">
             <div className="nearby-left">
               <div className="nearby-icon" aria-hidden>
@@ -142,7 +170,9 @@ function MomentsNearby() {
                 <div className="nearby-meta">{item.meta}</div>
               </div>
             </div>
-            <button className="small-cta" type="button">join</button>
+            <button className="small-cta" type="button">
+              join
+            </button>
           </div>
         ))}
       </div>
@@ -151,15 +181,36 @@ function MomentsNearby() {
 }
 
 function EarlyAccessCTA() {
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const formatPhoneNumber = (value) => {
+    const digits = value.replace(/\D/g, '');
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+  };
+
+  const handlePhoneChange = (e) => {
+    setPhoneNumber(formatPhoneNumber(e.target.value));
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
-    setMessage('Thanks! We will be in touch.');
-    setEmail('');
+    if (phoneNumber.replace(/\D/g, '').length === 10) setIsSubmitted(true);
   };
-  
+
+  if (isSubmitted) {
+    return (
+      <div className="email-cta submitted">
+        <div className="email-cta-main submitted">
+          <span className="thanks-message">Thanks! We'll keep in touch.</span>
+        </div>
+        <div className="email-cta-arrow submitted" />
+      </div>
+    );
+  }
+
   return (
     <form className="email-cta" onSubmit={onSubmit} noValidate>
       <div className="email-cta-main">
@@ -168,13 +219,15 @@ function EarlyAccessCTA() {
           className="email-field"
           placeholder="ENTER PHONE NUMBER TO RSVP"
           aria-label="Enter phone number to RSVP"
-          value={email}
-          onChange={(e) => setEmail(e.target.value.replace(/[^0-9]/g, ''))}
+          value={phoneNumber}
+          onChange={handlePhoneChange}
+          maxLength={14}
           required
         />
       </div>
-      <button type="submit" className="email-cta-arrow" aria-label="Submit">→</button>
-      {message && <div style={{ gridColumn: '1 / span 2', paddingTop: 8, fontSize: 12, color: '#0B0F13' }}>{message}</div>}
+      <button type="submit" className="email-cta-arrow" aria-label="Submit">
+        →
+      </button>
     </form>
   );
 }
