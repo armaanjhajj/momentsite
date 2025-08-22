@@ -866,6 +866,57 @@ body {
   text-decoration: none;
 }
 
+// ElevenLabs Convai Widget Section
+.elevenlabs-widget-section {
+  padding: 2rem;
+  text-align: center;
+}
+
+.elevenlabs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.elevenlabs-header {
+  margin-bottom: 3rem;
+}
+
+.elevenlabs-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: $brand-text;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.elevenlabs-subtitle {
+  font-size: 1.125rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.elevenlabs-widget {
+  background: $white;
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.elevenlabs-widget elevenlabs-convai {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+}
+
 // Mobile responsive
 @media (max-width: 767px) {
   .App {
@@ -901,5 +952,22 @@ body {
   .App {
     background: $white;
     color: $brand-text;
+  }
+
+  .elevenlabs-widget-section {
+    padding: 2rem 1rem;
+  }
+
+  .elevenlabs-title {
+    font-size: 2rem;
+  }
+
+  .elevenlabs-subtitle {
+    font-size: 1rem;
+  }
+
+  .elevenlabs-widget {
+    padding: 1rem;
+    min-height: 300px;
   }
 }

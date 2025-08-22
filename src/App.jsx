@@ -320,6 +320,11 @@ function App() {
         </div>
       </main>
 
+      {/* ElevenLabs Convai Widget Section */}
+      <section className="elevenlabs-widget-section">
+        <elevenlabs-convai agent-id="agent_4001k37hrm0wfxcvq8ch4cxmj1ge"></elevenlabs-convai>
+      </section>
+
       {/* Divider row — thin and quiet */}
       <div className="divider-row">
         <div className="divider-line" />
