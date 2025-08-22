@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Moments — real connections in real life" />
+    <title>moments</title>
+    <script type="module" crossorigin src="/momentsite/assets/index-DMF2KnV-.js"></script>
+    <link rel="stylesheet" crossorigin href="/momentsite/assets/index-BpGYibvT.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- The main entry point for our React app -->
+    <style>
+      /* Position the ConvAI widget within the bordered app container */
+      .App elevenlabs-convai, elevenlabs-convai {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 50;
+      }
+      @media (max-width: 767px) {
+        .App elevenlabs-convai, elevenlabs-convai { top: 12px; right: 12px; }
+      }
+      /* Force-position the stock ElevenLabs widget container if they inject #elevenlabs-widget */
+      #elevenlabs-widget {
+        position: fixed !important;
+        top: 20px !important;
+        right: 20px !important;
+        left: auto !important;
+        bottom: auto !important;
+        z-index: 1000 !important;
+      }
+    </style>
+    <script>
+      // Lightweight /admin route: render admin UI when path is /admin
+      if (location.pathname === '/admin') {
+        import('data:text/javascript;base64,Y29uc3Qgcm9vdCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyb290Jyk7CnJvb3QuaW5uZXJIVE1MID0gYAogIDxzdHlsZT4KICAgIGJvZHkgeyBmb250LWZhbWlseTogc3lzdGVtLXVpLCAtYXBwbGUtc3lzdGVtLCBTZWdvZSBVSSwgUm9ib3RvLCBzYW5zLXNlcmlmOyBiYWNrZ3JvdW5kOiMwQjBGMTM7IGNvbG9yOiNGQUYwRTY7IG1hcmdpbjowOyBwYWRkaW5nOjI0cHg7IH0KICAgIC5jYXJkIHsgYmFja2dyb3VuZDojMTExNTFBOyBib3JkZXI6MXB4IHNvbGlkIHJnYmEoMjU1LDI1NSwyNTUsMC4xKTsgYm9yZGVyLXJhZGl1czoxMnB4OyBwYWRkaW5nOjE2cHg7IG1heC13aWR0aDo5NjBweDsgbWFyZ2luOjAgYXV0bzsgfQogICAgaDEgeyBtYXJnaW46MCAwIDEycHggMDsgZm9udC1zaXplOjIwcHg7IH0KICAgIGlucHV0W3R5cGU9cGFzc3dvcmRdIHsgd2lkdGg6IDI2MHB4OyBwYWRkaW5nOjEwcHggMTJweDsgYm9yZGVyLXJhZGl1czo4cHg7IGJvcmRlcjoxcHggc29saWQgcmdiYSgyNTUsMjU1LDI1NSwwLjIpOyBiYWNrZ3JvdW5kOiMwRjEyMTY7IGNvbG9yOiNGQUYwRTY7IH0KICAgIGJ1dHRvbiB7IHBhZGRpbmc6MTBweCAxNHB4OyBib3JkZXItcmFkaXVzOjhweDsgYm9yZGVyOjA7IGN1cnNvcjpwb2ludGVyOyBiYWNrZ3JvdW5kOiNGRjRFNkE7IGNvbG9yOiNmZmY7IGZvbnQtd2VpZ2h0OjgwMDsgfQogICAgdGFibGUgeyB3aWR0aDoxMDAlOyBib3JkZXItY29sbGFwc2U6IGNvbGxhcHNlOyBtYXJnaW4tdG9wOiAxMnB4OyBmb250LXNpemU6IDE0cHg7IH0KICAgIHRoLCB0ZCB7IHRleHQtYWxpZ246bGVmdDsgcGFkZGluZzo4cHg7IGJvcmRlci1ib3R0b206MXB4IHNvbGlkIHJnYmEoMjU1LDI1NSwyNTUsMC4wOCk7IH0KICAgIC5yb3cgeyBkaXNwbGF5OmZsZXg7IGFsaWduLWl0ZW1zOmNlbnRlcjsgZ2FwOjhweDsgfQogICAgLnRvcCB7IGRpc3BsYXk6ZmxleDsganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuOyBhbGlnbi1pdGVtczpjZW50ZXI7IGdhcDoxMnB4OyB9CiAgICBhLmxpbmsgeyBjb2xvcjojZmY1Yzk4OyB0ZXh0LWRlY29yYXRpb246bm9uZTsgfQogIDwvc3R5bGU+CiAgPGRpdiBjbGFzcz0iY2FyZCI+CiAgICA8ZGl2IGNsYXNzPSJ0b3AiPgogICAgICA8aDE+V2FpdGxpc3QgQWRtaW48L2gxPgogICAgICA8ZGl2IGNsYXNzPSJyb3ciPgogICAgICAgIDxpbnB1dCBpZD0icHciIHR5cGU9InBhc3N3b3JkIiBwbGFjZWhvbGRlcj0iQWRtaW4gcGFzc3dvcmQiIC8+CiAgICAgICAgPGJ1dHRvbiBpZD0ibG9naW4iPkVudGVyPC9idXR0b24+CiAgICAgICAgPGEgaWQ9ImV4cG9ydCIgY2xhc3M9ImxpbmsiIGhyZWY9IiMiPkV4cG9ydCBDU1Y8L2E+CiAgICAgIDwvZGl2PgogICAgPC9kaXY+CiAgICA8ZGl2IGlkPSJzdGF0dXMiPjwvZGl2PgogICAgPHRhYmxlIGlkPSJ0YWJsZSIgc3R5bGU9ImRpc3BsYXk6bm9uZSI+CiAgICAgIDx0aGVhZD48dHI+PHRoPlBob25lPC90aD48dGg+RW1haWw8L3RoPjx0aD5Tb3VyY2U8L3RoPjx0aD5EYXRlPC90aD48L3RyPjwvdGhlYWQ+CiAgICAgIDx0Ym9keT48L3Rib2R5PgogICAgPC90YWJsZT4KICA8L2Rpdj4KYDsKCmNvbnN0IHB3SW5wdXQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncHcnKTsKY29uc3QgbG9naW5CdG4gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnbG9naW4nKTsKY29uc3Qgc3RhdHVzRWwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3RhdHVzJyk7CmNvbnN0IHRhYmxlID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RhYmxlJyk7CmNvbnN0IHRib2R5ID0gdGFibGUucXVlcnlTZWxlY3RvcigndGJvZHknKTsKY29uc3QgZXhwb3J0TGluayA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdleHBvcnQnKTsKCmFzeW5jIGZ1bmN0aW9uIGZldGNoTGlzdChwYXNzd29yZCkgewogIHN0YXR1c0VsLnRleHRDb250ZW50ID0gJ0xvYWRpbmfigKYnOwogIGNvbnN0IHJlcyA9IGF3YWl0IGZldGNoKCcvYXBpL3dhaXRsaXN0JywgeyBoZWFkZXJzOiB7ICd4LWFkbWluLXBhc3N3b3JkJzogcGFzc3dvcmQgfSB9KTsKICBpZiAoIXJlcy5vaykgewogICAgc3RhdHVzRWwudGV4dENvbnRlbnQgPSAnVW5hdXRob3JpemVkIG9yIGVycm9yLic7CiAgICB0YWJsZS5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOwogICAgcmV0dXJuOwogIH0KICBjb25zdCBkYXRhID0gYXdhaXQgcmVzLmpzb24oKTsKICB0Ym9keS5pbm5lckhUTUwgPSAnJzsKICBmb3IgKGNvbnN0IHJvdyBvZiBkYXRhLmVudHJpZXMpIHsKICAgIGNvbnN0IHRyID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgndHInKTsKICAgIHRyLmlubmVySFRNTCA9IGA8dGQ+JHtyb3cucGhvbmUgfHwgJyd9PC90ZD48dGQ+JHtyb3cuZW1haWwgfHwgJyd9PC90ZD48dGQ+JHtyb3cuc291cmNlIHx8ICcnfTwvdGQ+PHRkPiR7bmV3IERhdGUocm93LmNyZWF0ZWRfYXQpLnRvTG9jYWxlU3RyaW5nKCl9PC90ZD5gOwogICAgdGJvZHkuYXBwZW5kQ2hpbGQodHIpOwogIH0KICB0YWJsZS5zdHlsZS5kaXNwbGF5ID0gJyc7CiAgc3RhdHVzRWwudGV4dENvbnRlbnQgPSBgJHtkYXRhLmVudHJpZXMubGVuZ3RofSBlbnRyaWVzYDsKfQoKbG9naW5CdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCAoKSA9PiB7CiAgY29uc3QgcHcgPSBwd0lucHV0LnZhbHVlLnRyaW0oKTsKICBpZiAoIXB3KSByZXR1cm47CiAgbG9jYWxTdG9yYWdlLnNldEl0ZW0oJ2FkbWluX3B3JywgcHcpOwogIGZldGNoTGlzdChwdyk7Cn0pOwoKZXhwb3J0TGluay5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIChlKSA9PiB7CiAgZS5wcmV2ZW50RGVmYXVsdCgpOwogIGNvbnN0IHB3ID0gbG9jYWxTdG9yYWdlLmdldEl0ZW0oJ2FkbWluX3B3JykgfHwgcHdJbnB1dC52YWx1ZS50cmltKCk7CiAgaWYgKCFwdykgcmV0dXJuOwogIGNvbnN0IHVybCA9IG5ldyBVUkwobG9jYXRpb24ub3JpZ2luICsgJy9hcGkvd2FpdGxpc3QnKTsKICB1cmwuc2VhcmNoUGFyYW1zLnNldCgnZm9ybWF0JywgJ2NzdicpOwogIGZldGNoKHVybCwgeyBoZWFkZXJzOiB7ICd4LWFkbWluLXBhc3N3b3JkJzogcHcgfSB9KQogICAgLnRoZW4ociA9PiByLmJsb2IoKSkKICAgIC50aGVuKGJsb2IgPT4gewogICAgICBjb25zdCBhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYScpOwogICAgICBhLmhyZWYgPSBVUkwuY3JlYXRlT2JqZWN0VVJMKGJsb2IpOwogICAgICBhLmRvd25sb2FkID0gJ3dhaXRsaXN0LmNzdic7CiAgICAgIGEuY2xpY2soKTsKICAgIH0pOwp9KTsKCi8vIEF1dG8tdHJ5IHN0b3JlZCBwYXNzd29yZApjb25zdCBzYXZlZCA9IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdhZG1pbl9wdycpOwppZiAoc2F2ZWQpIGZldGNoTGlzdChzYXZlZCk7CgoK');
+      }
+    </script>
+    <!-- Global ConvAI widget for all SPA pages -->
+    <div id="convai-holder"></div>
+    <elevenlabs-convai agent-id="agent_4001k37hrm0wfxcvq8ch4cxmj1ge"></elevenlabs-convai>
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <script>
+      // Force the ElevenLabs widget to live inside the .App borders, top-right
+      (function pinELEWidget(){
+        const holder = document.getElementById('convai-holder');
+        holder.style.position = 'fixed';
+        holder.style.top = '20px';
+        holder.style.right = '20px';
+        holder.style.zIndex = '1000';
+
+        function computeRightInset() {
+          const app = document.querySelector('.App');
+          if (!app) return 20;
+          const rect = app.getBoundingClientRect();
+          return Math.max(12, window.innerWidth - rect.right + 20);
+        }
+        function computeTopInset() {
+          const app = document.querySelector('.App');
+          if (!app) return 20;
+          const rect = app.getBoundingClientRect();
+          return Math.max(12, rect.top + 16);
+        }
+        const setPos = (el) => {
+          if (!el || !(el instanceof HTMLElement)) return;
+          // Move under our fixed holder and neutralize any width/position styles
+          holder.style.top = computeTopInset() + 'px';
+          holder.style.right = computeRightInset() + 'px';
+          holder.appendChild(el);
+          el.style.position = 'static';
+          el.style.left = 'auto';
+          el.style.right = 'auto';
+          el.style.top = 'auto';
+          el.style.bottom = 'auto';
+          el.style.width = 'auto';
+          el.style.maxWidth = '320px';
+          el.style.transform = 'none';
+          el.style.zIndex = 'auto';
+        };
+        const tryAll = () => {
+          let found = false;
+          const host = document.querySelector('elevenlabs-convai');
+          if (host) { setPos(host); found = true; }
+          const stock = document.getElementById('elevenlabs-widget');
+          if (stock) { setPos(stock); found = true; }
+          // Fallback: any node that looks like their launcher (by id/class contains elevenlabs)
+          document.querySelectorAll('[id*="elevenlabs"], [class*="elevenlabs"]').forEach(setPos);
+          return found;
+        };
+        // Initial attempt + observers
+        tryAll();
+        const obs = new MutationObserver(tryAll);
+        obs.observe(document.documentElement, { childList: true, subtree: true });
+        window.addEventListener('resize', tryAll);
+        window.addEventListener('scroll', tryAll, { passive: true });
+      })();
+    </script>
+  </body>
+</html>
