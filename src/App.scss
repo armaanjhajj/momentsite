@@ -1,6 +1,6 @@
+@use './styles/_variables.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
 @import url('https://use.typekit.net/klf2aay.css');
-@import './styles/_variables.scss';
 
 // Root theme
 :root {
@@ -9,29 +9,43 @@
 
 // Layout and component styles
 body {
-  background-color: #000000;
+  background-color: white;
   color: $brand-text;
   margin: 0;
   padding: 16px;
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 * {
   box-sizing: border-box;
 }
 
+// Background animation styles
+.background-animation {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
 .App {
   min-height: calc(100vh - 32px);
   display: flex;
   flex-direction: column;
-  background: $white;
+  background: rgba(255, 255, 255, 0.5);
   color: $brand-text;
   position: relative;
   border-radius: 24px;
   border: none;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   overflow: hidden;
+  z-index: 1;
 }
 
 .launch-countdown {
@@ -75,13 +89,12 @@ body {
 }
 
 .site-header {
-  padding: 2rem 2rem 1rem 2rem;
+  margin: 1.5rem 0; 
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
+  position: relative;
 }
 
 .header-tagline {
@@ -96,11 +109,12 @@ body {
   align-items: center;
   gap: 8px;
   margin-left: 0;
+  text-decoration: none;
 }
 
-.brand-asterisk {
-  height: 64px;
-  width: 64px;
+.brand-logo {
+  height: 60px;
+  width: 350px;
   display: inline-block;
 }
 
@@ -111,6 +125,30 @@ body {
   letter-spacing: -0.01em;
 }
 
+
+
+.manifesto-link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: $brand-text;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 12px 24px;
+  border: 2px solid $brand-text;
+  border-radius: 32px;
+  transition: all 0.3s ease;
+  background: transparent;
+
+  &:hover {
+    background: $brand-text;
+    color: $white;
+    transform: translate(-50%, -50%) translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+}
+
 .hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -119,10 +157,10 @@ body {
     'details phone';
   column-gap: 48px;
   align-items: center;
-  max-width: 1200px;
-  padding: 4rem 7rem 6rem 2rem;
+
+  padding: 4rem 7rem 6rem 0rem;
   margin: 0 auto;
-  background: $white;
+
 
   &-heading {
     grid-area: heading;
@@ -370,7 +408,7 @@ body {
 
 .phone-screen {
   background: #ffffff;
-  border-radius: 65px;
+  border-radius: 50px;
   overflow: hidden;
   position: relative;
   height: 100%;
@@ -611,9 +649,12 @@ body {
 
 .match-reason {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
   margin-bottom: 16px;
   line-height: 1.4;
+  text-shadow: 
+    0 0 8px rgba(255, 255, 255, 0.8),
+    0 0 16px rgba(255, 255, 255, 0.6),
 }
 
 .match-meta {
@@ -680,35 +721,70 @@ body {
 }
 
 .meet-banner {
-  background: $primary-color;
-  color: $brand-text;
+  background: linear-gradient(135deg, $primary-color 0%, $accent-color 100%);
+  color: $white;
   border-radius: 24px;
   padding: 16px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  margin-top: 15px;
+  box-shadow: 0 4px 12px rgba(255, 78, 106, 0.3);
+}
+
+.meet-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
 }
 
 .meet-text {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.3;
+  color: $white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.meet-time {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.time-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .yard-bold {
   font-weight: 900;
   color: $white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .countdown {
   font-weight: 900;
+  font-size: 16px;
   color: $white;
   font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 8px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
 }
 
 .minutes-text {
-  color: $brand-text;
+  color: $white;
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .meet-actions-inline {
@@ -730,6 +806,75 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+// NFC Animation styles
+.nfc-animation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nfc-tap-animation {
+  width: 160px;
+  height: 120px;
+}
+
+.nfc-instruction {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  font-weight: 500;
+}
+
+// Confirmed meeting state styles
+.confirmed-meeting {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+  gap: 12px;
+  padding: 12px 0;
+}
+
+.confirmed-location {
+  text-align: center;
+  
+  .location-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+    margin-bottom: 7px;
+  }
+  
+  .location-name {
+    font-size: 16px;
+    color: $white;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+}
+
+.confirmed-time {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  .time-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+  }
+  
+  .time-value {
+    font-size: 18px;
+    color: $white;
+    font-weight: 700;
+  }
 }
 
 .public-moments {
@@ -810,6 +955,118 @@ body {
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.moment-cta:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.02);
+}
+
+.public-moment-item.expanded {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.public-moment-item.expanded .moment-content {
+  width: 100%;
+}
+
+.moment-header-expanded {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.moment-title-expanded {
+  flex: 1;
+}
+
+.public-moment-item.expanded .moment-cta {
+  background: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
+.moment-expanded-details {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.expanded-time-location {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.expanded-time {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.expanded-location {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.attendees-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.attendee-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.attendee-count {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.avatar-stack {
+  display: flex;
+  align-items: center;
+  gap: -4px;
+}
+
+.avatar-small {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid #0f1216;
+  object-fit: cover;
+  margin-left: -4px;
+}
+
+.avatar-small:first-child {
+  margin-left: 0;
+}
+
+.avatar-small.connected {
+  border-color: #4CAF50;
+}
+
+.avatar-small.non-connected {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.avatar-small.more-count {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .icon {
@@ -828,6 +1085,7 @@ body {
 }
 
 .site-footer {
+  position: relative;
   margin-top: auto;
   padding: 2rem 2rem;
   display: flex;
@@ -840,7 +1098,33 @@ body {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  background: $white;
+  
+  // Liquid Glass Foundation
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), 
+              inset 0 4px 20px rgba(255, 255, 255, 0.3);
+  
+  // Liquid shine effect
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    backdrop-filter: blur(1px);
+    box-shadow: inset -10px -8px 0px -11px rgba(255, 255, 255, 1),
+                inset 0px -9px 0px -8px rgba(255, 255, 255, 1);
+    opacity: 0.6;
+    z-index: -1;
+    filter: blur(1px) drop-shadow(10px 4px 6px rgba(0, 0, 0, 0.1)) brightness(115%);
+    pointer-events: none;
+  }
 }
 
 .footer-left {
@@ -856,65 +1140,179 @@ body {
 }
 
 .footer-nav a {
-  color: inherit;
+  color: rgba(113, 113, 122, 0.9);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  backdrop-filter: blur(1px);
+  position: relative;
+  z-index: 1;
 }
 
 .footer-nav a:hover {
   color: $brand-text;
   text-decoration: none;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(31, 38, 135, 0.1);
+  transform: translateY(-1px);
 }
 
-// ElevenLabs Convai Widget Section
-.elevenlabs-widget-section {
-  padding: 2rem;
-  text-align: center;
+
+
+
+// Manifesto Page Styles
+.manifesto-page {
+  min-height: 100vh;
 }
 
-.elevenlabs-container {
+.manifesto-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.header-spacer {
+  width: 300px; // Same width as countdown to balance the header
+}
+
+.back-link {
+  background: transparent !important;
+  border: 2px solid $brand-text !important;
+  
+  &:hover {
+    background: $brand-text !important;
+    color: $white !important;
+  }
+}
+
+// Manifesto Section Styles
+.manifesto-section {
+  padding: 6rem 2rem;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
 }
 
-.elevenlabs-header {
-  margin-bottom: 3rem;
+.manifesto-container {
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.elevenlabs-title {
-  font-size: 2.5rem;
-  font-weight: 900;
+.manifesto-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 700;
   color: $brand-text;
-  margin: 0 0 1rem 0;
-  line-height: 1.2;
+  margin-bottom: 3rem;
+  line-height: 1.1;
 }
 
-.elevenlabs-subtitle {
-  font-size: 1.125rem;
-  color: rgba(0, 0, 0, 0.7);
-  margin: 0;
-  font-weight: 400;
+.manifesto-content {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
   line-height: 1.6;
+  color: $brand-text;
+  
+  p {
+    margin-bottom: 2rem;
+    
+    &.manifesto-emphasis {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: $primary-color;
+      margin: 3rem 0;
+    }
+    
+    &.manifesto-tagline {
+      font-size: 1.375rem;
+      font-weight: 600;
+      margin-top: 3rem;
+      
+      strong {
+        color: $primary-color;
+      }
+    }
+  }
 }
 
-.elevenlabs-widget {
-  background: $white;
-  border-radius: 16px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  padding: 2rem;
-  min-height: 400px;
+// Founders Section Styles
+.founders-section {
+  padding: 4rem 2rem 6rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  border-radius: 2rem;
+  margin-bottom: 4rem;
+}
+
+.founders-container {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.founders-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: $brand-text;
+  margin-bottom: 2rem;
+}
+
+.founders-message {
+  font-family: 'Roboto', sans-serif;
+  
+  .founders-quote {
+    font-size: 1.375rem;
+    font-style: italic;
+    font-weight: 600;
+    color: $primary-color;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    
+    &::before,
+    &::after {
+      content: '"';
+      font-size: 1.5em;
+      color: $primary-color;
+    }
+  }
+  
+  .founders-story,
+  .founders-vision,
+  .founders-closing {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: $brand-text;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+}
+
+.founders-signature {
+  margin-top: 3rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.elevenlabs-widget elevenlabs-convai {
-  width: 100%;
-  height: 100%;
-  min-height: 400px;
+  gap: 0.5rem;
+  
+  .founders-names {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $brand-text;
+  }
+  
+  .founders-title-text {
+    font-size: 0.875rem;
+    color: #71717a;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
 }
 
 // Mobile responsive
@@ -922,6 +1320,24 @@ body {
   .App {
     border-radius: 0;
     border-width: 0;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .brand-logo {
+    height: 40px;
+    width: 230px;
+    display: inline-block;
+  }
+
+  .background-animation {
+    display: none
+  }
+
+  .site-header {
+    max-width: none;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
   }
 
   body {
@@ -930,44 +1346,461 @@ body {
     padding: 0;
   }
 
+
   .hero {
     grid-template-columns: 1fr;
     grid-template-areas:
       'heading'
-      'phone'
-      'details';
-    row-gap: 18px;
-    padding: 1.25rem 1rem 2rem;
+      'details'
+      'phone';
+    row-gap: 2rem;
+    padding: 1.5rem 1rem 3rem;
+    max-width: none;
   }
 
-  .site-header {
-    padding: 1rem;
+  .hero-phone {
+    margin-left: 0;
+    margin-top: 0;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+
+  .phone-frame {
+    transform: perspective(600px) rotateY(-3deg) rotateX(2deg);
+    width: 280px;
+    height: 580px;
+  }
+
+  .phone-frame:hover {
+    transform: perspective(600px) rotateY(-1deg) rotateX(1deg);
   }
 
   .hero-title {
-    font-size: clamp(2rem, 10vw, 3rem);
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
     color: $brand-text;
+    text-align: center;
+    line-height: 1.1;
+    margin-bottom: 1rem;
   }
 
-  .App {
-    background: $white;
-    color: $brand-text;
+  .hero-heading {
+    text-align: center;
+    margin-bottom: 1.5rem;
   }
 
-  .elevenlabs-widget-section {
-    padding: 2rem 1rem;
+  .hero-details {
+    text-align: center;
+    max-width: none;
+    padding: 0 1rem;
   }
 
-  .elevenlabs-title {
-    font-size: 2rem;
-  }
-
-  .elevenlabs-subtitle {
+  .rsvp-text {
+    align-items: center;
+    text-align: center;
     font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
   }
 
-  .elevenlabs-widget {
+  .hero-title-wrap {
+    margin-bottom: 1rem;
+  }
+
+  .email-cta {
+    margin: 2rem auto 0;
+    max-width: 90%;
+  }
+
+  .hero-heading,
+  .hero-details {
+    min-width: auto;
+    max-width: none;
+  }
+
+
+
+  .brand {
+    margin-left: 0;
+  }
+
+  .launch-countdown {
+    text-align: center;
+    margin-right: 0;
+  }
+
+  // Phone content optimizations for mobile
+  .phone-cards {
+    padding: 8px 8px 12px 8px;
+    gap: 8px;
+  }
+
+  .phone-card.match-card {
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .match-name {
+    font-size: 10px;
+    margin-bottom: 3px;
+  }
+
+  .match-headline {
+    font-size: 16px;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+
+  .match-subline {
+    font-size: 10px;
+  }
+
+  .match-reason {
+    font-size: 12px;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .meta-item {
+    font-size: 12px;
+    gap: 6px;
+  }
+
+  .moment-score {
+    font-size: 20px;
+  }
+
+  .meet-banner {
+    padding: 12px 16px;
+    border-radius: 18px;
+    margin-top: 8px;
+  }
+
+  .meet-text {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .meet-time {
+    gap: 4px;
+    margin-top: 1px;
+  }
+
+  .time-label {
+    font-size: 11px;
+  }
+
+  .countdown {
+    font-size: 14px;
+    padding: 1px 6px;
+    border-radius: 10px;
+  }
+
+  .minutes-text {
+    font-size: 12px;
+  }
+
+  .action-btn {
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+  }
+
+  .nearby-section {
+    padding: 0 8px 6px 8px;
+  }
+
+  .nearby-title {
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+
+  .nearby-item {
+    padding: 8px 10px;
+    border-radius: 10px;
+  }
+
+  .nearby-title-line {
+    font-size: 12px;
+  }
+
+  .nearby-meta {
+    font-size: 10px;
+  }
+
+  .phone-status-bar {
+    padding: 6px 16px 3px 16px;
+  }
+
+  .phone-brand {
+    padding: 6px 10px;
+  }
+
+  .phone-brand-logo {
+    height: 26px;
+  }
+
+  // Public moments optimizations for mobile
+  .public-moments {
+    padding: 0 8px 6px 8px;
+  }
+
+  .public-moments-title {
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  .public-moments-list {
+    gap: 8px;
+  }
+
+  .public-moment-item {
+    padding: 12px;
+    border-radius: 14px;
+    gap: 10px;
+  }
+
+  .moment-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .moment-title {
+    font-size: 14px;
+    margin-bottom: 2px;
+    line-height: 1.2;
+  }
+
+  .moment-subtitle {
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
+  .moment-cta {
+    padding: 6px 12px;
+    font-size: 11px;
+    border-radius: 10px;
+    min-width: 50px;
+  }
+
+
+
+  .manifesto-link {
+    font-size: 1rem;
+    padding: 10px 20px;
+    transform: none !important;
+    
+    &:hover {
+      transform: translateY(-1px) !important;
+    }
+  }
+
+
+  .launch-countdown {
+    text-align: center;
+    margin-right: 0;
+    order: 2;
+  }
+
+  .manifesto-section {
+    padding: 4rem 1rem;
+  }
+
+  .manifesto-title {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .manifesto-content {
+    font-size: 1.125rem;
+    
+    p {
+      margin-bottom: 1.5rem;
+      
+      &.manifesto-emphasis {
+        font-size: 1.25rem;
+        margin: 2rem 0;
+      }
+      
+      &.manifesto-tagline {
+        font-size: 1.25rem;
+        margin-top: 2rem;
+      }
+    }
+  }
+
+  .founders-section {
+    padding: 3rem 1rem 4rem;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+  }
+
+  .founders-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .founders-quote {
+    font-size: 1.25rem !important;
+  }
+
+  .founders-story,
+  .founders-vision,
+  .founders-closing {
+    font-size: 1rem !important;
+    text-align: center !important;
+  }
+
+  .founders-signature {
+    margin-top: 2rem;
+    
+    .founders-names {
+      font-size: 1.125rem;
+    }
+  }
+
+  // Mobile liquid glass footer
+  .site-footer {
     padding: 1rem;
-    min-height: 300px;
+    border-radius: 1rem;
+    margin: 1rem;
+    
+    // Mobile liquid glass enhancement
+    background: rgba(255, 255, 255, 0.25) !important;
+    backdrop-filter: blur(4px) saturate(220%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 16px 48px rgba(31, 38, 135, 0.3), 
+                inset 0 8px 28px rgba(255, 255, 255, 0.45) !important;
+    
+    &::after {
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(2px);
+      box-shadow: inset -6px -4px 0px -7px rgba(255, 255, 255, 1),
+                  inset 0px -5px 0px -4px rgba(255, 255, 255, 1);
+      opacity: 0.8;
+      filter: blur(0.8px) drop-shadow(6px 2px 4px rgba(0, 0, 0, 0.06)) brightness(120%);
+    }
+  }
+  
+  .footer-nav {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .footer-nav a {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(2px) !important;
+    border-radius: 0.8rem;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.3) !important;
+      box-shadow: 0 2px 8px rgba(31, 38, 135, 0.1);
+      transform: translateY(-0.5px);
+    }
+  }
+}
+
+// Tablet liquid glass footer
+@media (max-width: 1024px) and (min-width: 768px) {
+  .site-footer {
+    padding: 1.5rem 1rem;
+    border-radius: 1.5rem;
+    margin: 1rem;
+    
+    // Enhanced liquid glass for tablet
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(3px) saturate(200%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
+    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25), 
+                inset 0 6px 24px rgba(255, 255, 255, 0.4) !important;
+    
+    &::after {
+      border-radius: 1.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(1.5px);
+      box-shadow: inset -8px -6px 0px -9px rgba(255, 255, 255, 1),
+                  inset 0px -7px 0px -6px rgba(255, 255, 255, 1);
+      opacity: 0.7;
+      filter: blur(1px) drop-shadow(8px 3px 5px rgba(0, 0, 0, 0.08)) brightness(118%);
+    }
+  }
+  
+  .footer-nav {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .footer-nav a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(2px) !important;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.25) !important;
+      box-shadow: 0 3px 10px rgba(31, 38, 135, 0.12);
+    }
+  }
+}
+
+// ElevenLabs Widget Fixed Positioning
+.elevenlabs-widget-fixed {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 1000 !important;
+  width: 300px !important;
+  height: 100px !important;
+  background: $white;
+  border-radius: 80px;
+  overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: none !important;
+
+  &:hover {
+    transform: translateY(-2px) !important;
+  }
+
+  elevenlabs-convai {
+    width: 100% !important;
+    height: 100% !important;
+    display: block !important;
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  // Override any internal positioning
+  * {
+    position: relative !important;
+    transform: none !important;
+  }
+}
+
+// Mobile adjustments for fixed widget
+@media (max-width: 767px) {
+  .elevenlabs-widget-fixed {
+    width: 280px !important;
+    height: 100px !important;
+    bottom: 15px !important;
+    right: 15px !important;
+  }
+}
+
+// Tablet adjustments
+@media (max-width: 1024px) and (min-width: 768px) {
+  .elevenlabs-widget-fixed {
+    width: 320px !important;
+    height: 360px !important;
   }
 }
