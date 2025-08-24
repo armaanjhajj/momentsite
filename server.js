@@ -1,7 +1,11 @@
-const express = require('express');
-const cors = require('cors');
-const { neon } = require('@neondatabase/serverless');
-require('dotenv').config();
+import express from 'express';
+import cors from 'cors';
+import { neon } from '@neondatabase/serverless';
+import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;

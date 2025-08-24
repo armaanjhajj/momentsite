@@ -2,13 +2,14 @@
   "name": "moments-bereal",
   "private": true,
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "server": "node server.js",
     "dev:full": "concurrently \"npm run server\" \"npm run dev\"",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel-build": "vite build"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.1",

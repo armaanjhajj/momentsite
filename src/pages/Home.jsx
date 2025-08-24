@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BackgroundAnimation from '../components/BackgroundAnimation';
 import NFCAnimation from '../components/NFCAnimation';
+import { API_ENDPOINTS } from '../config/api';
 import '../App.scss';
 
 function Home() {
@@ -604,7 +605,7 @@ function EarlyAccessCTA() {
     
     try {
       // Submit to API
-      const response = await fetch('http://localhost:3001/api/waitlist', {
+      const response = await fetch(API_ENDPOINTS.waitlist, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

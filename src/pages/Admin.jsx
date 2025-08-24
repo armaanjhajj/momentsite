@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { API_ENDPOINTS } from '../config/api';
 import '../App.scss';
 
 function Admin() {
@@ -12,7 +13,7 @@ function Admin() {
     // Load RSVP data from API on component mount
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3001/api/waitlist');
+        const response = await fetch(API_ENDPOINTS.waitlist);
         if (response.ok) {
           const data = await response.json();
           setRsvpData(data.data || []);
@@ -81,7 +82,7 @@ function Admin() {
     if (window.confirm('Are you sure you want to clear all RSVP data? This action cannot be undone.')) {
       try {
         // Clear from database
-        const response = await fetch('http://localhost:3001/api/waitlist', {
+        const response = await fetch(API_ENDPOINTS.waitlist, {
           method: 'DELETE'
         });
         
