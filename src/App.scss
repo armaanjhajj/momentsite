@@ -1829,6 +1829,23 @@ body {
   text-decoration: underline;
 }
 
+.consent-box {
+  background: rgba(59, 130, 246, 0.1);
+  border: 2px solid rgba(59, 130, 246, 0.3);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.consent-box p {
+  margin-bottom: 0.75rem;
+}
+
+.consent-box p:last-child {
+  margin-bottom: 0;
+}
+
 .legal-footer {
   text-align: center;
   margin-top: 3rem;
