@@ -599,22 +599,57 @@ function EarlyAccessCTA() {
     }
   };
 
-  const handleDetailsSubmit = (e) => {
+  const handleDetailsSubmit = async (e) => {
     e.preventDefault();
     
-    // Save to localStorage
-    const rsvpData = {
-      phoneNumber: phoneNumber,
-      name: name.trim() || '',
-      message: message.trim() || '',
-      timestamp: new Date().toISOString()
-    };
-    
-    const existingData = JSON.parse(localStorage.getItem('rsvpData') || '[]');
-    existingData.push(rsvpData);
-    localStorage.setItem('rsvpData', JSON.stringify(existingData));
-    
-    setIsFullySubmitted(true);
+    try {
+      // Submit to API
+      const response = await fetch('http://localhost:3001/api/waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          phoneNumber: phoneNumber,
+          name: name.trim() || '',
+          message: message.trim() || ''
+        })
+      });
+
+      if (response.ok) {
+        setIsFullySubmitted(true);
+      } else {
+        console.error('Failed to submit to waitlist');
+        // Fallback to localStorage if API fails
+        const rsvpData = {
+          phoneNumber: phoneNumber,
+          name: name.trim() || '',
+          message: message.trim() || '',
+          timestamp: new Date().toISOString()
+        };
+        
+        const existingData = JSON.parse(localStorage.getItem('rsvpData') || '[]');
+        existingData.push(rsvpData);
+        localStorage.setItem('rsvpData', JSON.stringify(existingData));
+        
+        setIsFullySubmitted(true);
+      }
+    } catch (error) {
+      console.error('Error submitting to waitlist:', error);
+      // Fallback to localStorage if API fails
+      const rsvpData = {
+        phoneNumber: phoneNumber,
+        name: name.trim() || '',
+        message: message.trim() || '',
+        timestamp: new Date().toISOString()
+      };
+      
+      const existingData = JSON.parse(localStorage.getItem('rsvpData') || '[]');
+      existingData.push(rsvpData);
+      localStorage.setItem('rsvpData', JSON.stringify(existingData));
+      
+      setIsFullySubmitted(true);
+    }
   };
   
   if (isFullySubmitted) {

@@ -9,12 +9,35 @@ function Admin() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    // Load RSVP data from localStorage on component mount
-    const savedData = localStorage.getItem('rsvpData');
-    if (savedData) {
-      setRsvpData(JSON.parse(savedData));
+    // Load RSVP data from API on component mount
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:3001/api/waitlist');
+        if (response.ok) {
+          const data = await response.json();
+          setRsvpData(data.data || []);
+        } else {
+          console.error('Failed to fetch waitlist data');
+          // Fallback to localStorage if API fails
+          const savedData = localStorage.getItem('rsvpData');
+          if (savedData) {
+            setRsvpData(JSON.parse(savedData));
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching waitlist data:', error);
+        // Fallback to localStorage if API fails
+        const savedData = localStorage.getItem('rsvpData');
+        if (savedData) {
+          setRsvpData(JSON.parse(savedData));
+        }
+      }
+    };
+
+    if (isAuthenticated) {
+      fetchData();
     }
-  }, []);
+  }, [isAuthenticated]);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -54,8 +77,24 @@ function Admin() {
     window.URL.revokeObjectURL(url);
   };
 
-  const clearAllData = () => {
+  const clearAllData = async () => {
     if (window.confirm('Are you sure you want to clear all RSVP data? This action cannot be undone.')) {
+      try {
+        // Clear from database
+        const response = await fetch('http://localhost:3001/api/waitlist', {
+          method: 'DELETE'
+        });
+        
+        if (response.ok) {
+          console.log('Database cleared successfully');
+        } else {
+          console.error('Failed to clear database');
+        }
+      } catch (error) {
+        console.error('Error clearing database:', error);
+      }
+      
+      // Clear from localStorage as fallback
       localStorage.removeItem('rsvpData');
       setRsvpData([]);
     }
