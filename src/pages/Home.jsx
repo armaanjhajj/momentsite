@@ -302,9 +302,7 @@ function Home() {
           />
         </Link>
         
-        <div className="header-center">
-          <Link to="/manifesto" className="manifesto-link">Manifesto</Link>
-        </div>
+
         
         <div className="launch-countdown">
           <div className="countdown-label">Rutgers Launch in</div>
@@ -541,10 +539,8 @@ function Home() {
         </div>
       </main>
 
-      {/* ElevenLabs Convai Widget - Fixed Bottom Right */}
-      <div className="elevenlabs-widget-fixed">
-        <elevenlabs-convai agent-id="agent_4001k37hrm0wfxcvq8ch4cxmj1ge"></elevenlabs-convai>
-      </div>
+      {/* ElevenLabs Convai Widget - Default Floating */}
+      <elevenlabs-convai agent-id="agent_4001k37hrm0wfxcvq8ch4cxmj1ge"></elevenlabs-convai>
 
       {/* Divider row — thin and quiet */}
       <div className="divider-row">
