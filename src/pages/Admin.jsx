@@ -4,7 +4,13 @@ import { API_ENDPOINTS } from '../config/api';
 import '../App.scss';
 
 function Admin() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    try {
+      return localStorage.getItem('adminAuthed') === 'true';
+    } catch (e) {
+      return false;
+    }
+  });
   const [password, setPassword] = useState('');
   const [rsvpData, setRsvpData] = useState([]);
   const [error, setError] = useState('');
@@ -50,6 +56,7 @@ function Admin() {
     e.preventDefault();
     if (password === 'Moments2025!!') {
       setIsAuthenticated(true);
+      try { localStorage.setItem('adminAuthed', 'true'); } catch (e) {}
       setError('');
     } else {
       setError('Incorrect password');
@@ -59,6 +66,7 @@ function Admin() {
   const handleLogout = () => {
     setIsAuthenticated(false);
     setPassword('');
+    try { localStorage.removeItem('adminAuthed'); } catch (e) {}
   };
 
   const exportToCSV = () => {
