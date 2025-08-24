@@ -184,6 +184,20 @@ function Admin() {
             <button onClick={clearAllData} className="clear-btn">
               Clear All Data
             </button>
+            <button onClick={async () => {
+              try {
+                console.log('Testing API connection to:', API_ENDPOINTS.waitlist);
+                const response = await fetch(API_ENDPOINTS.waitlist);
+                const data = await response.json();
+                console.log('Test API response:', data);
+                alert(`API Test: ${data.success ? 'SUCCESS' : 'FAILED'}\nTotal entries: ${data.data?.length || 0}`);
+              } catch (error) {
+                console.error('API test failed:', error);
+                alert('API Test FAILED: ' + error.message);
+              }
+            }} className="export-btn" style={{marginLeft: '10px'}}>
+              Test API
+            </button>
           </div>
 
           <div className="rsvp-list">
