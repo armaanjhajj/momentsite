@@ -605,6 +605,9 @@ function EarlyAccessCTA() {
     
     try {
       // Submit to API
+      console.log('Submitting to API:', API_ENDPOINTS.waitlist);
+      console.log('Submitting data:', { phoneNumber, name: name.trim() || '', message: message.trim() || '' });
+      
       const response = await fetch(API_ENDPOINTS.waitlist, {
         method: 'POST',
         headers: {
@@ -616,6 +619,8 @@ function EarlyAccessCTA() {
           message: message.trim() || ''
         })
       });
+      
+      console.log('API Response status:', response.status);
 
       if (response.ok) {
         setIsFullySubmitted(true);

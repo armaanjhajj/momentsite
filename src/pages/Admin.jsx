@@ -13,15 +13,20 @@ function Admin() {
     // Load RSVP data from API on component mount
     const fetchData = async () => {
       try {
+        console.log('Fetching from API:', API_ENDPOINTS.waitlist);
         const response = await fetch(API_ENDPOINTS.waitlist);
+        console.log('API Response status:', response.status);
+        
         if (response.ok) {
           const data = await response.json();
+          console.log('API Data received:', data);
           setRsvpData(data.data || []);
         } else {
-          console.error('Failed to fetch waitlist data');
+          console.error('Failed to fetch waitlist data, status:', response.status);
           // Fallback to localStorage if API fails
           const savedData = localStorage.getItem('rsvpData');
           if (savedData) {
+            console.log('Using localStorage fallback');
             setRsvpData(JSON.parse(savedData));
           }
         }
@@ -30,6 +35,7 @@ function Admin() {
         // Fallback to localStorage if API fails
         const savedData = localStorage.getItem('rsvpData');
         if (savedData) {
+          console.log('Using localStorage fallback due to error');
           setRsvpData(JSON.parse(savedData));
         }
       }
