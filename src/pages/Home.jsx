@@ -295,7 +295,7 @@ function Home() {
         <Link to="/" className="brand">
           <img
             className="brand-logo"
-            src="https://i.imgur.com/ZkIkMD6.png"
+            src="https://i.imgur.com/WZvHbcj.png"
             alt="moments asterisk"
             decoding="async"
             loading="eager"
@@ -553,6 +553,7 @@ function Home() {
           <Link to="/manifesto">Manifesto</Link>
           <a href="/terms">Terms of Service</a>
           <a href="/privacy">Privacy Policy</a>
+          <a href="/admin">Admin</a>
           <a href="mailto:makemomentsapp@gmail.com">Contact</a>
         </nav>
       </footer>
@@ -564,6 +565,10 @@ function Home() {
 function EarlyAccessCTA() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [showDetails, setShowDetails] = useState(false);
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
+  const [isFullySubmitted, setIsFullySubmitted] = useState(false);
   
   const formatPhoneNumber = (value) => {
     // Remove all non-digits
@@ -585,12 +590,70 @@ function EarlyAccessCTA() {
     setPhoneNumber(formatted);
   };
   
-  const onSubmit = (e) => {
+  const handlePhoneSubmit = (e) => {
     e.preventDefault();
     if (phoneNumber.replace(/\D/g, '').length === 10) {
       setIsSubmitted(true);
+      setShowDetails(true);
     }
   };
+
+  const handleDetailsSubmit = (e) => {
+    e.preventDefault();
+    
+    // Save to localStorage
+    const rsvpData = {
+      phoneNumber: phoneNumber,
+      name: name.trim() || '',
+      message: message.trim() || '',
+      timestamp: new Date().toISOString()
+    };
+    
+    const existingData = JSON.parse(localStorage.getItem('rsvpData') || '[]');
+    existingData.push(rsvpData);
+    localStorage.setItem('rsvpData', JSON.stringify(existingData));
+    
+    setIsFullySubmitted(true);
+  };
+  
+  if (isFullySubmitted) {
+    return (
+      <div className="email-cta submitted">
+        <div className="email-cta-main submitted">
+          <span className="thanks-message">You're in. We'll keep you posted.</span>
+        </div>
+        <div className="email-cta-arrow submitted"></div>
+      </div>
+    );
+  }
+
+  if (showDetails) {
+    return (
+      <form className="email-cta details-form" onSubmit={handleDetailsSubmit} noValidate>
+        <div className="details-fields">
+          <input
+            type="text"
+            className="email-field name-field"
+            placeholder="YOUR NAME (OPTIONAL)"
+            aria-label="Enter your name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            maxLength={50}
+          />
+          <textarea
+            className="email-field message-field"
+            placeholder="MESSAGE (OPTIONAL)"
+            aria-label="Enter a message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            maxLength={200}
+            rows={2}
+          />
+        </div>
+        <button type="submit" className="email-cta-arrow" aria-label="Submit">→</button>
+      </form>
+    );
+  }
   
   if (isSubmitted) {
     return (
@@ -604,7 +667,7 @@ function EarlyAccessCTA() {
   }
   
   return (
-    <form className="email-cta" onSubmit={onSubmit} noValidate>
+    <form className="email-cta" onSubmit={handlePhoneSubmit} noValidate>
       <div className="email-cta-main">
         <input
           type="tel"

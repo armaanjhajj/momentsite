@@ -10,7 +10,7 @@ function Privacy() {
           <Link to="/" className="brand">
             <img
               className="brand-logo"
-              src="https://i.imgur.com/ZkIkMD6.png"
+              src="https://i.imgur.com/WZvHbcj.png"
               alt="moments asterisk"
               decoding="async"
               loading="eager"
@@ -120,6 +120,18 @@ function Privacy() {
             </div>
           </div>
         </main>
+
+        <footer className="site-footer">
+          <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
+          <nav className="footer-nav">
+            <Link to="/">Home</Link>
+            <Link to="/manifesto">Manifesto</Link>
+            <a href="/terms">Terms of Service</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/admin">Admin</a>
+            <a href="mailto:makemomentsapp@gmail.com">Contact</a>
+          </nav>
+        </footer>
       </div>
     </>
   );

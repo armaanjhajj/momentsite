@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Manifesto from './pages/Manifesto';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
+import Admin from './pages/Admin';
 import './App.scss';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/manifesto" element={<Manifesto />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/privacy" element={<Privacy />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   );
