@@ -2,63 +2,49 @@ import { neon } from '@neondatabase/serverless';
 
 const sql = neon(process.env.DATABASE_URL);
 
+// ensure table exists (safe to run on every cold start)
+async function ensureTable() {
+  await sql`
+    CREATE TABLE IF NOT EXISTS waitlist (
+      id SERIAL PRIMARY KEY,
+      phone_number VARCHAR(20) NOT NULL,
+      name VARCHAR(100),
+      message TEXT,
+      timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+  `;
+}
+
 export default async function handler(req, res) {
-  // Set CORS headers for production
-  res.setHeader('Access-Control-Allow-Origin', 'https://makemoments.app');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.setHeader('Access-Control-Allow-Credentials', 'true');
-
-  // Handle preflight request
-  if (req.method === 'OPTIONS') {
-    res.status(200).end();
-    return;
-  }
-
   try {
-    if (req.method === 'POST') {
-      const { phoneNumber, name, message } = req.body;
-      
-      if (!phoneNumber) {
-        return res.status(400).json({ error: 'Phone number is required' });
-      }
+    await ensureTable();
 
-      // Insert into database
-      const result = await sql`
+    if (req.method === 'POST') {
+      const { phoneNumber, name, message } = req.body || {};
+      if (!phoneNumber) return res.status(400).json({ error: 'Phone number is required' });
+
+      const rows = await sql`
         INSERT INTO waitlist (phone_number, name, message)
-        VALUES (${phoneNumber}, ${name || null}, ${message || null})
+        VALUES (${phoneNumber}, ${name ?? null}, ${message ?? null})
         RETURNING id, phone_number, name, message, timestamp
       `;
-
-      res.status(201).json({
-        success: true,
-        data: result[0]
-      });
-    } else if (req.method === 'GET') {
-      // Get all waitlist entries
-      const result = await sql`
-        SELECT * FROM waitlist 
-        ORDER BY timestamp DESC
-      `;
-      
-      res.json({
-        success: true,
-        data: result
-      });
-    } else if (req.method === 'DELETE') {
-      // Clear all waitlist entries
-      await sql`DELETE FROM waitlist`;
-      
-      res.json({
-        success: true,
-        message: 'All waitlist entries cleared'
-      });
-    } else {
-      res.setHeader('Allow', ['GET', 'POST', 'DELETE']);
-      res.status(405).end(`Method ${req.method} Not Allowed`);
+      return res.status(201).json({ success: true, data: rows[0] });
     }
-  } catch (error) {
-    console.error('Error in waitlist API:', error);
-    res.status(500).json({ error: 'Internal server error' });
+
+    if (req.method === 'GET') {
+      const rows = await sql`SELECT * FROM waitlist ORDER BY timestamp DESC`;
+      return res.status(200).json({ success: true, data: rows });
+    }
+
+    if (req.method === 'DELETE') {
+      await sql`DELETE FROM waitlist`;
+      return res.status(200).json({ success: true, message: 'All waitlist entries cleared' });
+    }
+
+    res.setHeader('Allow', ['GET', 'POST', 'DELETE']);
+    return res.status(405).end('Method Not Allowed');
+  } catch (err) {
+    console.error('waitlist api error', err);
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 }
