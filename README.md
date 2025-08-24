@@ -75,11 +75,33 @@ CREATE TABLE waitlist (
 
 ## Deployment
 
-The backend server is designed to work with Vercel. Make sure to:
+### Vercel Production Deployment
 
-1. Set environment variables in Vercel dashboard
-2. Update API endpoints in frontend code to use production URLs
-3. Configure CORS for production domain
+The app is configured to work with Vercel's serverless functions:
+
+1. **Environment Variables** in Vercel Dashboard:
+   - `DATABASE_URL`: Your Neon database connection string
+
+2. **API Structure**:
+   - `/api/waitlist` - Handles GET, POST, DELETE for waitlist data
+   - `/api/health` - Health check endpoint
+
+3. **CORS Configuration**:
+   - Production domain: `https://makemoments.app`
+   - Development: `http://localhost:3000`
+
+4. **Build Process**:
+   - Frontend: Vite build to `dist/` folder
+   - Backend: Vercel serverless functions in `api/` folder
+
+### Local Development
+
+For local development, you can still run the Express server:
+```bash
+npm run server    # Backend on port 3001
+npm run dev       # Frontend on port 3000
+npm run dev:full  # Both simultaneously
+```
 
 ## Admin Access
 
