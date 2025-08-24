@@ -1749,3 +1749,162 @@ body {
 }
 
 // ElevenLabs Widget - Default floating behavior (no custom styling)
+
+// Legal Pages Styles (Terms & Privacy)
+.legal-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 2rem 0 4rem;
+  min-height: calc(100vh - 100px);
+}
+
+.legal-container {
+  max-width: 800px;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  padding: 3rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.legal-container h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: $brand-text;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.last-updated {
+  text-align: center;
+  color: #71717a;
+  font-size: 0.875rem;
+  margin-bottom: 3rem;
+  font-style: italic;
+}
+
+.legal-container section {
+  margin-bottom: 2.5rem;
+}
+
+.legal-container h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $brand-text;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid $primary-color;
+  padding-bottom: 0.5rem;
+}
+
+.legal-container p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $brand-text;
+  margin-bottom: 1rem;
+}
+
+.legal-container ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.legal-container li {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: $brand-text;
+  margin-bottom: 0.5rem;
+}
+
+.legal-container a {
+  color: $primary-color;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.legal-container a:hover {
+  color: $accent-color;
+  text-decoration: underline;
+}
+
+.legal-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(113, 113, 122, 0.2);
+}
+
+.back-home {
+  display: inline-block;
+  background: $brand-text;
+  color: $white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid $brand-text;
+}
+
+.back-home:hover {
+  background: $white;
+  color: $brand-text;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+// Mobile responsive for legal pages
+@media (max-width: 767px) {
+  .legal-content {
+    padding: 1rem 0 2rem;
+  }
+  
+  .legal-container {
+    width: 95%;
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
+  }
+  
+  .legal-container h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .last-updated {
+    margin-bottom: 2rem;
+  }
+  
+  .legal-container h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .legal-container p,
+  .legal-container li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .legal-container section {
+    margin-bottom: 2rem;
+  }
+  
+  .legal-footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+  
+  .back-home {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
