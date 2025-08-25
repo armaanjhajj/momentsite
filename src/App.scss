@@ -1413,42 +1413,49 @@ button, .match-cta, .moment-cta, .action-btn {
   .App {
     border-radius: 0;
     border-width: 0;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.95);
+    margin: 0;
+    padding: 0;
   }
 
   .brand-logo {
-    height: 40px;
-    width: 40px;
+    height: 32px;
+    width: 32px;
     display: inline-block;
     object-fit: contain;
   }
 
   .background-animation {
-    display: none
+    display: none;
   }
 
   .site-header {
     max-width: none;
     flex-direction: column;
-    gap: 3rem;
+    gap: 1.5rem;
     align-items: center;
+    margin: 1rem 0;
+  }
+
+  // Hide countdown on mobile
+  .launch-countdown {
+    display: none;
   }
 
   body {
     background: $white;
     color: $brand-text;
-    padding: 0;
+    padding: 8px;
   }
-
 
   .hero {
     grid-template-columns: 1fr;
     grid-template-areas:
       'heading'
-      'details'
-      'phone';
-    row-gap: 2rem;
-    padding: 1.5rem 1rem 3rem;
+      'phone'
+      'details';
+    row-gap: 1.5rem;
+    padding: 1rem 0.5rem 2rem;
     max-width: none;
   }
 
@@ -1456,53 +1463,79 @@ button, .match-cta, .moment-cta, .action-btn {
     margin-left: 0;
     margin-top: 0;
     justify-content: center;
-    padding: 1rem 0;
+    padding: 0.5rem 0;
+    order: 2;
   }
 
+  // Simplify phone frame for mobile - remove 3D effects and overlay
   .phone-frame {
-    transform: perspective(600px) rotateY(-3deg) rotateX(2deg);
-    width: 280px;
-    height: 580px;
+    transform: none;
+    width: 320px;
+    height: 640px;
+    border-radius: 24px;
+    padding: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
   }
 
   .phone-frame:hover {
-    transform: perspective(600px) rotateY(-1deg) rotateX(1deg);
+    transform: none;
+  }
+
+  // Hide phone overlay on mobile
+  .phone-overlay {
+    display: none;
   }
 
   .hero-title {
-    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    font-size: clamp(2rem, 8vw, 2.8rem);
     color: $brand-text;
     text-align: center;
     line-height: 1.1;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .hero-heading {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
   }
 
   .hero-details {
     text-align: center;
     max-width: none;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
+    order: 3;
   }
 
   .rsvp-text {
     align-items: center;
     text-align: center;
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-title-wrap {
+    font-size: 0.9rem;
+    line-height: 1.4;
     margin-bottom: 1rem;
   }
 
+  .hero-title-wrap {
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-description {
+    margin-top: 1rem;
+    padding: 0 0.5rem;
+    
+    .description-text {
+      font-size: 0.9rem;
+    }
+    
+    .description-toggle {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+    }
+  }
+
   .email-cta {
-    margin: 2rem auto 0;
-    max-width: 90%;
+    margin: 1.5rem auto 0;
+    max-width: 100%;
   }
 
   .hero-heading,
@@ -1511,76 +1544,69 @@ button, .match-cta, .moment-cta, .action-btn {
     max-width: none;
   }
 
-
-
   .brand {
     margin-left: 0;
   }
 
-  .launch-countdown {
-    text-align: center;
-    margin-right: 0;
-  }
-
   // Phone content optimizations for mobile
   .phone-cards {
-    padding: 8px 8px 12px 8px;
-    gap: 8px;
+    padding: 6px 6px 10px 6px;
+    gap: 6px;
   }
 
   .phone-card.match-card {
-    padding: 14px;
-    border-radius: 18px;
+    padding: 12px;
+    border-radius: 16px;
   }
 
   .match-name {
-    font-size: 10px;
-    margin-bottom: 3px;
+    font-size: 9px;
+    margin-bottom: 2px;
   }
 
   .match-headline {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.1;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
   .match-subline {
-    font-size: 10px;
+    font-size: 9px;
   }
 
   .match-reason {
-    font-size: 12px;
-    margin-bottom: 12px;
+    font-size: 11px;
+    margin-bottom: 10px;
     line-height: 1.3;
   }
 
   .meta-item {
-    font-size: 12px;
-    gap: 6px;
+    font-size: 11px;
+    gap: 5px;
   }
 
   .moment-score {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .meet-banner {
-    padding: 12px 16px;
-    border-radius: 18px;
-    margin-top: 8px;
+    padding: 10px 14px;
+    border-radius: 16px;
+    margin-top: 6px;
   }
 
   .meet-text {
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.2;
   }
 
   .meet-time {
-    gap: 4px;
+    gap: 3px;
     margin-top: 1px;
   }
 
   .time-label {
-    font-size: 11px;
+    font-size: 10px;
   }
 
   .countdown {
@@ -1597,6 +1623,106 @@ button, .match-cta, .moment-cta, .action-btn {
     width: 24px;
     height: 24px;
     font-size: 14px;
+  }
+
+  // Public moments mobile optimizations
+  .public-moments {
+    padding: 0 6px 6px 6px;
+  }
+
+  .public-moments-title {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .public-moments-list {
+    gap: 8px;
+  }
+
+  .public-moment-item {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .moment-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+  }
+
+  .moment-title {
+    font-size: 14px;
+  }
+
+  .moment-subtitle {
+    font-size: 11px;
+  }
+
+  .moment-cta {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  // Footer mobile optimizations
+  .site-footer {
+    padding: 1.5rem 1rem;
+    margin: 2rem 1rem 1rem;
+    border-radius: 1.5rem;
+  }
+
+  .footer-nav {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-nav a {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  // Additional mobile performance optimizations
+  .phone-screen {
+    border-radius: 20px;
+  }
+
+  .phone-topbar {
+    padding: 0;
+  }
+
+  .phone-status-bar {
+    padding: 6px 16px 2px 16px;
+  }
+
+  .phone-brand {
+    padding: 6px 10px;
+  }
+
+  .phone-brand-logo {
+    height: 24px;
+    width: 24px;
+  }
+
+  // Optimize animations for mobile
+  .phone-card {
+    transition: all 0.3s ease;
+  }
+
+  .phone-card.match-card {
+    transition: all 0.3s ease;
+  }
+
+  // Reduce shadows and effects for mobile performance
+  .phone-frame {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .public-moment-item {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .meet-banner {
+    box-shadow: 0 2px 8px rgba(255, 78, 106, 0.2);
   }
 
   .nearby-section {
