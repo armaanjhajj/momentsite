@@ -20,7 +20,7 @@ function Manifesto() {
 
         <main className="legal-content">
           <div className="legal-container">
-            <h1>Ethos:</h1>
+            <h1>moments — a manifesto</h1>
             
             <section>
               <p>We weren't built to live life through screens.<br />

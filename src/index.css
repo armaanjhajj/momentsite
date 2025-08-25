@@ -1,11 +1,10 @@
 /* Base styles and font imports for the moments-bereal project */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Poppins:wght@600&display=swap');
-@import url('https://use.typekit.net/klf2aay.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #0B0F13;
@@ -16,4 +15,59 @@ body {
   width: 100%;
   min-height: 100vh;
   padding: 16px;
+}
+
+/* Ensure all elements use Roboto */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Font weight variety for different elements */
+h1, .hero-title {
+  font-weight: 900;
+}
+
+h2, .section-title {
+  font-weight: 800;
+}
+
+h3, .feature-title {
+  font-weight: 700;
+}
+
+h4, .moment-title, .match-headline {
+  font-weight: 700;
+}
+
+h5, .countdown-label, .public-moments-title {
+  font-weight: 600;
+}
+
+h6, .match-name, .nearby-title {
+  font-weight: 600;
+}
+
+p, .match-subline, .rsvp-note, .micro-bullets {
+  font-weight: 400;
+}
+
+.match-reason, .moment-subtitle {
+  font-weight: 500;
+  font-style: italic;
+}
+
+button, .match-cta, .moment-cta, .action-btn {
+  font-weight: 600;
+}
+
+.countdown-value, .moment-score, .yard-bold {
+  font-weight: 900;
+}
+
+.countdown-unit, .minutes-text {
+  font-weight: 600;
+}
+
+.time-label {
+  font-weight: 500;
 }

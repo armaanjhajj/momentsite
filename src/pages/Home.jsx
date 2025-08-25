@@ -304,8 +304,8 @@ function Home() {
         <Link to="/" className="brand">
           <img
             className="brand-logo"
-            src="https://i.imgur.com/WZvHbcj.png"
-            alt="moments asterisk"
+            src="https://i.imgur.com/y83R3ej.png"
+            alt="moments logo"
             decoding="async"
             loading="eager"
           />
@@ -367,8 +367,8 @@ function Home() {
                 <div className="phone-brand" onClick={handleReplay} style={{ cursor: 'pointer' }}>
                   <img
                     className="phone-brand-logo"
-                    src="https://i.imgur.com/WZvHbcj.png"
-                    alt="moments asterisk"
+                    src="https://i.imgur.com/y83R3ej.png"
+                    alt="moments logo"
                     decoding="async"
                     loading="eager"
                   />
@@ -443,7 +443,7 @@ function Home() {
               </div>
               
               <div className="public-moments">
-                <div className="public-moments-title">Public Moments</div>
+                <div className="public-moments-title">SHARED MOMENTS</div>
                 <div className="public-moments-list">
                   {publicMoments.map((moment) => {
                     const isExpanded = expandedMoments.has(moment.id);
