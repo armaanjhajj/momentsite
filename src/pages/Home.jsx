@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import BackgroundAnimation from '../components/BackgroundAnimation';
 import NFCAnimation from '../components/NFCAnimation';
-import { API_ENDPOINTS } from '../config/api';
 import '../App.scss';
 
 function Home() {
-  const [phoneNumber, setPhoneNumber] = React.useState('');
-  const [isSubmitted, setIsSubmitted] = React.useState(false);
   const [launchCountdown, setLaunchCountdown] = React.useState({
     days: 0,
     hours: 0,
@@ -56,6 +53,17 @@ function Home() {
     }, 3000);
     return () => clearInterval(cardTimer);
   }, [isAnimating, isConfirmed]);
+
+  // Inject LaunchList widget script on mount so SPA reliably initializes the widget
+  React.useEffect(() => {
+    const scriptId = 'launchlist-widget-script';
+    if (document.getElementById(scriptId)) return; // already injected
+    const script = document.createElement('script');
+    script.id = scriptId;
+    script.src = 'https://getlaunchlist.com/js/widget.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  }, []);
 
   const handleConfirm = () => {
     setIsConfirmed(true);
@@ -535,8 +543,9 @@ function Home() {
               className="rutgers-logo"
             />
             <div>RSVP for our Rutgers exclusive launch this fall</div>
+            <div className="rsvp-note">Use your @rutgers.edu email to sign up</div>
           </div>
-          <EarlyAccessCTA />
+          <div className="launchlist-widget" data-key-id="PS7heZ" data-height="180px"></div>
         </div>
       </main>
 
@@ -564,167 +573,6 @@ function Home() {
   );
 }
 
-function EarlyAccessCTA() {
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [showDetails, setShowDetails] = useState(false);
-  const [name, setName] = useState('');
-  const [message, setMessage] = useState('');
-  const [isFullySubmitted, setIsFullySubmitted] = useState(false);
-  
-  const formatPhoneNumber = (value) => {
-    // Remove all non-digits
-    const digits = value.replace(/\D/g, '');
-    
-    // Format as (XXX) XXX-XXXX
-    if (digits.length <= 3) {
-      return digits;
-    } else if (digits.length <= 6) {
-      return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
-    } else {
-      return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
-    }
-  };
-  
-  const handlePhoneChange = (e) => {
-    const value = e.target.value;
-    const formatted = formatPhoneNumber(value);
-    setPhoneNumber(formatted);
-  };
-  
-  const handlePhoneSubmit = (e) => {
-    e.preventDefault();
-    if (phoneNumber.replace(/\D/g, '').length === 10) {
-      setIsSubmitted(true);
-      setShowDetails(true);
-    }
-  };
-
-  const handleDetailsSubmit = async (e) => {
-    e.preventDefault();
-    
-    try {
-      // Submit to API
-      console.log('Submitting to API:', API_ENDPOINTS.waitlist);
-      console.log('Submitting data:', { phoneNumber, name: name.trim() || '', message: message.trim() || '' });
-      
-      const response = await fetch(API_ENDPOINTS.waitlist, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          phoneNumber: phoneNumber,
-          name: name.trim() || '',
-          message: message.trim() || ''
-        })
-      });
-      
-      console.log('API Response status:', response.status);
-
-      if (response.ok) {
-        setIsFullySubmitted(true);
-      } else {
-        console.error('Failed to submit to waitlist');
-        // Fallback to localStorage if API fails
-        const rsvpData = {
-          phoneNumber: phoneNumber,
-          name: name.trim() || '',
-          message: message.trim() || '',
-          timestamp: new Date().toISOString()
-        };
-        
-        const existingData = JSON.parse(localStorage.getItem('rsvpData') || '[]');
-        existingData.push(rsvpData);
-        localStorage.setItem('rsvpData', JSON.stringify(existingData));
-        
-        setIsFullySubmitted(true);
-      }
-    } catch (error) {
-      console.error('Error submitting to waitlist:', error);
-      // Fallback to localStorage if API fails
-      const rsvpData = {
-        phoneNumber: phoneNumber,
-        name: name.trim() || '',
-        message: message.trim() || '',
-        timestamp: new Date().toISOString()
-      };
-      
-      const existingData = JSON.parse(localStorage.getItem('rsvpData') || '[]');
-      existingData.push(rsvpData);
-      localStorage.setItem('rsvpData', JSON.stringify(existingData));
-      
-      setIsFullySubmitted(true);
-    }
-  };
-  
-  if (isFullySubmitted) {
-    return (
-      <div className="email-cta submitted">
-        <div className="email-cta-main submitted">
-          <span className="thanks-message">You're in. We'll keep you posted.</span>
-        </div>
-        <div className="email-cta-arrow submitted"></div>
-      </div>
-    );
-  }
-
-  if (showDetails) {
-    return (
-      <form className="email-cta details-form" onSubmit={handleDetailsSubmit} noValidate>
-        <div className="details-fields">
-          <input
-            type="text"
-            className="email-field name-field"
-            placeholder="YOUR NAME (OPTIONAL)"
-            aria-label="Enter your name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            maxLength={50}
-          />
-          <textarea
-            className="email-field message-field"
-            placeholder="MESSAGE (OPTIONAL)"
-            aria-label="Enter a message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            maxLength={200}
-            rows={2}
-          />
-        </div>
-        <button type="submit" className="email-cta-arrow" aria-label="Submit">→</button>
-      </form>
-    );
-  }
-  
-  if (isSubmitted) {
-    return (
-      <div className="email-cta submitted">
-        <div className="email-cta-main submitted">
-          <span className="thanks-message">You're in. We'll keep you posted.</span>
-        </div>
-        <div className="email-cta-arrow submitted"></div>
-      </div>
-    );
-  }
-  
-  return (
-    <form className="email-cta" onSubmit={handlePhoneSubmit} noValidate>
-      <div className="email-cta-main">
-        <input
-          type="tel"
-          className="email-field"
-          placeholder="ENTER PHONE NUMBER"
-          aria-label="Enter phone number to RSVP"
-          value={phoneNumber}
-          onChange={handlePhoneChange}
-          maxLength={14} // (XXX) XXX-XXXX = 14 characters
-          required
-        />
-      </div>
-      <button type="submit" className="email-cta-arrow" aria-label="Submit">→</button>
-    </form>
-  );
-}
+// LaunchList widget handles the form UI and submission; no local form component needed
 
 export default Home;

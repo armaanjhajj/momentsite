@@ -61,6 +61,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.06em;
   margin-bottom: 12px;
+  margin-right: 8px;
   color: $brand-text;
   opacity: 0.8;
 }
@@ -210,10 +211,22 @@ body {
   gap: 8px;
 }
 
+// Subnote under RSVP header
+.rsvp-note {
+  font-size: 0.9rem;
+  color: #71717a;
+}
+
 .rutgers-logo {
   height: 32px;
   width: auto;
   object-fit: contain;
+}
+
+// Slight nudge to align embedded LaunchList widget with surrounding content
+.hero-details .launchlist-widget {
+  align-self: flex-start;
+  margin-left: -10px;
 }
 
 .micro-bullets {
@@ -386,9 +399,9 @@ body {
 
 .phone-overlay {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
   object-fit: cover;
   pointer-events: none;
   z-index: 2;
