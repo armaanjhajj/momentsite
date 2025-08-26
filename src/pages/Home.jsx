@@ -220,7 +220,7 @@ icon: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&
             </div>
             <div className="search-arrow">
               <img 
-                src="/src/assets/image.png" 
+                src="https://i.imgur.com/ZZi4kWc.png" 
                 alt="Arrow pointing to phone" 
                 className="arrow-image"
               />
