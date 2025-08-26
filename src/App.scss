@@ -1,12 +1,10 @@
 @use './styles/_variables.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-// Root theme
 :root {
   --accent-color: #{$accent-color};
 }
 
-// Layout and component styles
 body {
   background-color: white;
   color: $brand-text;
@@ -14,6 +12,19 @@ body {
   padding: 16px;
   font-family: 'Roboto', sans-serif;
   overflow-x: hidden;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.5);
+  z-index: 1;
+  pointer-events: none;
 }
 
 * {
@@ -21,14 +32,12 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-// Global font family enforcement
 h1, h2, h3, h4, h5, h6,
 p, span, div, button, input, textarea, select,
 a, label, li, td, th {
   font-family: 'Roboto', sans-serif !important;
 }
 
-// Font weight and style variety
 h1, .hero-title {
   font-weight: 900;
 }
@@ -78,9 +87,7 @@ button, .match-cta, .moment-cta, .action-btn {
   font-weight: 500;
 }
 
-// Background animation styles
 .background-animation {
-
   position: fixed;
   top: 0;
   left: 0;
@@ -94,7 +101,6 @@ button, .match-cta, .moment-cta, .action-btn {
   min-height: calc(100vh - 32px);
   display: flex;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0.5);
   color: $brand-text;
   position: relative;
   border-radius: 24px;
@@ -184,8 +190,6 @@ button, .match-cta, .moment-cta, .action-btn {
   letter-spacing: -0.01em;
 }
 
-
-
 .manifesto-link {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
@@ -216,10 +220,8 @@ button, .match-cta, .moment-cta, .action-btn {
     'details phone';
   column-gap: 48px;
   align-items: center;
-
   padding: 4rem 7rem 6rem 0rem;
   margin: 0 auto;
-
 
   &-heading {
     grid-area: heading;
@@ -254,6 +256,73 @@ button, .match-cta, .moment-cta, .action-btn {
   color: $primary-color;
 }
 
+.search-display {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.search-text-box {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid rgba(255, 78, 106, 0.2);
+  border-radius: 16px;
+  padding: 16px 20px;
+  min-width: 320px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(255, 78, 106, 0.1);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    border-color: rgba(255, 78, 106, 0.4);
+    box-shadow: 0 12px 32px rgba(255, 78, 106, 0.15);
+  }
+}
+
+.search-placeholder {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(113, 113, 122, 0.8);
+  margin-bottom: 4px;
+}
+
+.search-input {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: $brand-text;
+  line-height: 1.4;
+  transition: all 0.3s ease;
+}
+
+.search-arrow {
+  position: absolute;
+  left: calc(100% + 1.5rem);
+  top: 50%;
+  transform: translateY(-50%);
+  animation: pulse-arrow 2.5s infinite;
+  
+  .arrow-image {
+    width: 200px;
+    height: auto;
+    filter: drop-shadow(0 3px 6px rgba(255, 78, 106, 0.25));
+  }
+}
+
+@keyframes pulse-arrow {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translateY(-50%) translateX(6px) scale(1.05);
+    opacity: 1;
+  }
+}
+
 .rsvp-text {
   font-family: 'Roboto', sans-serif;
   font-size: 1.125rem;
@@ -268,7 +337,6 @@ button, .match-cta, .moment-cta, .action-btn {
   gap: 8px;
 }
 
-// Subnote under RSVP header
 .rsvp-note {
   font-family: 'Roboto', sans-serif;
   font-size: 0.9rem;
@@ -283,7 +351,6 @@ button, .match-cta, .moment-cta, .action-btn {
   object-fit: contain;
 }
 
-// Slight nudge to align embedded LaunchList widget with surrounding content
 .hero-details .launchlist-widget {
   align-self: flex-start;
   margin-left: -10px;
@@ -325,7 +392,6 @@ button, .match-cta, .moment-cta, .action-btn {
   margin-left: 15rem;
 }
 
-// Email CTA
 .email-cta {
   margin-top: 0px;
   display: grid;
@@ -436,7 +502,6 @@ button, .match-cta, .moment-cta, .action-btn {
   }
 }
 
-// Phone UI
 .phone-frame {
   position: relative;
   width: 362px;
@@ -488,12 +553,12 @@ button, .match-cta, .moment-cta, .action-btn {
   position: relative;
   height: 100%;
   overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .phone-screen::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  display: none;
 }
 
 .phone-topbar {
@@ -510,7 +575,7 @@ button, .match-cta, .moment-cta, .action-btn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8px 20px 4px 20px;
+  padding: 15px 20px 4px 20px;
   width: 100%;
 }
 
@@ -657,7 +722,6 @@ button, .match-cta, .moment-cta, .action-btn {
     color: $white;
     border-radius: 24px;
     padding: 20px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
     
     &.slide-in {
       animation: slideInRight 0.6s ease-out forwards;
@@ -732,7 +796,7 @@ button, .match-cta, .moment-cta, .action-btn {
   line-height: 1.4;
   text-shadow: 
     0 0 8px rgba(255, 255, 255, 0.8),
-    0 0 16px rgba(255, 255, 255, 0.6),
+    0 0 16px rgba(255, 255, 255, 0.6);
 }
 
 .match-meta {
@@ -768,6 +832,8 @@ button, .match-cta, .moment-cta, .action-btn {
   display: flex;
   align-items: center;
   gap: 14px;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .avatar-circle {
@@ -894,73 +960,83 @@ button, .match-cta, .moment-cta, .action-btn {
   justify-content: center;
 }
 
-// NFC Animation styles
-.nfc-animation-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.nfc-tap-animation {
-  width: 160px;
-  height: 120px;
-}
-
-.nfc-instruction {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  font-weight: 500;
-}
-
-// Confirmed meeting state styles
 .confirmed-meeting {
   display: flex;
   flex-direction: column;
-  margin-top: 12px;
+  align-items: center;
+  margin-top: 20px;
   gap: 12px;
-  padding: 12px 0;
+  padding: 20px 16px;
 }
 
 .confirmed-location {
   text-align: center;
   
   .location-label {
-    font-size: 12px;
+    font-size: 13px;
     color: rgba(255, 255, 255, 0.7);
     font-weight: 400;
-    margin-bottom: 7px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
   
   .location-name {
-    font-size: 16px;
+    font-size: 17px;
     color: $white;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.3;
+    margin-bottom: 0;
   }
 }
 
 .confirmed-time {
   text-align: center;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: center;
   gap: 8px;
+  margin-bottom: 8px;
   
   .time-label {
-    font-size: 14px;
+    font-size: 15px;
     color: rgba(255, 255, 255, 0.7);
     font-weight: 400;
   }
   
   .time-value {
-    font-size: 18px;
+    font-size: 20px;
     color: $white;
     font-weight: 700;
+    letter-spacing: -0.5px;
   }
+}
+
+.nfc-animation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px 20px 20px 20px;
+  margin-top: 4px;
+  width: 100%;
+  max-width: 280px;
+}
+
+.nfc-tap-animation {
+  width: 120px;
+  height: 90px;
+  margin-bottom: 12px;
+}
+
+.nfc-instruction {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
 .public-moments {
@@ -1054,127 +1130,6 @@ button, .match-cta, .moment-cta, .action-btn {
   transform: scale(1.02);
 }
 
-.public-moment-item.expanded {
-  align-items: flex-start;
-  flex-direction: column;
-}
-
-.public-moment-item.expanded .moment-content {
-  width: 100%;
-}
-
-.moment-header-expanded {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
-.moment-title-expanded {
-  flex: 1;
-}
-
-.public-moment-item.expanded .moment-cta {
-  background: #4CAF50;
-  color: white;
-  border-color: #4CAF50;
-}
-
-.moment-expanded-details {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  width: 100%;
-}
-
-.expanded-time-location {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.expanded-time {
-  font-size: 14px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.expanded-location {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.attendees-section {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.attendee-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.attendee-count {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.avatar-stack {
-  display: flex;
-  align-items: center;
-  gap: -4px;
-}
-
-.avatar-small {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 2px solid #0f1216;
-  object-fit: cover;
-  margin-left: -4px;
-}
-
-.avatar-small:first-child {
-  margin-left: 0;
-}
-
-.avatar-small.connected {
-  border-color: #4CAF50;
-}
-
-.avatar-small.non-connected {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.avatar-small.more-count {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 10px;
-  font-weight: 600;
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.icon {
-  font-size: 14px;
-}
-
-.small-cta {
-  background: $brand-text;
-  color: $white;
-  border: 0;
-  border-radius: 12px;
-  padding: 8px 12px;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-}
-
 .site-footer {
   font-family: 'Roboto', sans-serif;
   position: relative;
@@ -1190,16 +1145,11 @@ button, .match-cta, .moment-cta, .action-btn {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  
-  // Liquid Glass Foundation
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(2px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 2rem;
-  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2), 
-              inset 0 4px 20px rgba(255, 255, 255, 0.3);
-  
-  // Liquid shine effect
+
   &::after {
     content: '';
     position: absolute;
@@ -1251,10 +1201,6 @@ button, .match-cta, .moment-cta, .action-btn {
   transform: translateY(-1px);
 }
 
-
-
-
-// Manifesto Page Styles
 .manifesto-page {
   min-height: 100vh;
 }
@@ -1269,7 +1215,7 @@ button, .match-cta, .moment-cta, .action-btn {
 }
 
 .header-spacer {
-  width: 300px; // Same width as countdown to balance the header
+  width: 300px;
 }
 
 .back-link {
@@ -1282,7 +1228,6 @@ button, .match-cta, .moment-cta, .action-btn {
   }
 }
 
-// Manifesto Section Styles
 .manifesto-section {
   padding: 6rem 2rem;
   max-width: 1200px;
@@ -1332,7 +1277,6 @@ button, .match-cta, .moment-cta, .action-btn {
   }
 }
 
-// Founders Section Styles
 .founders-section {
   padding: 4rem 2rem 6rem;
   max-width: 1000px;
@@ -1408,12 +1352,20 @@ button, .match-cta, .moment-cta, .action-btn {
   }
 }
 
-// Mobile responsive
 @media (max-width: 767px) {
+  body {
+    background: $white;
+    color: $brand-text;
+    padding: 8px;
+  }
+
+  body::before {
+    background: rgba(255, 255, 255, 0.95);
+  }
+
   .App {
     border-radius: 0;
     border-width: 0;
-    background: rgba(255, 255, 255, 0.95);
     margin: 0;
     padding: 0;
   }
@@ -1437,15 +1389,8 @@ button, .match-cta, .moment-cta, .action-btn {
     margin: 1rem 0;
   }
 
-  // Hide countdown on mobile
   .launch-countdown {
     display: none;
-  }
-
-  body {
-    background: $white;
-    color: $brand-text;
-    padding: 8px;
   }
 
   .hero {
@@ -1467,7 +1412,6 @@ button, .match-cta, .moment-cta, .action-btn {
     order: 2;
   }
 
-  // Simplify phone frame for mobile - remove 3D effects and overlay
   .phone-frame {
     transform: none;
     width: 320px;
@@ -1482,22 +1426,19 @@ button, .match-cta, .moment-cta, .action-btn {
     transform: none;
   }
 
-  // Hide phone overlay on mobile
   .phone-overlay {
     display: none;
   }
 
   .hero-title {
-    font-size: clamp(2rem, 8vw, 2.8rem);
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
     color: $brand-text;
     text-align: center;
     line-height: 1.1;
-    margin-bottom: 0.5rem;
   }
 
   .hero-heading {
     text-align: center;
-    margin-bottom: 1rem;
   }
 
   .hero-details {
@@ -1517,6 +1458,52 @@ button, .match-cta, .moment-cta, .action-btn {
 
   .hero-title-wrap {
     margin-bottom: 0.5rem;
+  }
+
+  .search-display {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: static;
+  }
+
+  .search-text-box {
+    min-width: auto;
+    width: 100%;
+    max-width: 300px;
+    padding: 12px 16px;
+    text-align: center;
+  }
+
+  .search-placeholder {
+    font-size: 0.75rem;
+  }
+
+  .search-input {
+    font-size: 1rem;
+  }
+
+  .search-arrow {
+    position: static;
+    margin: 0;
+    transform: rotate(90deg);
+    
+    .arrow-image {
+      width: 140px;
+      height: auto;
+    }
+  }
+
+  @keyframes pulse-arrow {
+    0%, 100% {
+      transform: rotate(90deg) translateY(0) scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: rotate(90deg) translateY(4px) scale(1.05);
+      opacity: 1;
+    }
   }
 
   .hero-description {
@@ -1548,7 +1535,6 @@ button, .match-cta, .moment-cta, .action-btn {
     margin-left: 0;
   }
 
-  // Phone content optimizations for mobile
   .phone-cards {
     padding: 6px 6px 10px 6px;
     gap: 6px;
@@ -1592,7 +1578,7 @@ button, .match-cta, .moment-cta, .action-btn {
   .meet-banner {
     padding: 10px 14px;
     border-radius: 16px;
-    margin-top: 6px;
+    margin-top: 12px;
   }
 
   .meet-text {
@@ -1625,7 +1611,6 @@ button, .match-cta, .moment-cta, .action-btn {
     font-size: 14px;
   }
 
-  // Public moments mobile optimizations
   .public-moments {
     padding: 0 6px 6px 6px;
   }
@@ -1663,7 +1648,6 @@ button, .match-cta, .moment-cta, .action-btn {
     font-size: 11px;
   }
 
-  // Footer mobile optimizations
   .site-footer {
     padding: 1.5rem 1rem;
     margin: 2rem 1rem 1rem;
@@ -1681,7 +1665,6 @@ button, .match-cta, .moment-cta, .action-btn {
     padding: 0.4rem 0.8rem;
   }
 
-  // Additional mobile performance optimizations
   .phone-screen {
     border-radius: 20px;
   }
@@ -1703,7 +1686,6 @@ button, .match-cta, .moment-cta, .action-btn {
     width: 24px;
   }
 
-  // Optimize animations for mobile
   .phone-card {
     transition: all 0.3s ease;
   }
@@ -1712,7 +1694,6 @@ button, .match-cta, .moment-cta, .action-btn {
     transition: all 0.3s ease;
   }
 
-  // Reduce shadows and effects for mobile performance
   .phone-frame {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   }
@@ -1759,7 +1740,6 @@ button, .match-cta, .moment-cta, .action-btn {
     height: 26px;
   }
 
-  // Public moments optimizations for mobile
   .public-moments {
     padding: 0 8px 6px 8px;
   }
@@ -1803,8 +1783,6 @@ button, .match-cta, .moment-cta, .action-btn {
     min-width: 50px;
   }
 
-
-
   .manifesto-link {
     font-size: 1rem;
     padding: 10px 20px;
@@ -1814,7 +1792,6 @@ button, .match-cta, .moment-cta, .action-btn {
       transform: translateY(-1px) !important;
     }
   }
-
 
   .launch-countdown {
     text-align: center;
@@ -1879,25 +1856,18 @@ button, .match-cta, .moment-cta, .action-btn {
     }
   }
 
-  // Mobile liquid glass footer
   .site-footer {
     padding: 1rem;
     border-radius: 1rem;
     margin: 1rem;
-    
-    // Mobile liquid glass enhancement
     background: rgba(255, 255, 255, 0.25) !important;
     backdrop-filter: blur(4px) saturate(220%) !important;
     border: 1px solid rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 0 16px 48px rgba(31, 38, 135, 0.3), 
-                inset 0 8px 28px rgba(255, 255, 255, 0.45) !important;
-    
+
     &::after {
       border-radius: 1rem;
       background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(2px);
-      box-shadow: inset -6px -4px 0px -7px rgba(255, 255, 255, 1),
-                  inset 0px -5px 0px -4px rgba(255, 255, 255, 1);
       opacity: 0.8;
       filter: blur(0.8px) drop-shadow(6px 2px 4px rgba(0, 0, 0, 0.06)) brightness(120%);
     }
@@ -1924,26 +1894,19 @@ button, .match-cta, .moment-cta, .action-btn {
   }
 }
 
-// Tablet liquid glass footer
 @media (max-width: 1024px) and (min-width: 768px) {
   .site-footer {
     padding: 1.5rem 1rem;
     border-radius: 1.5rem;
     margin: 1rem;
-    
-    // Enhanced liquid glass for tablet
     background: rgba(255, 255, 255, 0.2) !important;
     backdrop-filter: blur(3px) saturate(200%) !important;
     border: 1px solid rgba(255, 255, 255, 0.9) !important;
-    box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25), 
-                inset 0 6px 24px rgba(255, 255, 255, 0.4) !important;
     
     &::after {
       border-radius: 1.5rem;
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(1.5px);
-      box-shadow: inset -8px -6px 0px -9px rgba(255, 255, 255, 1),
-                  inset 0px -7px 0px -6px rgba(255, 255, 255, 1);
       opacity: 0.7;
       filter: blur(1px) drop-shadow(8px 3px 5px rgba(0, 0, 0, 0.08)) brightness(118%);
     }
@@ -1968,9 +1931,6 @@ button, .match-cta, .moment-cta, .action-btn {
   }
 }
 
-// ElevenLabs Widget - Default floating behavior (no custom styling)
-
-// Legal Pages Styles (Terms & Privacy)
 .legal-content {
   flex: 1;
   display: flex;
@@ -2099,7 +2059,6 @@ button, .match-cta, .moment-cta, .action-btn {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-// Mobile responsive for legal pages
 @media (max-width: 767px) {
   .legal-content {
     padding: 1rem 0 2rem;
@@ -2146,333 +2105,41 @@ button, .match-cta, .moment-cta, .action-btn {
   }
 }
 
-// Admin styles
-.admin-login {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 60vh;
-  padding: 2rem 0;
+.blurred-avatar {
+  filter: blur(8px);
+  opacity: 0.7;
 }
 
-.admin-login-container {
-  background: $white;
-  padding: 3rem;
-  border-radius: 2rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 400px;
-  width: 90%;
+.blurred-name {
+  filter: blur(2px);
+  opacity: 0.35;
+  display: inline;
 }
 
-.admin-login-container h1 {
-  font-size: 2.5rem;
-  font-weight: 900;
-  margin-bottom: 2rem;
-  color: $brand-text;
-}
-
-.admin-login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  text-align: left;
-}
-
-.form-group label {
-  font-weight: 600;
-  color: $brand-text;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.form-group input {
-  padding: 1rem;
-  border: 2px solid rgba(113, 113, 122, 0.2);
-  border-radius: 1rem;
-  font-size: 1rem;
-  font-family: inherit;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: $accent-color;
-}
-
-.admin-login-btn {
-  background: $brand-text;
-  color: $white;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: inherit;
-}
-
-.admin-login-btn:hover {
-  background: $accent-color;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.error-message {
-  color: #ef4444;
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.admin-header-controls {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.admin-logout-btn {
-  background: rgba(113, 113, 122, 0.1);
-  color: $brand-text;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: inherit;
-}
-
-.admin-logout-btn:hover {
-  background: rgba(113, 113, 122, 0.2);
-}
-
-.admin-content {
-  padding: 2rem 0;
-}
-
-.admin-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-}
-
-.admin-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.admin-header h1 {
-  font-size: 3rem;
-  font-weight: 900;
-  color: $brand-text;
-  margin: 0;
-}
-
-.admin-stats {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-.stat-item {
-  background: rgba(113, 113, 122, 0.1);
-  padding: 0.75rem 1.5rem;
-  border-radius: 1rem;
-  font-size: 0.9rem;
-  color: $brand-text;
-}
-
-.admin-controls {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
-}
-
-.export-btn, .clear-btn {
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: inherit;
-}
-
-.export-btn {
-  background: $accent-color;
-  color: $white;
-}
-
-.export-btn:hover {
-  background: darken($accent-color, 10%);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-}
-
-.clear-btn {
-  background: rgba(239, 68, 68, 0.1);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
-}
-
-.clear-btn:hover {
-  background: rgba(239, 68, 68, 0.2);
-}
-
-.rsvp-list {
-  background: $white;
-  border-radius: 1.5rem;
-  overflow: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-}
-
-.rsvp-table {
-  width: 100%;
-}
-
-.rsvp-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
-  gap: 1rem;
-  padding: 1.5rem;
-  background: rgba(113, 113, 122, 0.05);
-  border-bottom: 1px solid rgba(113, 113, 122, 0.1);
-  font-weight: 600;
-  color: $brand-text;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-}
-
-.rsvp-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr 1fr;
-  gap: 1rem;
-  padding: 1.5rem;
-  border-bottom: 1px solid rgba(113, 113, 122, 0.05);
-  transition: background-color 0.3s ease;
-}
-
-.rsvp-row:hover {
-  background: rgba(113, 113, 122, 0.02);
-}
-
-.rsvp-row:last-child {
-  border-bottom: none;
-}
-
-.rsvp-cell {
+.connection-indicator {
   display: flex;
   align-items: center;
-  font-size: 0.9rem;
-  color: $brand-text;
-  word-break: break-word;
+  margin-left: auto;
 }
 
-.no-data {
-  text-align: center;
-  padding: 3rem;
-  color: rgba(113, 113, 122, 0.6);
-  font-size: 1rem;
+.moments-logo {
+  width: 20px;
+  height: 20px;
+  opacity: 0.6;
+  
+  &.connected {
+    opacity: 1;
+    filter: brightness(1.2) saturate(1.3);
+  }
+  
+  &.not-connected {
+    opacity: 0.3;
+    filter: grayscale(1);
+  }
 }
 
-// Details form styles for RSVP
-.details-form {
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.details-fields {
+.public-moment-item {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-}
-
-.name-field, .message-field {
-  width: 100%;
-  padding: 1rem;
-  border: 2px solid rgba(113, 113, 122, 0.2);
-  border-radius: 1rem;
-  font-size: 1rem;
-  font-family: inherit;
-  transition: border-color 0.3s ease;
-  background: $white;
-}
-
-.name-field:focus, .message-field:focus {
-  outline: none;
-  border-color: $accent-color;
-}
-
-.message-field {
-  resize: vertical;
-  min-height: 80px;
-}
-
-// Mobile responsive for admin
-@media (max-width: 767px) {
-  .admin-login-container {
-    padding: 2rem 1.5rem;
-    margin: 0 1rem;
-  }
-  
-  .admin-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  
-  .admin-header h1 {
-    font-size: 2rem;
-  }
-  
-  .admin-controls {
-    flex-direction: column;
-  }
-  
-  .rsvp-header, .rsvp-row {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
-  }
-  
-  .rsvp-header {
-    display: none;
-  }
-  
-  .rsvp-row {
-    padding: 1rem;
-    border: 1px solid rgba(113, 113, 122, 0.1);
-    border-radius: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .rsvp-cell {
-    font-size: 0.8rem;
-  }
-  
-  .rsvp-cell:before {
-    content: attr(data-label);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    color: rgba(113, 113, 122, 0.6);
-    display: block;
-    margin-bottom: 0.25rem;
-  }
+  align-items: center;
+  gap: 12px;
 }

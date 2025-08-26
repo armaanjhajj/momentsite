@@ -25,14 +25,14 @@ function Manifesto() {
             <section>
               <p>We weren't built to live life through screens.<br />
               We weren't built to swipe past strangers or scroll past people we could've met.<br />
-              We were built to connect — right here, right now, face to face.</p>
+              We were built to connect right here, right now, face to face.</p>
             </section>
 
             <section>
               <p>Moments exists because too many connections slip away before they even start.<br />
               That smile across the café.<br />
               That person in your lecture hall you almost talked to.<br />
-              That spark at a party — gone before you made a move.</p>
+              That spark at a party, gone before you made a move.</p>
             </section>
 
             <section>
@@ -45,7 +45,7 @@ function Manifesto() {
             </section>
 
             <section>
-              <p>On Moments, your phone isn't the connection — it's just the spark.<br />
+              <p>On Moments, your phone isn't the connection, it's just the spark.<br />
               The real connection? That happens off-screen.</p>
             </section>
 
@@ -71,9 +71,9 @@ function Manifesto() {
               <h2>From the Founders</h2>
               <p className="founders-quote">We built Moments because we were tired of watching real connections slip through our fingers.</p>
               
-              <p>There were too many times we sat in lecture halls, coffee shops, and campus events, surrounded by hundreds of people — and still felt disconnected. We'd notice someone interesting, feel that little spark, and… let the moment pass. If that's ever happened to you, you get it.</p>
+              <p>There were too many times we sat in lecture halls, coffee shops, and campus events, surrounded by hundreds of people and still felt disconnected. We'd notice someone interesting, feel that little spark, and let the moment pass. If that's ever happened to you, you get it.</p>
               
-              <p>Moments isn't here to replace real interaction — it's here to make it easier. We're not trying to be another social media app. We're building a bridge between digital discovery and real-world connection — a tool that helps you turn "I wish I'd said something" into "I'm glad I did."</p>
+              <p>Moments isn't here to replace real interaction, it's here to make it easier. We're not trying to be another social media app. We're building a bridge between digital discovery and real-world connection, a tool that helps you turn "I wish I'd said something" into "I'm glad I did."</p>
               
               <p>College is short. These moments are fleeting.<br />
               Let's not miss them.</p>
@@ -98,7 +98,6 @@ function Manifesto() {
             <Link to="/terms">Terms of Service</Link>
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/consent">Consent</Link>
-            <Link to="/admin">Admin</Link>
             <a href="mailto:makemomentsapp@gmail.com">Contact</a>
           </nav>
         </footer>

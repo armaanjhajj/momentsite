@@ -1,23 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 
-/**
- * Moments Demo: Brand Gradient (no glass, no emojis)
- * --------------------------------------------------
- * - Lock → notification → App
- * - Flow: Match → Meetup → NFC (Confirm) → Public Moments (auto‑advance on first two)
- * - Brand colors: #ff4e6a → #ff5c98 (gradient). Clean, modern, flat UI.
- * - Bottom bar = 3 ICONS (Private, Public, Profile). Active tab is highlighted.
- * - Uses provided filler images for logo/asterisk/UI shot.
- */
 
-// Step types: "match" | "meetup" | "nfc" | "public"
-// Step shape: { id, title, text, ctaPrimary }
 
-const BRAND_A = "#ff4e6a"; // primary
-const BRAND_B = "#ff5c98"; // secondary
-const NFC_BLUE = "#2F80ED"; // iOS-like blue for NFC
-const NFC_FILL = "#D7E9FF"; // light fill accent
+const BRAND_A = "#ff4e6a";
+const BRAND_B = "#ff5c98";
+const NFC_BLUE = "#2F80ED";
+const NFC_FILL = "#D7E9FF";
 
 const ASSETS = {
   logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=100&h=100&fit=crop&crop=center",
@@ -53,7 +42,7 @@ interface PhoneProps {
 }
 
 export default function MomentsBrandGradientDemo({
-  aspect = "vertical",    // "vertical" | "horizontal" | "square"
+  aspect = "vertical",
   autoDurations = { match: 2200, meetup: 2200 },
 }: {
   aspect?: "vertical" | "horizontal" | "square";
@@ -64,10 +53,10 @@ export default function MomentsBrandGradientDemo({
   const [stepIndex, setStepIndex] = useState(0);
   const current = steps[stepIndex];
 
-  // Active tab highlights
+
   const activeTab: "private" | "public" | "profile" = current.id === "public" ? "public" : "private";
 
-  // Auto‑advance early steps
+
   useEffect(() => {
     if (phase !== "app") return;
     if (current.id === "match" || current.id === "meetup") {
@@ -80,36 +69,36 @@ export default function MomentsBrandGradientDemo({
   const aspectClass = useMemo(() => {
     if (aspect === "horizontal") return "aspect-[16/9] w-[360px] md:w-[540px]";
     if (aspect === "square")     return "aspect-square w-[320px] md:w-[360px]";
-    return "aspect-[19.5/9] h-[680px] w-[320px] md:h-[720px] md:w-[360px]"; // iPhone 14 Pro dimensions
+    return "aspect-[19.5/9] h-[680px] w-[320px] md:h-[720px] md:w-[360px]";
   }, [aspect]);
 
   return (
     <div className="w-full grid place-items-center py-10 bg-gradient-to-br from-gray-100 to-gray-200">
       <div className="relative">
-        {/* iPhone Frame with Dynamic Island */}
+
         <div className={`relative ${aspectClass} bg-black rounded-[60px] p-2 shadow-2xl`}>
-          {/* Dynamic Island */}
+
           <div className="absolute top-[10px] left-1/2 transform -translate-x-1/2 w-[126px] h-[37px] bg-black rounded-full z-50 border border-gray-800"></div>
           
-          {/* Screen */}
+
           <div className="relative w-full h-full rounded-[48px] overflow-hidden bg-white"> 
-          {/* LOCK SCREEN */}
+
           <AnimatePresence>
             {phase === "lock" && (
               <motion.div key="lock" className="absolute inset-0">
-                {/* Wallpaper */}
+
                 <img src={ASSETS.wallpaper} alt="Wallpaper" className="absolute inset-0 w-full h-full object-cover" />
-                {/* overlay for readability */}
+
                 <div className="absolute inset-0 bg-black/30" />
 
-                {/* Stack: time then notification (no overlap) */}
+
                 <div className="relative h-full w-full flex flex-col items-center pt-16">
                   <div className="text-white text-center select-none">
                     <div className="text-6xl font-light tracking-tight">12:41</div>
                     <div className="text-sm opacity-80 mt-1">Thursday, August 22</div>
                   </div>
 
-                  {/* Spacing between time and notification */}
+
                   <div className="mt-5 w-full max-w-[92%]">
                     <button
                       onClick={() => { setPhase("app"); setStepIndex(0); }}
@@ -129,16 +118,16 @@ export default function MomentsBrandGradientDemo({
             )}
           </AnimatePresence>
 
-          {/* APP VIEW */}
+
           <AnimatePresence>
             {phase === "app" && (
               <motion.div key="app" className="absolute inset-0 bg-white">
-                {/* Status Bar Area (accounting for Dynamic Island) */}
+
                 <div className="absolute top-0 left-0 right-0 h-16 flex items-end justify-center z-10 pb-2">
                   <div className="px-4 py-1.5 rounded-full text-neutral-900 text-sm tracking-wide border border-neutral-200 bg-white shadow-sm">moments</div>
                 </div>
 
-                {/* Content */}
+
                 <div className="absolute inset-0 pt-24 pb-32 px-4 overflow-y-auto">
                   <AnimatePresence mode="wait">
                     <motion.div
@@ -149,7 +138,7 @@ export default function MomentsBrandGradientDemo({
                       transition={{ duration: 0.25 }}
                       className="rounded-3xl border border-neutral-200 p-4 text-neutral-900 shadow-sm bg-white"
                     >
-                      {/* MATCH */}
+
                       {current.id === "match" && (
                         <>
                           <div className="grid grid-cols-3 gap-2">
@@ -172,7 +161,7 @@ export default function MomentsBrandGradientDemo({
                         </>
                       )}
 
-                      {/* MEETUP */}
+
                       {current.id === "meetup" && (
                         <>
                           <div className="text-xl font-semibold leading-snug">Meet at The Yard</div>
@@ -186,7 +175,7 @@ export default function MomentsBrandGradientDemo({
                         </>
                       )}
 
-                      {/* NFC (static iOS-style icon, NO animation) */}
+
                       {current.id === "nfc" && (
                         <>
                           <div className="text-lg font-medium">Tap to confirm</div>
@@ -215,7 +204,7 @@ export default function MomentsBrandGradientDemo({
                         </>
                       )}
 
-                      {/* PUBLIC */}
+
                       {current.id === "public" && (
                         <>
                           <div className="text-xl font-semibold leading-snug">Public Moments on Campus</div>
@@ -242,10 +231,10 @@ export default function MomentsBrandGradientDemo({
                   </AnimatePresence>
                 </div>
 
-                {/* Bottom bar: 3 ICON BUTTONS with active state - iPhone style */}
+
                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full px-3 py-3 bg-white/95 backdrop-blur-md border border-neutral-200/50 shadow-lg">
                   <div className="flex items-center justify-between gap-3">
-                    {/* Private */}
+
                     <button aria-label="Private" onClick={() => { setPhase("app"); setStepIndex(0); }}
                       className={`nav-icon ${activeTab === "private" ? "active" : ""}`}>
                       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -254,7 +243,7 @@ export default function MomentsBrandGradientDemo({
                       </svg>
                     </button>
 
-                    {/* Public */}
+
                     <button aria-label="Public" onClick={() => { setPhase("app"); setStepIndex(3); }}
                       className={`nav-icon ${activeTab === "public" ? "active" : ""}`}>
                       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -263,8 +252,8 @@ export default function MomentsBrandGradientDemo({
                       </svg>
                     </button>
 
-                    {/* Profile */}
-                    <button aria-label="Profile" onClick={() => { /* placeholder: keep in private for now */ }}
+
+                    <button aria-label="Profile" onClick={() => { }}
                       className={`nav-icon ${activeTab === "profile" ? "active" : ""}`}>
                       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.6"/>
@@ -279,11 +268,11 @@ export default function MomentsBrandGradientDemo({
           </div>
         </div>
         
-        {/* Home Indicator */}
+
         <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-[134px] h-[5px] bg-white rounded-full opacity-60"></div>
       </div>
 
-      {/* Brand gradient utilities (no glass) */}
+
       <style>{`
         .btn-brand {
           color: white;
@@ -296,9 +285,9 @@ export default function MomentsBrandGradientDemo({
         .btn-ghost {
           border-radius: 14px;
           padding: 10px 14px;
-          border: 1px solid #e5e7eb; /* neutral-200 */
+          border: 1px solid #e5e7eb;
           background: white;
-          color: #111827; /* neutral-900 */
+          color: #111827;
         }
         .nav-icon {
           width: 48px; height: 48px; display:grid; place-items:center; border-radius: 16px;

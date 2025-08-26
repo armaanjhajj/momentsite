@@ -69,7 +69,7 @@ app.post('/api/waitlist', async (req, res) => {
   }
 });
 
-// API endpoint to get all waitlist entries (for admin purposes)
+// API endpoint to get all waitlist entries
 app.get('/api/waitlist', async (req, res) => {
   try {
     const result = await sql`

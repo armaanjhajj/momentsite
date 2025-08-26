@@ -14,7 +14,7 @@ const BackgroundAnimation = () => {
           top: 0,
           left: 0,
           width: '180vw',
-          height: '230vh',
+          height: '220vh',
           zIndex: 0,
           objectFit: 'fill'
         }}
