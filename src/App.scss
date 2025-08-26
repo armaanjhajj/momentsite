@@ -976,7 +976,7 @@ button, .match-cta, .moment-cta, .action-btn {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.7);
     font-weight: 400;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
@@ -996,7 +996,8 @@ button, .match-cta, .moment-cta, .action-btn {
   align-items: baseline;
   justify-content: center;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+
   
   .time-label {
     font-size: 15px;
@@ -1005,7 +1006,7 @@ button, .match-cta, .moment-cta, .action-btn {
   }
   
   .time-value {
-    font-size: 20px;
+    font-size: 18px;
     color: $white;
     font-weight: 700;
     letter-spacing: -0.5px;
@@ -1406,7 +1407,7 @@ button, .match-cta, .moment-cta, .action-btn {
 
   .hero-phone {
     margin-left: 0;
-    margin-top: 0;
+
     justify-content: center;
     padding: 0.5rem 0;
     order: 2;
@@ -1729,7 +1730,7 @@ button, .match-cta, .moment-cta, .action-btn {
   }
 
   .phone-status-bar {
-    padding: 6px 16px 3px 16px;
+    padding: 6px 16px 3px 0px;
   }
 
   .phone-brand {

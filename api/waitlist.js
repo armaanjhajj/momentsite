@@ -2,7 +2,6 @@ import { neon } from '@neondatabase/serverless';
 
 const sql = neon(process.env.DATABASE_URL);
 
-// ensure table exists (safe to run on every cold start)
 async function ensureTable() {
   await sql`
     CREATE TABLE IF NOT EXISTS waitlist (

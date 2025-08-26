@@ -143,15 +143,6 @@ icon: "https://i.imgur.com/GcdiFTm.png",
       connected: true
     },
     {
-id: "library-studier",
-title: "taylor at alexander library",
-desc: "looking for a study group for orgo + likes going to Chi Phi",
-      location: "alexander library",
-      time: "10 min ago",
-icon: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face",
-      connected: false
-    },
-    {
 id: "gym-buddy",
 title: "casey at the rec center",
 desc: "goes to Werblin 2x a week + loves to lift",
@@ -160,6 +151,15 @@ desc: "goes to Werblin 2x a week + loves to lift",
 icon: "https://i.imgur.com/lxRPNqo.png",
       connected: true
     },
+    {
+  id: "library-studier",
+  title: "taylor at alexander library",
+  desc: "looking for a study group for orgo + likes going to Chi Phi",
+        location: "alexander library",
+        time: "10 min ago",
+  icon: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face",
+        connected: false
+      },
     {
 id: "dining-hall",
 title: "riley at brower commons",
