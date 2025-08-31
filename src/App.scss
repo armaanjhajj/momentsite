@@ -757,6 +757,14 @@ button, .match-cta, .moment-cta, .action-btn {
 
 .match-header {
   margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.match-header-content {
+  flex: 1;
 }
 
 .match-name {
@@ -837,8 +845,8 @@ button, .match-cta, .moment-cta, .action-btn {
 }
 
 .avatar-circle {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
   overflow: hidden;
   background: $white;
@@ -1372,8 +1380,8 @@ button, .match-cta, .moment-cta, .action-btn {
   }
 
   .brand-logo {
-    height: 32px;
-    width: 32px;
+    height: 40px;
+    width: 40px;
     display: inline-block;
     object-fit: contain;
   }
@@ -1394,6 +1402,10 @@ button, .match-cta, .moment-cta, .action-btn {
     display: none;
   }
 
+  elevenlabs-convai {
+    display: none;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     grid-template-areas:
@@ -1407,7 +1419,6 @@ button, .match-cta, .moment-cta, .action-btn {
 
   .hero-phone {
     margin-left: 0;
-
     justify-content: center;
     padding: 0.5rem 0;
     order: 2;
@@ -1892,6 +1903,17 @@ button, .match-cta, .moment-cta, .action-btn {
       box-shadow: 0 2px 8px rgba(31, 38, 135, 0.1);
       transform: translateY(-0.5px);
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .avatar-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .match-header {
+    align-items: center;
   }
 }
 

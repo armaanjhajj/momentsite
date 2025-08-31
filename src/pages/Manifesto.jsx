@@ -64,7 +64,7 @@ function Manifesto() {
 
             <section>
               <h2>Turn passing encounters into lasting connections.</h2>
-              <p>That's what Moments is for.</p>
+              <p>For the missed connections and the ones you never even knew existed. That's what Moments is for.</p>
             </section>
 
             <section>

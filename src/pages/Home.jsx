@@ -207,9 +207,8 @@ icon: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&
         <div className="hero-heading">
           <div className="hero-title-wrap">
             <h1 className="hero-title">
-              The<br />
-              <span className="accent-text">in-person</span><br />
-              social&nbsp;network.
+              connect with anyone,<br />
+              <span className="accent-text">in real time</span><br />
             </h1>
           </div>
           
@@ -267,23 +266,17 @@ icon: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&
               <div className="phone-cards">
                 <div className={`phone-card match-card ${isAnimating ? 'slide-out' : 'slide-in'}`}>
                   <div className="match-header">
-                    <div className="match-name">{cards[currentCardIndex].name}</div>
-                    <div className="match-headline">{cards[currentCardIndex].headline}</div>
-                    <div className="match-subline">{cards[currentCardIndex].subline}</div>
-                  </div>
-                  
-                  <div className="match-reason">{cards[currentCardIndex].reason}</div>
-                  
-                
-                  
-                  <div className="match-avatar-score">
+                    <div className="match-header-content">
+                      <div className="match-name">{cards[currentCardIndex].name}</div>
+                      <div className="match-headline">{cards[currentCardIndex].headline}</div>
+                      <div className="match-subline">{cards[currentCardIndex].subline}</div>
+                    </div>
                     <div className="avatar-circle">
                       <img src={cards[currentCardIndex].avatar} alt={cards[currentCardIndex].name} />
                     </div>
-                    <div className="moment-score">
-                      {cards[currentCardIndex].score} <span className="smaller-text">MNTQ™</span>
-                    </div>
                   </div>
+                  
+                  <div className="match-reason">{cards[currentCardIndex].reason}</div>
 
                   {!isConfirmed && (
                     <div className="meet-banner">
@@ -407,7 +400,7 @@ icon: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&
               alt="Rutgers Scarlet Knights" 
               className="rutgers-logo"
             />
-            <div>RSVP for our Rutgers exclusive launch this fall</div>
+            <div>RSVP for our Rutgers exclusive launch this fall. Don't miss your moment.</div>
             <div className="rsvp-note">Use your @rutgers.edu email to sign up</div>
           </div>
           <div className="launchlist-widget" data-key-id="PS7heZ" data-height="180px"></div>
