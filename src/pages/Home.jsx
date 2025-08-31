@@ -125,10 +125,10 @@ icon: "https://i.imgur.com/EXZUihD.jpeg",
       connected: true
     },
     {
-id: "kyber-coffee",
-title: "sam just walked into kyber coffee",
+id: "khyber-coffee",
+title: "sam just walked into khyber coffee",
 desc: "wants to grind LeetCode + hates Prof Chen too",
-      location: "kyber coffee",
+      location: "khyber coffee",
       time: "2 min ago",
 icon: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
       connected: false
@@ -338,9 +338,9 @@ icon: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&
                                <span className={moment.connected ? '' : 'blurred-name'}>alex</span> in your econ class
                              </>
                            )}
-                           {moment.id === 'kyber-coffee' && (
+                           {moment.id === 'khyber-coffee' && (
                              <>
-                               <span className={moment.connected ? '' : 'blurred-name'}>sam</span> just walked into kyber coffee
+                               <span className={moment.connected ? '' : 'blurred-name'}>sam</span> just walked into khyber coffee
                              </>
                            )}
                            {moment.id === 'crossed-paths' && (
