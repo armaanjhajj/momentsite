@@ -99,6 +99,7 @@ function Manifesto() {
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/consent">Consent</Link>
             <Link to="/jobs">Jobs</Link>
+            <Link to="/login">Team</Link>
             <a href="mailto:makemomentsapp@gmail.com">Contact</a>
           </nav>
         </footer>
