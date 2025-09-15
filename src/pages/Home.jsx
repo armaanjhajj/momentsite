@@ -117,56 +117,56 @@ reason: "You guys both have 'future entrepreneur' in their LinkedIn bios, attend
   const recentMoments = [
     {
       id: "econ-classmate",
-title: "alex in your econ class",
-desc: "both listen to Ken Carson + love raving",
+ title: "alex in your econ class",
+ desc: "both listen to Ken Carson + love raving",
       location: "business building",
       time: "5 min ago",
-icon: "https://i.imgur.com/EXZUihD.jpeg",
+ icon: "https://i.imgur.com/EXZUihD.jpeg",
       connected: true
     },
     {
-id: "khyber-coffee",
-title: "sam just walked into khyber coffee",
-desc: "wants to grind LeetCode + hates Prof Chen too",
+ id: "khyber-coffee",
+ title: "sam just walked into khyber coffee",
+ desc: "wants to grind LeetCode + hates Prof Chen too",
       location: "khyber coffee",
       time: "2 min ago",
-icon: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
+ icon: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face",
       connected: false
     },
     {
-id: "crossed-paths",
-title: "you crossed paths with jordyn",
-desc: "posted at rec center 11pm + plays Rutgers intramural soccer",
+ id: "crossed-paths",
+ title: "you crossed paths with jordyn",
+ desc: "posted at rec center 11pm + plays Rutgers intramural soccer",
       location: "college ave",
       time: "just now",
-icon: "https://i.imgur.com/GcdiFTm.png",
+ icon: "https://i.imgur.com/GcdiFTm.png",
       connected: true
     },
     {
-id: "gym-buddy",
-title: "casey at the rec center",
-desc: "goes to Werblin 2x a week + loves to lift",
+ id: "gym-buddy",
+ title: "casey at the rec center",
+ desc: "goes to Werblin 2x a week + loves to lift",
       location: "college ave gym",
       time: "15 min ago",
-icon: "https://i.imgur.com/lxRPNqo.png",
+ icon: "https://i.imgur.com/lxRPNqo.png",
       connected: true
     },
     {
-  id: "library-studier",
-  title: "taylor at alexander library",
-  desc: "looking for a study group for orgo + likes going to Chi Phi",
+   id: "library-studier",
+   title: "taylor at alexander library",
+   desc: "looking for a study group for orgo + likes going to Chi Phi",
         location: "alexander library",
         time: "10 min ago",
-  icon: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face",
+   icon: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face",
         connected: false
       },
     {
-id: "dining-hall",
-title: "riley at brower commons",
-desc: "big foodie + loves to eat late at night",
+ id: "dining-hall",
+ title: "riley at brower commons",
+ desc: "big foodie + loves to eat late at night",
       location: "brower commons",
       time: "20 min ago",
-icon: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+ icon: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
       connected: false
     }
   ];
@@ -377,7 +377,7 @@ icon: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&
                          />
                        </div>
                      </div>
-                   ))}
+                  ))}
                 </div>
               </div>
             </div>
@@ -420,6 +420,7 @@ icon: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&
           <Link to="/terms">Terms of Service</Link>
           <Link to="/privacy">Privacy Policy</Link>
           <Link to="/consent">Consent</Link>
+          <Link to="/jobs">Jobs</Link>
           <a href="mailto:makemomentsapp@gmail.com">Contact</a>
         </nav>
       </footer>

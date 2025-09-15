@@ -99,6 +99,7 @@ function Terms() {
             <Link to="/terms">Terms of Service</Link>
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/consent">Consent</Link>
+            <Link to="/jobs">Jobs</Link>
             <a href="mailto:makemomentsapp@gmail.com">Contact</a>
           </nav>
         </footer>
