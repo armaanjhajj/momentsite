@@ -5,11 +5,23 @@ import heroVideo from '../assets/video.mp4';
 import logo from '../assets/logo.png';
 
 function Home() {
+  const videoRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const v = videoRef.current;
+    if (v && v.paused) {
+      const playPromise = v.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(() => {});
+      }
+    }
+  }, []);
+
   return (
     <>
       <div className="App" style={{ maxWidth: 'none', borderRadius: 0 }}>
         <header className="site-header" style={{ margin: '0.75rem 0' }}>
-        <Link to="/" className="brand">
+          <Link to="/" className="brand">
             <img className="brand-logo" src={logo} alt="moments logo" decoding="async" loading="eager" />
           </Link>
           <nav className="footer-nav">
@@ -20,17 +32,15 @@ function Home() {
 
         <main style={{ position: 'relative', width: '100%', height: 'calc(100vh - 160px)', background: '#000' }}>
           <video
+            ref={videoRef}
             src={heroVideo}
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(1)' }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
             playsInline
             autoPlay
-            muted
             loop
+            preload="auto"
+            controls={false}
           />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.55) 100%)' }} />
-          <div style={{ position: 'relative', zIndex: 2, height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <h1 className="hero-title" style={{ color: '#fff', textAlign: 'center' }}>real connections, in real time</h1>
-          </div>
         </main>
 
         <section style={{ padding: '2rem 1rem', textAlign: 'center' }}>
@@ -41,18 +51,18 @@ function Home() {
         </section>
 
         <footer className="site-footer" style={{ background: 'rgba(255,255,255,0.7)' }}>
-        <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
-        <nav className="footer-nav">
+          <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
+          <nav className="footer-nav">
             <Link to="/about">About</Link>
             <Link to="/jobs">Jobs</Link>
-          <Link to="/manifesto">Manifesto</Link>
+            <Link to="/manifesto">Manifesto</Link>
             <Link to="/terms">Terms</Link>
             <Link to="/privacy">Privacy</Link>
-          <Link to="/consent">Consent</Link>
+            <Link to="/consent">Consent</Link>
             <Link to="/login">Team</Link>
-          <a href="mailto:makemomentsapp@gmail.com">Contact</a>
-        </nav>
-      </footer>
+            <a href="mailto:makemomentsapp@gmail.com">Contact</a>
+          </nav>
+        </footer>
       </div>
     </>
   );
