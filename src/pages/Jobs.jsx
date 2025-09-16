@@ -50,6 +50,21 @@ function Jobs() {
               </p>
             </section>
 
+            <section>
+              <h2>Schedule a chat</h2>
+              <p>Pick a time that works for you below.</p>
+              <div className="calendar-embed">
+                <iframe
+                  src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3wajatrcDcPcpcXcp09pOU7gJ1TovcauFfKPAGgzBjVhIOm40UpuT-eAK0_veCKR76yoyv7FLN?gv=true"
+                  style={{ border: 0 }}
+                  width="100%"
+                  height="600"
+                  frameBorder="0"
+                  title="Moments interview scheduling"
+                />
+              </div>
+            </section>
+
             <div className="legal-footer">
               <Link to="/" className="back-home">← Back to Home</Link>
             </div>
