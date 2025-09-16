@@ -34,7 +34,7 @@ function Home() {
           <video
             ref={videoRef}
             src={heroVideo}
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(1)' }}
             playsInline
             autoPlay
             loop
