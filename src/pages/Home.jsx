@@ -7,6 +7,7 @@ import logo from '../assets/logo.png';
 function Home() {
   const videoRef = React.useRef(null);
   const [muted, setMuted] = React.useState(true);
+  const [hover, setHover] = React.useState(false);
 
   React.useEffect(() => {
     const v = videoRef.current;
@@ -41,6 +42,7 @@ function Home() {
           <nav className="footer-nav">
             <Link to="/about">About</Link>
             <Link to="/jobs">Jobs</Link>
+            <Link to="/about">Waitlist</Link>
           </nav>
         </header>
 
@@ -58,23 +60,20 @@ function Home() {
           />
           <button
             onClick={toggleAudio}
+            onMouseEnter={() => setHover(true)}
+            onMouseLeave={() => setHover(false)}
             aria-label={muted ? 'Enable sound' : 'Mute sound'}
             style={{
               position: 'absolute', right: 16, bottom: 16, zIndex: 3,
-              background: '#000', color: '#fff', border: '1px solid #fff', borderRadius: 9999,
-              padding: '8px 12px', fontSize: 12, opacity: 0.8
+              background: hover ? '#fff' : '#000', color: hover ? '#000' : '#fff',
+              border: '1px solid #fff', borderRadius: 9999,
+              padding: '8px 12px', fontSize: 12, opacity: hover ? 1 : 0.85,
+              transition: 'all 160ms ease', cursor: 'pointer'
             }}
           >
             {muted ? 'Sound On' : 'Mute'}
           </button>
         </main>
-
-        <section style={{ padding: '2rem 1rem', textAlign: 'center' }}>
-          <div style={{ display: 'inline-flex', gap: 12 }}>
-            <Link to="/about" className="manifesto-link" style={{ borderColor: '#000', color: '#000' }}>About</Link>
-            <Link to="/jobs" className="manifesto-link" style={{ borderColor: '#000', color: '#000' }}>Jobs</Link>
-          </div>
-        </section>
 
         <footer className="site-footer" style={{ background: 'rgba(255,255,255,0.7)' }}>
           <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
@@ -86,7 +85,7 @@ function Home() {
             <Link to="/privacy">Privacy</Link>
             <Link to="/consent">Consent</Link>
             <Link to="/login">Team</Link>
-            <a href="mailto:makemomentsapp@gmail.com">Contact</a>
+            <a href="mailto:contact@havemoments.com">Contact</a>
           </nav>
         </footer>
       </div>
