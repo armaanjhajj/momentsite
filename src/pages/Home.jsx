@@ -6,16 +6,30 @@ import logo from '../assets/logo.png';
 
 function Home() {
   const videoRef = React.useRef(null);
+  const [muted, setMuted] = React.useState(true);
 
   React.useEffect(() => {
     const v = videoRef.current;
-    if (v && v.paused) {
+    if (v) {
+      v.muted = muted;
       const playPromise = v.play();
       if (playPromise && typeof playPromise.catch === 'function') {
         playPromise.catch(() => {});
       }
     }
-  }, []);
+  }, [muted]);
+
+  const toggleAudio = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    const next = !muted;
+    v.muted = next;
+    setMuted(next);
+    if (v.paused) {
+      const p = v.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    }
+  };
 
   return (
     <>
@@ -39,8 +53,20 @@ function Home() {
             autoPlay
             loop
             preload="auto"
+            muted
             controls={false}
           />
+          <button
+            onClick={toggleAudio}
+            aria-label={muted ? 'Enable sound' : 'Mute sound'}
+            style={{
+              position: 'absolute', right: 16, bottom: 16, zIndex: 3,
+              background: '#000', color: '#fff', border: '1px solid #fff', borderRadius: 9999,
+              padding: '8px 12px', fontSize: 12, opacity: 0.8
+            }}
+          >
+            {muted ? 'Sound On' : 'Mute'}
+          </button>
         </main>
 
         <section style={{ padding: '2rem 1rem', textAlign: 'center' }}>
