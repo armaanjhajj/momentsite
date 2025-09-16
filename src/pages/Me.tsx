@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
+import logo from '../assets/logo.png';
 import '../App.scss';
 
 export default function Me() {
@@ -24,7 +25,7 @@ export default function Me() {
     <div className="App">
       <header className="site-header">
         <Link to="/" className="brand">
-          <img className="brand-logo" src="https://i.imgur.com/WZvHbcj.png" alt="moments asterisk" />
+          <img className="brand-logo" src={logo} alt="moments logo" />
         </Link>
       </header>
 
@@ -63,12 +64,15 @@ export default function Me() {
         <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
         <nav className="footer-nav">
           <Link to="/">Home</Link>
-          <Link to="/manifesto">Manifesto</Link>
-          <Link to="/terms">Terms of Service</Link>
-          <Link to="/privacy">Privacy Policy</Link>
-          <Link to="/consent">Consent</Link>
+          <Link to="/about">About</Link>
           <Link to="/jobs">Jobs</Link>
-          <a href="mailto:makemomentsapp@gmail.com">Contact</a>
+          <Link to="/waitlist">Waitlist</Link>
+          <Link to="/manifesto">Manifesto</Link>
+          <Link to="/terms">Terms</Link>
+          <Link to="/privacy">Privacy</Link>
+          <Link to="/consent">Consent</Link>
+          <Link to="/login">Team</Link>
+          <a href="mailto:contact@havemoments.com">Contact</a>
         </nav>
       </footer>
     </div>

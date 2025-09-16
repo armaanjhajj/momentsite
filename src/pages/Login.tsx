@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { supabase } from '../lib/supabaseClient';
+import logo from '../assets/logo.png';
 import '../App.scss';
 
 export default function Login() {
@@ -50,7 +51,7 @@ export default function Login() {
     <div className="App">
       <header className="site-header">
         <Link to="/" className="brand">
-          <img className="brand-logo" src="https://i.imgur.com/WZvHbcj.png" alt="moments asterisk" />
+          <img className="brand-logo" src={logo} alt="moments logo" />
         </Link>
       </header>
 

@@ -25,90 +25,86 @@ function Jobs() {
         </header>
 
         <main className="legal-content">
-          <div className="legal-container" style={{ maxWidth: '1200px' }}>
-            <h1>join the team</h1>
-            <p>We’re building real-world connection tech. If that excites you, let’s talk.</p>
+          <div className="legal-container" style={{ maxWidth: '1100px' }}>
+            <h1>Open Positions</h1>
+            <p>We are assembling a disciplined, high-ownership team to launch Moments on campus. Roles are listed below.</p>
 
-            <section>
-              <h2>Open roles</h2>
-              <div className="role-cards" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 24 }}>
-                <div className="card" style={{ border: '1px solid #ddd', borderRadius: 16, padding: 16 }}>
-                  <div className="job-title">🌐 Digital Marketing</div>
-                  <div className="job-meta">Focus: Creating the online presence that gets students curious and excited.</div>
-                  <ul className="job-desc" style={{ marginTop: 8 }}>
-                    <li>Brainstorm & draft engaging Instagram/TikTok content</li>
-                    <li>Manage post scheduling, captions, and engagement</li>
-                    <li>Help track reach, analytics, and trends</li>
-                    <li>Support with newsletters and email campaigns</li>
-                  </ul>
-                  <div className="job-perfect">Perfect for: Social media-savvy students who want to learn how real brand growth works.</div>
-                </div>
+            <section style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 16 }}>
+              <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
+                <h2 style={{ margin: 0 }}>Digital Marketing</h2>
+                <p style={{ margin: '8px 0 12px' }}>Create an online presence that drives curiosity and demand.</p>
+                <ul>
+                  <li>Draft Instagram/TikTok content and iterate with data</li>
+                  <li>Manage scheduling, captions, and engagement</li>
+                  <li>Track reach, analytics, and trends</li>
+                  <li>Support newsletters and email campaigns</li>
+                </ul>
+                <p><strong>Ideal profile:</strong> Social-first thinker who understands growth mechanics.</p>
+              </div>
 
-                <div className="card" style={{ border: '1px solid #ddd', borderRadius: 16, padding: 16 }}>
-                  <div className="job-title">🏫 Field Operations</div>
-                  <div className="job-meta">Focus: Putting Moments in front of students IRL.</div>
-                  <ul className="job-desc" style={{ marginTop: 8 }}>
-                    <li>Table at student centers, dorms, and events</li>
-                    <li>Hand out flyers/bracelets/stickers to spread awareness</li>
-                    <li>Run “street team” activations (flash meetups, chalking, demos)</li>
-                    <li>Collect quick student feedback during tabling</li>
-                  </ul>
-                  <div className="job-perfect">Perfect for: Outgoing students who love talking to people and building buzz on campus.</div>
-                </div>
+              <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
+                <h2 style={{ margin: 0 }}>Field Operations</h2>
+                <p style={{ margin: '8px 0 12px' }}>Drive IRL adoption and feedback loops on campus.</p>
+                <ul>
+                  <li>Table at student centers, dorms, and events</li>
+                  <li>Distribute flyers/bracelets/stickers</li>
+                  <li>Run street-team activations (demos, chalking)</li>
+                  <li>Collect quick feedback during tabling</li>
+                </ul>
+                <p><strong>Ideal profile:</strong> Clear communicator who enjoys speaking with students.</p>
+              </div>
 
-                <div className="card" style={{ border: '1px solid #ddd', borderRadius: 16, padding: 16 }}>
-                  <div className="job-title">📣 Marketing Outreach</div>
-                  <div className="job-meta">Focus: Building bridges with orgs, frats/sororities, and campus leaders.</div>
-                  <ul className="job-desc" style={{ marginTop: 8 }}>
-                    <li>Reach out to student clubs for partnerships</li>
-                    <li>Coordinate collabs with fraternities/sororities</li>
-                    <li>Help Moments get into the campus conversation</li>
-                    <li>Maintain a list of org contacts for follow-ups</li>
-                  </ul>
-                  <div className="job-perfect">Perfect for: Networkers with connections in student life who love organizing.</div>
-                </div>
+              <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
+                <h2 style={{ margin: 0 }}>Marketing Outreach</h2>
+                <p style={{ margin: '8px 0 12px' }}>Build relationships with orgs and campus leaders.</p>
+                <ul>
+                  <li>Partner with student clubs and organizations</li>
+                  <li>Coordinate with fraternities/sororities</li>
+                  <li>Establish word-of-mouth programs</li>
+                  <li>Maintain a structured contact log for follow-ups</li>
+                </ul>
+                <p><strong>Ideal profile:</strong> Organized networker with campus relationships.</p>
+              </div>
 
-                <div className="card" style={{ border: '1px solid #ddd', borderRadius: 16, padding: 16 }}>
-                  <div className="job-title">🎨 GFX & Design</div>
-                  <div className="job-meta">Focus: Giving Moments a strong visual identity.</div>
-                  <ul className="job-desc" style={{ marginTop: 8 }}>
-                    <li>Design social graphics, posters, flyers, and digital assets</li>
-                    <li>Develop templates for consistent brand style</li>
-                    <li>Collaborate on campaign visuals</li>
-                    <li>Explore creative meme-style content for virality</li>
-                  </ul>
-                  <div className="job-perfect">Perfect for: Designers who want a portfolio of real startup branding work.</div>
-                </div>
+              <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
+                <h2 style={{ margin: 0 }}>Design</h2>
+                <p style={{ margin: '8px 0 12px' }}>Elevate our visual identity across digital and print.</p>
+                <ul>
+                  <li>Create social graphics, posters, and flyers</li>
+                  <li>Develop reusable templates (colors, typography)</li>
+                  <li>Collaborate on campaign creative</li>
+                  <li>Explore content formats optimized for sharing</li>
+                </ul>
+                <p><strong>Ideal profile:</strong> Portfolio demonstrating clean, consistent brand work.</p>
+              </div>
 
-                <div className="card" style={{ border: '1px solid #ddd', borderRadius: 16, padding: 16 }}>
-                  <div className="job-title">🎥 Film & Photography</div>
-                  <div className="job-meta">Focus: Capturing the Moments story on camera.</div>
-                  <ul className="job-desc" style={{ marginTop: 8 }}>
-                    <li>Shoot content at events, tabling, and staged campaigns</li>
-                    <li>Edit reels/TikToks with transitions, captions, and effects</li>
-                    <li>Take headshots or group photos for press kits</li>
-                    <li>Support production of the Moments launch video</li>
-                  </ul>
-                  <div className="job-perfect">Perfect for: Creatives who love telling stories through visuals.</div>
-                </div>
+              <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
+                <h2 style={{ margin: 0 }}>Film & Photography</h2>
+                <p style={{ margin: '8px 0 12px' }}>Tell the Moments story through video and stills.</p>
+                <ul>
+                  <li>Capture content at events and activations</li>
+                  <li>Edit reels/TikToks with on-brand pacing</li>
+                  <li>Shoot headshots or group photos for press</li>
+                  <li>Assist with the launch video</li>
+                </ul>
+                <p><strong>Ideal profile:</strong> Strong eye for narrative and motion.</p>
+              </div>
 
-                <div className="card" style={{ border: '1px solid #ddd', borderRadius: 16, padding: 16 }}>
-                  <div className="job-title">💻 Development (Tech Team)</div>
-                  <div className="job-meta">Focus: Building the product, site, and team tools.</div>
-                  <ul className="job-desc" style={{ marginTop: 8 }}>
-                    <li>Contribute to the Moments web app (React, Supabase, Tailwind)</li>
-                    <li>Help with waitlist, onboarding flows, and team dashboard</li>
-                    <li>Debug and polish user experience</li>
-                    <li>Explore wearable/bracelet prototypes (hardware + NFC)</li>
-                  </ul>
-                  <div className="job-perfect">Perfect for: CS/tech students who want startup dev experience.</div>
-                </div>
+              <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
+                <h2 style={{ margin: 0 }}>Engineering</h2>
+                <p style={{ margin: '8px 0 12px' }}>Contribute to product, site, and internal tools.</p>
+                <ul>
+                  <li>Work on the web app (React, Supabase, Tailwind)</li>
+                  <li>Improve waitlist/onboarding and team dashboard</li>
+                  <li>Polish UX and fix bugs</li>
+                  <li>Explore wearable/NFC prototypes</li>
+                </ul>
+                <p><strong>Ideal profile:</strong> Builder who ships, tests, and iterates quickly.</p>
               </div>
             </section>
 
             <section>
-              <h2>Schedule a chat</h2>
-              <p>Pick a time that works for you below.</p>
+              <h2>Schedule a conversation</h2>
               <div className="calendar-embed">
                 <iframe
                   src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3wajatrcDcPcpcXcp09pOU7gJ1TovcauFfKPAGgzBjVhIOm40UpuT-eAK0_veCKR76yoyv7FLN?gv=true"
@@ -116,16 +112,14 @@ function Jobs() {
                   width="100%"
                   height="600"
                   frameBorder="0"
-                  title="Moments interview scheduling"
+                  title="Moments scheduling"
                 />
               </div>
             </section>
 
             <section>
-              <h2>How to apply</h2>
-              <p>
-                Email <a href="mailto:intern@havemoments.com">intern@havemoments.com</a> with your role of interest, links (portfolio, GitHub, LinkedIn), and 2–3 sentences on why Moments.
-              </p>
+              <h2>Apply</h2>
+              <p>Email <a href="mailto:intern@havemoments.com">intern@havemoments.com</a> with your role of interest, links (portfolio, GitHub, LinkedIn), and 2–3 sentences on why Moments.</p>
               <p style={{ opacity: 0.8, fontSize: '0.95em' }}>Note: All internships are unpaid.</p>
             </section>
 
