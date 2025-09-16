@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import '../App.scss';
 
 function Jobs() {
@@ -10,12 +11,17 @@ function Jobs() {
           <Link to="/" className="brand">
             <img
               className="brand-logo"
-              src="https://i.imgur.com/WZvHbcj.png"
-              alt="moments asterisk"
+              src={logo}
+              alt="moments logo"
               decoding="async"
               loading="eager"
             />
           </Link>
+          <nav className="footer-nav">
+            <Link to="/about">About</Link>
+            <Link to="/jobs">Jobs</Link>
+            <Link to="/waitlist">Waitlist</Link>
+          </nav>
         </header>
 
         <main className="legal-content">
@@ -133,13 +139,15 @@ function Jobs() {
           <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
           <nav className="footer-nav">
             <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/jobs">Jobs</Link>
+            <Link to="/waitlist">Waitlist</Link>
             <Link to="/manifesto">Manifesto</Link>
             <Link to="/terms">Terms of Service</Link>
             <Link to="/privacy">Privacy Policy</Link>
             <Link to="/consent">Consent</Link>
-            <Link to="/jobs">Jobs</Link>
             <Link to="/login">Team</Link>
-            <a href="mailto:makemomentsapp@gmail.com">Contact</a>
+            <a href="mailto:contact@havemoments.com">Contact</a>
           </nav>
         </footer>
       </div>

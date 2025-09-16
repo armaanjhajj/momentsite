@@ -11,6 +11,7 @@ const Onboard = React.lazy(() => import('./pages/Onboard'));
 const Me = React.lazy(() => import('./pages/Me'));
 const ProtectedRoute = React.lazy(() => import('./ProtectedRoute'));
 import About from './pages/About';
+import Waitlist from './pages/Waitlist';
 import './App.scss';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/waitlist" element={<Waitlist />} />
           <Route path="/manifesto" element={<Manifesto />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />

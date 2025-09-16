@@ -42,7 +42,7 @@ function Home() {
           <nav className="footer-nav">
             <Link to="/about">About</Link>
             <Link to="/jobs">Jobs</Link>
-            <Link to="/about">Waitlist</Link>
+            <Link to="/waitlist">Waitlist</Link>
           </nav>
         </header>
 
@@ -80,6 +80,7 @@ function Home() {
           <nav className="footer-nav">
             <Link to="/about">About</Link>
             <Link to="/jobs">Jobs</Link>
+            <Link to="/waitlist">Waitlist</Link>
             <Link to="/manifesto">Manifesto</Link>
             <Link to="/terms">Terms</Link>
             <Link to="/privacy">Privacy</Link>
