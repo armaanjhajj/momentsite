@@ -137,8 +137,8 @@ function Jobs() {
             <Link to="/jobs">Jobs</Link>
             <Link to="/waitlist">Waitlist</Link>
             <Link to="/manifesto">Manifesto</Link>
-            <Link to="/terms">Terms of Service</Link>
-            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms</Link>
+            <Link to="/privacy">Privacy</Link>
             <Link to="/consent">Consent</Link>
             <Link to="/login">Team</Link>
             <a href="mailto:contact@havemoments.com">Contact</a>
