@@ -41,3 +41,7 @@ coverage/
 
 # Vite cache
 .vite/
+DESIGN_SYSTEM_GUIDE.md
+src/styles/globals.css
+.gitignore
+src/styles/tokens.css
