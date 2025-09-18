@@ -13,6 +13,7 @@ const ProtectedRoute = React.lazy(() => import('./ProtectedRoute'));
 import About from './pages/About';
 import Waitlist from './pages/Waitlist';
 import QR1 from './pages/QR1';
+import QR2 from './pages/QR2';
 import './App.scss';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/onboard" element={<Onboard />} />
           <Route path="/me" element={<ProtectedRoute><Me /></ProtectedRoute>} />
           <Route path="/qr1" element={<QR1 />} />
+          <Route path="/qr2" element={<QR2 />} />
         </Routes>
       </React.Suspense>
     </Router>
