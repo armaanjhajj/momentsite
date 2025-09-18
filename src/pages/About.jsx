@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
 import phoneFrame from '../assets/apple-iphone-16-pro-max-2024-medium.png';
+import teaserVideo from '../assets/video.mp4';
 import '../App.scss';
 
 function About() {
@@ -66,6 +67,20 @@ function About() {
           </section>
         </main>
 
+        <section>
+          <YouTubeCard
+            videoSrc={teaserVideo}
+            ratio="16/9"
+            fit="contain"
+            scale={1}
+            autoPlay={false}
+            loop={false}
+            muted={false}
+            controls={true}
+            className="truly-borderless-video"
+          />
+        </section>
+
         <footer className="site-footer">
           <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
           <nav className="footer-nav">
@@ -85,5 +100,103 @@ function About() {
     </>
   );
 }
+
+function YouTubeCard({
+  videoId,
+  videoSrc,             // optional: if provided, render HTML5 <video>
+  ratio = "1/1",        // '16/9' | '4/3' | '1/1' | '9/16'
+  fit = "cover",         // 'contain' | 'cover'
+  rounded = "rounded-4xl",
+  scale = 1.15,          // zoom when fit='cover'
+  className = "",
+  // HTML5 video behavior (defaults: user-controlled playback)
+  autoPlay = false,
+  loop = false,
+  muted = false,
+  controls = true,
+}) {
+  const aspectMap = {
+    "16/9": "aspect-[16/9]",
+    "4/3": "aspect-[4/3]",
+    "1/1": "aspect-square",
+    "9/16": "aspect-[9/16]",
+  };
+
+  const src = videoId
+    ? `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&modestbranding=1&playsinline=1&color=white&showinfo=0&controls=0&iv_load_policy=3&fs=0&disablekb=1&autohide=1`
+    : undefined;
+  const coverStyle =
+    fit === "cover" ? { transform: `scale(${scale})`, transformOrigin: "center" } : undefined;
+  const iframeBleed = fit === "cover" ? 1 : 0; // 1px bleed only for cover
+  const iframePos = {
+    top: -iframeBleed,
+    left: -iframeBleed,
+    right: -iframeBleed,
+    bottom: -iframeBleed,
+    width: iframeBleed ? `calc(100% + ${iframeBleed * 2}px)` : '100%',
+    height: iframeBleed ? `calc(100% + ${iframeBleed * 2}px)` : '100%'
+  };
+
+  return (
+    <section className={`mx-auto max-w-7xl px-4 py-10 ${className}`}>
+      <div
+        className={`relative w-full ${aspectMap[ratio] ?? aspectMap["16/9"]} truly-borderless-video`}
+        style={{
+          borderRadius: '28px',
+          overflow: 'hidden',
+          background: 'transparent',
+          border: 'none',
+          boxShadow: 'none',
+          outline: 'none',
+        }}
+      >
+    {videoSrc ? (
+          <video
+            className="absolute truly-borderless-video-iframe"
+            style={{
+              ...(coverStyle ?? {}),
+              ...iframePos,
+              objectFit: fit,
+              border: 'none',
+              outline: 'none',
+              boxShadow: 'none',
+              background: 'transparent',
+              transform: `${coverStyle?.transform ?? ''} translateZ(0)`.trim(),
+              willChange: 'transform'
+            }}
+            src={videoSrc}
+      playsInline
+      muted={muted}
+      loop={loop}
+      autoPlay={autoPlay}
+      controls={controls}
+      preload="metadata"
+          />
+        ) : (
+          <iframe
+            className="absolute truly-borderless-video-iframe"
+            style={{
+              ...(coverStyle ?? {}),
+              ...iframePos,
+              border: 'none',
+              outline: 'none',
+              boxShadow: 'none',
+              background: 'transparent',
+              transform: `${coverStyle?.transform ?? ''} translateZ(0)`.trim(),
+              willChange: 'transform'
+            }}
+            src={src}
+            title="YouTube video"
+            frameBorder="0"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          />
+        )}
+      </div>
+    </section>
+  );
+}
+
 
 export default About;
