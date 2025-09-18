@@ -7,7 +7,30 @@ import logo from '../assets/logo.png';
 function Home() {
   const videoRef = React.useRef(null);
   const [muted, setMuted] = React.useState(true);
-  const [hover, setHover] = React.useState(false);
+  const rotatingBtnRef = React.useRef(null);
+  const [arcBg, setArcBg] = React.useState('');
+  // Rotating conic-gradient border animation
+  React.useEffect(() => {
+    let angle = 0;
+    let hue = 0;
+    let running = true;
+    function rotate() {
+      if (!running) return;
+      angle = (angle + 1) % 360;
+      hue = (hue + 2) % 360;
+      // Animate the arc color using HSL for smooth RGB cycling
+      const arc1 = `hsl(${hue}, 100%, 60%)`;
+      const arc2 = `hsl(${(hue + 30) % 360}, 100%, 60%)`;
+      const arc3 = `hsl(${(hue + 60) % 360}, 100%, 60%)`;
+      const arc4 = `hsl(${(hue + 90) % 360}, 100%, 60%)`;
+      const arc5 = `hsl(${(hue + 120) % 360}, 100%, 60%)`;
+      const bg = `linear-gradient(#181c23, #181c23) padding-box,conic-gradient(from ${angle}deg,${arc1} 0deg,${arc2} 12deg,${arc3} 24deg,${arc4} 36deg,${arc5} 48deg,transparent 60deg,transparent 360deg) border-box`;
+      setArcBg(bg);
+      requestAnimationFrame(rotate);
+    }
+    rotate();
+    return () => { running = false; };
+  }, []);
 
   React.useEffect(() => {
     const v = videoRef.current;
@@ -59,20 +82,53 @@ function Home() {
             controls={false}
           />
           <button
+            ref={rotatingBtnRef}
+            className="rotating"
             onClick={toggleAudio}
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
             aria-label={muted ? 'Enable sound' : 'Mute sound'}
             style={{
-              position: 'absolute', right: 16, bottom: 16, zIndex: 3,
-              background: hover ? '#fff' : '#000', color: hover ? '#000' : '#fff',
-              border: '1px solid #fff', borderRadius: 9999,
-              padding: '8px 12px', fontSize: 12, opacity: hover ? 1 : 0.85,
-              transition: 'all 160ms ease', cursor: 'pointer'
+              position: 'absolute',
+              right: 16,
+              bottom: 16,
+              background: arcBg
             }}
           >
-            {muted ? 'Sound On' : 'Mute'}
+            Sound On
           </button>
+          <style>{`
+            .rotating {
+              padding: 8px 12px;
+              border-radius: 9999px;
+              outline: none;
+              background:
+                linear-gradient(#181c23, #181c23) padding-box,
+                conic-gradient(
+                  from var(--angle, 0),
+                  var(--arc1, #ff0055) 0deg,
+                  var(--arc2, #00c8ff) 12deg,
+                  var(--arc3, #00ff99) 24deg,
+                  var(--arc4, #ffe600) 36deg,
+                  var(--arc5, #ff0055) 48deg,
+                  transparent 60deg,
+                  transparent 360deg
+                ) border-box;
+              border: 3px solid transparent;
+              color: #fff;
+              font-size: 12px;
+              font-weight: 600;
+              cursor: pointer;
+              box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+              transition: transform 0.18s cubic-bezier(.4,2,.6,1), filter 0.18s;
+              z-index: 1000;
+              position: absolute;
+              right: 16px;
+              bottom: 16px;
+            }
+            .rotating:hover {
+              transform: scale(1.03);
+              filter: brightness(1.2);
+            }
+          `}</style>
         </main>
 
         <footer className="site-footer" style={{ background: 'rgba(255,255,255,0.7)' }}>
