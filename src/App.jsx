@@ -12,6 +12,7 @@ const Me = React.lazy(() => import('./pages/Me'));
 const ProtectedRoute = React.lazy(() => import('./ProtectedRoute'));
 import About from './pages/About';
 import Waitlist from './pages/Waitlist';
+import QR1 from './pages/QR1';
 import './App.scss';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/onboard" element={<Onboard />} />
           <Route path="/me" element={<ProtectedRoute><Me /></ProtectedRoute>} />
+          <Route path="/qr1" element={<QR1 />} />
         </Routes>
       </React.Suspense>
     </Router>

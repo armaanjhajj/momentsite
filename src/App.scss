@@ -2214,3 +2214,116 @@ button, .match-cta, .moment-cta, .action-btn {
   align-items: center;
   gap: 12px;
 }
+
+/* QR1 Page Styles */
+.qr1-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 4rem;
+  min-height: calc(100vh - 200px);
+  background: #fff;
+}
+
+.qr1-container {
+  max-width: 800px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.video-container {
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 16px;
+}
+
+.cta-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.join-waitlist-btn {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 20px 40px;
+  border: 3px solid #000;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  min-width: 200px;
+  text-align: center;
+
+  &:hover {
+    background: #fff;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.launch-date {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #666;
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .qr1-content {
+    padding: 1rem 0 2rem;
+  }
+  
+  .qr1-container {
+    width: 95%;
+    gap: 2rem;
+  }
+  
+  .video-container {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  
+  .video-container iframe {
+    border-radius: 12px;
+  }
+  
+  .join-waitlist-btn {
+    font-size: 1.25rem;
+    padding: 16px 32px;
+    min-width: 180px;
+  }
+  
+  .launch-date {
+    font-size: 1rem;
+  }
+}
