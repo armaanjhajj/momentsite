@@ -2386,6 +2386,11 @@ button, .match-cta, .moment-cta, .action-btn {
 
 .countdown-item:nth-child(4) {
   background: #8A0BFF;
+  
+  .countdown-value,
+  .countdown-unit {
+    color: #FFFFFF;
+  }
 }
 
 .countdown-value {
