@@ -39,6 +39,7 @@ function QR1() {
         <header className="site-header qr1-header">
           <div className="qr1-logo-container">
             <img className="brand-logo qr1-logo" src={logo} alt="moments logo" decoding="async" loading="eager" />
+            <span className="newark-text">coming to newark 10/1</span>
           </div>
         </header>
 

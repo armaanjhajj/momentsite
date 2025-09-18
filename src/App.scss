@@ -2224,12 +2224,23 @@ button, .match-cta, .moment-cta, .action-btn {
 .qr1-logo-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
+  gap: 1rem;
 }
 
 .qr1-logo {
   height: 50px;
   width: 50px;
+}
+
+.newark-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  color: #8A0BFF;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
 }
 
 .qr1-content {
@@ -2282,8 +2293,8 @@ button, .match-cta, .moment-cta, .action-btn {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: 1.5rem;
-  color: #fff;
-  background-color: #000;
+  color: #000;
+  background: linear-gradient(135deg, #23FF1E 0%, #FF15BE 50%, #1FCFFF 100%);
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -2296,18 +2307,17 @@ button, .match-cta, .moment-cta, .action-btn {
   text-align: center;
 
   &:hover {
-    background: #fff;
-    color: #000;
+    background: linear-gradient(135deg, #FF15BE 0%, #8A0BFF 50%, #23FF1E 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(138, 11, 255, 0.3);
   }
 }
 
 .launch-date {
   font-family: 'Roboto', sans-serif;
   font-size: 1.125rem;
-  font-weight: 500;
-  color: #666;
+  font-weight: 900;
+  color: #FF15BE;
   margin: 0;
   text-align: center;
   text-transform: lowercase;
@@ -2316,8 +2326,8 @@ button, .match-cta, .moment-cta, .action-btn {
 .waitlist-requirement {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
-  font-weight: 400;
-  color: #666;
+  font-weight: 900;
+  color: #1FCFFF;
   margin: 0;
   text-align: center;
   text-transform: lowercase;
@@ -2334,6 +2344,12 @@ button, .match-cta, .moment-cta, .action-btn {
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
+  background: linear-gradient(135deg, #23FF1E, #FF15BE, #1FCFFF, #8A0BFF);
+  background-size: 300% 300%;
+  animation: gradientShift 3s ease infinite;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid #000;
 }
 
 .countdown-value {
@@ -2347,9 +2363,15 @@ button, .match-cta, .moment-cta, .action-btn {
 .countdown-unit {
   font-family: 'Roboto', sans-serif;
   font-size: 0.875rem;
-  font-weight: 500;
-  color: #666;
+  font-weight: 900;
+  color: #000;
   text-transform: lowercase;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @media (max-width: 767px) {
@@ -2364,6 +2386,10 @@ button, .match-cta, .moment-cta, .action-btn {
   
   .video-container {
     max-width: 100%;
+  }
+  
+  .newark-text {
+    font-size: 1rem;
   }
   
   .join-waitlist-btn {
@@ -2382,6 +2408,12 @@ button, .match-cta, .moment-cta, .action-btn {
   
   .countdown-container {
     gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .countdown-item {
+    padding: 0.75rem;
   }
   
   .countdown-value {
