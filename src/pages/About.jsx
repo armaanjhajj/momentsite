@@ -34,8 +34,8 @@ function About() {
             </ul>
 
             <div style={{ display: 'flex', gap: 12, marginTop: 24 }}>
-              <Link to="/waitlist" className="manifesto-link" style={{ borderColor: '#000', color: '#000' }}>Join Waitlist</Link>
-              <Link to="/jobs" className="manifesto-link" style={{ borderColor: '#000', color: '#000' }}>Jobs</Link>
+              <Link to="/waitlist" className="manifesto-link" style={{ borderColor: '#000' }}>Join Waitlist</Link>
+              <Link to="/jobs" className="manifesto-link" style={{ borderColor: '#000' }}>Jobs</Link>
             </div>
           </section>
 
