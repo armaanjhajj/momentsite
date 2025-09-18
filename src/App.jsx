@@ -12,6 +12,7 @@ const Me = React.lazy(() => import('./pages/Me'));
 const ProtectedRoute = React.lazy(() => import('./ProtectedRoute'));
 import About from './pages/About';
 import Waitlist from './pages/Waitlist';
+import NWK from './pages/NWK';
 import './App.scss';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/waitlist" element={<Waitlist />} />
+          <Route path="/nwk" element={<NWK />} />
           <Route path="/manifesto" element={<Manifesto />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<Privacy />} />
