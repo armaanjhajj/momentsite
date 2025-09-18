@@ -12,7 +12,7 @@ function QR1() {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2024-10-01T00:00:00').getTime();
+    const targetDate = new Date('2025-10-01T00:00:00').getTime();
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -61,23 +61,23 @@ function QR1() {
               <Link to="/waitlist" className="join-waitlist-btn">
                 Join Waitlist
               </Link>
-              <p className="launch-date">launching october 1st</p>
+              <p className="launch-date">launching october 1st 2025</p>
               <p className="waitlist-requirement">must be on waitlist to access app</p>
               <div className="countdown-container">
                 <div className="countdown-item">
-                  <span className="countdown-value">{timeLeft.days}</span>
+                  <span className="countdown-value">{String(timeLeft.days).padStart(2, '0')}</span>
                   <span className="countdown-unit">days</span>
                 </div>
                 <div className="countdown-item">
-                  <span className="countdown-value">{timeLeft.hours}</span>
+                  <span className="countdown-value">{String(timeLeft.hours).padStart(2, '0')}</span>
                   <span className="countdown-unit">hours</span>
                 </div>
                 <div className="countdown-item">
-                  <span className="countdown-value">{timeLeft.minutes}</span>
+                  <span className="countdown-value">{String(timeLeft.minutes).padStart(2, '0')}</span>
                   <span className="countdown-unit">minutes</span>
                 </div>
                 <div className="countdown-item">
-                  <span className="countdown-value">{timeLeft.seconds}</span>
+                  <span className="countdown-value">{String(timeLeft.seconds).padStart(2, '0')}</span>
                   <span className="countdown-unit">seconds</span>
                 </div>
               </div>
