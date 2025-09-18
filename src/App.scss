@@ -2238,9 +2238,24 @@ button, .match-cta, .moment-cta, .action-btn {
   font-family: 'Roboto', sans-serif;
   font-weight: 900;
   font-size: 1.25rem;
-  color: #8A0BFF;
   text-transform: lowercase;
   letter-spacing: 0.02em;
+}
+
+.word-coming {
+  color: #23FF1E;
+}
+
+.word-to {
+  color: #FF15BE;
+}
+
+.word-newark {
+  color: #1FCFFF;
+}
+
+.word-date {
+  color: #8A0BFF;
 }
 
 .qr1-content {
@@ -2294,7 +2309,7 @@ button, .match-cta, .moment-cta, .action-btn {
   font-weight: 900;
   font-size: 1.5rem;
   color: #000;
-  background: linear-gradient(135deg, #23FF1E 0%, #FF15BE 50%, #1FCFFF 100%);
+  background: #23FF1E;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -2307,9 +2322,9 @@ button, .match-cta, .moment-cta, .action-btn {
   text-align: center;
 
   &:hover {
-    background: linear-gradient(135deg, #FF15BE 0%, #8A0BFF 50%, #23FF1E 100%);
+    background: #FF15BE;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(138, 11, 255, 0.3);
+    box-shadow: 0 8px 24px rgba(255, 21, 190, 0.3);
   }
 }
 
@@ -2344,12 +2359,25 @@ button, .match-cta, .moment-cta, .action-btn {
   flex-direction: column;
   align-items: center;
   gap: 0.25rem;
-  background: linear-gradient(135deg, #23FF1E, #FF15BE, #1FCFFF, #8A0BFF);
-  background-size: 300% 300%;
-  animation: gradientShift 3s ease infinite;
   padding: 1rem;
   border-radius: 8px;
   border: 2px solid #000;
+}
+
+.countdown-item:nth-child(1) {
+  background: #23FF1E;
+}
+
+.countdown-item:nth-child(2) {
+  background: #FF15BE;
+}
+
+.countdown-item:nth-child(3) {
+  background: #1FCFFF;
+}
+
+.countdown-item:nth-child(4) {
+  background: #8A0BFF;
 }
 
 .countdown-value {
@@ -2366,12 +2394,6 @@ button, .match-cta, .moment-cta, .action-btn {
   font-weight: 900;
   color: #000;
   text-transform: lowercase;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 @media (max-width: 767px) {
