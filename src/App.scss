@@ -2240,6 +2240,10 @@ button, .match-cta, .moment-cta, .action-btn {
   font-size: 1.25rem;
   text-transform: lowercase;
   letter-spacing: 0.02em;
+  background: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #000;
 }
 
 .word-coming {
@@ -2412,6 +2416,7 @@ button, .match-cta, .moment-cta, .action-btn {
   
   .newark-text {
     font-size: 1rem;
+    padding: 0.4rem 0.8rem;
   }
   
   .join-waitlist-btn {
