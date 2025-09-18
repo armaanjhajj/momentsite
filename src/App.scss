@@ -90,16 +90,11 @@ button, .match-cta, .moment-cta, .action-btn {
 }
 
 .App {
-  min-height: calc(100vh - 32px);
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  color: $brand-text;
+  color: #000;
   position: relative;
-  border-radius: 0;
-  border: none;
-  max-width: 1400px;
-  margin: 0 auto;
-  overflow: hidden;
   z-index: 1;
 }
 
@@ -186,19 +181,21 @@ button, .match-cta, .moment-cta, .action-btn {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   font-size: 1.125rem;
-  color: $brand-text;
+  color: #fff;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 12px 24px;
-  border: 2px solid $brand-text;
+  border: 2px solid #000;
   border-radius: 32px;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-  background: transparent;
 
   &:hover {
-    background: $brand-text;
-    color: $white;
+    background: #fff;
+    color: #000;
+    transform: translateY(-2px);
+    box-shadow: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  background: transparent;
   }
 }
 
@@ -814,9 +811,9 @@ button, .match-cta, .moment-cta, .action-btn {
 
 .match-cta {
   font-family: 'Roboto', sans-serif;
-  background: $white;
-  color: $brand-text;
-  border: 0;
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
   border-radius: 12px;
   padding: 8px 16px;
   font-size: 12px;
@@ -824,6 +821,12 @@ button, .match-cta, .moment-cta, .action-btn {
   cursor: pointer;
   align-self: flex-start;
   margin-top: 8px;
+  transition: all 0.3s ease;
+}
+
+.match-cta:hover {
+  background: #fff;
+  color: #000;
 }
 
 .match-avatar-score {
@@ -946,9 +949,9 @@ button, .match-cta, .moment-cta, .action-btn {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  border: 0;
-  background: $brand-text;
-  color: $white;
+  border: 2px solid #000;
+  background: #000;
+  color: #fff;
   font-size: 16px;
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
@@ -956,6 +959,12 @@ button, .match-cta, .moment-cta, .action-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  background: #fff;
+  color: #000;
 }
 
 .confirmed-meeting {
@@ -1113,19 +1122,20 @@ button, .match-cta, .moment-cta, .action-btn {
 
 .moment-cta {
   font-family: 'Roboto', sans-serif;
-  background: $white;
-  color: $brand-text;
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: #000;
+  color: #fff;
+  border: 2px solid #000;
   border-radius: 12px;
   padding: 8px 16px;
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .moment-cta:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: #fff;
+  color: #000;
   transform: scale(1.02);
 }
 
@@ -1140,7 +1150,7 @@ button, .match-cta, .moment-cta, .action-btn {
   gap: 1rem;
   border-top: none;
   font-size: 0.875rem;
-  color: #71717a;
+  color: #666;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
@@ -1168,7 +1178,7 @@ button, .match-cta, .moment-cta, .action-btn {
 
 .footer-nav a {
   font-family: 'Roboto', sans-serif;
-  color: rgba(113, 113, 122, 0.9);
+  color: #666;
   text-decoration: none;
   transition: all 0.3s ease;
   padding: 0.5rem 1rem;
@@ -1179,10 +1189,11 @@ button, .match-cta, .moment-cta, .action-btn {
 }
 
 .footer-nav a:hover {
-  color: $brand-text;
+  color: #000;
   text-decoration: none;
-  background: rgba(0,0,0,0.06);
+  background: rgba(0, 0, 0, 0.05);
   box-shadow: none;
+  transform: translateY(-1px);
 }
 
 .manifesto-page {
@@ -1937,32 +1948,31 @@ button, .match-cta, .moment-cta, .action-btn {
   align-items: center;
   padding: 2rem 0 4rem;
   min-height: calc(100vh - 100px);
-  background: transparent;
+  background: #fff;
 }
 
 .legal-container {
   max-width: 800px;
   width: 90%;
-  background: $white;
-  backdrop-filter: blur(10px);
-  border-radius: 2rem;
+  background: transparent;
+  backdrop-filter: none;
+  border-radius: 0;
   padding: 3rem;
   box-shadow: none;
-  border: 1px solid #e5e5e5;
 }
 
 .legal-container h1 {
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
   font-weight: 700;
-  color: $brand-text;
+  color: #000;
   margin-bottom: 0.5rem;
   text-align: center;
 }
 
 .last-updated {
   text-align: center;
-  color: #71717a;
+  color: #666;
   font-size: 0.875rem;
   margin-bottom: 3rem;
   font-style: italic;
@@ -1976,9 +1986,9 @@ button, .match-cta, .moment-cta, .action-btn {
   font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
-  color: $brand-text;
+  color: #000;
   margin-bottom: 1rem;
-  border-bottom: 2px solid $primary-color;
+  border-bottom: 2px solid #000;
   padding-bottom: 0.5rem;
 }
 
@@ -1986,7 +1996,7 @@ button, .match-cta, .moment-cta, .action-btn {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  color: $brand-text;
+  color: #333;
   margin-bottom: 1rem;
 }
 
@@ -1999,25 +2009,48 @@ button, .match-cta, .moment-cta, .action-btn {
   font-family: 'Roboto', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  color: $brand-text;
+  color: #333;
   margin-bottom: 0.5rem;
 }
 
-.legal-container a {
-  color: $primary-color;
+.legal-container a:not(.back-home) {
+  color: #000;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.legal-container a:hover {
-  color: $accent-color;
+.legal-container a:not(.back-home):hover {
+  color: #666;
   text-decoration: underline;
 }
 
+/* Minimalist form inputs */
+.legal-container input[type="text"],
+.legal-container input[type="email"],
+.legal-container input[type="tel"] {
+  background: transparent;
+  border: 2px solid #000;
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+}
+
+.legal-container input[type="text"]::placeholder,
+.legal-container input[type="email"]::placeholder,
+.legal-container input[type="tel"]::placeholder {
+  color: #666;
+}
+
+.legal-container input[type="text"]:focus,
+.legal-container input[type="email"]:focus,
+.legal-container input[type="tel"]:focus {
+  outline: none;
+  border-color: #333;
+}
+
 .consent-box {
-  background: rgba(59, 130, 246, 0.1);
-  border: 2px solid rgba(59, 130, 246, 0.3);
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 1rem;
   padding: 1.5rem;
   margin: 1.5rem 0;
@@ -2026,6 +2059,7 @@ button, .match-cta, .moment-cta, .action-btn {
 
 .consent-box p {
   margin-bottom: 0.75rem;
+  color: #000;
 }
 
 .consent-box p:last-child {
@@ -2036,22 +2070,23 @@ button, .match-cta, .moment-cta, .action-btn {
   text-align: center;
   margin-top: 3rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(113, 113, 122, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .back-home {
   display: inline-block;
-  background: $brand-text;
-  color: $white;
+  background: #000;
+  color: #fff;
   padding: 0.75rem 1.5rem;
   border-radius: 2rem;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  border: 2px solid $brand-text;
+  border: 2px solid #000;
 }
 
 .back-home:hover {
+  transform: translateY(-2px);
   background: $white;
   color: $brand-text;
   box-shadow: none;

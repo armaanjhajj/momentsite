@@ -40,6 +40,9 @@ function Jobs() {
                   <li>Support newsletters and email campaigns</li>
                 </ul>
                 <p><strong>Ideal profile:</strong> Social-first thinker who understands growth mechanics.</p>
+                <div style={{ marginTop: '16px', textAlign: 'center' }}>
+                  <a href="mailto:intern@havemoments.com?subject=Digital Marketing Internship" className="back-home">Apply</a>
+                </div>
               </div>
 
               <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
@@ -52,6 +55,9 @@ function Jobs() {
                   <li>Collect quick feedback during tabling</li>
                 </ul>
                 <p><strong>Ideal profile:</strong> Clear communicator who enjoys speaking with students.</p>
+                <div style={{ marginTop: '16px', textAlign: 'center' }}>
+                  <a href="mailto:intern@havemoments.com?subject=Field Operations Internship" className="back-home">Apply</a>
+                </div>
               </div>
 
               <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
@@ -137,8 +143,8 @@ function Jobs() {
             <Link to="/jobs">Jobs</Link>
             <Link to="/waitlist">Waitlist</Link>
             <Link to="/manifesto">Manifesto</Link>
-            <Link to="/terms">Terms of Service</Link>
-            <Link to="/privacy">Privacy Policy</Link>
+            <Link to="/terms">Terms</Link>
+            <Link to="/privacy">Privacy</Link>
             <Link to="/consent">Consent</Link>
             <Link to="/login">Team</Link>
             <a href="mailto:contact@havemoments.com">Contact</a>

@@ -27,7 +27,7 @@ function Waitlist() {
               <form className="launchlist-form" action="https://getlaunchlist.com/s/PS7heZ" method="POST" style={{ display: 'grid', gap: 12 }}>
                 <input name="name" type="text" placeholder="Name" style={{ padding: '12px 14px', borderRadius: 12, border: '1px solid #e5e5e5' }} />
                 <input name="email" type="email" placeholder="Email (required)" required style={{ padding: '12px 14px', borderRadius: 12, border: '1px solid #e5e5e5' }} />
-                <button type="submit" className="manifesto-link" style={{ borderColor: '#000', color: '#000', alignSelf: 'start' }}>Sign Up</button>
+                <button type="submit" className="manifesto-link" style={{ borderColor: '#000',  alignSelf: 'start' }}>Sign Up</button>
               </form>
             </section>
 
