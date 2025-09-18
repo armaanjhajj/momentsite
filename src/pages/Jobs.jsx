@@ -70,6 +70,9 @@ function Jobs() {
                   <li>Maintain a structured contact log for follow-ups</li>
                 </ul>
                 <p><strong>Ideal profile:</strong> Organized networker with campus relationships.</p>
+                <div style={{ marginTop: '16px', textAlign: 'center' }}>
+                  <a href="mailto:intern@havemoments.com?subject=Marketing Outreach Internship" className="back-home">Apply</a>
+                </div>
               </div>
 
               <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
@@ -82,6 +85,9 @@ function Jobs() {
                   <li>Explore content formats optimized for sharing</li>
                 </ul>
                 <p><strong>Ideal profile:</strong> Portfolio demonstrating clean, consistent brand work.</p>
+                <div style={{ marginTop: '16px', textAlign: 'center' }}>
+                  <a href="mailto:intern@havemoments.com?subject=Design Internship" className="back-home">Apply</a>
+                </div>
               </div>
 
               <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
@@ -94,6 +100,9 @@ function Jobs() {
                   <li>Assist with the launch video</li>
                 </ul>
                 <p><strong>Ideal profile:</strong> Strong eye for narrative and motion.</p>
+                <div style={{ marginTop: '16px', textAlign: 'center' }}>
+                  <a href="mailto:intern@havemoments.com?subject=Film & Photography Internship" className="back-home">Apply</a>
+                </div>
               </div>
 
               <div style={{ border: '1px solid #e5e5e5', borderRadius: 12, padding: 16 }}>
@@ -106,6 +115,9 @@ function Jobs() {
                   <li>Explore wearable/NFC prototypes</li>
                 </ul>
                 <p><strong>Ideal profile:</strong> Builder who ships, tests, and iterates quickly.</p>
+                <div style={{ marginTop: '16px', textAlign: 'center' }}>
+                  <a href="mailto:intern@havemoments.com?subject=Engineering Internship" className="back-home">Apply</a>
+                </div>
               </div>
             </section>
 
