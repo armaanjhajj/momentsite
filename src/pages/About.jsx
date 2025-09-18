@@ -42,22 +42,25 @@ function About() {
           <section style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'center' }}>
             <div style={{ position: 'relative', width: 420, maxWidth: '100%' }}>
               <img src={phoneFrame} alt="iPhone frame" style={{ width: '100%', height: 'auto', display: 'block' }} />
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '50%', left: '50%', transform: 'translate(-50%, -50%)',
-                  width: '68%',
-                  background: '#fff',
-                  border: '1px solid #e5e5e5',
-                  borderRadius: 24,
-                  padding: '24px 18px',
-                  textAlign: 'center',
-                  boxShadow: '0 8px 20px rgba(0,0,0,0.08)'
-                }}
-              >
-                <div style={{ fontWeight: 700, marginBottom: 6 }}>alex in your econ class</div>
-                <div style={{ fontSize: 14, color: '#3f3f46', marginBottom: 10 }}>both listen to Ken Carson + love raving</div>
-                <div style={{ fontSize: 13, color: '#111', border: '1px solid #111', borderRadius: 9999, display: 'inline-block', padding: '6px 10px' }}>Meet at the business building • 5:45 PM</div>
+              <div style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)', width: '76%' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 12, color: '#111', marginBottom: 8 }}>
+                  <span>9:27</span>
+                  <span>
+                    <span style={{ marginRight: 8 }}>Wi‑Fi</span>
+                    <span>100%</span>
+                  </span>
+                </div>
+                <div style={{ background: '#fff', border: '1px solid #e5e5e5', borderRadius: 24, padding: '18px 16px', textAlign: 'left', boxShadow: '0 8px 18px rgba(0,0,0,0.06)' }}>
+                  <div style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '.06em', color: '#111', marginBottom: 6 }}>alex</div>
+                  <div style={{ fontWeight: 700, marginBottom: 4 }}>in your econ class</div>
+                  <div style={{ fontSize: 13, color: '#3f3f46', marginBottom: 12 }}>both listen to Ken Carson + love raving</div>
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#111', border: '1px solid #111', borderRadius: 9999, padding: '6px 10px' }}>
+                    <span>business building</span>
+                    <span>•</span>
+                    <span>5:45 PM</span>
+                  </div>
+                </div>
+                <div style={{ height: 6, width: 120, background: '#e5e5e5', borderRadius: 9999, margin: '18px auto 0' }} />
               </div>
             </div>
           </section>
