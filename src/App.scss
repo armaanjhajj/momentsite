@@ -2216,6 +2216,22 @@ button, .match-cta, .moment-cta, .action-btn {
 }
 
 /* QR1 Page Styles */
+.qr1-header {
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+.qr1-logo-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.qr1-logo {
+  height: 80px;
+  width: 80px;
+}
+
 .qr1-content {
   flex: 1;
   display: flex;
@@ -2228,8 +2244,8 @@ button, .match-cta, .moment-cta, .action-btn {
 }
 
 .qr1-container {
-  max-width: 800px;
-  width: 90%;
+  max-width: 90vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2238,12 +2254,11 @@ button, .match-cta, .moment-cta, .action-btn {
 
 .video-container {
   width: 100%;
-  max-width: 560px;
+  max-width: 90vw;
   position: relative;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
   height: 0;
   overflow: hidden;
-  border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
@@ -2254,7 +2269,6 @@ button, .match-cta, .moment-cta, .action-btn {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 16px;
 }
 
 .cta-section {
@@ -2275,7 +2289,7 @@ button, .match-cta, .moment-cta, .action-btn {
   letter-spacing: 0.06em;
   padding: 20px 40px;
   border: 3px solid #000;
-  border-radius: 16px;
+  border-radius: 0;
   transition: all 0.3s ease;
   display: inline-block;
   min-width: 200px;
@@ -2296,6 +2310,46 @@ button, .match-cta, .moment-cta, .action-btn {
   color: #666;
   margin: 0;
   text-align: center;
+  text-transform: lowercase;
+}
+
+.waitlist-requirement {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+  margin: 0;
+  text-align: center;
+  text-transform: lowercase;
+}
+
+.countdown-container {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.countdown-value {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #000;
+  line-height: 1;
+}
+
+.countdown-unit {
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #666;
+  text-transform: lowercase;
 }
 
 @media (max-width: 767px) {
@@ -2310,11 +2364,6 @@ button, .match-cta, .moment-cta, .action-btn {
   
   .video-container {
     max-width: 100%;
-    border-radius: 12px;
-  }
-  
-  .video-container iframe {
-    border-radius: 12px;
   }
   
   .join-waitlist-btn {
@@ -2325,5 +2374,21 @@ button, .match-cta, .moment-cta, .action-btn {
   
   .launch-date {
     font-size: 1rem;
+  }
+  
+  .waitlist-requirement {
+    font-size: 0.9rem;
+  }
+  
+  .countdown-container {
+    gap: 1rem;
+  }
+  
+  .countdown-value {
+    font-size: 1.5rem;
+  }
+  
+  .countdown-unit {
+    font-size: 0.75rem;
   }
 }
