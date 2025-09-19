@@ -32,12 +32,12 @@ function Waitlist() {
             </section>
 
             <section>
-              <h2>Leaderboard</h2>
-              <div style={{ height: '60vh', borderRadius: 16, overflow: 'hidden', border: '1px solid #e5e5e5' }}>
+              <div className="leaderboard-wrapper">
+                <h2>Leaderboard</h2>
                 <iframe
                   scrolling="yes"
                   src="https://getlaunchlist.com/w/e/PS7heZ/leaderboard"
-                  style={{ width: '100%', display: 'block', border: 'none', height: '100%' }}
+                  className="leaderboard-iframe"
                   title="Waitlist Leaderboard"
                 />
               </div>
