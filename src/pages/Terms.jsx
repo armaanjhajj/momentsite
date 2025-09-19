@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import '../App.scss';
 
 function Terms() {
@@ -10,8 +11,8 @@ function Terms() {
           <Link to="/" className="brand">
             <img
               className="brand-logo"
-              src="https://i.imgur.com/WZvHbcj.png"
-              alt="moments asterisk"
+              src={logo}
+              alt="moments logo"
               decoding="async"
               loading="eager"
             />
@@ -22,17 +23,7 @@ function Terms() {
           <div className="legal-container">
             <h1>Terms of Service</h1>
             <p className="last-updated">Last updated: {new Date().toLocaleDateString()}</p>
-            
-            <section>
-              <h2>1. Acceptance of Terms</h2>
-              <p>By accessing and using the Moments application ("Service"), you accept and agree to be bound by the terms and provision of this agreement.</p>
-            </section>
-
-            <section>
-              <h2>2. Description of Service</h2>
-              <p>Moments is an in-person social networking application that connects users based on shared interests and proximity. The Service facilitates real-world connections through digital matching and event coordination.</p>
-            </section>
-
+          {/* Footer moved to global Footer component */}
             <section>
               <h2>3. User Accounts</h2>
               <p>To use certain features of the Service, you must create an account. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.</p>
@@ -91,17 +82,7 @@ function Terms() {
           </div>
         </main>
 
-        <footer className="site-footer">
-          <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
-          <nav className="footer-nav">
-            <Link to="/">Home</Link>
-            <Link to="/terms">Terms of Service</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/consent">Consent</Link>
-            <Link to="/jobs">Jobs</Link>
-            <a href="mailto:makemomentsapp@gmail.com">Contact</a>
-          </nav>
-        </footer>
+        {/* Footer moved to global Footer component (rendered from App.jsx) */}
       </div>
     </>
   );

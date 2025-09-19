@@ -87,17 +87,7 @@ export default function Login() {
         </div>
       </main>
 
-      <footer className="site-footer">
-        <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
-        <nav className="footer-nav">
-          <Link to="/">Home</Link>
-          <Link to="/terms">Terms of Service</Link>
-          <Link to="/privacy">Privacy Policy</Link>
-          <Link to="/consent">Consent</Link>
-          <Link to="/jobs">Jobs</Link>
-          <a href="mailto:makemomentsapp@gmail.com">Contact</a>
-        </nav>
-      </footer>
+      {/* Footer moved to global Footer component (rendered from App.jsx) */}
     </div>
   );
 }

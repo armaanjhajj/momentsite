@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png';
 import '../App.scss';
 
 function Privacy() {
@@ -10,8 +11,8 @@ function Privacy() {
           <Link to="/" className="brand">
             <img
               className="brand-logo"
-              src="https://i.imgur.com/WZvHbcj.png"
-              alt="moments asterisk"
+              src={logo}
+              alt="moments logo"
               decoding="async"
               loading="eager"
             />
@@ -22,18 +23,6 @@ function Privacy() {
           <div className="legal-container">
             <h1>Privacy Policy</h1>
             <p className="last-updated">Last updated: {new Date().toLocaleDateString()}</p>
-            
-            <section>
-              <h2>1. Information We Collect</h2>
-              <p>We collect information you provide directly to us, such as when you create an account, complete your profile, or communicate with us. This may include:</p>
-              <ul>
-                <li>Name, email address, and phone number</li>
-                <li>Profile information and interests</li>
-                <li>Location data (with your consent)</li>
-                <li>Communication preferences</li>
-                <li>Usage data and analytics</li>
-              </ul>
-            </section>
 
             <section>
               <h2>2. How We Use Your Information</h2>
@@ -121,17 +110,7 @@ function Privacy() {
           </div>
         </main>
 
-        <footer className="site-footer">
-          <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
-          <nav className="footer-nav">
-            <Link to="/">Home</Link>
-            <Link to="/terms">Terms of Service</Link>
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/consent">Consent</Link>
-            <Link to="/jobs">Jobs</Link>
-            <a href="mailto:makemomentsapp@gmail.com">Contact</a>
-          </nav>
-        </footer>
+        {/* Footer moved to global Footer component */}
       </div>
     </>
   );

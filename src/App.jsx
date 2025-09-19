@@ -15,11 +15,12 @@ import Waitlist from './pages/Waitlist';
 import QR1 from './pages/QR1';
 import QR2 from './pages/QR2';
 import './App.scss';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <Router>
-      <React.Suspense fallback={null}>
+  <React.Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -36,6 +37,8 @@ function App() {
           <Route path="/qr2" element={<QR2 />} />
         </Routes>
       </React.Suspense>
+      {/* Site footer with embedded logo */}
+      <Footer />
     </Router>
   );
 }

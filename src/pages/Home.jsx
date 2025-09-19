@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../App.scss';
 import heroVideo from '../assets/video.mp4';
 import logo from '../assets/logo.png';
+import Logo from '../components/Logo';
 
 function Home() {
   const videoRef = React.useRef(null);
@@ -111,18 +112,7 @@ function Home() {
           `}</style>
         </main>
 
-        <footer className="site-footer" style={{ background: 'rgba(255,255,255,0.7)' }}>
-          <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
-          <nav className="footer-nav">
-            <Link to="/about">About</Link>
-            <Link to="/jobs">Jobs</Link>
-            <Link to="/waitlist">Waitlist</Link>
-            <Link to="/terms">Terms</Link>
-            <Link to="/privacy">Privacy</Link>
-            <Link to="/consent">Consent</Link>
-            <a href="mailto:contact@havemoments.com">Contact</a>
-          </nav>
-        </footer>
+        {/* Footer moved to global Footer component (rendered from App.jsx) */}
       </div>
     </>
   );
