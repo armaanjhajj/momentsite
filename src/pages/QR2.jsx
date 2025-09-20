@@ -67,6 +67,15 @@ function QR2() {
               <Link to="/waitlist" className="join-waitlist-btn">
                 Join Waitlist
               </Link>
+              <a 
+                href="https://www.instagram.com/letsmakemoments?igsh=bmVvdjgwMDF3dnd5&utm_source=qr" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="instagram-btn"
+                aria-label="Follow us on Instagram"
+              >
+                Follow on Instagram
+              </a>
               <p className="launch-date">launching october 1st 2025</p>
               <p className="waitlist-requirement">must be on waitlist to access app</p>
               <div className="countdown-container">
