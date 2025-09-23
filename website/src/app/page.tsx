@@ -9,13 +9,8 @@ export default function Home() {
             Rewind missed connections. Meet the people around you.
           </h1>
           <p className="mt-5 text-lg md:text-xl text-white/80 max-w-2xl">
-            Moments helps students turn chance encounters into real connections. See who’s nearby, bump to rewind a missed moment, and join your campus community.
+            We’re building a social app that rewinds missed connections in real time and gets people meeting spontaneously. Discover and join public events on campus. Bump people around you and meet them on the spot. Post funny updates for all your friends to see or share it with the world. Launching exclusively at Rutgers.
           </p>
-          <div className="mt-7 flex flex-col sm:flex-row gap-3">
-            <button className="focus-accent rounded-full px-5 py-3 bg-white text-black border border-transparent hover:bg-[var(--accent)] hover:text-black transition">
-              Download on the App Store
-            </button>
-          </div>
         </div>
       </section>
 
