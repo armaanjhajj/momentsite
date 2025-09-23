@@ -19,20 +19,20 @@ export default function Home() {
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-white/10 p-4 bg-white/5 backdrop-blur">
             <div className="text-sm uppercase tracking-[0.18em] text-white/60">Nearby</div>
-            <div className="mt-3 rounded-xl border border-white/10 p-5 min-h-[220px] flex items-center text-white/80">
-              See who’s nearby with shared interests. Open to connect, right now.
+            <div className="mt-3 rounded-xl overflow-hidden border border-white/10 relative aspect-[9/16]">
+              <img src="/cards/nearbycard.png" alt="Nearby" className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="rounded-2xl border border-white/10 p-4 bg-white/5 backdrop-blur">
             <div className="text-sm uppercase tracking-[0.18em] text-white/60">Events</div>
-            <div className="mt-3 rounded-xl border border-white/10 p-5 min-h-[220px] flex items-center text-white/80">
-              Host and join campus events in seconds — study sessions, pickup games, open mics.
+            <div className="mt-3 rounded-xl overflow-hidden border border-white/10 relative aspect-[9/16]">
+              <img src="/cards/eventscard.png" alt="Events" className="w-full h-full object-cover" />
             </div>
           </div>
           <div className="rounded-2xl border border-white/10 p-4 bg-white/5 backdrop-blur">
             <div className="text-sm uppercase tracking-[0.18em] text-white/60">Feed</div>
-            <div className="mt-3 rounded-xl border border-white/10 p-5 min-h-[220px] flex items-center text-white/80">
-              A playful campus feed for quick posts, memes, and reactions.
+            <div className="mt-3 rounded-xl overflow-hidden border border-white/10 relative aspect-[9/16]">
+              <img src="/cards/feedcard.png" alt="Feed" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
