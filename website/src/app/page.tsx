@@ -6,13 +6,13 @@ export default function Home() {
         <div className="max-w-3xl">
           <p className="text-sm uppercase tracking-[0.18em] text-white/60">Launching October 2025</p>
           <h1 className="mt-2 text-4xl md:text-6xl font-semibold leading-[1.05] tracking-tight">
-            Reverse missed connections. Meet the people around you.
+            Rewind missed connections. Meet the people around you.
           </h1>
           <p className="mt-5 text-lg md:text-xl text-white/80 max-w-2xl">
-            Moments helps students turn chance encounters into real connections. See who’s nearby, bump to reverse a missed moment, and join your campus community.
+            Moments helps students turn chance encounters into real connections. See who’s nearby, bump to rewind a missed moment, and join your campus community.
           </p>
           <div className="mt-7 flex flex-col sm:flex-row gap-3">
-            <button className="focus-accent rounded-full px-5 py-3 bg-white text-black border border-transparent hover:bg-transparent hover:text-white hover:border-accent transition">
+            <button className="focus-accent rounded-full px-5 py-3 bg-white text-black border border-transparent hover:bg-[var(--accent)] hover:text-black transition">
               Download on the App Store
             </button>
           </div>

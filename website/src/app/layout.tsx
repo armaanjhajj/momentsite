@@ -42,38 +42,38 @@ export default function RootLayout({
             <div>
               <div className="font-medium text-white mb-3">Explore</div>
               <ul className="space-y-2">
-                <li><Link href="/" className="hover:text-white">Moments</Link></li>
-                <li><Link href="/wearables" className="hover:text-white">Wearables</Link></li>
-                <li><Link href="/creators" className="hover:text-white">Creators</Link></li>
-                <li><Link href="/campus" className="hover:text-white">Campus</Link></li>
-                <li><Link href="/team" className="hover:text-white">Team</Link></li>
+                <li><Link href="/" className="hover:text-white no-underline">Moments</Link></li>
+                <li><Link href="/wearables" className="hover:text-white no-underline">Wearables</Link></li>
+                <li><Link href="/creators" className="hover:text-white no-underline">Creators</Link></li>
+                <li><Link href="/campus" className="hover:text-white no-underline">Campus</Link></li>
+                <li><Link href="/team" className="hover:text-white no-underline">Team</Link></li>
               </ul>
             </div>
             <div>
               <div className="font-medium text-white mb-3">For campus</div>
               <ul className="space-y-2">
-                <li><Link href="/campus/rutgers-nb" className="hover:text-white">Rutgers NB</Link></li>
-                <li><Link href="/campus/rutgers-newark" className="hover:text-white">Rutgers Newark</Link></li>
-                <li><Link href="/partners" className="hover:text-white">Partner with us</Link></li>
-                <li><Link href="/safety" className="hover:text-white">Safety</Link></li>
+                <li><Link href="/campus/rutgers-nb" className="hover:text-white no-underline">Rutgers NB</Link></li>
+                <li><Link href="/campus/rutgers-newark" className="hover:text-white no-underline">Rutgers Newark</Link></li>
+                <li><Link href="/partners" className="hover:text-white no-underline">Partner with us</Link></li>
+                <li><Link href="/safety" className="hover:text-white no-underline">Safety</Link></li>
               </ul>
             </div>
             <div>
               <div className="font-medium text-white mb-3">Company</div>
               <ul className="space-y-2">
-                <li><Link href="/about" className="hover:text-white">About</Link></li>
-                <li><Link href="/careers" className="hover:text-white">Careers</Link></li>
-                <li><Link href="/press" className="hover:text-white">Press</Link></li>
-                <li><a href="mailto:contact@havemoments.com" className="hover:text-white">Contact</a></li>
+                <li><Link href="/about" className="hover:text-white no-underline">About</Link></li>
+                <li><Link href="/careers" className="hover:text-white no-underline">Careers</Link></li>
+                <li><Link href="/press" className="hover:text-white no-underline">Press</Link></li>
+                <li><a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a></li>
               </ul>
             </div>
             <div>
               <div className="font-medium text-white mb-3">Legal</div>
               <ul className="space-y-2">
-                <li><Link href="/legal/privacy" className="hover:text-white">Privacy</Link></li>
-                <li><Link href="/legal/terms" className="hover:text-white">Terms</Link></li>
-                <li><Link href="/legal/community-guidelines" className="hover:text-white">Community Guidelines</Link></li>
-                <li><Link href="/legal/accessibility" className="hover:text-white">Accessibility</Link></li>
+                <li><Link href="/legal/privacy" className="hover:text-white no-underline">Privacy</Link></li>
+                <li><Link href="/legal/terms" className="hover:text-white no-underline">Terms</Link></li>
+                <li><Link href="/legal/community-guidelines" className="hover:text-white no-underline">Community Guidelines</Link></li>
+                <li><Link href="/legal/accessibility" className="hover:text-white no-underline">Accessibility</Link></li>
               </ul>
             </div>
           </div>

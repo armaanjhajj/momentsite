@@ -10,11 +10,11 @@ export default function HeaderClient() {
           <span className="sr-only">Moments</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
-          <Link href="/" className="hover:text-white link-underline">Moments</Link>
-          <Link href="/about" className="hover:text-white link-underline">About</Link>
-          <Link href="/blog" className="hover:text-white link-underline">Blog</Link>
-          <Link href="/creators" className="hover:text-white link-underline">Creators</Link>
-          <Link href="/team" className="hover:text-white link-underline">Team</Link>
+          <Link href="/" className="hover:text-white no-underline">Moments</Link>
+          <Link href="/about" className="hover:text-white no-underline">About</Link>
+          <Link href="/blog" className="hover:text-white no-underline">Blog</Link>
+          <Link href="/creators" className="hover:text-white no-underline">Creators</Link>
+          <Link href="/team" className="hover:text-white no-underline">Team</Link>
           <a href="mailto:contact@havemoments.com" className="hover:text-white link-underline">Contact</a>
         </nav>
         <div className="hidden md:flex items-center gap-3">
