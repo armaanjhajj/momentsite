@@ -43,9 +43,6 @@ export default function RootLayout({
               <div className="font-medium text-white mb-3">Explore</div>
               <ul className="space-y-2">
                 <li><Link href="/" className="hover:text-white no-underline">Moments</Link></li>
-                <li><Link href="/wearables" className="hover:text-white no-underline">Wearables</Link></li>
-                <li><Link href="/creators" className="hover:text-white no-underline">Creators</Link></li>
-                <li><Link href="/campus" className="hover:text-white no-underline">Campus</Link></li>
                 <li><Link href="/team" className="hover:text-white no-underline">Team</Link></li>
               </ul>
             </div>
@@ -62,7 +59,7 @@ export default function RootLayout({
               <div className="font-medium text-white mb-3">Company</div>
               <ul className="space-y-2">
                 <li><Link href="/careers" className="hover:text-white no-underline">Careers</Link></li>
-                <li><Link href="/press" className="hover:text-white no-underline">Press</Link></li>
+                <li><Link href="/blog" className="hover:text-white no-underline">Blog</Link></li>
                 <li><a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a></li>
               </ul>
             </div>
