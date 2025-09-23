@@ -13,7 +13,6 @@ export default function HeaderClient() {
           <Link href="/" className="hover:text-white no-underline">Moments</Link>
           <Link href="/blog" className="hover:text-white no-underline">Blog</Link>
           <Link href="/team" className="hover:text-white no-underline">Team</Link>
-          <Link href="/careers" className="hover:text-white no-underline">Careers</Link>
           <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a>
         </nav>
         <div className="hidden md:flex items-center gap-3">

@@ -58,7 +58,6 @@ export default function RootLayout({
             <div>
               <div className="font-medium text-white mb-3">Company</div>
               <ul className="space-y-2">
-                <li><Link href="/careers" className="hover:text-white no-underline">Careers</Link></li>
                 <li><Link href="/blog" className="hover:text-white no-underline">Blog</Link></li>
                 <li><a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a></li>
               </ul>
