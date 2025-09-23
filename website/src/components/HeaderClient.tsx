@@ -11,11 +11,10 @@ export default function HeaderClient() {
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
           <Link href="/" className="hover:text-white no-underline">Moments</Link>
-          <Link href="/about" className="hover:text-white no-underline">About</Link>
           <Link href="/blog" className="hover:text-white no-underline">Blog</Link>
-          <Link href="/creators" className="hover:text-white no-underline">Creators</Link>
           <Link href="/team" className="hover:text-white no-underline">Team</Link>
-          <a href="mailto:contact@havemoments.com" className="hover:text-white link-underline">Contact</a>
+          <Link href="/careers" className="hover:text-white no-underline">Careers</Link>
+          <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a>
         </nav>
         <div className="hidden md:flex items-center gap-3">
           <Link href="/download" className="focus-accent rounded-full px-4 py-2 text-sm bg-white text-black hover:bg-transparent hover:text-white border border-transparent hover:border-accent transition">Download</Link>
