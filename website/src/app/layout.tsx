@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import HeaderClient from "@/components/HeaderClient";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,38 +42,38 @@ export default function RootLayout({
             <div>
               <div className="font-medium text-white mb-3">Explore</div>
               <ul className="space-y-2">
-                <li><a href="#features" className="hover:text-white">Moments</a></li>
-                <li><a href="/wearables" className="hover:text-white">Wearables</a></li>
-                <li><a href="/creators" className="hover:text-white">Creators</a></li>
-                <li><a href="/campus" className="hover:text-white">Campus</a></li>
-                <li><a href="/team" className="hover:text-white">Team</a></li>
+                <li><Link href="/" className="hover:text-white">Moments</Link></li>
+                <li><Link href="/wearables" className="hover:text-white">Wearables</Link></li>
+                <li><Link href="/creators" className="hover:text-white">Creators</Link></li>
+                <li><Link href="/campus" className="hover:text-white">Campus</Link></li>
+                <li><Link href="/team" className="hover:text-white">Team</Link></li>
               </ul>
             </div>
             <div>
               <div className="font-medium text-white mb-3">For campus</div>
               <ul className="space-y-2">
-                <li><a href="/campus/rutgers-nb" className="hover:text-white">Rutgers NB</a></li>
-                <li><a href="/campus/rutgers-newark" className="hover:text-white">Rutgers Newark</a></li>
-                <li><a href="/partners" className="hover:text-white">Partner with us</a></li>
-                <li><a href="/safety" className="hover:text-white">Safety</a></li>
+                <li><Link href="/campus/rutgers-nb" className="hover:text-white">Rutgers NB</Link></li>
+                <li><Link href="/campus/rutgers-newark" className="hover:text-white">Rutgers Newark</Link></li>
+                <li><Link href="/partners" className="hover:text-white">Partner with us</Link></li>
+                <li><Link href="/safety" className="hover:text-white">Safety</Link></li>
               </ul>
             </div>
             <div>
               <div className="font-medium text-white mb-3">Company</div>
               <ul className="space-y-2">
-                <li><a href="/about" className="hover:text-white">About</a></li>
-                <li><a href="/careers" className="hover:text-white">Careers</a></li>
-                <li><a href="/press" className="hover:text-white">Press</a></li>
-                <li><a href="/contact" className="hover:text-white">Contact</a></li>
+                <li><Link href="/about" className="hover:text-white">About</Link></li>
+                <li><Link href="/careers" className="hover:text-white">Careers</Link></li>
+                <li><Link href="/press" className="hover:text-white">Press</Link></li>
+                <li><a href="mailto:contact@havemoments.com" className="hover:text-white">Contact</a></li>
               </ul>
             </div>
             <div>
               <div className="font-medium text-white mb-3">Legal</div>
               <ul className="space-y-2">
-                <li><a href="/legal/privacy" className="hover:text-white">Privacy</a></li>
-                <li><a href="/legal/terms" className="hover:text-white">Terms</a></li>
-                <li><a href="/legal/community-guidelines" className="hover:text-white">Community Guidelines</a></li>
-                <li><a href="/legal/accessibility" className="hover:text-white">Accessibility</a></li>
+                <li><Link href="/legal/privacy" className="hover:text-white">Privacy</Link></li>
+                <li><Link href="/legal/terms" className="hover:text-white">Terms</Link></li>
+                <li><Link href="/legal/community-guidelines" className="hover:text-white">Community Guidelines</Link></li>
+                <li><Link href="/legal/accessibility" className="hover:text-white">Accessibility</Link></li>
               </ul>
             </div>
           </div>

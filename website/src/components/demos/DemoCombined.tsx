@@ -70,7 +70,7 @@ function EventsCard() {
 }
 
 function FeedCard() {
-  const posts = [
+  const posts: string[] = [
     'Free pizza at the student center rn 🍕',
     '7pm study group in BUS 220?',
     'Open mic tonight — bring friends 🎤',

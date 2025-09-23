@@ -15,6 +15,7 @@ export default function DeviceFrameImage({
   return (
     <div className="relative mx-auto w-full max-w-[640px]">
       {/* Frame image */}
+      {/* Using regular img to avoid Next/Image remote constraints inside nested component is fine for this decorative frame */}
       <img src={frameSrc} alt="iPhone frame" className="w-full h-auto block" />
       {/* Approximate screen slot overlay (tuned for this asset) */}
       <div
