@@ -61,7 +61,6 @@ export default function RootLayout({
             <div>
               <div className="font-medium text-white mb-3">Company</div>
               <ul className="space-y-2">
-                <li><Link href="/about" className="hover:text-white no-underline">About</Link></li>
                 <li><Link href="/careers" className="hover:text-white no-underline">Careers</Link></li>
                 <li><Link href="/press" className="hover:text-white no-underline">Press</Link></li>
                 <li><a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a></li>
@@ -77,7 +76,29 @@ export default function RootLayout({
               </ul>
             </div>
           </div>
-          <div className="container pb-10 text-xs text-white/60">© 2025 Moments. Built at Rutgers.</div>
+          <div className="container pb-6 flex items-center justify-between gap-4">
+            <div className="text-sm text-white/80">Moments — @letsmakemoments</div>
+            <div className="flex items-center gap-4 text-white/70">
+              <a href="https://x.com/letsmakemoments" aria-label="X" className="hover:text-white" target="_blank" rel="noopener noreferrer">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 4h4.5l5 6.5 6-6.5H20l-6.5 7 7 9H16l-4.5-6L6 20H4l7-7L4 4z" fill="currentColor"/>
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com/company/letsmakemoments" aria-label="LinkedIn" className="hover:text-white" target="_blank" rel="noopener noreferrer">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM4 9h2.9v12H4V9zm6.5 0H14v1.7h.04c.5-.9 1.74-1.86 3.58-1.86 3.83 0 4.54 2.42 4.54 5.57V21H19v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-1.99 1.35-1.99 2.75V21h-2.9V9z" fill="currentColor"/>
+                </svg>
+              </a>
+              <a href="https://instagram.com/letsmakemoments" aria-label="Instagram" className="hover:text-white" target="_blank" rel="noopener noreferrer">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div className="container pb-4 text-xs text-white/60">© 2025 Moments. Built at Rutgers.</div>
         </footer>
       </body>
     </html>
