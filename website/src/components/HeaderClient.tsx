@@ -16,7 +16,7 @@ export default function HeaderClient() {
           <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a>
         </nav>
         <div className="hidden md:flex items-center gap-3">
-          <Link href="/download" className="focus-accent rounded-full px-4 py-2 text-sm bg-white text-black hover:bg-transparent hover:text-white border border-transparent hover:border-accent transition">Download</Link>
+          <Link href="/waitlist" className="focus-accent rounded-full px-4 py-2 text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition">Join waitlist</Link>
         </div>
       </header>
     </div>
