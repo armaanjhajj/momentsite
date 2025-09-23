@@ -7,22 +7,7 @@ function Jobs() {
   return (
     <>
       <div className="App">
-        <header className="site-header">
-          <Link to="/" className="brand">
-            <img
-              className="brand-logo"
-              src={logo}
-              alt="moments logo"
-              decoding="async"
-              loading="eager"
-            />
-          </Link>
-          <nav className="footer-nav">
-            <Link to="/about">About</Link>
-            <Link to="/jobs">Jobs</Link>
-            <Link to="/waitlist">Waitlist</Link>
-          </nav>
-        </header>
+        {/* Global header used */}
 
         <main className="legal-content">
           <div className="legal-container" style={{ maxWidth: '1100px' }}>
@@ -147,7 +132,7 @@ function Jobs() {
           </div>
         </main>
 
-              {/* Footer moved to global Footer component */}
+              {/* Global footer used */}
       </div>
     </>
   );

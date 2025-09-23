@@ -1,120 +1,64 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.scss';
-import heroVideo from '../assets/video.mp4';
-import logo from '../assets/logo.png';
-import Logo from '../components/Logo';
+import phoneFrame from '../assets/apple-iphone-16-pro-max-2024-medium.png';
 
 function Home() {
-  const videoRef = React.useRef(null);
-  const [muted, setMuted] = React.useState(true);
-  const [showSoundOverlay, setShowSoundOverlay] = React.useState(true);
-  const [flashText, setFlashText] = React.useState('CLICK');
-
-  // Flash between "CLICK" and "HERE"
-  React.useEffect(() => {
-    if (!showSoundOverlay) return;
-    
-    const interval = setInterval(() => {
-      setFlashText(prev => prev === 'CLICK' ? 'HERE' : 'CLICK');
-    }, 800);
-
-    return () => clearInterval(interval);
-  }, [showSoundOverlay]);
-
-  React.useEffect(() => {
-    const v = videoRef.current;
-    if (v) {
-      v.muted = muted;
-      const playPromise = v.play();
-      if (playPromise && typeof playPromise.catch === 'function') {
-        playPromise.catch(() => {});
-      }
-    }
-  }, [muted]);
-
-  const enableSound = () => {
-    const v = videoRef.current;
-    if (!v) return;
-    
-    v.muted = false;
-    setMuted(false);
-    setShowSoundOverlay(false);
-    
-    if (v.paused) {
-      const p = v.play();
-      if (p && typeof p.catch === 'function') p.catch(() => {});
-    }
-  };
-
   return (
-    <>
-      <div className="App" style={{ maxWidth: 'none', borderRadius: 0 }}>
-        <header className="site-header" style={{ margin: '0.75rem 0' }}>
-          <Link to="/" className="brand">
-            <img className="brand-logo" src={logo} alt="moments logo" decoding="async" loading="eager" />
-          </Link>
-          <nav className="footer-nav">
-            <Link to="/about">About</Link>
-            <Link to="/jobs">Jobs</Link>
-            <Link to="/waitlist">Waitlist</Link>
-          </nav>
-        </header>
+    <div className="App" style={{ maxWidth: 'none', borderRadius: 0 }}>
+      <main className="hero" style={{ padding: '3rem 0 4rem' }}>
+        <section className="hero-heading">
+          <div className="hero-title-wrap">
+            <h1 className="hero-title">Real connections, on your campus.</h1>
+          </div>
+          <p className="rsvp-text" style={{ maxWidth: 560 }}>
+            Moments matches you with nearby students you’re most likely to vibe with.
+            No feeds. No swipes. Just say "hey."
+          </p>
+          <div style={{ display: 'flex', gap: 12, marginTop: 16 }}>
+            <Link to="/waitlist" className="manifesto-link">Join waitlist</Link>
+            <Link to="/features" className="manifesto-link" style={{ background: '#fff', color: '#000' }}>See features</Link>
+          </div>
+        </section>
 
-        <main style={{ position: 'relative', width: '100%', height: 'calc(100vh - 160px)', background: '#000' }}>
-          <video
-            ref={videoRef}
-            src={heroVideo}
-            style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(1)' }}
-            playsInline
-            autoPlay
-            loop
-            preload="auto"
-            muted
-            controls={false}
-          />
-          {showSoundOverlay && (
-            <div
-              onClick={enableSound}
-              style={{
-                position: 'absolute',
-                inset: 0,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                background: 'rgba(0, 0, 0, 0.3)',
-                cursor: 'pointer',
-                zIndex: 1000
-              }}
-            >
-              <div
-                style={{
-                  fontFamily: 'Roboto, sans-serif',
-                  fontSize: 'clamp(4rem, 15vw, 12rem)',
-                  fontWeight: 900,
-                  color: '#FFFFFF',
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.1em',
-                  textAlign: 'center',
-                  textShadow: '0 0 20px rgba(255, 255, 255, 0.5)',
-                  animation: 'pulse 0.8s ease-in-out infinite alternate'
-                }}
-              >
-                {flashText}
+        <section className="hero-phone">
+          <div className="phone-container">
+            <img src={phoneFrame} alt="Phone frame" />
+            <div className="phone-overlay-content">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 12, color: '#111', marginBottom: 8 }}>
+                <span>9:27</span>
+                <span>
+                  <span style={{ marginRight: 8 }}>Wi‑Fi</span>
+                  <span>100%</span>
+                </span>
               </div>
+              <div style={{ background: '#fff', border: '1px solid #e5e5e5', borderRadius: 24, padding: '18px 16px', textAlign: 'left', boxShadow: '0 8px 18px rgba(0,0,0,0.06)' }}>
+                <div style={{ fontSize: 12, textTransform: 'uppercase', letterSpacing: '.06em', color: '#111', marginBottom: 6 }}>alex</div>
+                <div style={{ fontWeight: 700, marginBottom: 4 }}>in your econ class</div>
+                <div style={{ fontSize: 13, color: '#3f3f46', marginBottom: 12 }}>both listen to Ken Carson + love raving</div>
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: 6, fontSize: 12, color: '#111', border: '1px solid #111', borderRadius: 9999, padding: '6px 10px' }}>
+                  <span>business building</span>
+                  <span>•</span>
+                  <span>5:45 PM</span>
+                </div>
+              </div>
+              <div style={{ height: 6, width: 120, background: '#e5e5e5', borderRadius: 9999, margin: '18px auto 0' }} />
             </div>
-          )}
-          <style>{`
-            @keyframes pulse {
-              0% { opacity: 0.8; transform: scale(1); }
-              100% { opacity: 1; transform: scale(1.05); }
-            }
-          `}</style>
-        </main>
+          </div>
+        </section>
 
-        {/* Footer moved to global Footer component (rendered from App.jsx) */}
-      </div>
-    </>
+        <section className="hero-details">
+          <ul className="micro-bullets" style={{ color: '#000' }}>
+            <li>Designed for fast, in-person connections</li>
+            <li>High-signal matches based on shared context</li>
+            <li>Campus-first, privacy-forward</li>
+          </ul>
+          <div style={{ marginTop: 16 }}>
+            <Link to="/manifesto" className="manifesto-link">Read the manifesto</Link>
+          </div>
+        </section>
+      </main>
+    </div>
   );
 }
 

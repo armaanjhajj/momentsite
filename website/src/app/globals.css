@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0b0b0c; /* near-black */
+  --foreground: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.72);
+  --accent: #ff4e6a; /* neon accent */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  max-width: 1200px;
+}
+
+.focus-accent:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.link-underline {
+  background-image: linear-gradient(transparent,transparent),linear-gradient(var(--accent),var(--accent));
+  background-size: 0 2px, 100% 2px;
+  background-position: 0 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 200ms ease;
+}
+
+.link-underline:hover { background-size: 100% 2px, 100% 2px; }

@@ -9,16 +9,7 @@ function About() {
   return (
     <>
       <div className="App">
-        <header className="site-header">
-          <Link to="/" className="brand">
-            <img className="brand-logo" src={logo} alt="moments logo" decoding="async" loading="eager" />
-          </Link>
-          <nav className="footer-nav">
-            <Link to="/about">About</Link>
-            <Link to="/jobs">Jobs</Link>
-            <Link to="/waitlist">Waitlist</Link>
-          </nav>
-        </header>
+        {/* Global header used */}
 
         <main style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'center', padding: '2rem 0 4rem' }}>
           <section style={{ paddingLeft: '1rem' }}>
@@ -81,19 +72,7 @@ function About() {
           />
         </section>
 
-        <footer className="site-footer">
-          <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
-          <nav className="footer-nav">
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-            <Link to="/jobs">Jobs</Link>
-            <Link to="/waitlist">Waitlist</Link>
-            <Link to="/terms">Terms</Link>
-            <Link to="/privacy">Privacy</Link>
-            <Link to="/consent">Consent</Link>
-            <a href="mailto:contact@havemoments.com">Contact</a>
-          </nav>
-        </footer>
+        {/* Global footer used */}
       </div>
     </>
   );

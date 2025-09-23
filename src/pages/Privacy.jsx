@@ -7,17 +7,7 @@ function Privacy() {
   return (
     <>
       <div className="App">
-        <header className="site-header">
-          <Link to="/" className="brand">
-            <img
-              className="brand-logo"
-              src={logo}
-              alt="moments logo"
-              decoding="async"
-              loading="eager"
-            />
-          </Link>
-        </header>
+        {/* Global header used */}
 
         <main className="legal-content">
           <div className="legal-container">
@@ -110,7 +100,7 @@ function Privacy() {
           </div>
         </main>
 
-        {/* Footer moved to global Footer component */}
+        {/* Global footer used */}
       </div>
     </>
   );

@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 export default function Footer() {
   return (
-    <footer className="site-footer footer-global" style={{ background: 'rgba(255,255,255,0.7)' }}>
+    <footer className="site-footer footer-global" style={{ background: 'transparent' }}>
       <div className="footer-inner">
         <div className="footer-watermark-local" aria-hidden>
           {/* Large logo sits inside footer and behind links */}
@@ -12,8 +12,13 @@ export default function Footer() {
         </div>
         <div className="footer-left">&copy; {new Date().getFullYear()} Moments. All rights reserved.</div>
         <nav className="footer-nav">
-          <Link to="/about">About</Link>
-          <Link to="/jobs">Jobs</Link>
+          <Link to="/features">Features</Link>
+          <Link to="/faq">FAQ</Link>
+          <Link to="/community">Community</Link>
+          <Link to="/press">Press</Link>
+          <Link to="/team">Team</Link>
+          <Link to="/blog">Blog</Link>
+          <Link to="/download">Download</Link>
           <Link to="/waitlist">Waitlist</Link>
           <Link to="/terms">Terms</Link>
           <Link to="/privacy">Privacy</Link>

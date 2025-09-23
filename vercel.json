@@ -1,10 +1,8 @@
 {
   "builds": [
-    { "src": "package.json", "use": "@vercel/static-build", "config": { "distDir": "dist" } }
+    { "src": "website/package.json", "use": "@vercel/next" }
   ],
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "has": [{ "type": "host", "value": "jobs.havemoments.com" }], "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/index.html" }
+    { "src": "/(.*)", "dest": "website/$1" }
   ]
 }
