@@ -30,7 +30,7 @@ export default function HeaderClient() {
         <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
           <Link href="/" className="hover:text-white no-underline">Moments</Link>
           <Link href="/blog" className="hover:text-white no-underline">Blog</Link>
-          <Link href="/team" className="hover:text-white no-underline">Apply</Link>
+          <Link href="/apply" className="hover:text-white no-underline">Apply</Link>
           <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a>
         </nav>
         <div className="hidden md:flex items-center gap-3">
@@ -73,7 +73,7 @@ export default function HeaderClient() {
         <nav className="h-full overflow-y-auto p-6 flex flex-col gap-4 text-sm text-white/90">
           <Link href="/" className="hover:text-white no-underline" onClick={closeMenu}>Moments</Link>
           <Link href="/blog" className="hover:text-white no-underline" onClick={closeMenu}>Blog</Link>
-          <Link href="/team" className="hover:text-white no-underline" onClick={closeMenu}>Apply</Link>
+          <Link href="/apply" className="hover:text-white no-underline" onClick={closeMenu}>Apply</Link>
           <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline" onClick={closeMenu}>Contact</a>
           <div className="pt-2">
             <Link href="/waitlist" className="block focus-accent rounded-full px-4 py-2 text-center text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition" onClick={closeMenu}>Join waitlist</Link>

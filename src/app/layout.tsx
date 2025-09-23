@@ -47,7 +47,7 @@ export default function RootLayout({
               <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a>
               <Link href="/safety" className="hover:text-white no-underline">Safety</Link>
               <Link href="/" className="hover:text-white no-underline">Moments</Link>
-              <Link href="/team" className="hover:text-white no-underline">Apply</Link>
+              <Link href="/apply" className="hover:text-white no-underline">Apply</Link>
             </nav>
             <div className="mt-6 text-center">
               <div className="text-sm text-white/80">Moments — @letsmakemoments</div>

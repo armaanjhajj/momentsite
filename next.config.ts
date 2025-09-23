@@ -14,6 +14,15 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'upload.wikimedia.org' },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/team',
+        destination: '/apply',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
