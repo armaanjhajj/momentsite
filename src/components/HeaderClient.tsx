@@ -7,22 +7,20 @@ export default function HeaderClient() {
 
   const closeMenu = () => setIsOpen(false);
 
-  // Close on Escape and lock body scroll when open
+  // Close on Escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsOpen(false);
     };
     document.addEventListener("keydown", onKey);
-    document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
     };
-  }, [isOpen]);
+  }, []);
 
   return (
     <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-white/10">
-      <header className="container flex items-center justify-between py-4">
+      <header className="container flex items-center justify-between py-4 relative">
         <Link href="/" className="flex items-center gap-3">
           <img src="/logo.png" alt="Moments" className="h-9 w-9 invert" />
           <span className="sr-only">Moments</span>
@@ -54,32 +52,19 @@ export default function HeaderClient() {
             </svg>
           )}
         </button>
-      </header>
-
-      {/* Backdrop below header (header stays visible) */}
-      <div
-        aria-hidden="true"
-        className={`fixed inset-x-0 top-16 bottom-0 bg-black/60 transition-opacity duration-200 md:hidden ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-        onClick={closeMenu}
-      />
-
-      {/* Slide-in drawer below header */}
-      <aside
-        id="mobile-nav"
-        role="dialog"
-        aria-modal="true"
-        className={`fixed top-16 right-0 bottom-0 w-72 bg-black border-l border-white/10 md:hidden transform transition-transform duration-200 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
-      >
-        <nav className="h-full overflow-y-auto p-6 flex flex-col gap-4 text-sm text-white/90">
-          <Link href="/" className="hover:text-white no-underline" onClick={closeMenu}>Moments</Link>
-          <Link href="/blog" className="hover:text-white no-underline" onClick={closeMenu}>Blog</Link>
-          <Link href="/apply" className="hover:text-white no-underline" onClick={closeMenu}>Apply</Link>
-          <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline" onClick={closeMenu}>Contact</a>
-          <div className="pt-2">
-            <Link href="/waitlist" className="block focus-accent rounded-full px-4 py-2 text-center text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition" onClick={closeMenu}>Join waitlist</Link>
+        {/* Dropdown panel on mobile */}
+        <div id="mobile-nav" className={`md:hidden absolute right-0 top-full mt-2 ${isOpen ? "block" : "hidden"}`}>
+          <div className="w-64 rounded-xl border border-white/10 bg-black/90 backdrop-blur shadow-lg">
+            <nav className="p-3 flex flex-col gap-3 text-sm text-white/90">
+              <Link href="/" className="hover:text-white no-underline" onClick={closeMenu}>Moments</Link>
+              <Link href="/blog" className="hover:text-white no-underline" onClick={closeMenu}>Blog</Link>
+              <Link href="/apply" className="hover:text-white no-underline" onClick={closeMenu}>Apply</Link>
+              <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline" onClick={closeMenu}>Contact</a>
+              <Link href="/waitlist" className="focus-accent rounded-full px-4 py-2 text-center text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition" onClick={closeMenu}>Join waitlist</Link>
+            </nav>
           </div>
-        </nav>
-      </aside>
+        </div>
+      </header>
     </div>
   );
 }
