@@ -52,15 +52,20 @@ export default function HeaderClient() {
             </svg>
           )}
         </button>
-        {/* Dropdown panel on mobile */}
-        <div id="mobile-nav" className={`md:hidden absolute right-0 top-full mt-2 ${isOpen ? "block" : "hidden"}`}>
-          <div className="w-64 rounded-xl border border-white/10 bg-black/90 backdrop-blur shadow-lg">
-            <nav className="p-3 flex flex-col gap-3 text-sm text-white/90">
+        {/* Dropdown panel on mobile - full width with animation */}
+        <div
+          id="mobile-nav"
+          className={`md:hidden fixed inset-x-0 top-16 z-40 transform transition-all duration-200 ${isOpen ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-2"}`}
+        >
+          <div className="border-t border-white/10 bg-black/95 backdrop-blur">
+            <nav className="container py-3 flex flex-col gap-3 text-sm text-white/90">
               <Link href="/" className="hover:text-white no-underline" onClick={closeMenu}>Moments</Link>
               <Link href="/blog" className="hover:text-white no-underline" onClick={closeMenu}>Blog</Link>
               <Link href="/apply" className="hover:text-white no-underline" onClick={closeMenu}>Apply</Link>
               <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline" onClick={closeMenu}>Contact</a>
-              <Link href="/waitlist" className="focus-accent rounded-full px-4 py-2 text-center text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition" onClick={closeMenu}>Join waitlist</Link>
+              <div className="pt-1 pb-1">
+                <Link href="/waitlist" className="block focus-accent rounded-full px-4 py-2 text-center text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition" onClick={closeMenu}>Join waitlist</Link>
+              </div>
             </nav>
           </div>
         </div>
