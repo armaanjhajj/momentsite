@@ -10,7 +10,6 @@ export default function Team() {
           <p className="mt-2 text-white/70">Join Moments — creators, builders, organizers, storytellers.</p>
         </header>
         <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-4">
-          {/* Tally standard embed inside a normal flow container */}
           <div className="relative max-w-5xl mx-auto">
             <iframe
               data-tally-src="https://tally.so/embed/3XXE44?alignLeft=1&transparentBackground=1&dynamicHeight=1&formEventsForwarding=1"

@@ -27,7 +27,6 @@ export function NearbyDemo() {
 
   return (
     <div className="relative h-[360px] bg-[#0f1216] rounded-2xl border border-white/10 p-3">
-      {/* pulsing pin */}
       <motion.div
         className="absolute left-6 bottom-6 h-3 w-3 rounded-full bg-[var(--accent)]"
         animate={{ scale: [1, 1.6, 1] , opacity: [0.9, 0.2, 0.9] }}

@@ -1,20 +1,18 @@
+import TypeWriter from '../components/TypeWriter';
+
 export default function Home() {
   return (
     <main>
-      {/* Hero */}
       <section className="container pt-16 pb-10 md:pt-24 md:pb-16">
         <div className="max-w-3xl">
           <p className="text-sm uppercase tracking-[0.18em] text-white/60">Launching October 2025</p>
-          <h1 className="mt-2 text-4xl md:text-6xl font-semibold leading-[1.05] tracking-tight">
-            Rewind missed connections. Meet the people around you.
-          </h1>
-          <p className="mt-5 text-lg md:text-xl text-white/80 max-w-2xl">
+          <TypeWriter />
+          <p className="mt-5 text-sm md:text-lg text-white/80 max-w-2xl">
             We’re building a social app that rewinds missed connections in real time and gets people meeting spontaneously. Discover and join public events on campus. Bump people around you and meet them on the spot. Post funny updates for all your friends to see or share it with the world. Launching exclusively at Rutgers.
           </p>
         </div>
       </section>
 
-      {/* Three feature cards with copy only */}
       <section className="container pb-12">
         <div className="grid gap-6 md:grid-cols-3">
           <div className="rounded-2xl border border-white/10 p-4 bg-white/5 backdrop-blur">
@@ -38,9 +36,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Removed bottom 4 feature cards per request */}
-
-      {/* Simple video embed */}
       <section className="container pb-24">
         <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 bg-black">
           <div className="relative w-full" style={{ paddingTop: '56.25%' }}>

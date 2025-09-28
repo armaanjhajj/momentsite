@@ -52,7 +52,6 @@ export default function HeaderClient() {
             </svg>
           )}
         </button>
-        {/* Dropdown panel on mobile - full width with animation */}
         <div
           id="mobile-nav"
           className={`md:hidden fixed inset-x-0 top-16 z-40 transform transition-all duration-200 ${isOpen ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-2"}`}

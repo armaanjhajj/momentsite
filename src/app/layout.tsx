@@ -52,7 +52,6 @@ export default function RootLayout({
             <div className="mt-6 text-center">
               <div className="text-sm text-white/80">Moments — @letsmakemoments</div>
               <div className="mt-3 flex items-center justify-center gap-6">
-                {/* Alphabetical: Instagram, LinkedIn, X */}
                 <a href="https://instagram.com/letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" className="h-6 w-6 object-contain  opacity-80 hover:opacity-100 transition" />
                 </a>
