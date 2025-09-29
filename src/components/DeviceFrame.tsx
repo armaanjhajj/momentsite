@@ -10,7 +10,7 @@ interface DeviceFrameProps {
   children: React.ReactNode;
 }
 
-export function DeviceFrame({ variant = 'iphone-16-pro', children }: DeviceFrameProps) {
+export function DeviceFrame({ children }: DeviceFrameProps) {
   return (
     <div className="relative">
       <div className="pointer-events-none absolute inset-0 rounded-[44px] shadow-[0_30px_80px_rgba(0,0,0,0.6)]" />

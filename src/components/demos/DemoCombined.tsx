@@ -79,7 +79,7 @@ function FeedCard() {
   React.useEffect(() => {
     const t = setInterval(() => setI((x) => (x + 1) % posts.length), 2500);
     return () => clearInterval(t);
-  }, []);
+  }, [posts.length]);
   return (
     <Shell title="Community feed">
       <div className="rounded-xl border border-white/10 p-3 min-h-[80px]">

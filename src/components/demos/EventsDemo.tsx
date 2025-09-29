@@ -1,7 +1,7 @@
 "use client";
 // EventsDemo.tsx
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export function EventsDemo() {
   const [created, setCreated] = React.useState(false);
