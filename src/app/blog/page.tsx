@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseServer } from "@/lib/supabaseServer";
 
 type BlogPost = {
   id: string;
@@ -12,6 +12,7 @@ type BlogPost = {
 };
 
 export default async function Blog() {
+  const supabase = getSupabaseServer();
   const { data: posts, error } = await supabase
     .from("blog_posts")
     .select("id, slug, title, excerpt, cover_image_url, published_at")

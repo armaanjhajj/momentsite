@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
+import { supabase } from "@/lib/supabaseClient";
 import { Home as HomeIcon, Users, Calendar as CalendarIcon, Copy, Menu, ArrowRight, CalendarCheck2, UserSearch, CalendarDays, AlertTriangle, Link as LinkIcon } from "lucide-react";
 
 export default function Team() {
@@ -35,17 +36,16 @@ export default function Team() {
     "shruthi",
   ];
 
-  const onSubmit = (e: React.FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const normalized = username.trim().toLowerCase();
-    const expectedPassword = `${normalized}2025!`;
-    const usernameOk = allowedNames.includes(normalized);
-    if (!usernameOk) {
+    if (!allowedNames.includes(normalized)) {
       setError("Unknown username.");
       return;
     }
-    if (password !== expectedPassword) {
-      setError("Incorrect password. Try again.");
+    const { data, error: signInError } = await supabase.auth.signInWithPassword({ email: `${normalized}@example.com`, password });
+    if (signInError || !data?.user) {
+      setError("Login failed. Check email/password.");
       return;
     }
     setHasAccess(true);

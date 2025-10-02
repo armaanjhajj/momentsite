@@ -1,4 +1,4 @@
-import { supabase } from "@/lib/supabaseClient";
+import { getSupabaseServer } from "@/lib/supabaseServer";
 import Link from "next/link";
 
 type BlogPost = {
@@ -12,6 +12,7 @@ type BlogPost = {
 type Params = { params: { slug: string } };
 
 export default async function BlogPostPage({ params }: Params) {
+  const supabase = getSupabaseServer();
   const { data, error } = await supabase
     .from("blog_posts")
     .select("id, slug, title, body_html, published_at")
