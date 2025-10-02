@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { CSSProperties } from "react";
 import { Home as HomeIcon, Users, Calendar as CalendarIcon, Copy, Menu, ArrowRight, CalendarCheck2, UserSearch, CalendarDays, AlertTriangle, Link as LinkIcon } from "lucide-react";
 
 export default function Team() {
@@ -562,8 +563,10 @@ export default function Team() {
     );
   };
 
+  const brandStyle = { ['--brand' as string]: '#FF4E6A' } as CSSProperties;
+
   return (
-    <main className="py-16" style={{ ['--brand' as any]: '#FF4E6A' }}>
+    <main className="py-16" style={brandStyle}>
       {/* Mobile drawer toggle */}
       <div className="px-4 md:hidden mb-3 flex items-center gap-3">
         <button
