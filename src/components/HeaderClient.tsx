@@ -28,6 +28,7 @@ export default function HeaderClient() {
         <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
           <Link href="/" className="hover:text-white no-underline">Moments</Link>
           <Link href="/blog" className="hover:text-white no-underline">Blog</Link>
+          <Link href="/team" className="hover:text-white no-underline">Team</Link>
           <Link href="/apply" className="hover:text-white no-underline">Apply</Link>
           <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a>
         </nav>
@@ -60,6 +61,7 @@ export default function HeaderClient() {
             <nav className="container py-3 flex flex-col gap-3 text-sm text-white/90">
               <Link href="/" className="hover:text-white no-underline" onClick={closeMenu}>Moments</Link>
               <Link href="/blog" className="hover:text-white no-underline" onClick={closeMenu}>Blog</Link>
+              <Link href="/team" className="hover:text-white no-underline" onClick={closeMenu}>Team</Link>
               <Link href="/apply" className="hover:text-white no-underline" onClick={closeMenu}>Apply</Link>
               <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline" onClick={closeMenu}>Contact</a>
               <div className="pt-1 pb-1">
