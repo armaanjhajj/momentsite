@@ -1,0 +1,9 @@
+HTTP/1.1 303 See Other
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+location: http://localhost:3000/portal
+set-cookie: moments_portal_ok=68a3089c86279f6bf0ffd4c7a8a0fff4b4a3eb8da9b7bcfd74e24ff525984858; Path=/portal; Expires=Sun, 02 Nov 2025 00:20:36 GMT; Max-Age=2592000; HttpOnly; SameSite=lax
+Date: Fri, 03 Oct 2025 00:20:36 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+Transfer-Encoding: chunked
+

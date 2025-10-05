@@ -2,14 +2,11 @@
 
 import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
-import { supabase } from "@/lib/supabaseClient";
+// Supabase removed from site; team page uses local access-only UI
 import { Home as HomeIcon, Users, Calendar as CalendarIcon, Copy, Menu, ArrowRight, CalendarCheck2, UserSearch, CalendarDays, AlertTriangle, Link as LinkIcon } from "lucide-react";
 
 export default function Team() {
-  const [hasAccess, setHasAccess] = useState(false);
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [hasAccess, setHasAccess] = useState(true);
   const [selectedSection, setSelectedSection] = useState<"home" | "members" | "scheduler">("home");
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [memberQuery, setMemberQuery] = useState("");
@@ -36,56 +33,9 @@ export default function Team() {
     "shruthi",
   ];
 
-  const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const normalized = username.trim().toLowerCase();
-    if (!allowedNames.includes(normalized)) {
-      setError("Unknown username.");
-      return;
-    }
-    const { data, error: signInError } = await supabase.auth.signInWithPassword({ email: `${normalized}@example.com`, password });
-    if (signInError || !data?.user) {
-      setError("Login failed. Check email/password.");
-      return;
-    }
-    setHasAccess(true);
-    setError("");
-  };
+  const onSubmit = async (_e: React.FormEvent) => {};
 
-  if (!hasAccess) {
-    return (
-      <main className="container py-16">
-        <h1 className="text-3xl md:text-5xl font-semibold">Team</h1>
-        <form onSubmit={onSubmit} className="mt-6 max-w-sm">
-          <label className="block text-sm text-white/80">Username</label>
-          <input
-            type="text"
-            className="mt-2 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            autoComplete="username"
-          />
-          <label className="block text-sm text-white/80 mt-4">Password</label>
-          <input
-            type="password"
-            className="mt-2 w-full rounded-md border border-white/10 bg-white/5 px-3 py-2 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/30"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            autoComplete="current-password"
-          />
-          {error && <div className="mt-2 text-sm text-red-400">{error}</div>}
-          <button
-            type="submit"
-            className="mt-4 inline-flex items-center rounded-full bg-white px-4 py-2 text-sm font-medium text-black transition hover:bg-white/90"
-          >
-            Unlock
-          </button>
-        </form>
-      </main>
-    );
-  }
+  // Access is enforced via middleware + cookie at /team; always render content
 
   const renderHome = () => {
     const events = [
@@ -204,7 +154,7 @@ export default function Team() {
 
             <InfoCard title="Content Workflow (quick)">
               <div>Idea → Script/Shot list → Schedule → Shoot → Edit → Review → Publish</div>
-              <div>Use the Scheduler for each step; attach assets. Follow brand kit (logo, pink #FF4E6A, tone: friendly, clean).</div>
+              <div>Use the Scheduler for each step; attach assets. Follow brand kit (logo, neutral accent, tone: friendly, clean).</div>
             </InfoCard>
 
             <InfoCard title="Engineering Workflow (quick)">
@@ -244,6 +194,18 @@ export default function Team() {
                     <LinkIcon className="h-3.5 w-3.5" /> {l.label}
                   </a>
                 ))}
+              </div>
+            </InfoCard>
+
+            <InfoCard title="Team Task Manager">
+              <div className="rounded-xl overflow-hidden border border-white/10 bg-black">
+                <iframe
+                  src="https://armaanjhajj.notion.site/ebd/2804f405414e8008b3c9d49e11ab8645?v=2804f405414e8026bdef000cfe3cf87b"
+                  width="100%"
+                  height="600"
+                  frameBorder={0}
+                  allowFullScreen
+                />
               </div>
             </InfoCard>
 
@@ -563,7 +525,7 @@ export default function Team() {
     );
   };
 
-  const brandStyle = { ['--brand' as string]: '#FF4E6A' } as CSSProperties;
+  const brandStyle = { ['--brand' as string]: '#9CA3AF' } as CSSProperties;
 
   return (
     <main className="py-16" style={brandStyle}>

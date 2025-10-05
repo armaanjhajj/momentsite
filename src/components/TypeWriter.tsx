@@ -65,7 +65,7 @@ export default function TypeWriter() {
     <h1 className={`mt-2 text-4xl md:text-6xl font-semibold leading-[1.05] tracking-tight min-h-[1.2em] 
     `}
     style={isNeonMessage ? {
-      color: '#FF4E6A',
+      color: '#9CA3AF',
     } : {}}>
       {currentText}
       <span className={`${showCursor ? 'opacity-100' : 'opacity-0'} transition-opacity`}>|</span>

@@ -19,7 +19,7 @@ export default function HeaderClient() {
   }, []);
 
   return (
-    <div className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-white/10">
+    <div className="fixed inset-x-0 top-0 z-[100] backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-white/10">
       <header className="container flex items-center justify-between py-4 relative">
         <Link href="/" className="flex items-center gap-3">
           <img src="/logo.png" alt="Moments" className="h-9 w-9 invert" />
@@ -28,7 +28,6 @@ export default function HeaderClient() {
         <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
           <Link href="/" className="hover:text-white no-underline">Moments</Link>
           <Link href="/blog" className="hover:text-white no-underline">Blog</Link>
-          <Link href="/team" className="hover:text-white no-underline">Team</Link>
           <Link href="/apply" className="hover:text-white no-underline">Apply</Link>
           <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a>
         </nav>
@@ -61,7 +60,6 @@ export default function HeaderClient() {
             <nav className="container py-3 flex flex-col gap-3 text-sm text-white/90">
               <Link href="/" className="hover:text-white no-underline" onClick={closeMenu}>Moments</Link>
               <Link href="/blog" className="hover:text-white no-underline" onClick={closeMenu}>Blog</Link>
-              <Link href="/team" className="hover:text-white no-underline" onClick={closeMenu}>Team</Link>
               <Link href="/apply" className="hover:text-white no-underline" onClick={closeMenu}>Apply</Link>
               <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline" onClick={closeMenu}>Contact</a>
               <div className="pt-1 pb-1">

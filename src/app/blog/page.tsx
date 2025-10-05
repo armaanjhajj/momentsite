@@ -1,28 +1,51 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getSupabaseServer } from "@/lib/supabaseServer";
 
 type BlogPost = {
   id: string;
   slug: string;
   title: string;
-  excerpt: string | null;
-  cover_image_url: string | null;
-  published_at: string | null;
+  excerpt?: string;
+  cover_image_url?: string;
+  published_at?: string;
 };
 
 export default async function Blog() {
-  const supabase = getSupabaseServer();
-  const { data: posts, error } = await supabase
-    .from("blog_posts")
-    .select("id, slug, title, excerpt, cover_image_url, published_at")
-    .order("published_at", { ascending: false });
-
-  if (error) {
-    console.error(error.message);
-  }
-
-  const list = (posts ?? []) as BlogPost[];
+  // Static posts sourced from files under /blog/<slug>/page.tsx
+  const list: BlogPost[] = [
+    {
+      id: "introducing-moments",
+      slug: "introducing-moments",
+      title: "Introducing, Moments — launching this fall at Rutgers",
+      excerpt: "Redefining social connection on campus.",
+      cover_image_url: "https://i.imgur.com/VmYjp6Q.png",
+      published_at: "2025-08-31",
+    },
+    {
+      id: "branching-out-expanding-team",
+      slug: "branching-out-expanding-team",
+      title: "Branching Out: Building Moments Together",
+      excerpt: "We’re growing the team — creators, builders, organizers, storytellers.",
+      cover_image_url: "https://i.imgur.com/to1RzTY.png",
+      published_at: "2025-09-21",
+    },
+    {
+      id: "collabs-bxo-ind-sigrho",
+      slug: "collabs-bxo-ind-sigrho",
+      title: "Building Moments Together: Our Collabs with BXO, IND, and SigRho",
+      excerpt: "Parties with purpose: creating real connections across orgs and campuses.",
+      cover_image_url: "https://i.imgur.com/bnL08pm.jpeg",
+      published_at: "2025-09-22",
+    },
+    {
+      id: "mvp-ready",
+      slug: "mvp-ready",
+      title: "Finished our MVP (ready for our 10/25 launch)",
+      excerpt: "From idea to MVP: building a product that helps people reconnect.",
+      cover_image_url: "https://i.imgur.com/5i7oyGS.png",
+      published_at: "2025-09-23",
+    },
+  ];
 
   return (
     <main className="container py-16">
