@@ -209,6 +209,18 @@ export default function Team() {
               </div>
             </InfoCard>
 
+            <InfoCard title="Moments Calendar">
+              <div className="rounded-xl overflow-hidden border border-white/10 bg-black">
+                <iframe
+                  src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=America%2FNew_York&showPrint=0&title=Moments%20Calnedar&src=bWFrZW1vbWVudHNhcHBAZ21haWwuY29t&src=NTY4NzU4MmYyZDQyNTYzMDRjMWJlYzM3Yjk1Mjg2YTdmOGM3OWEzZWQ1MWNhOGVmMzY0YzRiMDVmMjIyZmEwNkBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039be5&color=%23616161&color=%230b8043"
+                  width="100%"
+                  height="600"
+                  frameBorder={0}
+                  scrolling="no"
+                />
+              </div>
+            </InfoCard>
+
             <InfoCard title="Need help fast?">
               <ul className="list-disc pl-5 space-y-1">
                 <li>Production urgent: <span className="text-white">@Management</span></li>
