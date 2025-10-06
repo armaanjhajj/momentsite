@@ -9,7 +9,7 @@ export default function SurveyPage() {
   return (
     <main>
       <section className="container py-8">
-        <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-4">
+        <div className="rounded-2xl border border-white/10 bg-white p-4">
           <div className="relative max-w-5xl mx-auto">
             <iframe
               data-tally-src="https://tally.so/embed/wa70BX?alignLeft=1&transparentBackground=1&dynamicHeight=1"
