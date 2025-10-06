@@ -4,6 +4,7 @@ import "./globals.css";
 import HeaderClient from "@/components/HeaderClient";
 import FooterClient from "@/components/FooterClient";
 import Link from "next/link";
+import SurveyPopup from "@/components/SurveyPopup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,6 +41,7 @@ export default function RootLayout({
         <div className="h-16" />
         {children}
         <FooterClient />
+        <SurveyPopup />
       </body>
     </html>
   );
