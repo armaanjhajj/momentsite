@@ -1,4 +1,4 @@
-import Script from "next/script";
+import TallyLoader from "./TallyLoader";
 
 export const metadata = {
   title: "Student Connection Survey",
@@ -22,11 +22,7 @@ export default function SurveyPage() {
           />
         </div>
       </section>
-
-      <Script id="tally-embed-loader" strategy="afterInteractive" dangerouslySetInnerHTML={{
-        __html:
-          'var d=document,w="https://tally.so/widgets/embed.js",v=function(){typeof Tally!="undefined"?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach(function(e){e.src=e.dataset.tallySrc})};if(typeof Tally!="undefined")v();else if(d.querySelector("script[src=\""+w+"\"]")==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}'
-      }} />
+      <TallyLoader />
     </main>
   );
 }
