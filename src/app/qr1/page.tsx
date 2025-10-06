@@ -52,6 +52,18 @@ export default function QR1Page() {
           </div>
         </div>
       </section>
+
+      <section className="container pb-24">
+        <div className="mt-2 text-center text-sm text-white/70">Follow along</div>
+        <div className="mt-3 flex items-center justify-center gap-8">
+          <a href="https://instagram.com/letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" className="h-8 w-8 object-contain opacity-80 hover:opacity-100 transition" />
+          </a>
+          <a href="https://www.tiktok.com/@letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <img src="https://store-images.s-microsoft.com/image/apps.47495.13634052595610511.c45457c9-b4af-46b0-8e61-8d7c0aec3f56.a8b71481-8a43-465d-88d6-e63add92c112" alt="TikTok" className="h-8 w-8 object-contain opacity-80 hover:opacity-100 transition" />
+          </a>
+        </div>
+      </section>
     </main>
   );
 }
