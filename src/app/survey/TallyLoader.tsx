@@ -2,13 +2,19 @@
 
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    Tally?: {
+      loadEmbeds?: () => void;
+    };
+  }
+}
+
 export default function TallyLoader() {
   useEffect(() => {
-    const win = window as any;
-
     const initializeEmbeds = () => {
-      if (typeof win.Tally !== "undefined" && win.Tally?.loadEmbeds) {
-        win.Tally.loadEmbeds();
+      if (typeof window !== "undefined" && typeof window.Tally !== "undefined" && window.Tally?.loadEmbeds) {
+        window.Tally.loadEmbeds();
         return;
       }
       document
@@ -19,7 +25,7 @@ export default function TallyLoader() {
         });
     };
 
-    if (typeof win.Tally !== "undefined") {
+    if (typeof window !== "undefined" && typeof window.Tally !== "undefined") {
       initializeEmbeds();
       return;
     }
