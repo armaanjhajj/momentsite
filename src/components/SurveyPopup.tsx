@@ -52,9 +52,7 @@ export default function SurveyPopup() {
 
         <div className="mt-4 flex gap-3">
           <Link
-            href="https://tally.so/r/wa70BX"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/survey"
             className="inline-flex flex-1 items-center justify-center px-4 py-2 md:px-5 md:py-2.5 bg-white text-black text-sm font-medium rounded-full hover:bg-white/90 transition-colors focus-accent"
             onClick={dismiss}
           >
