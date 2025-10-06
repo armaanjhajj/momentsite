@@ -21,16 +21,16 @@ export default function SurveyPopup() {
       <button
         aria-label="Close survey dialog"
         onClick={dismiss}
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm"
       />
 
-      <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5 shadow-2xl">
+      <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-black/80 p-4 md:p-5 shadow-2xl">
         <div className="flex items-start gap-3">
           <div className="flex-1">
             <div className="text-xs uppercase tracking-[0.18em] text-white/60">Quick survey</div>
             <h3 className="mt-1 text-lg md:text-xl font-medium">Help shape Moments at your campus</h3>
             <p className="mt-2 text-sm text-white/80">
-              Take 6–7 minutes to share how you make friends and where you get stuck. Your input directly informs what we build next.
+              Take 2-3 minutes to share how you make friends and where you get stuck. Your input directly informs what we build next.
             </p>
           </div>
           <button
