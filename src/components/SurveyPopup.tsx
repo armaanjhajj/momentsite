@@ -3,22 +3,14 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
-const STORAGE_KEY = "survey_popup_dismissed_v1";
-
 export default function SurveyPopup() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const dismissed = typeof window !== "undefined" && window.localStorage.getItem(STORAGE_KEY);
-    if (!dismissed) {
-      setIsOpen(true);
-    }
+    setIsOpen(true);
   }, []);
 
   const dismiss = () => {
-    try {
-      window.localStorage.setItem(STORAGE_KEY, "1");
-    } catch {}
     setIsOpen(false);
   };
 
