@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "5VRP53TR6L.com.simeonthomas.momentsapp",
+        "paths": [
+          "/app/auth/*",
+          "/app/callback",
+          "/app/*"
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [
+      "5VRP53TR6L.com.simeonthomas.momentsapp"
+    ]
+  }
+}
+
