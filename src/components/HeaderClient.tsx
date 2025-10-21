@@ -7,7 +7,6 @@ export default function HeaderClient() {
 
   const closeMenu = () => setIsOpen(false);
 
-  // Close on Escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsOpen(false);
