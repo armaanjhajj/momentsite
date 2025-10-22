@@ -1,26 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-import Link from "next/link";
 
 export default function Privacy() {
   return (
     <main className="container py-16">
       <header className="max-w-4xl mx-auto">
-        <div className="flex items-center mb-6">
-          <Link href="/" className="flex items-center text-white/70 hover:text-white transition-colors">
-            <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Moments
-          </Link>
-        </div>
-        
-        <div className="text-right mb-8">
-          <h1 className="text-6xl font-bold text-white mb-4">Moments</h1>
-        </div>
-        
         <div className="text-center mb-12">
           <h1 className="text-6xl font-bold text-white mb-4">Privacy Policy</h1>
-          <p className="text-lg text-white/70">Last Updated: July 16, 2025</p>
+          <p className="text-lg text-white/70">Last Updated: October 21, 2025</p>
         </div>
       </header>
 
@@ -416,14 +402,6 @@ export default function Privacy() {
           </p>
         </div>
 
-        <div className="text-center mt-12 pt-8 border-t border-white/20">
-          <p className="text-lg text-white/70 mb-4">© 2025 One Moments, Inc. All rights reserved.</p>
-          <div className="flex justify-center space-x-6 text-sm text-white/60">
-            <Link href="/legal/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-            <Link href="/legal/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/contact" className="hover:text-white transition-colors">Contact</Link>
-          </div>
-        </div>
       </article>
     </main>
   );

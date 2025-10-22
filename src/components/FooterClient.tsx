@@ -38,7 +38,7 @@ export default function FooterClient() {
               <FaXTwitter size={24} />
             </a>
           </div>
-          <div className="mt-4 text-xs text-white/60">© 2025 Moments. All rights reserved.</div>
+          <div className="mt-4 text-xs text-white/60">© 2025 One Moments, Inc. All rights reserved.</div>
         </div>
       </div>
     </footer>
