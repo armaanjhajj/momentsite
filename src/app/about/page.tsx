@@ -92,7 +92,7 @@ export default function AboutPage() {
             
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <p className="text-lg text-white/80 leading-relaxed">
-                Now, people like me and Sim will still do it anyway because we don't really care about being annoying as sh*t. But we also recognize how powerful it could be to have a tool that lowers that barrier and basically something that makes authentic in person connection feel natural again.
+                Now, people like me and Sim will still do it anyway because we don&apos;t really care about being annoying as sh*t. But we also recognize how powerful it could be to have a tool that lowers that barrier and basically something that makes authentic in person connection feel natural again.
               </p>
             </div>
           </div>
@@ -120,21 +120,21 @@ export default function AboutPage() {
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">Academic Partnerships</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                We're partnering with professors and students at <strong>Rutgers University</strong>, particularly within the <strong>Sociology</strong>, <strong>Wellness</strong>, and <strong>Psychology</strong> departments, to understand how tools like this can actually <em>encourage</em> people to connect in real life and not just scroll past each other.
+                We&apos;re partnering with professors and students at <strong>Rutgers University</strong>, particularly within the <strong>Sociology</strong>, <strong>Wellness</strong>, and <strong>Psychology</strong> departments, to understand how tools like this can actually <em>encourage</em> people to connect in real life and not just scroll past each other.
               </p>
             </div>
             
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">The Reality</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                Honestly, we're just tired of walking around campus and feeling like everyone's unapproachable. Even as relatively resilient guys, loneliness has had <em>huge</em> impacts on both of us, whether we admit it or not.
+                Honestly, we&apos;re just tired of walking around campus and feeling like everyone&apos;s unapproachable. Even as relatively resilient guys, loneliness has had <em>huge</em> impacts on both of us, whether we admit it or not.
               </p>
             </div>
             
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">The Truth</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                The truth is, you could be the most social or popular person on campus and still feel incredibly lonely. Because being surrounded by people isn't the same as being <em>known</em> by them. Our goal is to change that.
+                The truth is, you could be the most social or popular person on campus and still feel incredibly lonely. Because being surrounded by people isn&apos;t the same as being <em>known</em> by them. Our goal is to change that.
               </p>
             </div>
           </div>
@@ -165,7 +165,7 @@ export default function AboutPage() {
                   Discover people around you and build meaningful relationships.
                 </p>
                 <p className="text-sm leading-relaxed">
-                  Moments lets you write a short "mini journal entry" your own honest, unfiltered prompt about who you are and what you're looking for. Think of it like talking to ChatGPT about your problems, frustrations, or what kind of people you wish you could meet. Just be real.
+                  Moments lets you write a short &quot;mini journal entry&quot; your own honest, unfiltered prompt about who you are and what you&apos;re looking for. Think of it like talking to ChatGPT about your problems, frustrations, or what kind of people you wish you could meet. Just be real.
                 </p>
                 <p className="text-sm leading-relaxed">
                   From there, <strong>we use AI</strong> to help you discover people nearby with shared vibes, values, or interests and prompt you to meet up.
@@ -174,7 +174,7 @@ export default function AboutPage() {
                   No fake personas, no algorithms chasing clicks. Just honest connection.
                 </p>
                 <p className="text-sm leading-relaxed italic">
-                  (And no, we don't sell your data.... yet 😉)
+                  (And no, we don&apos;t sell your data.... yet 😉)
                 </p>
               </div>
             </div>
@@ -192,10 +192,10 @@ export default function AboutPage() {
                   Find and join events happening on your campus and nearby.
                 </p>
                 <p className="text-sm leading-relaxed">
-                  Whether you're hosting a <strong>poker night</strong>, planning a <strong>Smash Bros. tournament</strong>, or you're part of an <strong>organization</strong> throwing a big campus event and you can post it all here.
+                  Whether you&apos;re hosting a <strong>poker night</strong>, planning a <strong>Smash Bros. tournament</strong>, or you&apos;re part of an <strong>organization</strong> throwing a big campus event and you can post it all here.
                 </p>
                 <p className="text-sm leading-relaxed">
-                  Moments helps you see what's happening <em>right now</em> around Rutgers, so you'll never have to say "there's nothing to do" again. It's all there and easy to find, easy to join, and super visible to everyone around you.
+                  Moments helps you see what&apos;s happening <em>right now</em> around Rutgers, so you&apos;ll never have to say &quot;there&apos;s nothing to do&quot; again. It&apos;s all there and easy to find, easy to join, and super visible to everyone around you.
                 </p>
               </div>
             </div>
@@ -213,7 +213,7 @@ export default function AboutPage() {
                   Share your favorite Moments and stay connected with your community.
                 </p>
                 <p className="text-sm leading-relaxed">
-                  You can post memories, selfies, or candid shots from your day and and share them on your campus feed. No need to feel embarrassed; we'll be posting random, real stuff too.
+                  You can post memories, selfies, or candid shots from your day and and share them on your campus feed. No need to feel embarrassed; we&apos;ll be posting random, real stuff too.
                 </p>
                 <p className="text-sm leading-relaxed font-medium">
                   No filters, no fakeness and just people being people. :P
@@ -238,21 +238,21 @@ export default function AboutPage() {
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">Rutgers First</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                We're rolling out <strong>exclusively at Rutgers</strong> first. The app is fully optimized for Rutgers and from local meet-up spots to partnerships with <strong>cafés and restaurants</strong> that offer verified hangout locations.
+                We&apos;re rolling out <strong>exclusively at Rutgers</strong> first. The app is fully optimized for Rutgers and from local meet-up spots to partnerships with <strong>cafés and restaurants</strong> that offer verified hangout locations.
               </p>
             </div>
             
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">Safe & Verified</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                When you set up a meet-up, Moments will suggest a safe, public place to go and all verified, all nearby. Every user is <strong>Rutgers.edu verified</strong>, so there's no risk of random strangers or off-campus weirdos joining in.
+                When you set up a meet-up, Moments will suggest a safe, public place to go and all verified, all nearby. Every user is <strong>Rutgers.edu verified</strong>, so there&apos;s no risk of random strangers or off-campus weirdos joining in.
               </p>
             </div>
             
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">Community Guidelines</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                ⚠️ Quick disclaimer: don't post anything inappropriate or violate community guidelines. Since Moments is built in affiliation with Rutgers faculty, behavior that violates our TOS will be handled directly through university channels.
+                ⚠️ Quick disclaimer: don&apos;t post anything inappropriate or violate community guidelines. Since Moments is built in affiliation with Rutgers faculty, behavior that violates our TOS will be handled directly through university channels.
               </p>
             </div>
           </div>
@@ -274,17 +274,17 @@ export default function AboutPage() {
               <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
                 <h3 className="text-2xl font-semibold text-white mb-4">Timeline</h3>
                 <p className="text-lg text-white/80 leading-relaxed">
-                  We're planning our <strong>official rollout before Halloween</strong> or <strong>the first week of November</strong>.
+                  We&apos;re planning our <strong>official rollout before Halloween</strong> or <strong>the first week of November</strong>.
                 </p>
               </div>
               
               <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
                 <h3 className="text-2xl font-semibold text-white mb-4">Early Access</h3>
                 <p className="text-lg text-white/80 leading-relaxed mb-3">
-                  During this early access period, you'll need a <strong>referral code</strong> to join — available through our team or any official "Friends of Moments" on campus.
+                  During this early access period, you&apos;ll need a <strong>referral code</strong> to join — available through our team or any official &quot;Friends of Moments&quot; on campus.
                 </p>
                 <p className="text-base text-white/70">
-                  We'll go public soon, but for now:
+                  We&apos;ll go public soon, but for now:
                 </p>
               </div>
               

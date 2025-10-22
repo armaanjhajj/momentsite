@@ -32,7 +32,7 @@ export async function uploadImageToBucket(options: {
     const res = await supabase.storage
       .from(fallbackBucket)
       .upload(path, file, { cacheControl: "3600", upsert: false, contentType: file.type || undefined });
-    error = res.error || null as any;
+    error = res.error || null;
     if (!error) {
       const { data } = supabase.storage.from(fallbackBucket).getPublicUrl(path);
       return data.publicUrl;

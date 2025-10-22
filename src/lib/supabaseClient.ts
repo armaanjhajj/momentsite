@@ -18,7 +18,6 @@ const supabaseAnonKey =
   FALLBACK_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
-  // eslint-disable-next-line no-console
   console.warn("Supabase env vars are missing. Set NEXT_PUBLIC_SUPABASE_URL/ANON_KEY or EXPO_PUBLIC_*.");
 }
 

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export default function HeaderClient() {
@@ -21,7 +22,7 @@ export default function HeaderClient() {
     <div className="fixed inset-x-0 top-0 z-[100] backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-white/10">
       <header className="container flex items-center justify-between py-4 relative">
         <Link href="/" className="flex items-center gap-3">
-          <img src="/logo.png" alt="Moments" className="h-9 w-9 invert" />
+          <Image src="/logo.png" alt="Moments" width={36} height={36} className="h-9 w-9 invert" />
           <span className="sr-only">Moments</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">

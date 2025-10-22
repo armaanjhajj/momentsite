@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function StatsPage() {
   return (
     <main className="container pt-16 pb-24">
@@ -73,7 +75,7 @@ export default function StatsPage() {
 
           <div className="mt-12 text-center">
             <h2 className="text-2xl font-semibold mb-4">Join Our Growing Community</h2>
-            <p className="text-white/70 mb-6">Be part of the movement that's connecting college students across campuses.</p>
+            <p className="text-white/70 mb-6">Be part of the movement that&apos;s connecting college students across campuses.</p>
             <Link 
               href="/waitlist" 
               className="inline-flex items-center rounded-full bg-white text-black px-6 py-3 text-sm font-medium hover:bg-white/90 transition-colors"

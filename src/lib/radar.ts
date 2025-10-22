@@ -38,12 +38,29 @@ export async function getAddressSuggestions(query: string): Promise<RadarAddress
     if (!resp.ok) return [];
     const data = await resp.json();
     if (!Array.isArray(data?.addresses)) return [];
-    const addresses = data.addresses.filter((a: any) => !a.layer || a.layer === "address");
-    return addresses.map((a: any) => ({
+    const addresses = data.addresses.filter((a: { layer?: string }) => !a.layer || a.layer === "address");
+    return addresses.map((a: {
+      formattedAddress: string;
+      latitude: number;
+      longitude: number;
+      confidence?: string;
+      number?: string;
+      addressNumber?: string;
+      street?: string;
+      city?: string;
+      state?: string;
+      postalCode?: string;
+      country?: string;
+      countryCode?: string;
+      county?: string;
+      neighborhood?: string;
+      label?: string;
+      placeLabel?: string;
+    }) => ({
       formattedAddress: a.formattedAddress,
       latitude: a.latitude,
       longitude: a.longitude,
-      confidence: (a.confidence as any) || "exact",
+      confidence: (a.confidence as "exact" | "interpolated" | "fallback") || "exact",
       addressNumber: a.number || a.addressNumber,
       street: a.street,
       city: a.city,
