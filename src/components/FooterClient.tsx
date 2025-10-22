@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { Instagram, Linkedin, Music, Twitter } from "lucide-react";
 
 export default function FooterClient() {
   const pathname = usePathname();
@@ -25,17 +25,17 @@ export default function FooterClient() {
         <div className="mt-6 text-center">
           <div className="text-sm text-white/80">Moments — @letsmakemoments</div>
           <div className="mt-3 flex items-center justify-center gap-6">
-            <a href="https://instagram.com/letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <Image src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt="Instagram" width={24} height={24} className="h-6 w-6 object-contain  opacity-80 hover:opacity-100 transition" />
+            <a href="https://instagram.com/letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white/80 hover:text-white transition-colors">
+              <Instagram size={24} />
             </a>
-            <a href="https://www.linkedin.com/company/letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-              <Image src="https://yt3.googleusercontent.com/i6KNxiy3gME-BulL4WnuGkTGqHuSYF8jl1WRn0rXftcJdSYK7dHKcJ3gLAaPc-KfhmLSYPwf824=s900-c-k-c0x00ffffff-no-rj" alt="LinkedIn" width={24} height={24} className="h-6 w-6 object-contain  opacity-80 hover:opacity-100 transition" />
+            <a href="https://www.linkedin.com/company/letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white/80 hover:text-white transition-colors">
+              <Linkedin size={24} />
             </a>
-            <a href="https://www.tiktok.com/@letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-              <Image src="https://store-images.s-microsoft.com/image/apps.47495.13634052595610511.c45457c9-b4af-46b0-8e61-8d7c0aec3f56.a8b71481-8a43-465d-88d6-e63add92c112" alt="TikTok" width={24} height={24} className="h-6 w-6 object-contain  opacity-80 hover:opacity-100 transition" />
+            <a href="https://www.tiktok.com/@letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="text-white/80 hover:text-white transition-colors">
+              <Music size={24} />
             </a>
-            <a href="https://x.com/letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="X">
-              <Image src="https://play-lh.googleusercontent.com/A-Rnrh0J7iKmABskTonqFAANRLGTGUg_nuE4PEMYwJavL3nPt5uWsU2WO_DSgV_mOOM" alt="X" width={24} height={24} className="h-6 w-6 object-contain  opacity-80 hover:opacity-100 transition" />
+            <a href="https://x.com/letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="X" className="text-white/80 hover:text-white transition-colors">
+              <Twitter size={24} />
             </a>
           </div>
           <div className="mt-4 text-xs text-white/60">© 2025 Moments. All rights reserved.</div>
