@@ -17,7 +17,7 @@ export default function FooterClient() {
           <Link href="/blog" className="hover:text-white no-underline">Blog</Link>
           <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a>
           <Link href="/safety" className="hover:text-white no-underline">Safety</Link>
-          <Link href="/" className="hover:text-white no-underline">Moments</Link>
+          <Link href="/" className="hover:text-white no-underline">Home</Link>
           <Link href="/survey" className="hover:text-white no-underline">Survey</Link>
           <Link href="/apply" className="hover:text-white no-underline">Apply</Link>
         </nav>

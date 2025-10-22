@@ -5,13 +5,26 @@ import Link from "next/link";
 
 export default function SurveyPopup() {
   const [isOpen, setIsOpen] = useState(false);
+  const COOKIE_NAME = "moments_survey_dismissed";
 
   useEffect(() => {
-    setIsOpen(true);
+    try {
+      const dismissed = document.cookie
+        .split("; ")
+        .some((c) => c.startsWith(`${COOKIE_NAME}=`));
+      setIsOpen(!dismissed);
+    } catch {
+      setIsOpen(true);
+    }
   }, []);
 
   const dismiss = () => {
     setIsOpen(false);
+    try {
+      const maxAge = 60 * 60 * 24 * 30; // 30 days
+      const secure = typeof window !== "undefined" && window.location.protocol === "https:" ? "; Secure" : "";
+      document.cookie = `${COOKIE_NAME}=1; Path=/; Max-Age=${maxAge}; SameSite=Lax${secure}`;
+    } catch {}
   };
 
   if (!isOpen) return null;
