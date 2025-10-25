@@ -20,19 +20,19 @@ export default function HeaderClient() {
 
   return (
     <div className="fixed inset-x-0 top-0 z-[100] backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-white/10">
-      <header className="container flex items-center justify-between py-4 relative">
+      <header className="container flex items-center py-4 relative">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo.png" alt="Moments" width={36} height={36} className="h-9 w-9 invert" />
           <span className="sr-only">Moments</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6 text-sm text-white/80">
+        <nav className="hidden md:flex items-center gap-6 text-sm text-white/80 mx-auto">
           <Link href="/" className="hover:text-white no-underline">Home</Link>
           <Link href="/about" className="hover:text-white no-underline">About</Link>
           <Link href="/blog" className="hover:text-white no-underline">Blog</Link>
-          <Link href="/businesses" className="hover:text-white no-underline">Businesses</Link>
         </nav>
         <div className="hidden md:flex items-center gap-3">
           <Link href="/waitlist" className="focus-accent rounded-full px-4 py-2 text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition">Join waitlist</Link>
+          <Link href="/businesses" className="focus-accent rounded-full px-4 py-2 text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition">For Businesses</Link>
         </div>
         <button
           type="button"
@@ -61,9 +61,9 @@ export default function HeaderClient() {
               <Link href="/" className="hover:text-white no-underline" onClick={closeMenu}>Home</Link>
               <Link href="/about" className="hover:text-white no-underline" onClick={closeMenu}>About</Link>
               <Link href="/blog" className="hover:text-white no-underline" onClick={closeMenu}>Blog</Link>
-              <Link href="/businesses" className="hover:text-white no-underline" onClick={closeMenu}>Businesses</Link>
               <div className="pt-1 pb-1 space-y-2">
                 <Link href="/waitlist" className="block focus-accent rounded-full px-4 py-2 text-center text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition" onClick={closeMenu}>Join waitlist</Link>
+                <Link href="/businesses" className="block focus-accent rounded-full px-4 py-2 text-center text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition" onClick={closeMenu}>For Businesses</Link>
               </div>
             </nav>
           </div>
