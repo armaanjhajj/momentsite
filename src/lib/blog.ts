@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
+import remarkBreaks from 'remark-breaks';
 
 const postsDirectory = path.join(process.cwd(), 'content/blog');
 
@@ -21,7 +22,7 @@ export function getAllPosts(): BlogPost[] {
   const fileNames = fs.readdirSync(postsDirectory);
   
   const allPostsData = fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
+    .filter((fileName) => fileName.endsWith('.md') && fileName !== 'README.md')
     .map((fileName) => {
       const slug = fileName.replace(/\.md$/, '');
       const fullPath = path.join(postsDirectory, fileName);
@@ -48,9 +49,10 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
-    // Convert markdown to HTML
+    // Convert markdown to HTML with proper formatting
     const processedContent = await remark()
       .use(remarkGfm) // GitHub Flavored Markdown
+      .use(remarkBreaks) // Convert line breaks to <br>
       .use(html, { sanitize: false })
       .process(content);
 
@@ -66,6 +68,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
       content: contentHtml,
     };
   } catch (error) {
+    console.error('Error loading post:', error);
     return null;
   }
 }
@@ -73,7 +76,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 export function getAllSlugs(): string[] {
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames
-    .filter((fileName) => fileName.endsWith('.md'))
+    .filter((fileName) => fileName.endsWith('.md') && fileName !== 'README.md')
     .map((fileName) => fileName.replace(/\.md$/, ''));
 }
 

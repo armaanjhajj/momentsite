@@ -56,14 +56,15 @@ export default async function BlogPost({ params }: { params: { slug: string } })
 
         {post.banner && (
           <div className="mt-8">
-            <Image
-              src={post.banner}
-              alt={post.title}
-              width={1200}
-              height={630}
-              className="w-full h-auto rounded-xl border border-white/10"
-              priority
-            />
+            <div className="relative w-full aspect-[2/1] overflow-hidden rounded-xl border border-white/10">
+              <Image
+                src={post.banner}
+                alt={post.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
           </div>
         )}
 

@@ -1,38 +1,59 @@
-/* Professional Markdown Styling */
+/* Professional Markdown Styling - Optimized for Readability */
+
 .markdown-content {
-  @apply text-white/90 leading-relaxed;
+  @apply text-white/90 text-base md:text-lg leading-[1.8];
+  line-height: 1.8;
 }
 
-/* Paragraphs */
+/* Paragraphs - generous spacing */
 .markdown-content p {
-  @apply mb-6 text-base md:text-lg leading-relaxed;
+  @apply mb-8 leading-[1.8];
+  margin-bottom: 2rem;
 }
 
-/* Headings */
+/* Headings - clear hierarchy with proper spacing */
 .markdown-content h1 {
-  @apply text-3xl md:text-4xl font-bold mt-12 mb-6 text-white tracking-tight;
+  @apply text-3xl md:text-4xl font-bold mt-16 mb-8 text-white tracking-tight leading-tight;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
 }
 
 .markdown-content h2 {
-  @apply text-2xl md:text-3xl font-semibold mt-10 mb-4 text-white tracking-tight;
+  @apply text-2xl md:text-3xl font-semibold mt-14 mb-6 text-white tracking-tight leading-tight;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .markdown-content h3 {
-  @apply text-xl md:text-2xl font-semibold mt-8 mb-3 text-white;
+  @apply text-xl md:text-2xl font-semibold mt-12 mb-5 text-white leading-tight;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
 }
 
 .markdown-content h4 {
-  @apply text-lg md:text-xl font-semibold mt-6 mb-2 text-white;
+  @apply text-lg md:text-xl font-semibold mt-10 mb-4 text-white;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .markdown-content h5,
 .markdown-content h6 {
-  @apply text-base md:text-lg font-semibold mt-4 mb-2 text-white;
+  @apply text-base md:text-lg font-semibold mt-8 mb-3 text-white;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
 
-/* Links */
+/* Remove top margin from first heading */
+.markdown-content > h1:first-child,
+.markdown-content > h2:first-child,
+.markdown-content > h3:first-child {
+  @apply mt-0;
+}
+
+/* Links - subtle underline */
 .markdown-content a {
   @apply text-white underline decoration-white/40 hover:decoration-white transition-colors;
+  text-underline-offset: 3px;
 }
 
 /* Emphasis */
@@ -41,37 +62,43 @@
 }
 
 .markdown-content em {
-  @apply italic text-white/90;
+  @apply italic text-white/95;
 }
 
-/* Blockquotes - Professional left border style */
+/* Blockquotes - Beautiful design */
 .markdown-content blockquote {
-  @apply my-8 pl-6 border-l-4 border-white/30 bg-white/5 py-4 pr-6 rounded-r-xl;
+  @apply my-10 pl-8 border-l-4 border-white/40 bg-white/[0.03] py-6 pr-8 rounded-r-xl;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .markdown-content blockquote p {
-  @apply text-white/80 italic mb-0 text-lg;
+  @apply text-white/90 italic mb-0 text-lg md:text-xl leading-relaxed;
+  margin-bottom: 0 !important;
 }
 
-.markdown-content blockquote p:last-child {
-  @apply mb-0;
+.markdown-content blockquote p:first-of-type {
+  @apply text-lg md:text-xl;
 }
 
-/* Lists */
+/* Lists - Clear hierarchy and spacing */
 .markdown-content ul {
-  @apply list-disc list-outside ml-6 mb-6 space-y-2;
+  @apply list-disc list-outside ml-8 mb-8 space-y-3;
+  margin-bottom: 2rem;
 }
 
 .markdown-content ol {
-  @apply list-decimal list-outside ml-6 mb-6 space-y-2;
+  @apply list-decimal list-outside ml-8 mb-8 space-y-3;
+  margin-bottom: 2rem;
 }
 
 .markdown-content li {
-  @apply text-base md:text-lg leading-relaxed pl-2;
+  @apply text-base md:text-lg leading-relaxed pl-3;
+  line-height: 1.8;
 }
 
 .markdown-content li::marker {
-  @apply text-white/60;
+  @apply text-white/70 font-medium;
 }
 
 /* Nested lists */
@@ -79,56 +106,72 @@
 .markdown-content ol ul,
 .markdown-content ul ol,
 .markdown-content ol ol {
-  @apply mt-2 mb-0;
+  @apply mt-3 mb-0;
 }
 
-/* Code */
+/* List items with paragraphs */
+.markdown-content li > p {
+  @apply mb-3;
+}
+
+/* Code - Clean and readable */
 .markdown-content code {
-  @apply bg-white/10 text-white px-1.5 py-0.5 rounded text-sm font-mono border border-white/10;
+  @apply bg-white/[0.08] text-white/95 px-2 py-1 rounded text-sm font-mono border border-white/10;
+  font-size: 0.9em;
 }
 
 .markdown-content pre {
-  @apply bg-black/40 border border-white/10 rounded-xl p-4 mb-6 overflow-x-auto;
+  @apply bg-black/40 border border-white/10 rounded-xl p-6 mb-8 overflow-x-auto;
+  margin-bottom: 2rem;
 }
 
 .markdown-content pre code {
-  @apply bg-transparent border-0 p-0 text-sm;
+  @apply bg-transparent border-0 p-0 text-sm leading-relaxed;
 }
 
-/* Horizontal Rules */
+/* Horizontal Rules - Subtle separator */
 .markdown-content hr {
-  @apply my-10 border-white/10;
+  @apply my-12 border-white/20;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
-/* Tables */
+/* Tables - Professional styling */
 .markdown-content table {
-  @apply w-full mb-6 border-collapse;
+  @apply w-full mb-8 border-collapse;
+  margin-bottom: 2rem;
 }
 
 .markdown-content th {
-  @apply bg-white/10 border border-white/10 px-4 py-2 text-left font-semibold text-white;
+  @apply bg-white/10 border border-white/20 px-6 py-3 text-left font-semibold text-white;
 }
 
 .markdown-content td {
-  @apply border border-white/10 px-4 py-2 text-white/80;
+  @apply border border-white/10 px-6 py-3 text-white/85;
 }
 
 .markdown-content tr:nth-child(even) {
-  @apply bg-white/5;
+  @apply bg-white/[0.02];
 }
 
-/* Images */
+/* Images - Consistent spacing */
 .markdown-content img {
-  @apply rounded-xl border border-white/10 my-6 w-full h-auto;
+  @apply rounded-xl border border-white/10 my-8 w-full h-auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
-/* First paragraph special styling */
+/* First paragraph - Slightly larger for emphasis */
 .markdown-content > p:first-of-type {
-  @apply text-lg md:text-xl text-white/90 font-normal;
+  @apply text-lg md:text-xl text-white/95 font-normal leading-relaxed;
+  font-size: 1.25rem;
+  line-height: 1.75;
 }
 
-/* Last paragraph spacing */
-.markdown-content > p:last-child {
+/* Last paragraph - Remove bottom margin */
+.markdown-content > p:last-child,
+.markdown-content > ul:last-child,
+.markdown-content > ol:last-child {
   @apply mb-0;
 }
 
@@ -139,16 +182,16 @@
 
 /* Definition lists */
 .markdown-content dt {
-  @apply font-semibold text-white mt-4;
+  @apply font-semibold text-white mt-6;
 }
 
 .markdown-content dd {
-  @apply ml-6 mb-4 text-white/80;
+  @apply ml-8 mb-6 text-white/85;
 }
 
 /* Footnotes */
 .markdown-content .footnotes {
-  @apply mt-12 pt-6 border-t border-white/10 text-sm text-white/70;
+  @apply mt-16 pt-8 border-t border-white/10 text-sm text-white/70;
 }
 
 /* Selection highlighting */
@@ -156,3 +199,38 @@
   @apply bg-white/20 text-white;
 }
 
+/* Better spacing after headings */
+.markdown-content h1 + p,
+.markdown-content h2 + p,
+.markdown-content h3 + p,
+.markdown-content h4 + p {
+  @apply mt-0;
+}
+
+/* Remove extra spacing when element follows a heading */
+.markdown-content h1 + ul,
+.markdown-content h2 + ul,
+.markdown-content h3 + ul,
+.markdown-content h1 + ol,
+.markdown-content h2 + ol,
+.markdown-content h3 + ol {
+  @apply mt-4;
+}
+
+/* Inline code in headings */
+.markdown-content h1 code,
+.markdown-content h2 code,
+.markdown-content h3 code {
+  @apply text-[0.9em];
+}
+
+/* Better spacing for consecutive elements */
+.markdown-content p + p {
+  margin-top: 0;
+}
+
+.markdown-content ul + p,
+.markdown-content ol + p,
+.markdown-content blockquote + p {
+  margin-top: 0;
+}
