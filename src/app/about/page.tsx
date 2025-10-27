@@ -118,13 +118,6 @@ export default function AboutPage() {
             </div>
             
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <h3 className="text-xl font-semibold mb-3 text-white">Academic Partnerships</h3>
-              <p className="text-lg text-white/80 leading-relaxed">
-                We&apos;re partnering with professors and students, particularly within the <strong>Sociology</strong>, <strong>Wellness</strong>, and <strong>Psychology</strong> departments, to understand how tools like this can actually <em>encourage</em> people to connect in real life and not just scroll past each other.
-              </p>
-            </div>
-            
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">The Reality</h3>
               <p className="text-lg text-white/80 leading-relaxed">
                 Honestly, we&apos;re just tired of walking around campus and feeling like everyone&apos;s unapproachable. Even as relatively resilient guys, loneliness has had <em>huge</em> impacts on both of us, whether we admit it or not.
@@ -252,7 +245,7 @@ export default function AboutPage() {
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">Community Guidelines</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                ⚠️ Quick disclaimer: don&apos;t post anything inappropriate or violate community guidelines. Behavior that violates our TOS will be handled directly through appropriate channels.
+                We expect all users to follow our community guidelines and terms of service. Keep it respectful, safe, and authentic.
               </p>
             </div>
           </div>
