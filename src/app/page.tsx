@@ -22,23 +22,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container pb-12">
-        <div className="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
-          <div className="rounded-2xl border border-white/10 p-4 bg-white/5 backdrop-blur">
-            <div className="text-sm uppercase tracking-[0.18em] text-white/60">Nearby</div>
-            <div className="mt-3 rounded-xl overflow-hidden border border-white/10 relative aspect-square">
-              <img src="/cards/nearbycard.png" alt="Nearby" className="w-full h-full object-cover" />
-            </div>
-          </div>
-          <div className="rounded-2xl border border-white/10 p-4 bg-white/5 backdrop-blur">
-            <div className="text-sm uppercase tracking-[0.18em] text-white/60">Events</div>
-            <div className="mt-3 rounded-xl overflow-hidden border border-white/10 relative aspect-square">
-              <img src="/cards/eventscard.png" alt="Events" className="w-full h-full object-cover" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="container pb-24">
         <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 bg-black">
           <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
