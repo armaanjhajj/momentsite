@@ -1,17 +1,79 @@
-import Link from "next/link";
+import Link from 'next/link';
+import Image from 'next/image';
+import { getPostBySlug, getAllSlugs } from '@/lib/blog';
+import { notFound } from 'next/navigation';
+import './markdown.css';
 
-// Static blog posts are implemented as individual pages under /blog/<slug>/page.tsx.
-// This dynamic route acts as a safety fallback for unknown slugs.
+export async function generateStaticParams() {
+  const slugs = getAllSlugs();
+  return slugs.map((slug) => ({ slug }));
+}
 
-type Params = { params: { slug: string } };
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const post = await getPostBySlug(params.slug);
+  
+  if (!post) {
+    return {
+      title: 'Post Not Found',
+    };
+  }
 
-export default async function BlogPostPage({ params }: Params) {
+  return {
+    title: post.title,
+    description: post.description,
+  };
+}
+
+export default async function BlogPost({ params }: { params: { slug: string } }) {
+  const post = await getPostBySlug(params.slug);
+
+  if (!post) {
+    notFound();
+  }
+
   return (
-    <main className="container py-16">
-      <h1 className="text-2xl font-semibold">Post not found</h1>
-      <Link href="/blog" className="underline mt-4 inline-block">Back to blog</Link>
+    <main className="container py-12">
+      <div className="max-w-3xl mx-auto">
+        <Link href="/blog" className="text-sm text-white/70 hover:text-white transition">
+          ← Back to blog
+        </Link>
+        
+        <h1 className="mt-6 text-4xl md:text-5xl font-semibold leading-tight">
+          {post.title}
+        </h1>
+        
+        <div className="mt-4 flex items-center gap-2 text-sm text-white/60">
+          <span className="font-medium">{post.author}</span>
+          <span>•</span>
+          <time dateTime={post.date}>
+            {new Date(post.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          </time>
+        </div>
+
+        {post.banner && (
+          <div className="mt-8">
+            <Image
+              src={post.banner}
+              alt={post.title}
+              width={1200}
+              height={630}
+              className="w-full h-auto rounded-xl border border-white/10"
+              priority
+            />
+          </div>
+        )}
+
+        <hr className="mt-8 border-white/10" />
+
+        <article 
+          className="markdown-content mt-8"
+          dangerouslySetInnerHTML={{ __html: post.content || '' }}
+        />
+      </div>
     </main>
   );
 }
-
-
