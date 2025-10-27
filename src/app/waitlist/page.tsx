@@ -7,7 +7,7 @@ export default function Waitlist() {
       <div className="max-w-2xl mx-auto">
         <h1 className="text-3xl md:text-5xl font-semibold">Join the Moments Waitlist</h1>
         <p className="mt-4 text-white/80 text-lg">
-          Moments is launching exclusively at Rutgers in October 2025 — live on the App Store (probably)before Halloween or first week of November (LATEST).
+          Moments is launching in October 2025 — live on the App Store (probably) before Halloween or first week of November (LATEST).
           Waitlist members get the earliest access, a personal referral code, and the chance to bring friends in first.
           We’ll open to the public shortly after. Join the waitlist and get excited.
         </p>

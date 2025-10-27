@@ -12,7 +12,7 @@ export default function QR1Page() {
           <p className="mt-3 text-white/80 md:text-lg">
             Moments rewinds missed connections in real time and gets people meeting spontaneously.
             Discover campus events, bump into people nearby, and share what you&apos;re up to — all in one place.
-            Launching Fall 2025 at Rutgers.
+            Launching Fall 2025.
           </p>
           <div className="mt-5 flex gap-3">
             <a

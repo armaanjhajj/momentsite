@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const metadata = {
-  title: "Introducing, Moments — launching this fall at Rutgers",
+  title: "Introducing, Moments — launching this fall",
   description:
     "Redefining social connection on campus. Moments helps students turn fleeting encounters into real connections.",
 };
@@ -13,7 +13,7 @@ export default function IntroducingMoments() {
       <div className="max-w-3xl mx-auto">
         <Link href="/blog" className="text-sm text-white/70 hover:text-white">← Back to blog</Link>
         <h1 className="mt-4 text-4xl md:text-5xl font-semibold">Introducing, Moments</h1>
-        <p className="mt-2 text-white/70 italic">Launching this fall at Rutgers</p>
+        <p className="mt-2 text-white/70 italic">Launching this fall</p>
 
         <div className="mt-3 text-sm text-white/60 flex items-center gap-2">
           <span className="font-medium">Moments Team</span>
@@ -60,7 +60,7 @@ export default function IntroducingMoments() {
           </p>
           <hr />
           <p>
-            Launching Fall 2025 at Rutgers University, Moments is built by students, for students.
+            Launching Fall 2025, Moments is built by students, for students.
             This is more than an app — it’s a movement to bring people back to the present, foster
             belonging, and strengthen communities one interaction at a time.
           </p>

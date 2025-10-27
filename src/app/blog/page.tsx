@@ -16,7 +16,7 @@ export default async function Blog() {
     {
       id: "introducing-moments",
       slug: "introducing-moments",
-      title: "Introducing, Moments — launching this fall at Rutgers",
+      title: "Introducing, Moments — launching this fall",
       excerpt: "Redefining social connection on campus.",
       cover_image_url: "https://i.imgur.com/VmYjp6Q.png",
       published_at: "2025-08-31",

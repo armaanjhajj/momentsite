@@ -101,7 +101,7 @@ export default function Safety() {
       <h2>7. Contact Us</h2>
       <p>
         Moments Safety Team<br />
-        Rutgers University, New Brunswick, NJ<br />
+        New Brunswick, NJ<br />
         Email: <a href="mailto:safety@havemoments.com">safety@havemoments.com</a>
       </p>
 

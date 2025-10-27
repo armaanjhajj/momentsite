@@ -69,7 +69,7 @@ export default function MvpReady() {
           <h2>Why This MVP Matters</h2>
           <p>
             The MVP isn’t the end — it’s the beginning. It’s proof that the idea works outside our heads. It’s something
-            real we can test, refine, and put in the hands of people at Rutgers (and beyond) to see if it makes their
+            real we can test, refine, and put in the hands of people to see if it makes their
             lives a little more connected.
           </p>
           <p>
@@ -79,7 +79,7 @@ export default function MvpReady() {
 
           <h2>What’s Next</h2>
           <ul>
-            <li><strong>Campus Launch Prep</strong> – building buzz, stunts, and campaigns at Rutgers.</li>
+            <li><strong>Campus Launch Prep</strong> – building buzz, stunts, and campaigns on campus.</li>
             <li><strong>Feedback Loops</strong> – learning how real people actually use the app.</li>
             <li><strong>Iterating</strong> – taking every bug report, suggestion, and “what if” seriously.</li>
           </ul>

@@ -57,7 +57,7 @@ export default function BranchingOut() {
           <h2>Why Get Involved</h2>
           <ul>
             <li>Learn by doing on real projects with real impact.</li>
-            <li>Be part of a student-led startup at Rutgers.</li>
+            <li>Be part of a student-led startup.</li>
             <li>Shape culture on campus and beyond.</li>
             <li>Join a team where your ideas matter and your contributions are visible.</li>
           </ul>

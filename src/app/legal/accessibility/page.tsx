@@ -55,7 +55,7 @@ export default function Accessibility() {
       <p>If you experience any accessibility barriers, please let us know:</p>
       <p>
         Moments Accessibility Team<br />
-        Rutgers University, New Brunswick, NJ<br />
+        New Brunswick, NJ<br />
         Email: <a href="mailto:accessibility@havemoments.com">accessibility@havemoments.com</a>
       </p>
       <p>We aim to respond to accessibility-related inquiries within 7 business days.</p>

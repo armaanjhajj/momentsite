@@ -120,7 +120,7 @@ export default function AboutPage() {
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">Academic Partnerships</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                We&apos;re partnering with professors and students at <strong>Rutgers University</strong>, particularly within the <strong>Sociology</strong>, <strong>Wellness</strong>, and <strong>Psychology</strong> departments, to understand how tools like this can actually <em>encourage</em> people to connect in real life and not just scroll past each other.
+                We&apos;re partnering with professors and students, particularly within the <strong>Sociology</strong>, <strong>Wellness</strong>, and <strong>Psychology</strong> departments, to understand how tools like this can actually <em>encourage</em> people to connect in real life and not just scroll past each other.
               </p>
             </div>
             
@@ -195,7 +195,7 @@ export default function AboutPage() {
                   Whether you&apos;re hosting a <strong>poker night</strong>, planning a <strong>Smash Bros. tournament</strong>, or you&apos;re part of an <strong>organization</strong> throwing a big campus event and you can post it all here.
                 </p>
                 <p className="text-sm leading-relaxed">
-                  Moments helps you see what&apos;s happening <em>right now</em> around Rutgers, so you&apos;ll never have to say &quot;there&apos;s nothing to do&quot; again. It&apos;s all there and easy to find, easy to join, and super visible to everyone around you.
+                  Moments helps you see what&apos;s happening <em>right now</em> on campus, so you&apos;ll never have to say &quot;there&apos;s nothing to do&quot; again. It&apos;s all there and easy to find, easy to join, and super visible to everyone around you.
                 </p>
               </div>
             </div>
@@ -236,23 +236,23 @@ export default function AboutPage() {
           
           <div className="space-y-6">
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <h3 className="text-xl font-semibold mb-3 text-white">Rutgers First</h3>
+              <h3 className="text-xl font-semibold mb-3 text-white">Campus First</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                We&apos;re rolling out <strong>exclusively at Rutgers</strong> first. The app is fully optimized for Rutgers and from local meet-up spots to partnerships with <strong>cafés and restaurants</strong> that offer verified hangout locations.
+                We&apos;re rolling out on college campuses with the app fully optimized for campus life and local meet-up spots, including partnerships with <strong>cafés and restaurants</strong> that offer verified hangout locations.
               </p>
             </div>
             
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">Safe & Verified</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                When you set up a meet-up, Moments will suggest a safe, public place to go and all verified, all nearby. Every user is <strong>Rutgers.edu verified</strong>, so there&apos;s no risk of random strangers or off-campus weirdos joining in.
+                When you set up a meet-up, Moments will suggest a safe, public place to go and all verified, all nearby. Every user is <strong>.edu verified</strong>, so there&apos;s no risk of random strangers or off-campus weirdos joining in.
               </p>
             </div>
             
             <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
               <h3 className="text-xl font-semibold mb-3 text-white">Community Guidelines</h3>
               <p className="text-lg text-white/80 leading-relaxed">
-                ⚠️ Quick disclaimer: don&apos;t post anything inappropriate or violate community guidelines. Since Moments is built in affiliation with Rutgers faculty, behavior that violates our TOS will be handled directly through university channels.
+                ⚠️ Quick disclaimer: don&apos;t post anything inappropriate or violate community guidelines. Behavior that violates our TOS will be handled directly through appropriate channels.
               </p>
             </div>
           </div>
@@ -308,7 +308,7 @@ export default function AboutPage() {
             Ready to Make Real Connections?
           </h2>
           <p className="text-lg text-white/80 mb-8">
-            Join the waitlist and be among the first to experience Moments at Rutgers
+            Join the waitlist and be among the first to experience Moments
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
