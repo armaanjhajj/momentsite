@@ -29,17 +29,17 @@ export default function HeaderClient() {
           <Link href="/" className="hover:text-white no-underline">Home</Link>
           <Link href="/about" className="hover:text-white no-underline">About</Link>
           <Link href="/blog" className="hover:text-white no-underline">Blog</Link>
+          <Link href="/businesses" className="hover:text-white no-underline">Businesses</Link>
         </nav>
         <div className="hidden md:flex items-center gap-3">
           <Link href="/waitlist" className="focus-accent rounded-full px-4 py-2 text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition">Join waitlist</Link>
-          <Link href="/businesses" className="focus-accent rounded-full px-4 py-2 text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition">For Businesses</Link>
         </div>
         <button
           type="button"
           aria-label="Open menu"
           aria-expanded={isOpen}
           aria-controls="mobile-nav"
-          className="md:hidden inline-flex items-center justify-center rounded-md p-2 text-white/90 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50"
+          className="md:hidden ml-auto inline-flex items-center justify-center rounded-md p-2 text-white/90 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (
@@ -61,9 +61,9 @@ export default function HeaderClient() {
               <Link href="/" className="hover:text-white no-underline" onClick={closeMenu}>Home</Link>
               <Link href="/about" className="hover:text-white no-underline" onClick={closeMenu}>About</Link>
               <Link href="/blog" className="hover:text-white no-underline" onClick={closeMenu}>Blog</Link>
+              <Link href="/businesses" className="hover:text-white no-underline" onClick={closeMenu}>Businesses</Link>
               <div className="pt-1 pb-1 space-y-2">
                 <Link href="/waitlist" className="block focus-accent rounded-full px-4 py-2 text-center text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition" onClick={closeMenu}>Join waitlist</Link>
-                <Link href="/businesses" className="block focus-accent rounded-full px-4 py-2 text-center text-sm bg-white text-black border border-transparent hover:bg-white/80 hover:text-black transition" onClick={closeMenu}>For Businesses</Link>
               </div>
             </nav>
           </div>

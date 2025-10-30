@@ -1,8 +1,14 @@
 /* Professional Markdown Styling - Optimized for Readability */
 
 .markdown-content {
-  @apply text-white/90 text-base md:text-lg leading-[1.8];
+  @apply text-white/90 text-base leading-[1.8];
   line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .markdown-content {
+    font-size: 1.125rem;
+  }
 }
 
 /* Paragraphs - generous spacing */
@@ -13,34 +19,65 @@
 
 /* Headings - clear hierarchy with proper spacing */
 .markdown-content h1 {
-  @apply text-3xl md:text-4xl font-bold mt-16 mb-8 text-white tracking-tight leading-tight;
+  @apply text-3xl font-bold mt-16 mb-8 text-white tracking-tight leading-tight;
   margin-top: 4rem;
   margin-bottom: 2rem;
 }
 
+@media (min-width: 768px) {
+  .markdown-content h1 {
+    font-size: 2.25rem;
+  }
+}
+
 .markdown-content h2 {
-  @apply text-2xl md:text-3xl font-semibold mt-14 mb-6 text-white tracking-tight leading-tight;
+  @apply text-2xl font-semibold mt-14 mb-6 text-white tracking-tight leading-tight;
   margin-top: 3.5rem;
   margin-bottom: 1.5rem;
 }
 
+@media (min-width: 768px) {
+  .markdown-content h2 {
+    font-size: 1.875rem;
+  }
+}
+
 .markdown-content h3 {
-  @apply text-xl md:text-2xl font-semibold mt-12 mb-5 text-white leading-tight;
+  @apply text-xl font-semibold mt-12 mb-5 text-white leading-tight;
   margin-top: 3rem;
   margin-bottom: 1.25rem;
 }
 
+@media (min-width: 768px) {
+  .markdown-content h3 {
+    font-size: 1.5rem;
+  }
+}
+
 .markdown-content h4 {
-  @apply text-lg md:text-xl font-semibold mt-10 mb-4 text-white;
+  @apply text-lg font-semibold mt-10 mb-4 text-white;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
 }
 
+@media (min-width: 768px) {
+  .markdown-content h4 {
+    font-size: 1.25rem;
+  }
+}
+
 .markdown-content h5,
 .markdown-content h6 {
-  @apply text-base md:text-lg font-semibold mt-8 mb-3 text-white;
+  @apply text-base font-semibold mt-8 mb-3 text-white;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .markdown-content h5,
+  .markdown-content h6 {
+    font-size: 1.125rem;
+  }
 }
 
 /* Remove top margin from first heading */
@@ -73,12 +110,24 @@
 }
 
 .markdown-content blockquote p {
-  @apply text-white/90 italic mb-0 text-lg md:text-xl leading-relaxed;
+  @apply text-white/90 italic mb-0 text-lg leading-relaxed;
   margin-bottom: 0 !important;
 }
 
+@media (min-width: 768px) {
+  .markdown-content blockquote p {
+    font-size: 1.25rem;
+  }
+}
+
 .markdown-content blockquote p:first-of-type {
-  @apply text-lg md:text-xl;
+  @apply text-lg;
+}
+
+@media (min-width: 768px) {
+  .markdown-content blockquote p:first-of-type {
+    font-size: 1.25rem;
+  }
 }
 
 /* Lists - Clear hierarchy and spacing */
@@ -93,8 +142,14 @@
 }
 
 .markdown-content li {
-  @apply text-base md:text-lg leading-relaxed pl-3;
+  @apply text-base leading-relaxed pl-3;
   line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+  .markdown-content li {
+    font-size: 1.125rem;
+  }
 }
 
 .markdown-content li::marker {
@@ -163,9 +218,15 @@
 
 /* First paragraph - Slightly larger for emphasis */
 .markdown-content > p:first-of-type {
-  @apply text-lg md:text-xl text-white/95 font-normal leading-relaxed;
-  font-size: 1.25rem;
+  @apply text-lg text-white/95 font-normal leading-relaxed;
+  font-size: 1.125rem;
   line-height: 1.75;
+}
+
+@media (min-width: 768px) {
+  .markdown-content > p:first-of-type {
+    font-size: 1.25rem;
+  }
 }
 
 /* Last paragraph - Remove bottom margin */

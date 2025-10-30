@@ -1,324 +1,234 @@
-'use client';
+import { Metadata } from 'next';
+import Hero from '@/components/Hero';
+import Section from '@/components/Section';
+import FeatureRail from '@/components/FeatureRail';
+import Counter from '@/components/Counter';
+import Competition from '@/components/Competition';
+import RevenueLanes from '@/components/RevenueLanes';
+import StickyScroller from '@/components/StickyScroller';
+import Link from 'next/link';
 
-import { useState, useEffect } from 'react';
+export const metadata: Metadata = {
+  title: 'About Moments – Real connection, in real time',
+  description: 'Moments helps students discover authentic social opportunities and meet in person, ending campus loneliness through AI-powered proximity matching.',
+  openGraph: {
+    title: 'About Moments – Real connection, in real time',
+    description: 'Moments helps students discover authentic social opportunities and meet in person, ending campus loneliness through AI-powered proximity matching.',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Moments – Real connection, in real time',
+    description: 'Moments helps students discover authentic social opportunities and meet in person, ending campus loneliness through AI-powered proximity matching.',
+  },
+};
 
 export default function AboutPage() {
-  const [activeSection, setActiveSection] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['why', 'mission', 'how', 'plan', 'launch'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const element = document.getElementById(sections[i]);
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(i);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const sections = [
-    { id: 'why', title: 'Why Moments?', emoji: '💬' },
-    { id: 'mission', title: 'Our Mission', emoji: '🧠' },
-    { id: 'how', title: 'How It Works', emoji: '📱' },
-    { id: 'plan', title: 'Our Plan', emoji: '🎯' },
-    { id: 'launch', title: 'Launch Details', emoji: '🚀' }
-  ];
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <main>
+    <main className="relative">
       {/* Hero Section */}
-      <section className="container pt-20 pb-16">
-        <div className={`max-w-4xl mx-auto text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-4xl md:text-6xl font-semibold mb-6 text-white">
-            About Moments
-          </h1>
-          <p className="text-lg md:text-xl text-white/80 mb-8 leading-relaxed">
-            Breaking down social barriers, one connection at a time
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            {sections.map((section, index) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={`px-4 py-2 rounded-full border text-sm transition-all duration-300 ${
-                  activeSection === index
-                    ? 'bg-white/10 border-white/20 text-white'
-                    : 'bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white'
-                }`}
-              >
-                <span className="mr-2">{section.emoji}</span>
-                {section.title}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Hero />
 
-      {/* Why Moments Section */}
-      <section id="why" className="container pb-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white">
-              <span className="text-4xl mr-3">💬</span>
-              Why Moments?
-            </h2>
-          </div>
-          
-          <div className="space-y-6">
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <p className="text-lg text-white/80 leading-relaxed">
-                Making friends these days happens almost entirely online. Over time, a bunch of social barriers have just formed that make it really hard to just walk up to people and make friendships (ESPECIALLY for college students). People stick to their cliques and it almost feels off-limits to just approach people nowadays.
-              </p>
-            </div>
-            
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <p className="text-lg text-white/80 leading-relaxed">
-                Now, people like me and Sim will still do it anyway because we don&apos;t really care about being annoying as sh*t. But we also recognize how powerful it could be to have a tool that lowers that barrier and basically something that makes authentic in person connection feel natural again.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Mission Section */}
-      <section id="mission" className="container pb-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white">
-              <span className="text-4xl mr-3">🧠</span>
-              Our Mission
-            </h2>
-          </div>
-          
-          <div className="space-y-6">
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <h3 className="text-xl font-semibold mb-3 text-white">The Goal (basically)</h3>
-              <p className="text-lg text-white/80 leading-relaxed">
-                We created <strong>Moments</strong> to help break down those barriers.
-              </p>
-            </div>
-            
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <h3 className="text-xl font-semibold mb-3 text-white">The Reality</h3>
-              <p className="text-lg text-white/80 leading-relaxed">
-                Honestly, we&apos;re just tired of walking around campus and feeling like everyone&apos;s unapproachable. Even as relatively resilient guys, loneliness has had <em>huge</em> impacts on both of us, whether we admit it or not.
-              </p>
-            </div>
-            
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <h3 className="text-xl font-semibold mb-3 text-white">The Truth</h3>
-              <p className="text-lg text-white/80 leading-relaxed">
-                The truth is, you could be the most social or popular person on campus and still feel incredibly lonely. Because being surrounded by people isn&apos;t the same as being <em>known</em> by them. Our goal is to change that.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section id="how" className="container pb-20">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white">
-              <span className="text-4xl mr-3">📱</span>
-              How Moments Works
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Nearby Connections */}
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <div className="text-center mb-4">
-                <div className="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center">
-                  <span className="text-xl">📍</span>
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Nearby Connections</h3>
-              </div>
-              <div className="space-y-3 text-white/80">
-                <p className="text-sm leading-relaxed">
-                  Discover people around you and build meaningful relationships.
-                </p>
-                <p className="text-sm leading-relaxed">
-                  Moments lets you write a short &quot;mini journal entry&quot; your own honest, unfiltered prompt about who you are and what you&apos;re looking for. Think of it like talking to ChatGPT about your problems, frustrations, or what kind of people you wish you could meet. Just be real.
-                </p>
-                <p className="text-sm leading-relaxed">
-                  From there, <strong>we use AI</strong> to help you discover people nearby with shared vibes, values, or interests and prompt you to meet up.
-                </p>
-                <p className="text-sm leading-relaxed font-medium">
-                  No fake personas, no algorithms chasing clicks. Just honest connection.
-                </p>
-                <p className="text-sm leading-relaxed italic">
-                  (And no, we don&apos;t sell your data.... yet 😉)
-                </p>
-              </div>
-            </div>
-
-            {/* Event Discovery */}
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <div className="text-center mb-4">
-                <div className="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center">
-                  <span className="text-xl">🎉</span>
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Event Discovery</h3>
-              </div>
-              <div className="space-y-3 text-white/80">
-                <p className="text-sm leading-relaxed">
-                  Find and join events happening on your campus and nearby.
-                </p>
-                <p className="text-sm leading-relaxed">
-                  Whether you&apos;re hosting a <strong>poker night</strong>, planning a <strong>Smash Bros. tournament</strong>, or you&apos;re part of an <strong>organization</strong> throwing a big campus event and you can post it all here.
-                </p>
-                <p className="text-sm leading-relaxed">
-                  Moments helps you see what&apos;s happening <em>right now</em> on campus, so you&apos;ll never have to say &quot;there&apos;s nothing to do&quot; again. It&apos;s all there and easy to find, easy to join, and super visible to everyone around you.
-                </p>
-              </div>
-            </div>
-
-            {/* Social Feed */}
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <div className="text-center mb-4">
-                <div className="w-12 h-12 mx-auto mb-3 bg-white/10 rounded-full flex items-center justify-center">
-                  <span className="text-xl">📸</span>
-                </div>
-                <h3 className="text-xl font-semibold text-white mb-3">Social Feed</h3>
-              </div>
-              <div className="space-y-3 text-white/80">
-                <p className="text-sm leading-relaxed">
-                  Share your favorite Moments and stay connected with your community.
-                </p>
-                <p className="text-sm leading-relaxed">
-                  You can post memories, selfies, or candid shots from your day and and share them on your campus feed. No need to feel embarrassed; we&apos;ll be posting random, real stuff too.
-                </p>
-                <p className="text-sm leading-relaxed font-medium">
-                  No filters, no fakeness and just people being people. :P
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Plan Section */}
-      <section id="plan" className="container pb-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white">
-              <span className="text-4xl mr-3">🎯</span>
-              Our Plan
-            </h2>
-          </div>
-          
-          <div className="space-y-6">
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <h3 className="text-xl font-semibold mb-3 text-white">Campus First</h3>
-              <p className="text-lg text-white/80 leading-relaxed">
-                We&apos;re rolling out on college campuses with the app fully optimized for campus life and local meet-up spots, including partnerships with <strong>cafés and restaurants</strong> that offer verified hangout locations.
-              </p>
-            </div>
-            
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <h3 className="text-xl font-semibold mb-3 text-white">Safe & Verified</h3>
-              <p className="text-lg text-white/80 leading-relaxed">
-                When you set up a meet-up, Moments will suggest a safe, public place to go and all verified, all nearby. Every user is <strong>.edu verified</strong>, so there&apos;s no risk of random strangers or off-campus weirdos joining in.
-              </p>
-            </div>
-            
-            <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-              <h3 className="text-xl font-semibold mb-3 text-white">Community Guidelines</h3>
-              <p className="text-lg text-white/80 leading-relaxed">
-                We expect all users to follow our community guidelines and terms of service. Keep it respectful, safe, and authentic.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Launch Details Section */}
-      <section id="launch" className="container pb-20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-6 text-white">
-              <span className="text-4xl mr-3">🚀</span>
-              Launch Details
-            </h2>
-          </div>
-          
-          <div className="rounded-2xl border border-white/10 p-8 bg-white/5 backdrop-blur text-center">
-            <div className="space-y-6">
-              <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-                <h3 className="text-2xl font-semibold text-white mb-4">Timeline</h3>
-                <p className="text-lg text-white/80 leading-relaxed">
-                  We&apos;re planning our <strong>official rollout before Halloween</strong> or <strong>the first week of November</strong>.
-                </p>
-              </div>
-              
-              <div className="rounded-2xl border border-white/10 p-6 bg-white/5 backdrop-blur">
-                <h3 className="text-2xl font-semibold text-white mb-4">Early Access</h3>
-                <p className="text-lg text-white/80 leading-relaxed mb-3">
-                  During this early access period, you&apos;ll need a <strong>referral code</strong> to join — available through our team or any official &quot;Friends of Moments&quot; on campus.
-                </p>
-                <p className="text-base text-white/70">
-                  We&apos;ll go public soon, but for now:
-                </p>
-              </div>
-              
-              <div className="text-center">
-                <p className="text-xl font-semibold text-white mb-4">happy friend-making, smelly guys! :D</p>
-                <div className="flex justify-center space-x-3 text-2xl">
-                  <span className="animate-bounce">🎉</span>
-                  <span className="animate-bounce" style={{animationDelay: '0.1s'}}>🤝</span>
-                  <span className="animate-bounce" style={{animationDelay: '0.2s'}}>✨</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer CTA */}
-      <section className="container pb-24">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6">
-            Ready to Make Real Connections?
+      {/* The Problem & Why Now */}
+      <Section id="learn" className="bg-white/[0.02]">
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 tracking-tight">
+            The Loneliness Epidemic on Campus
           </h2>
-          <p className="text-lg text-white/80 mb-8">
-            Join the waitlist and be among the first to experience Moments
+          <p className="text-lg md:text-xl text-white/80 leading-relaxed">
+            The US Surgeon General declared loneliness an epidemic in 2023. Students feel more isolated than ever—despite being surrounded by peers. Universities invest in wellness, but lack a stigma-free, real-time tool that actually bridges the gap between digital and in-person connection.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="/waitlist" 
-              className="inline-flex items-center px-6 py-3 bg-white text-black text-sm font-medium rounded-full hover:bg-white/90 transition-colors"
-            >
-              Find Your Moment
-            </a>
-            <a 
-              href="/download" 
-              className="inline-flex items-center px-6 py-3 border border-white/20 text-white text-sm font-medium rounded-full hover:bg-white/10 transition-colors"
-            >
-              Learn More
-            </a>
+        </div>
+
+        {/* Stats */}
+        <div className="grid sm:grid-cols-3 gap-8 md:gap-12 mb-12">
+          <Counter target={60} label="Students Feel Isolated" suffix="%" />
+          <Counter target={3} label="Hours of Loneliness Daily" suffix="" />
+          <Counter target={79} label="Want More Connections" suffix="%" />
+        </div>
+
+        {/* Stat bars */}
+        <div className="max-w-2xl mx-auto space-y-6">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+            <div className="flex justify-between items-center mb-3">
+              <span className="text-white/90 font-medium">Report feeling disconnected from campus community</span>
+              <span className="text-white font-semibold">73%</span>
+            </div>
+            <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div className="h-full bg-white/40 rounded-full" style={{ width: '73%' }} />
+            </div>
+          </div>
+          
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+            <div className="flex justify-between items-center mb-3">
+              <span className="text-white/90 font-medium">Find it difficult to make meaningful friendships</span>
+              <span className="text-white font-semibold">64%</span>
+            </div>
+            <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div className="h-full bg-white/40 rounded-full" style={{ width: '64%' }} />
+            </div>
           </div>
         </div>
-      </section>
+      </Section>
+
+      {/* What Moments Does - 3 Pillars */}
+      <Section>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 tracking-tight">
+            Built for Real Connection
+          </h2>
+          <p className="text-lg md:text-xl text-white/70 max-w-3xl mx-auto leading-relaxed">
+            Moments combines cutting-edge technology with human-centered design to create authentic opportunities for students to meet and connect.
+          </p>
+        </div>
+        <FeatureRail />
+      </Section>
+
+      {/* How People Actually Meet */}
+      <Section className="bg-white/[0.02]">
+        <StickyScroller />
+      </Section>
+
+      {/* Market & Differentiation */}
+      <Section>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 tracking-tight">
+            The Market Opportunity
+          </h2>
+          <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-12">
+            20 million US college students represent our total addressable market. We&apos;re focusing on the top 300 campuses with 10M+ students, targeting 40k active users in the first 3 years.
+          </p>
+        </div>
+
+        <div className="mb-16">
+          <h3 className="text-2xl md:text-3xl font-semibold text-white mb-8 text-center">
+            How We&apos;re Different
+          </h3>
+          <Competition />
+        </div>
+      </Section>
+
+      {/* Audience & Value */}
+      <Section className="bg-white/[0.02]">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 tracking-tight">
+            Who Moments Serves
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+            <h3 className="text-2xl font-semibold text-white mb-4">
+              Students
+            </h3>
+            <p className="text-white/70 leading-relaxed mb-4">
+              College students aged 18–26 seeking authentic friendships, a sense of belonging, and ways to combat loneliness on campus.
+            </p>
+            <ul className="space-y-2 text-white/60">
+              <li className="flex items-start gap-2">
+                <span className="text-white/40 mt-1">•</span>
+                <span>Build meaningful, lasting friendships</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-white/40 mt-1">•</span>
+                <span>Discover spontaneous social opportunities</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-white/40 mt-1">•</span>
+                <span>Feel more connected to campus life</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+            <h3 className="text-2xl font-semibold text-white mb-4">
+              Organizations & Businesses
+            </h3>
+            <p className="text-white/70 leading-relaxed mb-4">
+              Campus organizations and local businesses looking to increase visibility, drive foot traffic, and engage with the student community.
+            </p>
+            <ul className="space-y-2 text-white/60">
+              <li className="flex items-start gap-2">
+                <span className="text-white/40 mt-1">•</span>
+                <span>Reach engaged student audiences</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-white/40 mt-1">•</span>
+                <span>Promote events and sponsored opportunities</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-white/40 mt-1">•</span>
+                <span>Build authentic community partnerships</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </Section>
+
+      {/* Traction */}
+      <Section>
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 tracking-tight">
+            Early Momentum
+          </h2>
+          <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            We&apos;re building something students actually want—and the numbers show it.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          <Counter target={1200} label="Waitlist Signups" suffix="+" />
+          <Counter target={150} label="Beta Testers" suffix="+" />
+          <Counter target={500} label="Social Reach" suffix="k+" />
+          <Counter target={3} label="Campus Partners" suffix="" />
+        </div>
+      </Section>
+
+      {/* Business Model */}
+      <Section className="bg-white/[0.02]">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-semibold text-white mb-6 tracking-tight">
+            Revenue Model
+          </h2>
+          <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Sustainable, scalable revenue streams that align with our mission of authentic connection.
+          </p>
+        </div>
+        <RevenueLanes />
+      </Section>
+
+      {/* Closing CTA */}
+      <Section className="text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white mb-6 tracking-tight">
+            Join the Movement
+          </h2>
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed mb-12">
+            Let&apos;s end campus loneliness—one real connection at a time.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Link
+              href="/waitlist"
+              className="inline-flex items-center justify-center rounded-2xl px-8 py-4 bg-white text-black text-lg font-medium hover:bg-white/90 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 min-w-[200px]"
+            >
+              Join the Waitlist
+            </Link>
+            <Link
+              href="/businesses"
+              className="inline-flex items-center justify-center rounded-2xl px-8 py-4 bg-white/10 text-white text-lg font-medium hover:bg-white/15 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 min-w-[200px]"
+            >
+              Partner With Us
+            </Link>
+            <Link
+              href="/press"
+              className="inline-flex items-center justify-center rounded-2xl px-8 py-4 bg-white/10 text-white text-lg font-medium hover:bg-white/15 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 min-w-[200px]"
+            >
+              Media Kit
+            </Link>
+          </div>
+        </div>
+      </Section>
     </main>
   );
 }

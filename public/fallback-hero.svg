@@ -1,0 +1,68 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Constellation-style dots connected with lines forming an "M" shape -->
+  
+  <!-- Background glow effects -->
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.3);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0);stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- M shape nodes (left vertical) -->
+  <circle cx="200" cy="150" r="4" fill="white" opacity="0.9"/>
+  <circle cx="200" cy="250" r="4" fill="white" opacity="0.9"/>
+  <circle cx="200" cy="350" r="4" fill="white" opacity="0.9"/>
+  <circle cx="200" cy="450" r="4" fill="white" opacity="0.9"/>
+  
+  <!-- M shape nodes (left diagonal) -->
+  <circle cx="280" cy="200" r="4" fill="white" opacity="0.9"/>
+  <circle cx="340" cy="260" r="4" fill="white" opacity="0.9"/>
+  
+  <!-- M shape nodes (center peak) -->
+  <circle cx="400" cy="300" r="5" fill="white" opacity="1"/>
+  
+  <!-- M shape nodes (right diagonal) -->
+  <circle cx="460" cy="260" r="4" fill="white" opacity="0.9"/>
+  <circle cx="520" cy="200" r="4" fill="white" opacity="0.9"/>
+  
+  <!-- M shape nodes (right vertical) -->
+  <circle cx="600" cy="150" r="4" fill="white" opacity="0.9"/>
+  <circle cx="600" cy="250" r="4" fill="white" opacity="0.9"/>
+  <circle cx="600" cy="350" r="4" fill="white" opacity="0.9"/>
+  <circle cx="600" cy="450" r="4" fill="white" opacity="0.9"/>
+  
+  <!-- Connecting lines for M shape -->
+  <line x1="200" y1="150" x2="200" y2="450" stroke="white" stroke-width="1" opacity="0.2"/>
+  <line x1="200" y1="150" x2="280" y2="200" stroke="white" stroke-width="1" opacity="0.2"/>
+  <line x1="280" y1="200" x2="340" y2="260" stroke="white" stroke-width="1" opacity="0.2"/>
+  <line x1="340" y1="260" x2="400" y2="300" stroke="white" stroke-width="1" opacity="0.2"/>
+  <line x1="400" y1="300" x2="460" y2="260" stroke="white" stroke-width="1" opacity="0.2"/>
+  <line x1="460" y1="260" x2="520" y2="200" stroke="white" stroke-width="1" opacity="0.2"/>
+  <line x1="520" y1="200" x2="600" y2="150" stroke="white" stroke-width="1" opacity="0.2"/>
+  <line x1="600" y1="150" x2="600" y2="450" stroke="white" stroke-width="1" opacity="0.2"/>
+  
+  <!-- Additional constellation nodes scattered around -->
+  <circle cx="150" cy="100" r="2" fill="white" opacity="0.6"/>
+  <circle cx="650" cy="120" r="2" fill="white" opacity="0.6"/>
+  <circle cx="100" cy="300" r="2" fill="white" opacity="0.6"/>
+  <circle cx="700" cy="320" r="2" fill="white" opacity="0.6"/>
+  <circle cx="180" cy="500" r="2" fill="white" opacity="0.6"/>
+  <circle cx="620" cy="520" r="2" fill="white" opacity="0.6"/>
+  <circle cx="320" cy="140" r="2" fill="white" opacity="0.6"/>
+  <circle cx="480" cy="160" r="2" fill="white" opacity="0.6"/>
+  <circle cx="400" cy="450" r="2" fill="white" opacity="0.6"/>
+  <circle cx="400" cy="150" r="2" fill="white" opacity="0.6"/>
+  
+  <!-- Subtle connecting lines for ambient nodes -->
+  <line x1="150" y1="100" x2="200" y2="150" stroke="white" stroke-width="0.5" opacity="0.1"/>
+  <line x1="650" y1="120" x2="600" y2="150" stroke="white" stroke-width="0.5" opacity="0.1"/>
+  <line x1="100" y1="300" x2="200" y2="300" stroke="white" stroke-width="0.5" opacity="0.1"/>
+  <line x1="700" y1="320" x2="600" y2="320" stroke="white" stroke-width="0.5" opacity="0.1"/>
+  
+  <!-- Glow effects on key nodes -->
+  <circle cx="400" cy="300" r="20" fill="url(#glow)" opacity="0.4"/>
+  <circle cx="200" cy="150" r="15" fill="url(#glow)" opacity="0.3"/>
+  <circle cx="600" cy="150" r="15" fill="url(#glow)" opacity="0.3"/>
+</svg>
+
