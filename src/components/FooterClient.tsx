@@ -14,6 +14,7 @@ export default function FooterClient() {
         <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/80">
           <Link href="/legal/terms" className="hover:text-white no-underline">Terms</Link>
           <Link href="/legal/privacy" className="hover:text-white no-underline">Privacy</Link>
+          <Link href="/legal/guidelines" className="hover:text-white no-underline">Guidelines</Link>
           <Link href="/legal/accessibility" className="hover:text-white no-underline">Accessibility</Link>
           <Link href="/blog" className="hover:text-white no-underline">Blog</Link>
           <a href="mailto:contact@havemoments.com" className="hover:text-white no-underline">Contact</a>
