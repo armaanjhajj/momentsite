@@ -34,7 +34,7 @@ export default function TeamPage() {
             Building the future of authentic connection
           </p>
           <p className="text-white/60 max-w-2xl mx-auto">
-            We're a diverse group of builders, designers, and dreamers working to end campus loneliness—one real moment at a time.
+            We&apos;re a diverse group of builders, designers, and dreamers working to end campus loneliness—one real moment at a time.
           </p>
         </motion.div>
       </section>
@@ -90,7 +90,7 @@ export default function TeamPage() {
             Want to join us?
           </h2>
           <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-            We're always looking for talented, passionate people to help us build the future of connection on campus.
+            We&apos;re always looking for talented, passionate people to help us build the future of connection on campus.
           </p>
           <a
             href="mailto:careers@havemoments.com"
