@@ -1,17 +1,51 @@
+"use client";
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
-export const metadata: Metadata = {
-  title: "Moments × Panhellenic — Invite-only Mixer",
-  description: "Private beta coffee mixer for Rutgers Greek leaders",
-};
+interface IndividualRSVP {
+  id: string;
+  chapterInviteCode: string;
+  name: string;
+  email: string;
+  favoriteColor?: string;
+  status: string;
+  createdAt: string;
+}
 
 export default function MixerLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [attendingCount, setAttendingCount] = useState(0);
+
+  useEffect(() => {
+    // Fetch RSVP count
+    const fetchCount = async () => {
+      try {
+        const response = await fetch('/api/mixer01/rsvp');
+        if (response.ok) {
+          const data: IndividualRSVP[] = await response.json();
+          const count = data.filter(
+            r => r.status === 'attending' || r.status === 'maybe'
+          ).length;
+          setAttendingCount(count);
+        }
+      } catch {
+        // Silently fail
+      }
+    };
+
+    fetchCount();
+    
+    // Poll every 10 seconds for updates
+    const interval = setInterval(fetchCount, 10000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       {/* Minimal header */}
@@ -21,7 +55,7 @@ export default function MixerLayout({
             <Image src="/logo.png" alt="Moments" width={36} height={36} className="h-9 w-9 invert" />
           </Link>
           <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-800/50 border border-neutral-800 text-sm text-white/60">
-            Invite-only access
+            {attendingCount}/80 attending
           </span>
         </header>
       </div>
@@ -30,4 +64,3 @@ export default function MixerLayout({
     </>
   );
 }
-

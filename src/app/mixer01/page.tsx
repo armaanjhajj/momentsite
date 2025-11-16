@@ -1,14 +1,28 @@
 "use client";
 import { useState, useEffect } from 'react';
 
-type RSVPStatus = 'pending' | 'attending' | 'maybe' | 'declined';
-type GuestCount = 1 | 2;
+type RSVPStatus = 'attending' | 'maybe' | 'declined';
 
 interface Chapter {
   letters: string;
   name: string;
-  type: 'fraternity' | 'sorority' | 'professional';
+  type: 'fraternity' | 'sorority' | 'professional' | 'special';
   inviteCode: string;
+}
+
+interface IndividualRSVP {
+  id: string;
+  chapterInviteCode: string;
+  name: string;
+  email: string;
+  favoriteColor?: string;
+  status: RSVPStatus;
+  createdAt: string;
+}
+
+interface ChapterRSVPSummary {
+  attendees: IndividualRSVP[];
+  attendingCount: number;
 }
 
 const chapters: Chapter[] = [
@@ -47,125 +61,121 @@ const chapters: Chapter[] = [
   { letters: 'ΦΑΔ', name: 'Phi Alpha Delta', type: 'professional', inviteCode: 'PAD2025' },
   { letters: 'ΦΔΕ', name: 'Phi Delta Epsilon', type: 'professional', inviteCode: 'PDE2025' },
   { letters: 'ΜΕΔ', name: 'Mu Epsilon Delta', type: 'professional', inviteCode: 'MED2025' },
+  // Special groups
+  { letters: '★', name: 'Moments Team', type: 'special', inviteCode: 'MOMENTS2025' },
+  { letters: '♥', name: 'Friends & Family', type: 'special', inviteCode: 'FF2025' },
 ];
 
-interface ChapterRSVP {
-  status: RSVPStatus;
-  guestCount?: GuestCount;
-  updatedBy?: string;
-  updatedAt?: string;
-}
-
 export default function MixerPage() {
-  const [rsvps, setRsvps] = useState<Record<string, ChapterRSVP>>({});
-  const [inviteCode, setInviteCode] = useState('');
-  const [presidentName, setPresidentName] = useState('');
-  const [authenticatedChapter, setAuthenticatedChapter] = useState<Chapter | null>(null);
-  const [rsvpStatus, setRsvpStatus] = useState<RSVPStatus>('pending');
-  const [guestCount, setGuestCount] = useState<GuestCount>(1);
+  const [allRSVPs, setAllRSVPs] = useState<IndividualRSVP[]>([]);
+  const [formData, setFormData] = useState({
+    inviteCode: '',
+    name: '',
+    email: '',
+    favoriteColor: '',
+    status: 'attending' as RSVPStatus
+  });
   const [showSuccess, setShowSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Load RSVPs from API on mount
   useEffect(() => {
-    const fetchRSVPs = async () => {
-      try {
-        const response = await fetch('/api/mixer01/rsvp');
-        if (response.ok) {
-          const data = await response.json();
-          setRsvps(data || {});
-        }
-        // Silently handle errors - table might not exist yet
-      } catch {
-        // Silently handle errors - table might not exist yet
-      }
-    };
     fetchRSVPs();
   }, []);
 
-  const handleCodeSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const chapter = chapters.find(c => c.inviteCode.toLowerCase() === inviteCode.toLowerCase());
-    if (chapter) {
-      setAuthenticatedChapter(chapter);
-      // Load existing RSVP for this chapter
-      const existingRSVP = rsvps[chapter.inviteCode];
-      if (existingRSVP) {
-        setRsvpStatus(existingRSVP.status);
-        setGuestCount(existingRSVP.guestCount || 1);
+  const fetchRSVPs = async () => {
+    try {
+      const response = await fetch('/api/mixer01/rsvp');
+      if (response.ok) {
+        const data = await response.json();
+        setAllRSVPs(data || []);
       }
-    } else {
-      alert('Invalid invite code. Please check and try again.');
+    } catch {
+      // Silently handle errors
     }
   };
 
-  const handleRSVPSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!authenticatedChapter) return;
+    setIsSubmitting(true);
+
+    // Validate chapter code exists
+    const chapter = chapters.find(
+      c => c.inviteCode.toLowerCase() === formData.inviteCode.toLowerCase()
+    );
+    
+    if (!chapter) {
+      alert('Invalid invite code. Please check and try again.');
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch('/api/mixer01/rsvp', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          inviteCode: authenticatedChapter.inviteCode,
-          status: rsvpStatus,
-          guestCount: rsvpStatus === 'attending' ? guestCount : undefined,
-          updatedBy: presidentName || 'Chapter President',
-        }),
+          inviteCode: chapter.inviteCode,
+          name: formData.name,
+          email: formData.email,
+          favoriteColor: formData.favoriteColor || null,
+          status: formData.status
+        })
       });
 
-      if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.error || 'Failed to save RSVP');
-      }
-
-      const result = await response.json();
-      
-      // Refresh RSVPs from server to get latest state
-      const refreshResponse = await fetch('/api/mixer01/rsvp');
-      if (refreshResponse.ok) {
-        const refreshedData = await refreshResponse.json();
-        setRsvps(refreshedData);
+      if (response.ok) {
+        await fetchRSVPs();
+        setShowSuccess(true);
+        setFormData({ inviteCode: '', name: '', email: '', favoriteColor: '', status: 'attending' });
+        setTimeout(() => setShowSuccess(false), 5000);
       } else {
-        // Fallback: update local state if refresh fails
-        const updatedRsvps = {
-          ...rsvps,
-          [authenticatedChapter.inviteCode]: result.rsvp,
-        };
-        setRsvps(updatedRsvps);
+        const error = await response.json();
+        alert(error.error || 'Failed to submit RSVP');
       }
-      
-      setShowSuccess(true);
-      setTimeout(() => setShowSuccess(false), 5000);
-    } catch (error) {
-      console.error('Error saving RSVP:', error);
-      alert('Failed to save RSVP. Please try again.');
+    } catch {
+      alert('Failed to submit RSVP. Please try again.');
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
-  const getStatusColor = (status: RSVPStatus) => {
-    switch (status) {
-      case 'attending': return 'bg-green-500';
-      case 'maybe': return 'bg-yellow-500';
-      case 'declined': return 'bg-red-500';
-      default: return 'bg-gray-500';
-    }
+  const getChapterSummary = (inviteCode: string): ChapterRSVPSummary => {
+    const attendees = allRSVPs.filter(r => r.chapterInviteCode === inviteCode);
+    const attendingCount = attendees.filter(
+      a => a.status === 'attending' || a.status === 'maybe'
+    ).length;
+    return { attendees, attendingCount };
   };
 
-  const getStatusLabel = (status: RSVPStatus) => {
-    switch (status) {
-      case 'attending': return 'Confirmed';
-      case 'maybe': return 'Maybe / Working on it';
-      case 'declined': return "Can't make it";
-      default: return 'Awaiting RSVP';
-    }
+  const getColorForFavorite = (color?: string): string => {
+    if (!color) return '#ffffff';
+    const colorMap: Record<string, string> = {
+      red: '#ef4444', blue: '#3b82f6', green: '#22c55e',
+      yellow: '#eab308', purple: '#a855f7', pink: '#ec4899',
+      orange: '#f97316', teal: '#14b8a6', cyan: '#06b6d4',
+      indigo: '#6366f1', lime: '#84cc16', emerald: '#10b981',
+      rose: '#f43f5e', fuchsia: '#d946ef', violet: '#8b5cf6',
+      amber: '#f59e0b', sky: '#0ea5e9', slate: '#64748b'
+    };
+    return colorMap[color.toLowerCase()] || color;
   };
 
-  const getChapterRSVP = (chapter: Chapter): ChapterRSVP => {
-    return rsvps[chapter.inviteCode] || { status: 'pending' };
+  const getTotalAttending = (): number => {
+    return allRSVPs.filter(
+      r => r.status === 'attending' || r.status === 'maybe'
+    ).length;
   };
+
+  // Filter to only show chapters with RSVPs
+  const chaptersWithRSVPs = chapters.filter(chapter => {
+    const summary = getChapterSummary(chapter.inviteCode);
+    return summary.attendees.length > 0;
+  });
+
+  const fraternities = chaptersWithRSVPs.filter(c => c.type === 'fraternity');
+  const sororities = chaptersWithRSVPs.filter(c => c.type === 'sorority');
+  const professional = chaptersWithRSVPs.filter(c => c.type === 'professional');
+  const special = chaptersWithRSVPs.filter(c => c.type === 'special');
 
   return (
     <main className="min-h-screen bg-background">
@@ -183,9 +193,13 @@ export default function MixerPage() {
             Moments × Panhellenic
           </h1>
           <p className="text-xl md:text-2xl text-white/80 mb-6">
-            Private beta coffee mixer for Rutgers Greek leaders
+            Private beta coffee mixer for Rutgers Greek life
           </p>
-         
+          <p className="text-white/70 max-w-[600px] mx-auto leading-relaxed">
+            We&apos;ve rented out Semicolon. It&apos;s a private beta test / mixer. 
+            Intention: bring together members across Panhellenic, IFC, MGC, etc., 
+            to connect and help shape this new in-person social product.
+          </p>
         </div>
       </section>
 
@@ -220,7 +234,7 @@ export default function MixerPage() {
             <div>
               <h3 className="text-xl font-medium mb-3">Why this event exists</h3>
               <p className="text-white/70 leading-relaxed">
-                We rented out the entire café so it&apos;s a closed environment just for Greek leaders. 
+                We rented out the entire café so it&apos;s a closed environment just for Greek members. 
                 It&apos;s a chance to give feedback on Moments before anyone else.
               </p>
             </div>
@@ -237,7 +251,7 @@ export default function MixerPage() {
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-white/40 mt-1">•</span>
-                  <span>Hang out and meet other org leaders</span>
+                  <span>Hang out and meet other org members</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-white/40 mt-1">•</span>
@@ -262,261 +276,330 @@ export default function MixerPage() {
                 </li>
               </ul>
               <p className="mt-4 text-white/70 italic">
-                We would love to be partners :)
+                No pressure, no commitment — just coffee and conversation.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* RSVP Panel for Presidents */}
-      {!authenticatedChapter && (
-        <section className="container pb-12">
-          <div className="max-w-2xl mx-auto">
-            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur p-6 md:p-8">
-              <h2 className="text-2xl font-semibold mb-4">RSVP as Chapter President</h2>
-              <form onSubmit={handleCodeSubmit} className="space-y-4">
-                <div>
-                  <label htmlFor="inviteCode" className="block text-sm font-medium mb-2">
-                    Invite Code
-                  </label>
-                  <input
-                    type="text"
-                    id="inviteCode"
-                    value={inviteCode}
-                    onChange={(e) => setInviteCode(e.target.value)}
-                    className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
-                    placeholder="Enter your chapter's invite code"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="presidentName" className="block text-sm font-medium mb-2">
-                    Your Name (Optional)
-                  </label>
-                  <input
-                    type="text"
-                    id="presidentName"
-                    value={presidentName}
-                    onChange={(e) => setPresidentName(e.target.value)}
-                    className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
-                    placeholder="Your name"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-white/90 transition-colors"
-                >
-                  Continue to RSVP
-                </button>
-              </form>
-            </div>
-          </div>
-        </section>
-      )}
+      {/* RSVP Form */}
+      <section className="container pb-16">
+        <div className="max-w-2xl mx-auto">
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur p-6 md:p-8">
+            <h2 className="text-2xl font-semibold mb-6">RSVP for the Event</h2>
+            
+            {showSuccess && (
+              <div className="mb-6 p-4 rounded-lg bg-green-500/10 border border-green-500/20 text-green-400">
+                ✓ RSVP submitted successfully!
+              </div>
+            )}
 
-      {/* Authenticated RSVP Form */}
-      {authenticatedChapter && (
-        <section className="container pb-12">
-          <div className="max-w-2xl mx-auto">
-            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur p-6 md:p-8">
-              <div className="mb-6 pb-6 border-b border-neutral-800">
-                <p className="text-sm text-white/60 mb-2">You&apos;re responding for:</p>
-                <div className="flex items-center gap-4">
-                  <div className="text-4xl font-bold">{authenticatedChapter.letters}</div>
-                  <div>
-                    <p className="text-lg font-medium">{authenticatedChapter.name}</p>
-                    <p className="text-sm text-white/60 capitalize">{authenticatedChapter.type}</p>
-                  </div>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label htmlFor="inviteCode" className="block text-sm font-medium mb-2">
+                  Chapter/Group Code *
+                </label>
+                <input
+                  type="text"
+                  id="inviteCode"
+                  required
+                  value={formData.inviteCode}
+                  onChange={(e) => setFormData({...formData, inviteCode: e.target.value})}
+                  placeholder="Enter your chapter's invite code"
+                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium mb-2">
+                  Your Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  placeholder="Your name"
+                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  placeholder="your.email@example.com"
+                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                />
+              </div>
+
+              <div>
+                <label htmlFor="favoriteColor" className="block text-sm font-medium mb-2">
+                  Favorite Color (optional)
+                </label>
+                <input
+                  type="text"
+                  id="favoriteColor"
+                  value={formData.favoriteColor}
+                  onChange={(e) => setFormData({...formData, favoriteColor: e.target.value})}
+                  placeholder="e.g., blue, red, purple"
+                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-3">RSVP Status *</label>
+                <div className="space-y-2">
+                  <label className="flex items-center gap-3 p-4 border border-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
+                    <input
+                      type="radio"
+                      name="status"
+                      value="attending"
+                      checked={formData.status === 'attending'}
+                      onChange={(e) => setFormData({...formData, status: e.target.value as RSVPStatus})}
+                      className="w-4 h-4"
+                    />
+                    <div>
+                      <div className="font-medium">Attending</div>
+                      <div className="text-sm text-white/60">I&apos;ll be there</div>
+                    </div>
+                  </label>
+
+                  <label className="flex items-center gap-3 p-4 border border-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
+                    <input
+                      type="radio"
+                      name="status"
+                      value="maybe"
+                      checked={formData.status === 'maybe'}
+                      onChange={(e) => setFormData({...formData, status: e.target.value as RSVPStatus})}
+                      className="w-4 h-4"
+                    />
+                    <div>
+                      <div className="font-medium">Maybe — I&apos;ll confirm soon</div>
+                      <div className="text-sm text-white/60">Not sure yet</div>
+                    </div>
+                  </label>
+
+                  <label className="flex items-center gap-3 p-4 border border-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
+                    <input
+                      type="radio"
+                      name="status"
+                      value="declined"
+                      checked={formData.status === 'declined'}
+                      onChange={(e) => setFormData({...formData, status: e.target.value as RSVPStatus})}
+                      className="w-4 h-4"
+                    />
+                    <div>
+                      <div className="font-medium">Not Attending</div>
+                      <div className="text-sm text-white/60">Can&apos;t make it</div>
+                    </div>
+                  </label>
                 </div>
               </div>
 
-              {showSuccess && (
-                <div className="mb-6 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400 text-sm">
-                  Thanks — your chapter is now marked as {getStatusLabel(rsvpStatus)} on the public board.
-                </div>
-              )}
-
-              <form onSubmit={handleRSVPSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm font-medium mb-3">RSVP Status</label>
-                  <div className="space-y-2">
-                    <label className="flex items-center gap-3 p-4 border border-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
-                      <input
-                        type="radio"
-                        name="rsvpStatus"
-                        value="attending"
-                        checked={rsvpStatus === 'attending'}
-                        onChange={() => setRsvpStatus('attending')}
-                        className="w-4 h-4"
-                      />
-                      <div className="flex-1">
-                        <span className="font-medium">Attending</span>
-                        {rsvpStatus === 'attending' && (
-                          <div className="mt-2 flex gap-2">
-                            <button
-                              type="button"
-                              onClick={() => setGuestCount(1)}
-                              className={`px-3 py-1 text-xs rounded ${
-                                guestCount === 1 ? 'bg-white text-black' : 'bg-neutral-800/80 text-white/70'
-                              }`}
-                            >
-                              President + 1
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => setGuestCount(2)}
-                              className={`px-3 py-1 text-xs rounded ${
-                                guestCount === 2 ? 'bg-white text-black' : 'bg-neutral-800/80 text-white/70'
-                              }`}
-                            >
-                              President + 2
-                            </button>
-                          </div>
-                        )}
-                      </div>
-                    </label>
-                    <label className="flex items-center gap-3 p-4 border border-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
-                      <input
-                        type="radio"
-                        name="rsvpStatus"
-                        value="maybe"
-                        checked={rsvpStatus === 'maybe'}
-                        onChange={() => setRsvpStatus('maybe')}
-                        className="w-4 h-4"
-                      />
-                      <span className="font-medium">Maybe — I&apos;ll confirm soon</span>
-                    </label>
-                    <label className="flex items-center gap-3 p-4 border border-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
-                      <input
-                        type="radio"
-                        name="rsvpStatus"
-                        value="declined"
-                        checked={rsvpStatus === 'declined'}
-                        onChange={() => setRsvpStatus('declined')}
-                        className="w-4 h-4"
-                      />
-                      <span className="font-medium">Not Attending</span>
-                    </label>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <button
-                    type="submit"
-                    className="flex-1 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-white/90 transition-colors"
-                  >
-                    Update RSVP
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setAuthenticatedChapter(null);
-                      setInviteCode('');
-                    }}
-                    className="px-6 py-3 border border-neutral-800 rounded-lg hover:bg-neutral-800 transition-colors"
-                  >
-                    Change Chapter
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Greek Guest List Board */}
-      <section className="container pb-16">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-2">Invited Chapters</h2>
-            <p className="text-white/60">Live RSVP board — updates as presidents respond</p>
-          </div>
-
-          {/* Fraternities */}
-          <div className="mb-12">
-            <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Fraternities</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {chapters.filter(c => c.type === 'fraternity').map((chapter) => {
-                const rsvp = getChapterRSVP(chapter);
-                return (
-                  <div
-                    key={chapter.inviteCode}
-                    className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors relative"
-                  >
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="text-2xl font-bold">{chapter.letters}</div>
-                      <div className="flex items-center gap-2">
-                        <div className={`w-3 h-3 rounded-full ${getStatusColor(rsvp.status)} ${rsvp.status !== 'pending' ? 'animate-pulse' : ''}`} />
-                      </div>
-                    </div>
-                    <p className="text-xs text-white/70 mb-2">{chapter.name}</p>
-                    <p className="text-xs text-white/50">{getStatusLabel(rsvp.status)}</p>
-                    {rsvp.status === 'attending' && rsvp.guestCount && (
-                      <p className="text-xs text-white/60 mt-1">+{rsvp.guestCount}</p>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Sororities */}
-          <div className="mb-12">
-            <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Sororities</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {chapters.filter(c => c.type === 'sorority').map((chapter) => {
-                const rsvp = getChapterRSVP(chapter);
-                return (
-                  <div
-                    key={chapter.inviteCode}
-                    className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors relative"
-                  >
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="text-2xl font-bold">{chapter.letters}</div>
-                      <div className="flex items-center gap-2">
-                        <div className={`w-3 h-3 rounded-full ${getStatusColor(rsvp.status)} ${rsvp.status !== 'pending' ? 'animate-pulse' : ''}`} />
-                      </div>
-                    </div>
-                    <p className="text-xs text-white/70 mb-2">{chapter.name}</p>
-                    <p className="text-xs text-white/50">{getStatusLabel(rsvp.status)}</p>
-                    {rsvp.status === 'attending' && rsvp.guestCount && (
-                      <p className="text-xs text-white/60 mt-1">+{rsvp.guestCount}</p>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Professional/Academic */}
-          <div>
-            <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Professional & Academic</h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {chapters.filter(c => c.type === 'professional').map((chapter) => {
-                const rsvp = getChapterRSVP(chapter);
-                return (
-                  <div
-                    key={chapter.inviteCode}
-                    className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors relative"
-                  >
-                    <div className="flex items-start justify-between mb-2">
-                      <div className="text-2xl font-bold">{chapter.letters}</div>
-                      <div className="flex items-center gap-2">
-                        <div className={`w-3 h-3 rounded-full ${getStatusColor(rsvp.status)} ${rsvp.status !== 'pending' ? 'animate-pulse' : ''}`} />
-                      </div>
-                    </div>
-                    <p className="text-xs text-white/70 mb-2">{chapter.name}</p>
-                    <p className="text-xs text-white/50">{getStatusLabel(rsvp.status)}</p>
-                    {rsvp.status === 'attending' && rsvp.guestCount && (
-                      <p className="text-xs text-white/60 mt-1">+{rsvp.guestCount}</p>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-white/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Submitting...' : 'Submit RSVP'}
+              </button>
+            </form>
           </div>
         </div>
       </section>
+
+      {/* Chapters Attending */}
+      {chaptersWithRSVPs.length > 0 && (
+        <section className="container pb-16">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-semibold mb-2">Chapters Attending</h2>
+              <p className="text-white/60">Live RSVP board — updates as members respond</p>
+            </div>
+
+            {/* Fraternities */}
+            {fraternities.length > 0 && (
+              <div className="mb-12">
+                <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Fraternities</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {fraternities.map((chapter) => {
+                    const summary = getChapterSummary(chapter.inviteCode);
+                    return (
+                      <div
+                        key={chapter.inviteCode}
+                        className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors"
+                      >
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <div className="text-2xl font-bold mb-1">{chapter.letters}</div>
+                            <p className="text-xs text-white/70">{chapter.name}</p>
+                          </div>
+                          <div className="text-sm font-medium text-white/80">
+                            {summary.attendingCount} attending
+                          </div>
+                        </div>
+                        <div className="space-y-1 text-sm">
+                          {summary.attendees
+                            .filter(a => a.status !== 'declined')
+                            .map(attendee => (
+                              <div key={attendee.id} className="flex items-center gap-2">
+                                <span style={{ color: getColorForFavorite(attendee.favoriteColor) }}>
+                                  {attendee.name}
+                                </span>
+                                {attendee.status === 'maybe' && (
+                                  <span className="text-white/40 text-xs">(Maybe)</span>
+                                )}
+                              </div>
+                            ))
+                          }
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Sororities */}
+            {sororities.length > 0 && (
+              <div className="mb-12">
+                <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Sororities</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {sororities.map((chapter) => {
+                    const summary = getChapterSummary(chapter.inviteCode);
+                    return (
+                      <div
+                        key={chapter.inviteCode}
+                        className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors"
+                      >
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <div className="text-2xl font-bold mb-1">{chapter.letters}</div>
+                            <p className="text-xs text-white/70">{chapter.name}</p>
+                          </div>
+                          <div className="text-sm font-medium text-white/80">
+                            {summary.attendingCount} attending
+                          </div>
+                        </div>
+                        <div className="space-y-1 text-sm">
+                          {summary.attendees
+                            .filter(a => a.status !== 'declined')
+                            .map(attendee => (
+                              <div key={attendee.id} className="flex items-center gap-2">
+                                <span style={{ color: getColorForFavorite(attendee.favoriteColor) }}>
+                                  {attendee.name}
+                                </span>
+                                {attendee.status === 'maybe' && (
+                                  <span className="text-white/40 text-xs">(Maybe)</span>
+                                )}
+                              </div>
+                            ))
+                          }
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Professional/Academic */}
+            {professional.length > 0 && (
+              <div className="mb-12">
+                <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Professional & Academic</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {professional.map((chapter) => {
+                    const summary = getChapterSummary(chapter.inviteCode);
+                    return (
+                      <div
+                        key={chapter.inviteCode}
+                        className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors"
+                      >
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <div className="text-2xl font-bold mb-1">{chapter.letters}</div>
+                            <p className="text-xs text-white/70">{chapter.name}</p>
+                          </div>
+                          <div className="text-sm font-medium text-white/80">
+                            {summary.attendingCount} attending
+                          </div>
+                        </div>
+                        <div className="space-y-1 text-sm">
+                          {summary.attendees
+                            .filter(a => a.status !== 'declined')
+                            .map(attendee => (
+                              <div key={attendee.id} className="flex items-center gap-2">
+                                <span style={{ color: getColorForFavorite(attendee.favoriteColor) }}>
+                                  {attendee.name}
+                                </span>
+                                {attendee.status === 'maybe' && (
+                                  <span className="text-white/40 text-xs">(Maybe)</span>
+                                )}
+                              </div>
+                            ))
+                          }
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Special Groups */}
+            {special.length > 0 && (
+              <div>
+                <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Special Guests</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {special.map((chapter) => {
+                    const summary = getChapterSummary(chapter.inviteCode);
+                    return (
+                      <div
+                        key={chapter.inviteCode}
+                        className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors"
+                      >
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <div className="text-2xl font-bold mb-1">{chapter.letters}</div>
+                            <p className="text-xs text-white/70">{chapter.name}</p>
+                          </div>
+                          <div className="text-sm font-medium text-white/80">
+                            {summary.attendingCount} attending
+                          </div>
+                        </div>
+                        <div className="space-y-1 text-sm">
+                          {summary.attendees
+                            .filter(a => a.status !== 'declined')
+                            .map(attendee => (
+                              <div key={attendee.id} className="flex items-center gap-2">
+                                <span style={{ color: getColorForFavorite(attendee.favoriteColor) }}>
+                                  {attendee.name}
+                                </span>
+                                {attendee.status === 'maybe' && (
+                                  <span className="text-white/40 text-xs">(Maybe)</span>
+                                )}
+                              </div>
+                            ))
+                          }
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/* Map & Logistics */}
       <section className="container pb-16">
@@ -552,7 +635,7 @@ export default function MixerPage() {
         <div className="max-w-3xl mx-auto text-center">
           <div className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-6">
             <p className="text-sm text-white/60 mb-2">
-              This page is not listed publicly. Please don&apos;t share outside your chapter leadership.
+              This page is not listed publicly. Please don&apos;t share outside your chapter.
             </p>
             <p className="text-sm text-white/50">
               Each chapter has a unique invite code — if you need yours resent, contact{' '}
@@ -566,4 +649,3 @@ export default function MixerPage() {
     </main>
   );
 }
-
