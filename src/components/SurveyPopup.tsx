@@ -44,7 +44,7 @@ export default function SurveyPopup() {
         className="absolute inset-0 bg-black/70 backdrop-blur-sm"
       />
 
-      <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-black/80 p-4 md:p-5 shadow-2xl">
+      <div className="relative w-full max-w-md rounded-2xl border border-neutral-800 bg-black/80 p-4 md:p-5 shadow-2xl">
         <div className="flex items-start gap-3">
           <div className="flex-1">
             <div className="text-xs uppercase tracking-[0.18em] text-white/60">Quick survey</div>
@@ -55,7 +55,7 @@ export default function SurveyPopup() {
           </div>
           <button
             onClick={dismiss}
-            className="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full border border-white/10 text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+            className="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-800 text-white/70 hover:text-white hover:bg-white/10 transition-colors"
             aria-label="Dismiss"
           >
             ×
@@ -72,7 +72,7 @@ export default function SurveyPopup() {
           </Link>
           <button
             onClick={dismiss}
-            className="px-4 py-2 text-sm text-white/80 hover:text-white rounded-full border border-white/10 hover:bg-white/5 transition-colors"
+            className="px-4 py-2 text-sm text-white/80 hover:text-white rounded-full border border-neutral-800 hover:bg-neutral-800/50 transition-colors"
           >
             Not now
           </button>

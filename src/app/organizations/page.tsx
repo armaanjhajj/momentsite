@@ -8,7 +8,7 @@ export default function OrganizationsPage() {
         </p>
         
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-6">
             <h2 className="text-xl font-semibold mb-4">For Students</h2>
             <p className="text-white/70 mb-4">
               Discover and join student organizations that align with your interests and goals.
@@ -21,7 +21,7 @@ export default function OrganizationsPage() {
             </ul>
           </div>
           
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-6">
             <h2 className="text-xl font-semibold mb-4">For Organizations</h2>
             <p className="text-white/70 mb-4">
               Manage your organization, approve members, and promote events to the campus community.
@@ -35,7 +35,7 @@ export default function OrganizationsPage() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
+        <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-8 text-center">
           <h2 className="text-2xl font-semibold mb-4">Ready to Get Started?</h2>
           <p className="text-white/70 mb-6">
             Join the waitlist to be notified when organizations features become available.

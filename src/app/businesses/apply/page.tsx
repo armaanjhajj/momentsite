@@ -89,7 +89,7 @@ export default function BusinessApplicationPage() {
                 value={formData.businessName}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                className="w-full px-4 py-3 rounded-xl bg-neutral-800/50 border border-neutral-800 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
                 placeholder="Your business name"
               />
             </div>
@@ -105,7 +105,7 @@ export default function BusinessApplicationPage() {
                 value={formData.location}
                 onChange={handleChange}
                 required
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                className="w-full px-4 py-3 rounded-xl bg-neutral-800/50 border border-neutral-800 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
                 placeholder="Street address, city, state"
               />
             </div>
@@ -121,7 +121,7 @@ export default function BusinessApplicationPage() {
                 onChange={handleChange}
                 required
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-neutral-800/50 border border-neutral-800 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none"
                 placeholder="Tell us about your business (type of establishment, what you offer, etc.)"
               />
             </div>
@@ -136,7 +136,7 @@ export default function BusinessApplicationPage() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={4}
-                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none"
+                className="w-full px-4 py-3 rounded-xl bg-neutral-800/50 border border-neutral-800 text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none"
                 placeholder="Any additional information you'd like to share"
               />
             </div>

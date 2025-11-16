@@ -14,7 +14,7 @@ export default function FooterClient() {
   }
 
   return (
-    <footer className="border-t border-white/10 mt-16">
+    <footer className="border-t border-neutral-800 mt-16">
       <div className={`container py-8 ${isTeam ? "md:ml-[320px]" : ""}`}>
         <nav className="flex flex-wrap items-center justify-center gap-6 text-sm text-white/80">
           <Link href="/legal/terms" className="hover:text-white no-underline">Terms</Link>

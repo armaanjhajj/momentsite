@@ -36,14 +36,14 @@ export default function AddressAutocomplete({
   return (
     <div className="relative">
       <input
-        className="w-full rounded-lg bg-white/5 border border-white/10 px-3 py-2"
+        className="w-full rounded-lg bg-neutral-800/50 border border-neutral-800 px-3 py-2"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onFocus={() => suggestions.length && setOpen(true)}
         placeholder={placeholder || "Enter an address or place..."}
       />
       {open && suggestions.length > 0 && (
-        <div className="absolute z-10 mt-1 w-full rounded-lg border border-white/10 bg-black/90 backdrop-blur max-h-60 overflow-auto">
+        <div className="absolute z-10 mt-1 w-full rounded-lg border border-neutral-800 bg-black/90 backdrop-blur max-h-60 overflow-auto">
           {suggestions.map((s, i) => (
             <button
               key={`${s.formattedAddress}-${i}`}

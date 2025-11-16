@@ -51,7 +51,7 @@ export default function StickyScroller() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-8"
+              className="bg-neutral-800/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-8"
             >
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white font-semibold">

@@ -36,7 +36,7 @@ export default function RevenueLanes() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, delay: index * 0.1 }}
-          className="bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:border-white/20 transition-all"
+          className="bg-neutral-800/50 border border-neutral-800 rounded-xl p-6 text-center hover:border-white/20 transition-all"
         >
           <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mx-auto mb-4">
             <lane.icon className="w-6 h-6 text-white" />

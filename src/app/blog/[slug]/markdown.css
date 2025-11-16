@@ -171,12 +171,12 @@
 
 /* Code - Clean and readable */
 .markdown-content code {
-  @apply bg-white/[0.08] text-white/95 px-2 py-1 rounded text-sm font-mono border border-white/10;
+  @apply bg-white/[0.08] text-white/95 px-2 py-1 rounded text-sm font-mono border border-neutral-800;
   font-size: 0.9em;
 }
 
 .markdown-content pre {
-  @apply bg-black/40 border border-white/10 rounded-xl p-6 mb-8 overflow-x-auto;
+  @apply bg-black/40 border border-neutral-800 rounded-xl p-6 mb-8 overflow-x-auto;
   margin-bottom: 2rem;
 }
 
@@ -202,7 +202,7 @@
 }
 
 .markdown-content td {
-  @apply border border-white/10 px-6 py-3 text-white/85;
+  @apply border border-neutral-800 px-6 py-3 text-white/85;
 }
 
 .markdown-content tr:nth-child(even) {
@@ -211,7 +211,7 @@
 
 /* Images - Consistent spacing */
 .markdown-content img {
-  @apply rounded-xl border border-white/10 my-8 w-full h-auto;
+  @apply rounded-xl border border-neutral-800 my-8 w-full h-auto;
   margin-top: 2rem;
   margin-bottom: 2rem;
 }
@@ -252,7 +252,7 @@
 
 /* Footnotes */
 .markdown-content .footnotes {
-  @apply mt-16 pt-8 border-t border-white/10 text-sm text-white/70;
+  @apply mt-16 pt-8 border-t border-neutral-800 text-sm text-white/70;
 }
 
 /* Selection highlighting */

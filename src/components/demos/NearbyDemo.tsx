@@ -26,7 +26,7 @@ export function NearbyDemo() {
   const current = MOCK_MATCHES[index];
 
   return (
-    <div className="relative h-[360px] bg-[#0f1216] rounded-2xl border border-white/10 p-3">
+    <div className="relative h-[360px] bg-[#0f1216] rounded-2xl border border-neutral-800 p-3">
       <motion.div
         className="absolute left-6 bottom-6 h-3 w-3 rounded-full bg-[var(--accent)]"
         animate={{ scale: [1, 1.6, 1] , opacity: [0.9, 0.2, 0.9] }}
@@ -41,7 +41,7 @@ export function NearbyDemo() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-            className="absolute inset-x-3 top-3 rounded-xl bg-black/60 border border-white/10 p-4 text-white"
+            className="absolute inset-x-3 top-3 rounded-xl bg-black/60 border border-neutral-800 p-4 text-white"
           >
             <div className="text-xs uppercase tracking-wide text-white/60 mb-1">Nearby connection</div>
             <div className="flex items-center justify-between">
@@ -72,7 +72,7 @@ export function NearbyDemo() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <div className="text-sm bg-black/60 border border-white/10 rounded-full px-3 py-1">Connected 🎉</div>
+            <div className="text-sm bg-black/60 border border-neutral-800 rounded-full px-3 py-1">Connected 🎉</div>
           </motion.div>
         )}
       </AnimatePresence>

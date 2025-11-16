@@ -27,7 +27,7 @@ export default function AccessPage({ searchParams }: AccessPageProps) {
             type="password"
             autoComplete="off"
             required
-            className="mt-2 w-full rounded-md bg-white/5 border border-white/10 px-3 py-2 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+            className="mt-2 w-full rounded-md bg-neutral-800/50 border border-neutral-800 px-3 py-2 text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
             placeholder="Enter access code"
           />
         </div>

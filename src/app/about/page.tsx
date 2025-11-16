@@ -49,7 +49,7 @@ export default function AboutPage() {
 
         {/* Stat bars */}
         <div className="max-w-2xl mx-auto space-y-6">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+          <div className="bg-neutral-800/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-6">
             <div className="flex justify-between items-center mb-3">
               <span className="text-white/90 font-medium">Report feeling disconnected from campus community</span>
               <span className="text-white font-semibold">73%</span>
@@ -59,7 +59,7 @@ export default function AboutPage() {
             </div>
           </div>
           
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-6">
+          <div className="bg-neutral-800/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-6">
             <div className="flex justify-between items-center mb-3">
               <span className="text-white/90 font-medium">Find it difficult to make meaningful friendships</span>
               <span className="text-white font-semibold">64%</span>
@@ -117,7 +117,7 @@ export default function AboutPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+          <div className="bg-neutral-800/50 backdrop-blur-sm border border-neutral-800 rounded-2xl p-8">
             <h3 className="text-2xl font-semibold text-white mb-4">
               Students
             </h3>
@@ -140,7 +140,7 @@ export default function AboutPage() {
             </ul>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
+          <div className="bg-neutral-800/50 backdrop-blur-sm border border-neutral-800 rounded-2xl p-8">
             <h3 className="text-2xl font-semibold text-white mb-4">
               Organizations & Businesses
             </h3>

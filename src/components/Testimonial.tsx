@@ -17,7 +17,7 @@ export default function Testimonial({ quote, author, role }: TestimonialProps) {
       transition={{ duration: 0.6 }}
       className="max-w-3xl mx-auto"
     >
-      <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 md:p-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
+      <div className="bg-neutral-800/50 backdrop-blur-sm border border-neutral-800 rounded-2xl p-8 md:p-12 text-center shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
         <svg
           className="w-12 h-12 text-white/20 mx-auto mb-6"
           fill="currentColor"

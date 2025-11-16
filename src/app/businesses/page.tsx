@@ -10,12 +10,12 @@ export default function BusinessesPage() {
             Gain verified status on Moments and become the exclusive meetup destination for students in your area. We&apos;re building a platform that prioritizes local businesses over enterprise franchises.
           </p>
           
-          <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-8 mb-12">
+          <div className="rounded-2xl border border-neutral-800 bg-gradient-to-br from-white/10 to-white/5 p-8 mb-12">
             <h2 className="text-2xl font-semibold mb-4">Exclusive Featured Placement</h2>
             <p className="text-white/80 text-lg mb-6">
               When students match within a 0.5 mile radius of your verified business, your location becomes the only suggested meetup spot. All other venues are voided, giving you exclusive visibility and driving foot traffic directly to your establishment.
             </p>
-            <div className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+            <div className="flex items-start gap-3 p-4 rounded-xl bg-neutral-800/50 border border-neutral-800">
               <svg className="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
@@ -27,7 +27,7 @@ export default function BusinessesPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-12">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-6">
               <div className="text-3xl mb-3">✅</div>
               <h2 className="text-xl font-semibold mb-3">Get Verified</h2>
               <p className="text-white/70">
@@ -35,7 +35,7 @@ export default function BusinessesPage() {
               </p>
             </div>
             
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-6">
               <div className="text-3xl mb-3">📍</div>
               <h2 className="text-xl font-semibold mb-3">0.5 Mile Radius</h2>
               <p className="text-white/70">
@@ -43,7 +43,7 @@ export default function BusinessesPage() {
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-6">
               <div className="text-3xl mb-3">🎯</div>
               <h2 className="text-xl font-semibold mb-3">Drive Foot Traffic</h2>
               <p className="text-white/70">
@@ -51,7 +51,7 @@ export default function BusinessesPage() {
               </p>
             </div>
             
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-6">
               <div className="text-3xl mb-3">🤝</div>
               <h2 className="text-xl font-semibold mb-3">Support Local</h2>
               <p className="text-white/70">
@@ -60,7 +60,7 @@ export default function BusinessesPage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8 mb-12">
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-8 mb-12">
             <h2 className="text-2xl font-semibold mb-6">How It Works</h2>
             <div className="space-y-6">
               <div className="flex gap-4">

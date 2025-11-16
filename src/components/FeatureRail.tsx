@@ -32,7 +32,7 @@ export default function FeatureRail() {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.6, delay: index * 0.1 }}
           whileHover={{ y: -8 }}
-          className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all"
+          className="bg-neutral-800/50 backdrop-blur-sm border border-neutral-800 rounded-2xl p-8 hover:border-white/20 transition-all"
         >
           <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-6">
             <feature.icon className="w-6 h-6 text-white" />

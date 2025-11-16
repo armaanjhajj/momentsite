@@ -11,28 +11,28 @@ export default function StatsPage() {
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-6 text-center">
               <div className="text-3xl font-bold text-white mb-2">1,200+</div>
               <div className="text-sm text-white/70">Active Users</div>
             </div>
             
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-6 text-center">
               <div className="text-3xl font-bold text-white mb-2">50+</div>
               <div className="text-sm text-white/70">Events This Month</div>
             </div>
             
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-6 text-center">
               <div className="text-3xl font-bold text-white mb-2">15</div>
               <div className="text-sm text-white/70">Partner Universities</div>
             </div>
             
-            <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-6 text-center">
               <div className="text-3xl font-bold text-white mb-2">2,500+</div>
               <div className="text-sm text-white/70">Connections Made</div>
             </div>
           </div>
 
-          <div className="rounded-2xl border border-white/10 bg-white/5 p-8">
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 p-8">
             <h2 className="text-2xl font-semibold mb-6">Growth Metrics</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>

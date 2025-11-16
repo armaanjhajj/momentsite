@@ -21,7 +21,7 @@ export function FeedDemo() {
   const current = POSTS[index];
 
   return (
-    <div className="relative h-[360px] bg-[#0f1216] rounded-2xl border border-white/10 p-3 text-white">
+    <div className="relative h-[360px] bg-[#0f1216] rounded-2xl border border-neutral-800 p-3 text-white">
       <div className="text-xs uppercase tracking-wide text-white/60 mb-2">Community feed</div>
       <div className="relative h-[300px] overflow-hidden">
         <AnimatePresence mode="wait">
@@ -31,7 +31,7 @@ export function FeedDemo() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -20, opacity: 0 }}
             transition={{ duration: 0.35 }}
-            className="rounded-xl bg-black/60 border border-white/10 p-4"
+            className="rounded-xl bg-black/60 border border-neutral-800 p-4"
           >
             <div className="text-white/90">{current.text}</div>
             <button

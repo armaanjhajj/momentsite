@@ -11,7 +11,7 @@ export default function Waitlist() {
           Waitlist members get the earliest access, a personal referral code, and the chance to bring friends in first.
           We’ll open to the public shortly after. Join the waitlist and get excited.
         </p>
-        <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-4">
+        <div className="mt-8 rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur p-4">
           <div className="launchlist-widget" data-key-id="PS7heZ" data-height="180px" />
         </div>
       </div>

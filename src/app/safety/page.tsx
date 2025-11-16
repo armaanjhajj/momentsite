@@ -7,7 +7,7 @@ export default function Safety() {
         <div className="mt-2 text-sm text-white/60"><strong>Last Updated:</strong> September 23, 2025</div>
       </header>
 
-      <hr className="mt-6 border-white/10" />
+      <hr className="mt-6 border-neutral-800" />
 
       <article className="prose prose-invert max-w-3xl mt-8 prose-headings:tracking-tight prose-h2:text-2xl md:prose-h2:text-3xl prose-p:leading-relaxed">
 

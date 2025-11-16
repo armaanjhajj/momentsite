@@ -36,7 +36,7 @@ export default function QR1Page() {
       </section>
 
       <section className="container pb-24">
-        <div className="relative w-full rounded-2xl overflow-hidden border border-white/10 bg-black">
+        <div className="relative w-full rounded-2xl overflow-hidden border border-neutral-800 bg-black">
           <div className="relative w-full" style={{ paddingTop: "56.25%" }}>
             <iframe
               className="absolute inset-0 w-full h-full"

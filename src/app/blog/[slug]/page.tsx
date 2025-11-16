@@ -56,7 +56,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
 
         {post.banner && (
           <div className="mt-8">
-            <div className="relative w-full aspect-[2/1] overflow-hidden rounded-xl border border-white/10">
+            <div className="relative w-full aspect-[2/1] overflow-hidden rounded-xl border border-neutral-800">
               <Image
                 src={post.banner}
                 alt={post.title}
@@ -68,7 +68,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           </div>
         )}
 
-        <hr className="mt-8 border-white/10" />
+        <hr className="mt-8 border-neutral-800" />
 
         <article 
           className="markdown-content mt-8"

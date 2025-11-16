@@ -13,8 +13,8 @@ export default function SurveyPage() {
           <h1 className="text-4xl md:text-5xl font-semibold">Academic Public Health Survey</h1>
           <p className="mt-2 text-white/70">Student Connection Survey: Understanding Campus Friendship & Belonging</p>
         </header>
-        <hr className="mt-6 border-white/10" />
-        <div className="mt-8 rounded-2xl border border-white/10 bg-white p-4">
+        <hr className="mt-6 border-neutral-800" />
+        <div className="mt-8 rounded-2xl border border-neutral-800 bg-white p-4">
           <div className="relative max-w-5xl mx-auto">
             <iframe
               data-tally-src="https://tally.so/embed/wa70BX?alignLeft=1&transparentBackground=1&dynamicHeight=1"

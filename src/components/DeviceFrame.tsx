@@ -14,9 +14,9 @@ export function DeviceFrame({ children }: DeviceFrameProps) {
   return (
     <div className="relative">
       <div className="pointer-events-none absolute inset-0 rounded-[44px] shadow-[0_30px_80px_rgba(0,0,0,0.6)]" />
-      <div className="relative mx-auto aspect-[9/19.5] w-full max-w-[360px] rounded-[44px] bg-black overflow-hidden border border-white/10">
+      <div className="relative mx-auto aspect-[9/19.5] w-full max-w-[360px] rounded-[44px] bg-black overflow-hidden border border-neutral-800">
         <div className="absolute inset-0 rounded-[44px] ring-1 ring-white/10" />
-        <div className="absolute left-1/2 top-3 -translate-x-1/2 h-6 w-32 rounded-full bg-black/90 border border-white/10 shadow-[inset_0_0_8px_rgba(255,255,255,0.06)]" />
+        <div className="absolute left-1/2 top-3 -translate-x-1/2 h-6 w-32 rounded-full bg-black/90 border border-neutral-800 shadow-[inset_0_0_8px_rgba(255,255,255,0.06)]" />
         <div className="absolute top-2 left-0 right-0 px-4 flex items-center justify-between text-[11px] text-white/80">
           <span>9:41</span>
           <div className="flex items-center gap-2">

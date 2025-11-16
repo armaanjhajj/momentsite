@@ -26,7 +26,7 @@ export default function Competition() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ delay: index * 0.1, duration: 0.6 }}
-            className="bg-white/5 border border-white/10 rounded-xl p-6"
+            className="bg-neutral-800/50 border border-neutral-800 rounded-xl p-6"
           >
             <h3 className="text-xl font-semibold text-white mb-2">
               {competitor.name}

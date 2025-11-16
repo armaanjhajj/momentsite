@@ -26,7 +26,7 @@ export default function HeaderClient() {
   }
 
   return (
-    <div className="fixed inset-x-0 top-0 z-[100] backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-white/10">
+    <div className="fixed inset-x-0 top-0 z-[100] backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-neutral-800">
       <header className="container flex items-center py-4 relative">
         <Link href="/" className="flex items-center gap-3">
           <Image src="/logo.png" alt="Moments" width={36} height={36} className="h-9 w-9 invert" />
@@ -63,7 +63,7 @@ export default function HeaderClient() {
           id="mobile-nav"
           className={`md:hidden fixed inset-x-0 top-16 z-40 transform transition-all duration-200 ${isOpen ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 -translate-y-2"}`}
         >
-          <div className="border-t border-white/10 bg-black/95 backdrop-blur">
+          <div className="border-t border-neutral-800 bg-black/95 backdrop-blur">
             <nav className="container py-3 flex flex-col gap-3 text-sm text-white/90">
               <Link href="/" className="hover:text-white no-underline" onClick={closeMenu}>Home</Link>
               <Link href="/about" className="hover:text-white no-underline" onClick={closeMenu}>About</Link>

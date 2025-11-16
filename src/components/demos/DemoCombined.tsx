@@ -16,7 +16,7 @@ export default function DemoCombined() {
 
 function Shell({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="rounded-2xl bg-black/60 border border-white/10 p-4 text-white">
+    <div className="rounded-2xl bg-black/60 border border-neutral-800 p-4 text-white">
       <div className="text-xs uppercase tracking-wide text-white/60 mb-2">{title}</div>
       {children}
     </div>
@@ -50,7 +50,7 @@ function EventsCard() {
   const [count, setCount] = React.useState(2);
   return (
     <Shell title="Event">
-      <div className="rounded-xl border border-white/10 p-3">
+      <div className="rounded-xl border border-neutral-800 p-3">
         <div className="font-semibold">Study session @ Library</div>
         <div className="text-white/70 text-sm">Today • Business Building</div>
         <div className="mt-3 flex items-center gap-2">
@@ -82,7 +82,7 @@ function FeedCard() {
   }, [posts.length]);
   return (
     <Shell title="Community feed">
-      <div className="rounded-xl border border-white/10 p-3 min-h-[80px]">
+      <div className="rounded-xl border border-neutral-800 p-3 min-h-[80px]">
         <AnimatePresence mode="wait">
           <motion.div key={i} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} className="text-white/90">
             {posts[i]}

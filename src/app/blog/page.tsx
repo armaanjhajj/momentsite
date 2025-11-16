@@ -16,13 +16,13 @@ export default async function Blog() {
         <h1 className="text-4xl md:text-5xl font-semibold">Moments Blog</h1>
         <p className="mt-2 text-white/70">Stories from the build, campus launches, and the community.</p>
       </header>
-      <hr className="mt-6 border-white/10" />
+      <hr className="mt-6 border-neutral-800" />
       <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <Link 
             key={post.slug} 
             href={`/blog/${post.slug}`} 
-            className="group block rounded-2xl border border-white/10 overflow-hidden bg-white/5 hover:bg-white/10 transition"
+            className="group block rounded-2xl border border-neutral-800 overflow-hidden bg-neutral-800/50 hover:bg-white/10 transition"
           >
             {post.banner && (
               <div className="aspect-[16/9] relative">
