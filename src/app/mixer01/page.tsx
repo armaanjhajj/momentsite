@@ -172,7 +172,7 @@ export default function MixerPage() {
       {/* Hero Section */}
       <section className="container pt-12 pb-12 md:pt-16 md:pb-16">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-white/10 text-xs text-white/60 mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-800/50 border border-neutral-800 text-xs text-white/60 mb-6">
             <span>Invite-only</span>
             <span>·</span>
             <span>Limited capacity</span>
@@ -193,17 +193,17 @@ export default function MixerPage() {
       <section className="container pb-12">
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-3 gap-4">
-            <div className="rounded-2xl border border-white/10 bg-neutral-900 backdrop-blur p-6 text-center">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur p-6 text-center">
               <p className="text-xs uppercase tracking-wider text-white/50 mb-2">Date & Time</p>
               <p className="text-lg font-medium">Thursday, November 20</p>
               <p className="text-white/70">5:30 PM</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-neutral-900 backdrop-blur p-6 text-center">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur p-6 text-center">
               <p className="text-xs uppercase tracking-wider text-white/50 mb-2">Location</p>
               <p className="text-lg font-medium">Semicolon Café</p>
               <p className="text-white/70">New Brunswick</p>
             </div>
-            <div className="rounded-2xl border border-white/10 bg-neutral-900 backdrop-blur p-6 text-center">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur p-6 text-center">
               <p className="text-xs uppercase tracking-wider text-white/50 mb-2">Format</p>
               <p className="text-lg font-medium">Private Beta Mixer</p>
               <p className="text-white/70">Coffee & Conversations</p>
@@ -273,7 +273,7 @@ export default function MixerPage() {
       {!authenticatedChapter && (
         <section className="container pb-12">
           <div className="max-w-2xl mx-auto">
-            <div className="rounded-2xl border border-white/10 bg-neutral-900 backdrop-blur p-6 md:p-8">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur p-6 md:p-8">
               <h2 className="text-2xl font-semibold mb-4">RSVP as Chapter President</h2>
               <form onSubmit={handleCodeSubmit} className="space-y-4">
                 <div>
@@ -285,7 +285,7 @@ export default function MixerPage() {
                     id="inviteCode"
                     value={inviteCode}
                     onChange={(e) => setInviteCode(e.target.value)}
-                    className="w-full px-4 py-3 bg-neutral-950 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                    className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
                     placeholder="Enter your chapter's invite code"
                     required
                   />
@@ -299,7 +299,7 @@ export default function MixerPage() {
                     id="presidentName"
                     value={presidentName}
                     onChange={(e) => setPresidentName(e.target.value)}
-                    className="w-full px-4 py-3 bg-neutral-950 border border-white/10 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                    className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
                     placeholder="Your name"
                   />
                 </div>
@@ -319,8 +319,8 @@ export default function MixerPage() {
       {authenticatedChapter && (
         <section className="container pb-12">
           <div className="max-w-2xl mx-auto">
-            <div className="rounded-2xl border border-white/10 bg-neutral-900 backdrop-blur p-6 md:p-8">
-              <div className="mb-6 pb-6 border-b border-white/10">
+            <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur p-6 md:p-8">
+              <div className="mb-6 pb-6 border-b border-neutral-800">
                 <p className="text-sm text-white/60 mb-2">You&apos;re responding for:</p>
                 <div className="flex items-center gap-4">
                   <div className="text-4xl font-bold">{authenticatedChapter.letters}</div>
@@ -341,7 +341,7 @@ export default function MixerPage() {
                 <div>
                   <label className="block text-sm font-medium mb-3">RSVP Status</label>
                   <div className="space-y-2">
-                    <label className="flex items-center gap-3 p-4 border border-white/10 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
+                    <label className="flex items-center gap-3 p-4 border border-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
                       <input
                         type="radio"
                         name="rsvpStatus"
@@ -376,7 +376,7 @@ export default function MixerPage() {
                         )}
                       </div>
                     </label>
-                    <label className="flex items-center gap-3 p-4 border border-white/10 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
+                    <label className="flex items-center gap-3 p-4 border border-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
                       <input
                         type="radio"
                         name="rsvpStatus"
@@ -387,7 +387,7 @@ export default function MixerPage() {
                       />
                       <span className="font-medium">Maybe — I&apos;ll confirm soon</span>
                     </label>
-                    <label className="flex items-center gap-3 p-4 border border-white/10 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
+                    <label className="flex items-center gap-3 p-4 border border-neutral-800 rounded-lg cursor-pointer hover:bg-neutral-800 transition-colors">
                       <input
                         type="radio"
                         name="rsvpStatus"
@@ -413,7 +413,7 @@ export default function MixerPage() {
                       setAuthenticatedChapter(null);
                       setInviteCode('');
                     }}
-                    className="px-6 py-3 border border-white/10 rounded-lg hover:bg-neutral-800 transition-colors"
+                    className="px-6 py-3 border border-neutral-800 rounded-lg hover:bg-neutral-800 transition-colors"
                   >
                     Change Chapter
                   </button>
@@ -441,7 +441,7 @@ export default function MixerPage() {
                 return (
                   <div
                     key={chapter.inviteCode}
-                    className="rounded-lg border border-white/10 bg-neutral-900 p-4 hover:bg-neutral-800 transition-colors relative"
+                    className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors relative"
                   >
                     <div className="flex items-start justify-between mb-2">
                       <div className="text-2xl font-bold">{chapter.letters}</div>
@@ -469,7 +469,7 @@ export default function MixerPage() {
                 return (
                   <div
                     key={chapter.inviteCode}
-                    className="rounded-lg border border-white/10 bg-neutral-900 p-4 hover:bg-neutral-800 transition-colors relative"
+                    className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors relative"
                   >
                     <div className="flex items-start justify-between mb-2">
                       <div className="text-2xl font-bold">{chapter.letters}</div>
@@ -497,7 +497,7 @@ export default function MixerPage() {
                 return (
                   <div
                     key={chapter.inviteCode}
-                    className="rounded-lg border border-white/10 bg-neutral-900 p-4 hover:bg-neutral-800 transition-colors relative"
+                    className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors relative"
                   >
                     <div className="flex items-start justify-between mb-2">
                       <div className="text-2xl font-bold">{chapter.letters}</div>
@@ -522,7 +522,7 @@ export default function MixerPage() {
       <section className="container pb-16">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-semibold mb-8 text-center">Location & Logistics</h2>
-          <div className="rounded-2xl border border-white/10 bg-neutral-900 overflow-hidden">
+          <div className="rounded-2xl border border-neutral-800 bg-neutral-800/50 overflow-hidden">
             <div className="aspect-video bg-white/5">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7448.963947838719!2d-74.45217705554954!3d40.49486851046555!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3c7fa9f8acd6d%3A0x9189b788885e5bf4!2sSemicolon%20Cafe!5e0!3m2!1sen!2sus!4v1763272692122!5m2!1sen!2sus"
@@ -550,7 +550,7 @@ export default function MixerPage() {
       {/* Privacy Note */}
       <section className="container pb-16">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="rounded-lg border border-white/10 bg-neutral-900 p-6">
+          <div className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-6">
             <p className="text-sm text-white/60 mb-2">
               This page is not listed publicly. Please don&apos;t share outside your chapter leadership.
             </p>
