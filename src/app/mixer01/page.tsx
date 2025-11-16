@@ -75,7 +75,7 @@ export default function MixerPage() {
           setRsvps(data || {});
         }
         // Silently handle errors - table might not exist yet
-      } catch (error) {
+      } catch {
         // Silently handle errors - table might not exist yet
       }
     };
