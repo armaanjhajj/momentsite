@@ -24,7 +24,13 @@ export async function GET() {
     }
 
     // Convert to the format expected by the frontend
-    const rsvps: Record<string, any> = {};
+    interface RSVPResponse {
+      status: string;
+      guestCount: number | null;
+      updatedBy: string | null;
+      updatedAt: string;
+    }
+    const rsvps: Record<string, RSVPResponse> = {};
     data?.forEach((rsvp) => {
       rsvps[rsvp.chapter_invite_code] = {
         status: rsvp.status,

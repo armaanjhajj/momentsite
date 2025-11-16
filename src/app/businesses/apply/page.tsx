@@ -44,7 +44,7 @@ export default function BusinessApplicationPage() {
         description: '',
         message: '',
       });
-    } catch (error) {
+    } catch {
       setStatus('error');
       setErrorMessage('Failed to submit application. Please try again or email us directly at support@havemoments.com');
     }
