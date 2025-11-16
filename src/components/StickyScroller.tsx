@@ -54,7 +54,7 @@ export default function StickyScroller() {
               className="bg-neutral-800/50 backdrop-blur-sm border border-neutral-800 rounded-xl p-8"
             >
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white font-semibold">
+                <div className="w-10 h-10 rounded-full bg-neutral-800/80 flex items-center justify-center text-white font-semibold">
                   {index + 1}
                 </div>
                 <h3 className="text-2xl font-semibold text-white">

@@ -38,7 +38,7 @@ export default function Hero() {
           </Link>
           <a
             href="#learn"
-            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 bg-white/10 text-white text-base font-medium hover:bg-white/15 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+            className="inline-flex items-center justify-center rounded-2xl px-6 py-3 bg-neutral-800/80 text-white text-base font-medium hover:bg-neutral-700/80 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
           >
             Learn more
           </a>

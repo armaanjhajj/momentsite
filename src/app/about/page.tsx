@@ -54,7 +54,7 @@ export default function AboutPage() {
               <span className="text-white/90 font-medium">Report feeling disconnected from campus community</span>
               <span className="text-white font-semibold">73%</span>
             </div>
-            <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+            <div className="h-2 bg-neutral-800/80 rounded-full overflow-hidden">
               <div className="h-full bg-white/40 rounded-full" style={{ width: '73%' }} />
             </div>
           </div>
@@ -64,7 +64,7 @@ export default function AboutPage() {
               <span className="text-white/90 font-medium">Find it difficult to make meaningful friendships</span>
               <span className="text-white font-semibold">64%</span>
             </div>
-            <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+            <div className="h-2 bg-neutral-800/80 rounded-full overflow-hidden">
               <div className="h-full bg-white/40 rounded-full" style={{ width: '64%' }} />
             </div>
           </div>
@@ -216,13 +216,13 @@ export default function AboutPage() {
             </Link>
             <Link
               href="/businesses"
-              className="inline-flex items-center justify-center rounded-2xl px-8 py-4 bg-white/10 text-white text-lg font-medium hover:bg-white/15 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 min-w-[200px]"
+              className="inline-flex items-center justify-center rounded-2xl px-8 py-4 bg-neutral-800/80 text-white text-lg font-medium hover:bg-neutral-700/80 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 min-w-[200px]"
             >
               Partner With Us
             </Link>
             <Link
               href="/press"
-              className="inline-flex items-center justify-center rounded-2xl px-8 py-4 bg-white/10 text-white text-lg font-medium hover:bg-white/15 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 min-w-[200px]"
+              className="inline-flex items-center justify-center rounded-2xl px-8 py-4 bg-neutral-800/80 text-white text-lg font-medium hover:bg-neutral-700/80 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 min-w-[200px]"
             >
               Media Kit
             </Link>

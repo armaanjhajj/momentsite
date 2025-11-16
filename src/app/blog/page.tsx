@@ -22,7 +22,7 @@ export default async function Blog() {
           <Link 
             key={post.slug} 
             href={`/blog/${post.slug}`} 
-            className="group block rounded-2xl border border-neutral-800 overflow-hidden bg-neutral-800/50 hover:bg-white/10 transition"
+            className="group block rounded-2xl border border-neutral-800 overflow-hidden bg-neutral-800/50 hover:bg-neutral-800/80 transition"
           >
             {post.banner && (
               <div className="aspect-[16/9] relative">

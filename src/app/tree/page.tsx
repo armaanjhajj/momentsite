@@ -26,7 +26,7 @@ export default function TreePage() {
               href="https://havemoments.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-white/10 transition-colors text-white/90"
+              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-neutral-800/80 transition-colors text-white/90"
             >
               havemoments.com
             </a>
@@ -36,7 +36,7 @@ export default function TreePage() {
               href="https://instagram.com/letsmakemoments"
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-white/10 transition-colors text-white/90"
+              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-neutral-800/80 transition-colors text-white/90"
             >
               Instagram (@letsmakemoments)
             </a>
@@ -46,7 +46,7 @@ export default function TreePage() {
               href="https://www.tiktok.com/@letsmakemoments"
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-white/10 transition-colors text-white/90"
+              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-neutral-800/80 transition-colors text-white/90"
             >
               TikTok (@letsmakemoments)
             </a>
@@ -56,7 +56,7 @@ export default function TreePage() {
               href="https://www.linkedin.com/company/letsmakemoments"
               target="_blank"
               rel="noopener noreferrer"
-              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-white/10 transition-colors text-white/90"
+              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-neutral-800/80 transition-colors text-white/90"
             >
               LinkedIn
             </a>
@@ -64,14 +64,14 @@ export default function TreePage() {
             {/* App pages */}
             <Link
               href="/apply"
-              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-white/10 transition-colors text-white/90"
+              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-neutral-800/80 transition-colors text-white/90"
             >
               Apply
             </Link>
 
             <Link
               href="/waitlist"
-              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-white/10 transition-colors text-white/90"
+              className="block rounded-2xl border border-neutral-800 bg-neutral-800/50 backdrop-blur px-5 py-4 md:px-6 md:py-5 text-base md:text-lg hover:bg-neutral-800/80 transition-colors text-white/90"
             >
               Join waitlist
             </Link>

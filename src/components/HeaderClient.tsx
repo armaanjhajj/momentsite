@@ -46,7 +46,7 @@ export default function HeaderClient() {
           aria-label="Open menu"
           aria-expanded={isOpen}
           aria-controls="mobile-nav"
-          className="md:hidden ml-auto inline-flex items-center justify-center rounded-md p-2 text-white/90 hover:text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50"
+          className="md:hidden ml-auto inline-flex items-center justify-center rounded-md p-2 text-white/90 hover:text-white hover:bg-neutral-800/80 focus:outline-none focus:ring-2 focus:ring-white/50"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (

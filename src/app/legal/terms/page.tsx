@@ -24,7 +24,7 @@ export default function Terms() {
           The capitalized terms have the same meaning as ascribed in our Privacy Policy, unless otherwise noted here.
         </p>
 
-        <div className="bg-white/10 border border-white/20 rounded-lg p-6 mb-8">
+        <div className="bg-neutral-800/80 border border-white/20 rounded-lg p-6 mb-8">
           <p className="text-lg text-white font-semibold mb-4">
             PLEASE READ THESE TERMS OF SERVICE CAREFULLY TO UNDERSTAND YOUR RIGHTS AND OBLIGATIONS.
           </p>
@@ -178,7 +178,7 @@ export default function Terms() {
         <p className="text-lg text-white/90 leading-relaxed mb-6">
           If you have any questions about these Terms of Service, please contact us:
         </p>
-        <div className="bg-white/10 border border-white/20 rounded-lg p-6 mb-8">
+        <div className="bg-neutral-800/80 border border-white/20 rounded-lg p-6 mb-8">
           <p className="text-lg text-white font-semibold mb-2">Legal Department</p>
           <p className="text-lg text-white/90 mb-2">Email: <a href="mailto:privacy@havemoments.com" className="text-blue-400 hover:text-blue-300">privacy@havemoments.com</a></p>
           <p className="text-lg text-white/90">Address:</p>
@@ -187,7 +187,7 @@ export default function Terms() {
           <p className="text-lg text-white/90 ml-4">Edison NJ 08817</p>
         </div>
 
-        <div className="bg-white/10 border border-white/20 rounded-lg p-6 mb-8">
+        <div className="bg-neutral-800/80 border border-white/20 rounded-lg p-6 mb-8">
           <p className="text-lg text-white font-semibold uppercase">
             PLEASE NOTE: IF YOU USE OUR WEBSITE, APP, OR PLATFORM, YOU HAVE AGREED TO AND ACCEPTED THE PRACTICES DESCRIBED IN THESE TERMS OF SERVICE AND THE TERMS AND CONDITIONS SET FORTH IN OUR PRIVACY POLICY. IF YOU DO NOT AGREE WITH THE TERMS OF THESE TERMS OF SERVICE OR OUR PRIVACY POLICY, PLEASE DO NOT USE OUR WEBSITE, APP, OR PLATFORM.
           </p>

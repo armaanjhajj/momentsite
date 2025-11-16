@@ -27,7 +27,7 @@ export default function QR1Page() {
               href="https://www.tiktok.com/@letsmakemoments"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full px-4 py-2 border border-white/20 text-white/90 hover:text-white hover:bg-white/10 transition-colors text-sm"
+              className="inline-flex items-center rounded-full px-4 py-2 border border-white/20 text-white/90 hover:text-white hover:bg-neutral-800/80 transition-colors text-sm"
             >
               TikTok
             </a>

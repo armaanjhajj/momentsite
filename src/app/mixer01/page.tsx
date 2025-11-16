@@ -358,7 +358,7 @@ export default function MixerPage() {
                               type="button"
                               onClick={() => setGuestCount(1)}
                               className={`px-3 py-1 text-xs rounded ${
-                                guestCount === 1 ? 'bg-white text-black' : 'bg-white/10 text-white/70'
+                                guestCount === 1 ? 'bg-white text-black' : 'bg-neutral-800/80 text-white/70'
                               }`}
                             >
                               President + 1
@@ -367,7 +367,7 @@ export default function MixerPage() {
                               type="button"
                               onClick={() => setGuestCount(2)}
                               className={`px-3 py-1 text-xs rounded ${
-                                guestCount === 2 ? 'bg-white text-black' : 'bg-white/10 text-white/70'
+                                guestCount === 2 ? 'bg-white text-black' : 'bg-neutral-800/80 text-white/70'
                               }`}
                             >
                               President + 2

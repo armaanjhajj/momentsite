@@ -38,7 +38,7 @@ export default function RevenueLanes() {
           transition={{ duration: 0.6, delay: index * 0.1 }}
           className="bg-neutral-800/50 border border-neutral-800 rounded-xl p-6 text-center hover:border-white/20 transition-all"
         >
-          <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center mx-auto mb-4">
+          <div className="w-12 h-12 rounded-lg bg-neutral-800/80 flex items-center justify-center mx-auto mb-4">
             <lane.icon className="w-6 h-6 text-white" />
           </div>
           <h3 className="text-lg font-semibold text-white mb-2">

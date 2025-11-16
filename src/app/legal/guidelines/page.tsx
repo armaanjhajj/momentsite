@@ -127,12 +127,12 @@ export default function CommunityGuidelines() {
         <p className="text-lg text-white/90 leading-relaxed mb-6">
           For any questions, feedback, or safety concerns:
         </p>
-        <div className="bg-white/10 border border-white/20 rounded-lg p-6 mb-8">
+        <div className="bg-neutral-800/80 border border-white/20 rounded-lg p-6 mb-8">
           <p className="text-lg text-white/90 mb-2">📧 Email: <a href="mailto:support@havemoments.com" className="text-blue-400 hover:text-blue-300">support@havemoments.com</a></p>
           <p className="text-lg text-white/90">🌐 Website: <a href="https://www.havemoments.com" className="text-blue-400 hover:text-blue-300">www.havemoments.com</a></p>
         </div>
 
-        <div className="bg-white/10 border border-white/20 rounded-lg p-6 mb-8">
+        <div className="bg-neutral-800/80 border border-white/20 rounded-lg p-6 mb-8">
           <p className="text-lg text-white font-semibold uppercase">
             BY USING MOMENTS, YOU AGREE TO FOLLOW THESE COMMUNITY GUIDELINES. VIOLATIONS MAY RESULT IN ACCOUNT SUSPENSION OR TERMINATION. PLEASE HELP US BUILD A SAFE, RESPECTFUL, AND AUTHENTIC COMMUNITY.
           </p>

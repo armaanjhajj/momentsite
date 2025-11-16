@@ -46,7 +46,7 @@ export default function Competition() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-100px' }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="bg-white/10 border border-white/20 rounded-xl p-8 text-center"
+        className="bg-neutral-800/80 border border-white/20 rounded-xl p-8 text-center"
       >
         <h3 className="text-2xl font-semibold text-white mb-3">
           Moments

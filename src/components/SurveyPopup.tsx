@@ -55,7 +55,7 @@ export default function SurveyPopup() {
           </div>
           <button
             onClick={dismiss}
-            className="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-800 text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+            className="ml-2 inline-flex h-8 w-8 items-center justify-center rounded-full border border-neutral-800 text-white/70 hover:text-white hover:bg-neutral-800/80 transition-colors"
             aria-label="Dismiss"
           >
             ×

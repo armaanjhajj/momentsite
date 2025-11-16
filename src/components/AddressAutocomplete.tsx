@@ -53,7 +53,7 @@ export default function AddressAutocomplete({
                 setQuery(s.formattedAddress);
                 setOpen(false);
               }}
-              className="block w-full text-left px-3 py-2 text-sm hover:bg-white/10"
+              className="block w-full text-left px-3 py-2 text-sm hover:bg-neutral-800/80"
             >
               {s.formattedAddress}
             </button>
