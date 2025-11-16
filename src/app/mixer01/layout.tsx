@@ -15,12 +15,12 @@ export default function MixerLayout({
   return (
     <>
       {/* Minimal header */}
-      <div className="fixed inset-x-0 top-0 z-[100] backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-white/10">
+      <div className="fixed inset-x-0 top-0 z-[100] backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-neutral-800">
         <header className="container flex items-center justify-between py-4 relative">
           <Link href="/" className="flex items-center gap-3">
             <Image src="/logo.png" alt="Moments" width={36} height={36} className="h-9 w-9 invert" />
           </Link>
-          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/60">
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white text-black text-sm">
             Invite-only access
           </span>
         </header>
