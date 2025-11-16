@@ -13,7 +13,7 @@ export default function Terms() {
       <article className="max-w-4xl mx-auto prose prose-invert prose-lg">
         <h2 className="text-3xl font-bold text-white mb-6">1. INTRODUCTION</h2>
         <p className="text-lg text-white/90 leading-relaxed mb-6">
-          One Moments, Inc. ("Moments," "we," "us," or "our") provides a social media platform that connects Users ("User," "your," or "you") through our website at https://havemoments.com/ (the "Website") and our mobile application (the "App") (collectively, the "Platform"). These Terms of Service (the "Terms") govern your use of our Platform and services.
+          One Moments LLC ("Moments," "we," "us," or "our") provides a social media platform that connects Users ("User," "your," or "you") through our website at https://havemoments.com/ (the "Website") and our mobile application (the "App") (collectively, the "Platform"). These Terms of Service (the "Terms") govern your use of our Platform and services.
         </p>
         
         <p className="text-lg text-white/90 leading-relaxed mb-6">
@@ -182,7 +182,7 @@ export default function Terms() {
           <p className="text-lg text-white font-semibold mb-2">Legal Department</p>
           <p className="text-lg text-white/90 mb-2">Email: <a href="mailto:privacy@havemoments.com" className="text-blue-400 hover:text-blue-300">privacy@havemoments.com</a></p>
           <p className="text-lg text-white/90">Address:</p>
-          <p className="text-lg text-white/90 ml-4">One Moments, Inc.</p>
+          <p className="text-lg text-white/90 ml-4">One Moments LLC</p>
           <p className="text-lg text-white/90 ml-4">4405 Hana Road</p>
           <p className="text-lg text-white/90 ml-4">Edison NJ 08817</p>
         </div>

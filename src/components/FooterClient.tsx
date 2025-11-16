@@ -29,7 +29,7 @@ export default function FooterClient() {
           <Link href="/apply" className="hover:text-white no-underline">Apply</Link>
         </nav>
         <div className="mt-6 text-center">
-          <div className="text-sm text-white/80">Moments by One Moments, Inc.</div>
+          <div className="text-sm text-white/80">Moments by One Moments LLC</div>
           <div className="mt-3 flex items-center justify-center gap-6">
             <a href="https://instagram.com/letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-white/80 hover:text-white transition-colors">
               <FaInstagram size={24} />
@@ -44,7 +44,7 @@ export default function FooterClient() {
               <FaXTwitter size={24} />
             </a>
           </div>
-          <div className="mt-4 text-xs text-white/60">© 2025 One Moments, Inc. All rights reserved.</div>
+          <div className="mt-4 text-xs text-white/60">© 2025 One Moments LLC All rights reserved.</div>
         </div>
       </div>
     </footer>

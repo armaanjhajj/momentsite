@@ -13,7 +13,7 @@ export default function Privacy() {
       <article className="max-w-4xl mx-auto prose prose-invert prose-lg">
         <h2 className="text-3xl font-bold text-white mb-6">1. INTRODUCTION</h2>
         <p className="text-lg text-white/90 leading-relaxed mb-6">
-          One Moments, Inc. ("Moments," "we," "us," or "our") respects the privacy of its Users ("User," "your," or "you"). This Privacy Policy (the "Privacy Policy") explains how we collect, use, disclose, and safeguard your information when you use Moments Platform (the "Platform") through Moments' website at https://havemoments.com/ (the "Website") or Moments' mobile application (the "App"). Moments is an artificial intelligence social media platform that operates via iMessage to connect Users to other Users via group chats based on similar interests.
+          One Moments LLC ("Moments," "we," "us," or "our") respects the privacy of its Users ("User," "your," or "you"). This Privacy Policy (the "Privacy Policy") explains how we collect, use, disclose, and safeguard your information when you use Moments Platform (the "Platform") through Moments' website at https://havemoments.com/ (the "Website") or Moments' mobile application (the "App"). Moments is an artificial intelligence social media platform that operates via iMessage to connect Users to other Users via group chats based on similar interests.
         </p>
         
         <p className="text-lg text-white/90 leading-relaxed mb-6">
@@ -274,15 +274,15 @@ export default function Privacy() {
 
         <h3 className="text-2xl font-semibold text-white mb-4">h. Contact Information</h3>
         <p className="text-lg text-white/90 leading-relaxed mb-6">
-          You may contact us (i) at privacy@havemoments.com, or (ii) by writing to us at Privacy Officer at One Moments, Inc. 4405 Hana Road, Edison NJ 08817 to (i) make a Personal Information Request, (ii) correct or delete your personal information, (iii) discuss our Privacy Policy and/or anything that has to do with it. We will respond within thirty (30) calendar days of receiving such a request or query. Additionally, in order for us to respond to your request or query, we will need to collect information from the requesting party to verify their identity.
+          You may contact us (i) at privacy@havemoments.com, or (ii) by writing to us at Privacy Officer at One Moments LLC 4405 Hana Road, Edison NJ 08817 to (i) make a Personal Information Request, (ii) correct or delete your personal information, (iii) discuss our Privacy Policy and/or anything that has to do with it. We will respond within thirty (30) calendar days of receiving such a request or query. Additionally, in order for us to respond to your request or query, we will need to collect information from the requesting party to verify their identity.
         </p>
 
         <h2 className="text-3xl font-bold text-white mb-6">13. YOUR CALIFORNIA PRIVACY RIGHTS</h2>
         <p className="text-lg text-white/90 leading-relaxed mb-6">
-          Moments does not sell, trade, or otherwise transfer to outside third parties your "Personal Information" as the term is defined under the California Civil Code Section § 1798.82(h). Additionally, California Civil Code Section § 1798.83 permits Users of our Website, App, or Platform that are California residents to request certain information regarding our disclosure of their Personal Information to third parties for their direct marketing purposes. To make a request for such disclosure, or identification and/or deletion of Personal Information in all our systems that we store on you, please send an email to privacy@havemoments.com or write us at One Moments, Inc. 4405 Hana Road, Edison NJ 08817.
+          Moments does not sell, trade, or otherwise transfer to outside third parties your "Personal Information" as the term is defined under the California Civil Code Section § 1798.82(h). Additionally, California Civil Code Section § 1798.83 permits Users of our Website, App, or Platform that are California residents to request certain information regarding our disclosure of their Personal Information to third parties for their direct marketing purposes. To make a request for such disclosure, or identification and/or deletion of Personal Information in all our systems that we store on you, please send an email to privacy@havemoments.com or write us at One Moments LLC 4405 Hana Road, Edison NJ 08817.
         </p>
         <p className="text-lg text-white/90 leading-relaxed mb-6">
-          Note that (i) if we delete your Personal Information as requested, we will no longer be able to provide our services to you and (ii) we may need to keep such Personal Information for a while during the shutting down and billing process. If you would like to discuss our Personal Information storage and processing process with us, please send us an email at privacy@havemoments.com or write us at One Moments, Inc. 4405 Hana Road, Edison NJ 08817
+          Note that (i) if we delete your Personal Information as requested, we will no longer be able to provide our services to you and (ii) we may need to keep such Personal Information for a while during the shutting down and billing process. If you would like to discuss our Personal Information storage and processing process with us, please send us an email at privacy@havemoments.com or write us at One Moments LLC 4405 Hana Road, Edison NJ 08817
         </p>
 
         <h2 className="text-3xl font-bold text-white mb-6">14. COPPA COMPLIANCE (FOR CHILDREN UNDER 13 ONLY)</h2>
@@ -315,7 +315,7 @@ export default function Privacy() {
         <ul className="text-lg text-white/90 leading-relaxed mb-6 space-y-2">
           <li>• not use false or misleading subjects or email addresses;</li>
           <li>• identify the email message as an advertisement in some reasonable way;</li>
-          <li>• include the physical address of One Moments, Inc. 4405 Hana Road, Edison NJ 08817;</li>
+          <li>• include the physical address of One Moments LLC 4405 Hana Road, Edison NJ 08817;</li>
           <li>• monitor third-party email marketing services for compliance, if one is used;</li>
           <li>• honor opt-out/unsubscribe requests quickly; and</li>
           <li>• give an "opt-out" or "unsubscribe" option.</li>
@@ -380,7 +380,7 @@ export default function Privacy() {
           <li>• A statement that the information in the notification is accurate, and under penalty of perjury, that you are either the owner of the copyright that has allegedly been infringed or that you are authorized to act on behalf of the copyright owner.</li>
         </ul>
         <p className="text-lg text-white/90 leading-relaxed mb-6">
-          Moments&apos; Copyright Agent to receive DMCA Takedown Notices is DMCA Agent, at dmca@havemoments.com and at One Moments, Inc. Attn: DMCA Notice, 4405 Hana Road, Edison NJ 08817. You acknowledge that for us to be authorized to take down any content, your DMCA Takedown Notice must comply with all the requirements of this Section. Please note that, pursuant to 17 U.S.C. § 512(f), any misrepresentation of material fact (falsities) in a written notification automatically subjects the complaining party to liability for any damages, costs and attorney&apos;s fees incurred by Moments in connection with the written notification and allegation of copyright infringement.
+          Moments&apos; Copyright Agent to receive DMCA Takedown Notices is DMCA Agent, at dmca@havemoments.com and at One Moments LLC Attn: DMCA Notice, 4405 Hana Road, Edison NJ 08817. You acknowledge that for us to be authorized to take down any content, your DMCA Takedown Notice must comply with all the requirements of this Section. Please note that, pursuant to 17 U.S.C. § 512(f), any misrepresentation of material fact (falsities) in a written notification automatically subjects the complaining party to liability for any damages, costs and attorney&apos;s fees incurred by Moments in connection with the written notification and allegation of copyright infringement.
         </p>
 
         <h2 className="text-3xl font-bold text-white mb-6">22. CONTACT US</h2>
@@ -391,7 +391,7 @@ export default function Privacy() {
           <p className="text-lg text-white font-semibold mb-2">Privacy Officer</p>
           <p className="text-lg text-white/90 mb-2">Email: <a href="mailto:privacy@havemoments.com" className="text-blue-400 hover:text-blue-300">privacy@havemoments.com</a></p>
           <p className="text-lg text-white/90">Address:</p>
-          <p className="text-lg text-white/90 ml-4">One Moments, Inc.</p>
+          <p className="text-lg text-white/90 ml-4">One Moments LLC</p>
           <p className="text-lg text-white/90 ml-4">4405 Hana Road</p>
           <p className="text-lg text-white/90 ml-4">Edison NJ 08817</p>
         </div>
