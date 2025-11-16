@@ -62,8 +62,8 @@ const chapters: Chapter[] = [
   { letters: 'ΦΔΕ', name: 'Phi Delta Epsilon', type: 'professional', inviteCode: 'PDE2025' },
   { letters: 'ΜΕΔ', name: 'Mu Epsilon Delta', type: 'professional', inviteCode: 'MED2025' },
   // Special groups
-  { letters: '★', name: 'Moments Team', type: 'special', inviteCode: 'MOMENTS2025' },
-  { letters: '♥', name: 'Friends & Family', type: 'special', inviteCode: 'FF2025' },
+  { letters: 'MT', name: 'Moments Team', type: 'special', inviteCode: 'MOMENTS2025' },
+  { letters: 'F&F', name: 'Friends & Family', type: 'special', inviteCode: 'FF2025' },
 ];
 
 export default function MixerPage() {
@@ -345,14 +345,31 @@ export default function MixerPage() {
                 <label htmlFor="favoriteColor" className="block text-sm font-medium mb-2">
                   Favorite Color (optional)
                 </label>
-                <input
-                  type="text"
+                <select
                   id="favoriteColor"
                   value={formData.favoriteColor}
                   onChange={(e) => setFormData({...formData, favoriteColor: e.target.value})}
-                  placeholder="e.g., blue, red, purple"
-                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
-                />
+                  className="w-full px-4 py-3 bg-neutral-950 border border-neutral-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white/20"
+                >
+                  <option value="">Select a color</option>
+                  <option value="red">Red</option>
+                  <option value="blue">Blue</option>
+                  <option value="green">Green</option>
+                  <option value="yellow">Yellow</option>
+                  <option value="purple">Purple</option>
+                  <option value="pink">Pink</option>
+                  <option value="orange">Orange</option>
+                  <option value="teal">Teal</option>
+                  <option value="cyan">Cyan</option>
+                  <option value="indigo">Indigo</option>
+                  <option value="lime">Lime</option>
+                  <option value="emerald">Emerald</option>
+                  <option value="rose">Rose</option>
+                  <option value="fuchsia">Fuchsia</option>
+                  <option value="violet">Violet</option>
+                  <option value="amber">Amber</option>
+                  <option value="sky">Sky</option>
+                </select>
               </div>
 
               <div>
@@ -558,7 +575,7 @@ export default function MixerPage() {
             {/* Special Groups */}
             {special.length > 0 && (
               <div>
-                <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Special Guests</h3>
+                <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Others</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {special.map((chapter) => {
                     const summary = getChapterSummary(chapter.inviteCode);
