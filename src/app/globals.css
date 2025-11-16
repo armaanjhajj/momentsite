@@ -15,9 +15,8 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  /* Define white in RGB format for opacity modifiers (space-separated values).
-     We keep it slightly softened to match the original near-white foreground. */
-  --color-white: 235 235 235;
+  /* Define white in RGB format for opacity modifiers (space-separated values) */
+  --color-white: 255 255 255;
 }
 
 body {
