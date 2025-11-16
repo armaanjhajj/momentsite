@@ -20,7 +20,7 @@ export default function MixerLayout({
           <Link href="/" className="flex items-center gap-3">
             <Image src="/logo.png" alt="Moments" width={36} height={36} className="h-9 w-9 invert" />
           </Link>
-          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/60">
+          <span className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-neutral-900 border border-white/10 text-sm text-white/60">
             Invite-only access
           </span>
         </header>
