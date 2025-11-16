@@ -2,8 +2,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function HeaderClient() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
   const closeMenu = () => setIsOpen(false);
@@ -17,6 +19,11 @@ export default function HeaderClient() {
       document.removeEventListener("keydown", onKey);
     };
   }, []);
+
+  // Hide header on mixer01 route (has its own minimal header)
+  if (pathname?.startsWith('/mixer01')) {
+    return null;
+  }
 
   return (
     <div className="fixed inset-x-0 top-0 z-[100] backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-white/10">

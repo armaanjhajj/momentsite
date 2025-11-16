@@ -7,6 +7,11 @@ import { FaInstagram, FaLinkedin, FaTiktok, FaXTwitter } from "react-icons/fa6";
 export default function FooterClient() {
   const pathname = usePathname();
   const isTeam = pathname?.startsWith("/team");
+  
+  // Hide footer on mixer01 route (has its own minimal design)
+  if (pathname?.startsWith('/mixer01')) {
+    return null;
+  }
 
   return (
     <footer className="border-t border-white/10 mt-16">

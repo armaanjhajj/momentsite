@@ -2,8 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function SurveyPopup() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const COOKIE_NAME = "moments_survey_dismissed";
 
@@ -17,6 +19,11 @@ export default function SurveyPopup() {
       setIsOpen(true);
     }
   }, []);
+
+  // Hide survey popup on mixer01 route
+  if (pathname?.startsWith('/mixer01')) {
+    return null;
+  }
 
   const dismiss = () => {
     setIsOpen(false);
