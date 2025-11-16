@@ -14,6 +14,9 @@
   --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* Define white in RGB format for opacity modifiers */
+  --color-white: rgb(255 255 255);
 }
 
 body {
