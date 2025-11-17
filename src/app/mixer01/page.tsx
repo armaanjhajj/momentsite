@@ -147,19 +147,6 @@ export default function MixerPage() {
     return { attendees, attendingCount };
   };
 
-  const getColorForFavorite = (color?: string): string => {
-    if (!color) return '#ffffff';
-    const colorMap: Record<string, string> = {
-      red: '#ef4444', blue: '#3b82f6', green: '#22c55e',
-      yellow: '#eab308', purple: '#a855f7', pink: '#ec4899',
-      orange: '#f97316', teal: '#14b8a6', cyan: '#06b6d4',
-      indigo: '#6366f1', lime: '#84cc16', emerald: '#10b981',
-      rose: '#f43f5e', fuchsia: '#d946ef', violet: '#8b5cf6',
-      amber: '#f59e0b', sky: '#0ea5e9', slate: '#64748b'
-    };
-    return colorMap[color.toLowerCase()] || color;
-  };
-
   const getTotalAttending = (): number => {
     return allRSVPs.filter(
       r => r.status === 'attending' || r.status === 'maybe'
@@ -460,7 +447,7 @@ export default function MixerPage() {
                         .filter(a => a.status !== 'declined')
                         .map(attendee => (
                           <div key={attendee.id} className="flex items-center gap-2">
-                            <span style={{ color: getColorForFavorite(attendee.favoriteColor) }}>
+                            <span className="text-white/90">
                               {attendee.name}
                             </span>
                             {attendee.status === 'maybe' && (
