@@ -63,6 +63,7 @@ const chapters: Chapter[] = [
   { letters: 'ΦΑΔ', name: 'Phi Alpha Delta', type: 'professional', inviteCode: 'PAD2025' },
   { letters: 'ΦΔΕ', name: 'Phi Delta Epsilon', type: 'professional', inviteCode: 'PDE2025' },
   { letters: 'ΜΕΔ', name: 'Mu Epsilon Delta', type: 'professional', inviteCode: 'MED2025' },
+  { letters: 'ΚΘΠ', name: 'Kappa Theta Pi', type: 'professional', inviteCode: 'KTP2025' },
   // Special groups
   { letters: 'MT', name: 'Moments Team', type: 'special', inviteCode: 'MOMENTS2025' },
   { letters: 'F&F', name: 'Friends & Family', type: 'special', inviteCode: 'FF2025' },
