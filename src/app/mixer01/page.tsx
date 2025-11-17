@@ -172,11 +172,6 @@ export default function MixerPage() {
     return summary.attendees.length > 0;
   });
 
-  const fraternities = chaptersWithRSVPs.filter(c => c.type === 'fraternity');
-  const sororities = chaptersWithRSVPs.filter(c => c.type === 'sorority');
-  const professional = chaptersWithRSVPs.filter(c => c.type === 'professional');
-  const special = chaptersWithRSVPs.filter(c => c.type === 'special');
-
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -439,181 +434,46 @@ export default function MixerPage() {
         <section className="container pb-16">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-semibold mb-2">Chapters Attending</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-2">Attending Chapters</h2>
               <p className="text-white/60">Live RSVP board — updates as members respond</p>
             </div>
 
-            {/* Fraternities */}
-            {fraternities.length > 0 && (
-              <div className="mb-12">
-                <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Fraternities</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {fraternities.map((chapter) => {
-                    const summary = getChapterSummary(chapter.inviteCode);
-                    return (
-                      <div
-                        key={chapter.inviteCode}
-                        className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors"
-                      >
-                        <div className="flex items-start justify-between mb-3">
-                          <div>
-                            <div className="text-2xl font-bold mb-1">{chapter.letters}</div>
-                            <p className="text-xs text-white/70">{chapter.name}</p>
-                          </div>
-                          <div className="text-sm font-medium text-white/80">
-                            {summary.attendingCount} attending
-                          </div>
-                        </div>
-                        <div className="space-y-1 text-sm">
-                          {summary.attendees
-                            .filter(a => a.status !== 'declined')
-                            .map(attendee => (
-                              <div key={attendee.id} className="flex items-center gap-2">
-                                <span style={{ color: getColorForFavorite(attendee.favoriteColor) }}>
-                                  {attendee.name}
-                                </span>
-                                {attendee.status === 'maybe' && (
-                                  <span className="text-white/40 text-xs">(Maybe)</span>
-                                )}
-                              </div>
-                            ))
-                          }
-                        </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {chaptersWithRSVPs.map((chapter) => {
+                const summary = getChapterSummary(chapter.inviteCode);
+                return (
+                  <div
+                    key={chapter.inviteCode}
+                    className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors"
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div>
+                        <div className="text-2xl font-bold mb-1">{chapter.letters}</div>
+                        <p className="text-xs text-white/70">{chapter.name}</p>
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Sororities */}
-            {sororities.length > 0 && (
-              <div className="mb-12">
-                <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Sororities</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {sororities.map((chapter) => {
-                    const summary = getChapterSummary(chapter.inviteCode);
-                    return (
-                      <div
-                        key={chapter.inviteCode}
-                        className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors"
-                      >
-                        <div className="flex items-start justify-between mb-3">
-                          <div>
-                            <div className="text-2xl font-bold mb-1">{chapter.letters}</div>
-                            <p className="text-xs text-white/70">{chapter.name}</p>
-                          </div>
-                          <div className="text-sm font-medium text-white/80">
-                            {summary.attendingCount} attending
-                          </div>
-                        </div>
-                        <div className="space-y-1 text-sm">
-                          {summary.attendees
-                            .filter(a => a.status !== 'declined')
-                            .map(attendee => (
-                              <div key={attendee.id} className="flex items-center gap-2">
-                                <span style={{ color: getColorForFavorite(attendee.favoriteColor) }}>
-                                  {attendee.name}
-                                </span>
-                                {attendee.status === 'maybe' && (
-                                  <span className="text-white/40 text-xs">(Maybe)</span>
-                                )}
-                              </div>
-                            ))
-                          }
-                        </div>
+                      <div className="text-sm font-medium text-white/80">
+                        {summary.attendingCount} attending
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Professional/Academic */}
-            {professional.length > 0 && (
-              <div className="mb-12">
-                <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Professional & Academic</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {professional.map((chapter) => {
-                    const summary = getChapterSummary(chapter.inviteCode);
-                    return (
-                      <div
-                        key={chapter.inviteCode}
-                        className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors"
-                      >
-                        <div className="flex items-start justify-between mb-3">
-                          <div>
-                            <div className="text-2xl font-bold mb-1">{chapter.letters}</div>
-                            <p className="text-xs text-white/70">{chapter.name}</p>
+                    </div>
+                    <div className="space-y-1 text-sm">
+                      {summary.attendees
+                        .filter(a => a.status !== 'declined')
+                        .map(attendee => (
+                          <div key={attendee.id} className="flex items-center gap-2">
+                            <span style={{ color: getColorForFavorite(attendee.favoriteColor) }}>
+                              {attendee.name}
+                            </span>
+                            {attendee.status === 'maybe' && (
+                              <span className="text-white/40 text-xs">(Maybe)</span>
+                            )}
                           </div>
-                          <div className="text-sm font-medium text-white/80">
-                            {summary.attendingCount} attending
-                          </div>
-                        </div>
-                        <div className="space-y-1 text-sm">
-                          {summary.attendees
-                            .filter(a => a.status !== 'declined')
-                            .map(attendee => (
-                              <div key={attendee.id} className="flex items-center gap-2">
-                                <span style={{ color: getColorForFavorite(attendee.favoriteColor) }}>
-                                  {attendee.name}
-                                </span>
-                                {attendee.status === 'maybe' && (
-                                  <span className="text-white/40 text-xs">(Maybe)</span>
-                                )}
-                              </div>
-                            ))
-                          }
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
-            {/* Special Groups */}
-            {special.length > 0 && (
-              <div>
-                <h3 className="text-sm uppercase tracking-wider text-white/50 mb-4">Others</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {special.map((chapter) => {
-                    const summary = getChapterSummary(chapter.inviteCode);
-                    return (
-                      <div
-                        key={chapter.inviteCode}
-                        className="rounded-lg border border-neutral-800 bg-neutral-800/50 p-4 hover:bg-neutral-800 transition-colors"
-                      >
-                        <div className="flex items-start justify-between mb-3">
-                          <div>
-                            <div className="text-2xl font-bold mb-1">{chapter.letters}</div>
-                            <p className="text-xs text-white/70">{chapter.name}</p>
-                          </div>
-                          <div className="text-sm font-medium text-white/80">
-                            {summary.attendingCount} attending
-                          </div>
-                        </div>
-                        <div className="space-y-1 text-sm">
-                          {summary.attendees
-                            .filter(a => a.status !== 'declined')
-                            .map(attendee => (
-                              <div key={attendee.id} className="flex items-center gap-2">
-                                <span style={{ color: getColorForFavorite(attendee.favoriteColor) }}>
-                                  {attendee.name}
-                                </span>
-                                {attendee.status === 'maybe' && (
-                                  <span className="text-white/40 text-xs">(Maybe)</span>
-                                )}
-                              </div>
-                            ))
-                          }
-                        </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
+                        ))
+                      }
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
       )}
