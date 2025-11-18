@@ -44,6 +44,7 @@ const chapters: Chapter[] = [
   { letters: 'ΤΚΕ', name: 'Tau Kappa Epsilon', type: 'fraternity', inviteCode: 'TKE2025' },
   { letters: 'ΣΒΡ', name: 'Sigma Beta Rho', type: 'fraternity', inviteCode: 'SBR2025' },
   { letters: 'ΧΨ', name: 'Chi Psi', type: 'fraternity', inviteCode: 'CHIPSI2025' },
+  { letters: 'ΦΣΚ', name: 'Phi Sigma Kappa', type: 'fraternity', inviteCode: 'PHISIG2025' },
   // Sororities
   { letters: 'ΣΔΤ', name: 'Sigma Delta Tau', type: 'sorority', inviteCode: 'SDT2025' },
   { letters: 'ΔΓ', name: 'Delta Gamma', type: 'sorority', inviteCode: 'DG2025' },
@@ -56,6 +57,8 @@ const chapters: Chapter[] = [
   { letters: 'ΓΦΒ', name: 'Gamma Phi Beta', type: 'sorority', inviteCode: 'GPB2025' },
   { letters: 'ΑΚΑ', name: 'Alpha Kappa Alpha', type: 'sorority', inviteCode: 'AKA2025' },
   { letters: 'ΔΚΔ', name: 'Delta Kappa Delta', type: 'sorority', inviteCode: 'DKD2025' },
+  { letters: 'ΣΨΖ', name: 'Sigma Psi Zeta', type: 'sorority', inviteCode: 'SPZ2025' },
+  { letters: 'ΚΦΛ', name: 'Kappa Phi Lambda', type: 'sorority', inviteCode: 'KPL2025' },
   // Professional/Academic
   { letters: 'ΘΤ', name: 'Theta Tau', type: 'professional', inviteCode: 'THETATAU2025' },
   { letters: 'ΔΣΠ', name: 'Delta Sigma Pi', type: 'professional', inviteCode: 'DSP2025' },
