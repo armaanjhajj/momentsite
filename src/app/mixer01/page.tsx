@@ -41,6 +41,7 @@ const chapters: Chapter[] = [
   { letters: 'ΣΒΡ', name: 'Sigma Beta Rho', type: 'fraternity', inviteCode: 'SBR2025' },
   { letters: 'ΧΨ', name: 'Chi Psi', type: 'fraternity', inviteCode: 'CHIPSI2025' },
   { letters: 'ΦΣΚ', name: 'Phi Sigma Kappa', type: 'fraternity', inviteCode: 'PHISIG2025' },
+  { letters: 'ΦΜΔ', name: 'Phi Mu Delta', type: 'fraternity', inviteCode: 'PHIMUD2025' },
   // Sororities
   { letters: 'ΣΔΤ', name: 'Sigma Delta Tau', type: 'sorority', inviteCode: 'SDT2025' },
   { letters: 'ΔΓ', name: 'Delta Gamma', type: 'sorority', inviteCode: 'DG2025' },
