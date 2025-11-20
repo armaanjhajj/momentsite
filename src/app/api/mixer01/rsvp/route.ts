@@ -42,16 +42,16 @@ export async function GET() {
   }
 }
 
-// POST/PUT RSVP (upsert individual person)
+// POST/PUT RSVP (simplified - email only)
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { inviteCode, name, email, favoriteColor, status } = body;
+    const { email, inviteCode, name, favoriteColor, status } = body;
 
-    // Validate required fields
-    if (!inviteCode || !name || !email || !status) {
+    // Validate required field
+    if (!email) {
       return NextResponse.json(
-        { error: 'Missing required fields: inviteCode, name, email, and status' },
+        { error: 'Email is required' },
         { status: 400 }
       );
     }
@@ -65,35 +65,28 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate status
-    const validStatuses = ['attending', 'maybe', 'declined'];
-    if (!validStatuses.includes(status)) {
-      return NextResponse.json(
-        { error: `Invalid status. Must be one of: ${validStatuses.join(', ')}` },
-        { status: 400 }
-      );
-    }
-
-    // Upsert RSVP (unique on chapter_invite_code + email)
+    // Insert RSVP with email only, other fields optional/null
     const { data, error } = await supabaseServer
       .from('mixer01_rsvps')
-      .upsert(
-        {
-          chapter_invite_code: inviteCode,
-          name: name,
-          email: email,
-          favorite_color: favoriteColor || null,
-          status: status,
-        },
-        {
-          onConflict: 'chapter_invite_code,email',
-        }
-      )
+      .insert({
+        chapter_invite_code: inviteCode || 'EVENT',
+        name: name || '',
+        email: email,
+        favorite_color: favoriteColor || null,
+        status: status || 'attending',
+      })
       .select()
       .single();
 
     if (error) {
-      console.error('Error upserting RSVP:', error);
+      // Check for duplicate email
+      if (error.code === '23505') {
+        return NextResponse.json(
+          { error: 'This email has already been registered' },
+          { status: 400 }
+        );
+      }
+      console.error('Error inserting RSVP:', error);
       return NextResponse.json(
         { error: 'Failed to save RSVP' },
         { status: 500 }
@@ -104,11 +97,7 @@ export async function POST(request: NextRequest) {
       success: true,
       rsvp: {
         id: data.id,
-        chapterInviteCode: data.chapter_invite_code,
-        name: data.name,
         email: data.email,
-        favoriteColor: data.favorite_color,
-        status: data.status,
         createdAt: data.created_at,
       },
     });
