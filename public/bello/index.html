@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bello</title>
+    <title>bello</title>
     <style>
         body,
         html {
@@ -13,310 +13,359 @@
             background-color: black;
             color: white;
             font-family: "Times New Roman", Times, serif;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
-            /* Prevent scroll */
         }
 
-        .container {
+        /* --- Global Elements --- */
+        .nyan-cat {
+            position: fixed;
+            /* Fixed to viewport */
+            width: 200px;
+            z-index: 10;
+            pointer-events: none;
+            /* Let clicks pass through */
+        }
+
+        /* --- Intro Screen --- */
+        #intro-screen {
             text-align: center;
-            animation: fadeIn 2s ease-in-out;
+            position: relative;
             width: 100%;
-            max-width: 600px;
-            /* Constrain width for readability */
-            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+            /* Content above cat */
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Calendar Styles */
-        .calendar {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 10px;
-            margin-bottom: 20px;
-            font-size: 1.2rem;
-        }
-
-        .day-header {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .day {
-            padding: 10px;
+        .continue-btn {
+            font-size: 3rem;
+            font-family: "Times New Roman", Times, serif;
+            background: none;
+            color: white;
+            border: none;
             cursor: pointer;
-            border: 1px solid transparent;
-            transition: all 0.3s ease;
+            text-decoration: none;
+            user-select: none;
         }
 
-        .day:hover {
-            border-color: rgba(255, 255, 255, 0.5);
-            background-color: rgba(255, 255, 255, 0.1);
+        .continue-btn:hover {
+            text-decoration: underline;
         }
 
-        .empty-day {
-            cursor: default;
-        }
-
-        .month-header {
+        /* --- Mystery Screen --- */
+        #mystery-screen {
+            display: none;
+            text-align: center;
+            flex-direction: column;
+            align-items: center;
             font-size: 2rem;
-            margin-bottom: 2rem;
-            text-transform: lowercase;
-            /* match "march" style if needed, but going standard for now */
+            font-family: "Times New Roman", Times, serif;
+            z-index: 30;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
         }
 
-        /* Input Style */
-        .date-input {
+        .mystery-text {
+            margin-bottom: 20px;
+        }
+
+        .input-word {
             background: transparent;
             border: none;
             border-bottom: 1px solid white;
             color: white;
             font-family: "Times New Roman", Times, serif;
-            font-size: 1.5rem;
+            font-size: 2rem;
+            width: 150px;
             text-align: center;
-            width: 200px;
-            margin-top: 20px;
             outline: none;
         }
 
-        .date-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
+        .hint-text {
+            font-size: 1rem;
+            color: #aaaaaa;
+            margin-top: 10px;
+            font-style: italic;
         }
 
-        /* Invitation Styles */
-        #invitation-container {
+        /* --- Success Screen --- */
+        #success-screen {
             display: none;
-            /* Center the block, but keep text left-aligned like a document */
-            width: fit-content;
-            margin: 0 auto;
-            text-align: left;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /* For absolute explosion */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            /* Brief flash */
+            text-align: center;
+            overflow-y: auto;
+            /* Allow scroll for long text if needed */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #success-content-container {
+            display: none;
+            /* Shows after explosion */
+            flex-direction: column;
+            align-items: center;
+            z-index: 50;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .explosion-gif {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .final-header {
+            font-size: 4rem;
+            color: white;
+            font-family: 'Times New Roman', serif;
+            margin-bottom: 30px;
+        }
+
+        .final-message {
             font-size: 1.2rem;
             line-height: 1.6;
-            min-height: 50vh;
-            /* Ensure it takes up some vertical space if needed, though flexible is fine */
-        }
-
-        a {
+            margin-bottom: 30px;
+            text-align: left;
+            /* Reading ease */
+            line-height: 1.6;
             color: white;
-            text-decoration: underline;
+            min-height: 300px;
+            /* Prevent jumpiness */
         }
 
-        /* Typewriter Cursor & Hidden Text */
-        .hidden-char {
-            opacity: 0;
-        }
-
-        .visible-char {
-            opacity: 1;
-            transition: opacity 0.05s ease;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background-color: white;
-            animation: blink 1s step-end infinite;
-            vertical-align: middle;
-            margin-left: 1px;
-            /* Absolute positioning relative to the text flow was tricky, 
-               so we will physically move this element in the DOM */
-        }
-
-        @keyframes blink {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
+        .final-img {
+            max-width: 300px;
+            border-radius: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
-    <div id="gate-container" class="container">
-        <div class="month-header">october 2022</div>
-        <div class="calendar" id="calendar">
-            <!-- Days will be generated by JS -->
-        </div>
-        <div>
-            <input type="text" id="date-input" class="date-input" placeholder="mm/dd/yyyy" autocomplete="off">
-        </div>
+
+    <!-- GLOBAL: Nyan Cat wandering the entire screen -->
+    <img src="https://static.wikia.nocookie.net/nyancat/images/4/44/Glitchynyancatgif.gif/revision/latest/scale-to-width-down/250?cb=20210323054747"
+        class="nyan-cat" id="nyan-cat" alt="Nyan Cat">
+
+    <!-- INTRO SCREEN -->
+    <div id="intro-screen">
+        <button id="continue-btn" class="continue-btn">continue</button>
     </div>
 
-    <div id="invitation-container">
-        <div id="typewriter-text"></div>
+    <!-- MYSTERY SCREEN -->
+    <div id="mystery-screen">
+        <div class="mystery-text">
+            Da<input type="text" id="pass-input" class="input-word" autocomplete="off" spellcheck="false"
+                maxlength="10">Unicorn101@gmail.com
+        </div>
+        <div class="hint-text">(security question lolz)</div>
+    </div>
+
+    <!-- SUCCESS SCREEN -->
+    <div id="success-screen">
+        <!-- Explosion removed as per request -->
+        <!-- <img id="explosion-img" src="" alt="" class="explosion-gif" style="display:none;"> -->
+
+        <div id="success-content-container">
+            <div class="final-header">hey!</div>
+            <div id="dynamic-message" class="final-message"></div>
+            <button id="next-msg-btn" class="continue-btn" style="font-size: 1.5rem; display: none;">[next]</button>
+        </div>
     </div>
 
     <script>
-        const gateContainer = document.getElementById('gate-container');
-        const invitationContainer = document.getElementById('invitation-container');
-        const calendarEl = document.getElementById('calendar');
-        const dateInput = document.getElementById('date-input');
-        const typewriterTextEl = document.getElementById('typewriter-text');
+        // DOM Elements
+        const introScreen = document.getElementById('intro-screen');
+        const continueBtn = document.getElementById('continue-btn');
+        const mysteryScreen = document.getElementById('mystery-screen');
+        const passInput = document.getElementById('pass-input');
+        const successScreen = document.getElementById('success-screen');
+        const successContentFn = document.getElementById('success-content-container');
+        // const explosionImg = document.getElementById('explosion-img'); // Removed
+        const nyanCat = document.getElementById('nyan-cat');
 
-        // Create cursor element to move around
-        const cursor = document.createElement('span');
-        cursor.className = 'cursor';
+        // --- Bouncing Logic (DVD Screensaver Style) ---
+        let x = Math.random() * (window.innerWidth - 200);
+        let y = Math.random() * (window.innerHeight - 120);
+        let dx = 3 * (Math.random() > 0.5 ? 1 : -1);
+        let dy = 3 * (Math.random() > 0.5 ? 1 : -1);
+        let catWidth = 200;
+        let catHeight = 120; // Approx visible height
 
-        // Calendar Logic for Oct 2022
-        // Oct 1, 2022 was a Saturday (Day 6, if Sun=0)
-        const daysInMonth = 31;
-        const firstDayIndex = 6; // 0=Sun, 1=Mon, ..., 6=Sat
+        function animateCat() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
 
-        const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+            if (x + catWidth >= width || x <= 0) {
+                dx = -dx;
+            }
+            if (y + catHeight >= height || y <= 0) {
+                dy = -dy;
+            }
 
-        // Add headers
-        daysOfWeek.forEach(day => {
-            const el = document.createElement('div');
-            el.className = 'day-header';
-            el.innerText = day;
-            calendarEl.appendChild(el);
+            x += dx;
+            y += dy;
+
+            nyanCat.style.left = x + 'px';
+            nyanCat.style.top = y + 'px';
+
+            // Mirror if moving left
+            if (dx < 0) {
+                nyanCat.style.transform = 'scaleX(-1)';
+            } else {
+                nyanCat.style.transform = 'scaleX(1)';
+            }
+
+            requestAnimationFrame(animateCat);
+        }
+
+        // Start animation
+        animateCat();
+
+
+        // --- Interaction Logic ---
+
+        // Reveal Continue button slowly - REMOVED
+        // setTimeout(() => {
+        //     continueBtn.style.opacity = '1';
+        // }, 1000);
+
+        continueBtn.addEventListener('click', () => {
+            introScreen.style.display = 'none';
+            mysteryScreen.style.display = 'flex';
+            passInput.focus();
         });
 
-        // Add empty cells
-        for (let i = 0; i < firstDayIndex; i++) {
-            const el = document.createElement('div');
-            el.className = 'day empty-day';
-            calendarEl.appendChild(el);
-        }
-
-        // Add days
-        for (let i = 1; i <= daysInMonth; i++) {
-            const el = document.createElement('div');
-            el.className = 'day';
-            el.innerText = i;
-            el.dataset.day = i;
-
-            el.addEventListener('click', () => {
-                if (i === 16) {
-                    revealInvitation();
-                } else {
-                    // Minimalist: do nothing
-                }
-            });
-
-            calendarEl.appendChild(el);
-        }
-
-        // Input Logic
-        dateInput.addEventListener('input', (e) => {
-            const val = e.target.value.trim();
-            if (val === '16' || val === '10/16/2022' || val === '10/16') {
-                revealInvitation();
+        passInput.addEventListener('input', (e) => {
+            const val = e.target.value.toLowerCase().trim();
+            if (val === 'dark') {
+                triggerSuccess();
             }
         });
 
-        function revealInvitation() {
-            // Fade out gate
-            gateContainer.style.opacity = '0';
-            gateContainer.style.transition = 'opacity 1s ease';
+        function triggerSuccess() {
+            mysteryScreen.style.display = 'none';
+            successScreen.style.display = 'flex';
+            successScreen.style.backgroundColor = 'black'; // Ensure black
 
-            setTimeout(() => {
-                gateContainer.style.display = 'none';
+            // Hide Nyan cat
+            nyanCat.style.display = 'none';
 
-                // Prepare the text (but keep it invisible)
-                prepareTypewriterContent();
+            // No explosion, just show content immediately
+            successContentFn.style.display = 'flex';
+            successContentFn.style.opacity = '1';
 
-                invitationContainer.style.display = 'block';
-                invitationContainer.style.opacity = '0';
-
-                // Fade in invitation container
-                setTimeout(() => {
-                    invitationContainer.style.transition = 'opacity 1s ease';
-                    invitationContainer.style.opacity = '1';
-
-                    // Start revealing characters
-                    revealCharacters();
-                }, 50);
-            }, 1000);
+            startTypewriter();
         }
 
-        // Typewriter Logic
-        const lines = [
-            { type: 'text', content: 'hey heeb\n\n' },
-            { type: 'text', content: 'i know this is really random but i wanted to reach out one last time\n\n' },
-            { type: 'text', content: 'it would mean a lot if we could talk\n\n' },
-            { type: 'text', content: 'ill be here on monday at 6\n\n' },
-            { type: 'link', content: '40.510107, -74.569214', href: 'https://maps.app.goo.gl/eMyUwuvtXXy1rVP97' },
-            { type: 'text', content: '\n2/16/2026, 18:00\n\n' },
-            { type: 'text', content: 'if not, i completely get it\n\n' },
-            { type: 'text', content: 'wishing you well\n\n' },
-            { type: 'text', content: '— maani' }
+        // --- Typewriter & Pagination Logic ---
+        const messagePart1 = [
+            "i know this is super random buttttt",
+            "",
+            "i feel like we stopped talking over some really stupid stuff and drama ",
+            "and i hate that sm and i know times passed since then sooo",
+            "",
+            "i would love to just talk about stuff and move past it",
+            "and also just catch up bc life is so awesome when we r friends",
+            "",
+            "with that being said i do wanna say sorry for a bunch of stuff.",
+            "mainly for like half assed reaching out over break",
+            "",
+            "last time when i tried tty i was kinda j hurt that my text got dubbed",
+            "but really i should've j made it clearer that i really wanted to fix things",
+            "",
+            "but anyways i hope this (gift) i ended up sending u is a cool peace offering :)",
+            "",
+            "i really miss u man and would love to catch up and hangout"
         ];
 
-        let revealQueue = []; // Array of span elements or break markers
+        const messagePart2 = [
+            "if this message was compelling enough",
+            "pls shoot me a text so i can figure out a place for us to get coffee soon ",
+            "inshAllah",
+            "also Ramadan Mubarak :D",
+            "regardless tho, stay goated",
+            "- maani"
 
-        function prepareTypewriterContent() {
-            typewriterTextEl.innerHTML = '';
-            revealQueue = [];
+        ];
 
-            lines.forEach(line => {
-                const container = line.type === 'link' ? document.createElement('a') : document.createDocumentFragment();
-                if (line.type === 'link') {
-                    container.href = line.href;
-                    container.target = '_blank';
-                }
+        let currentPart = 1;
+        const msgContainer = document.getElementById('dynamic-message');
+        const nextBtn = document.getElementById('next-msg-btn');
 
-                // Process char by char
-                const chars = line.content.split('');
-                chars.forEach(char => {
-                    if (char === '\n') {
-                        const br = document.createElement('br');
-                        container.appendChild(br);
-                        revealQueue.push({ isBr: true, el: br });
-                    } else {
-                        const span = document.createElement('span');
-                        span.textContent = char;
-                        span.className = 'hidden-char';
-                        container.appendChild(span);
-                        revealQueue.push({ isBr: false, el: span });
-                    }
-                });
+        async function startTypewriter() {
+            // Render Part 1
+            await typeLines(messagePart1);
 
-                typewriterTextEl.appendChild(container);
-            });
-
-            // Append cursor at start
-            typewriterTextEl.prepend(cursor);
+            // Show Next Button
+            nextBtn.style.display = 'block';
+            nextBtn.style.opacity = '1';
         }
 
-        function revealCharacters() {
-            if (revealQueue.length === 0) {
-                cursor.style.display = 'none';
-                return;
+        nextBtn.addEventListener('click', async () => {
+            if (currentPart === 1) {
+                // Clear and start Part 2
+                msgContainer.innerHTML = '';
+                nextBtn.style.display = 'none';
+
+                // Hide header
+                document.querySelector('.final-header').style.display = 'none';
+
+                currentPart = 2;
+                await typeLines(messagePart2);
             }
+        });
 
-            const nextItem = revealQueue.shift();
+        async function typeLines(lines) {
+            for (let line of lines) {
+                const p = document.createElement('div');
+                p.style.minHeight = '1.2em'; // Maintain height for empty lines
+                msgContainer.appendChild(p);
 
-            if (nextItem.isBr) {
-                // It's a break. Move cursor after it.
-                nextItem.el.after(cursor);
-                // Pause slightly for newline (natural typing pause)
-                setTimeout(revealCharacters, 300);
-            } else {
-                // Reveal char
-                nextItem.el.className = 'visible-char';
-                // Move cursor after this char
-                nextItem.el.after(cursor);
+                if (line.trim() === "") {
+                    await new Promise(r => setTimeout(r, 100)); // Short pause for breaks
+                    continue;
+                }
 
-                // Random typing speed
-                setTimeout(revealCharacters, 30 + Math.random() * 50);
+                // Type words
+                const words = line.split(" ");
+                for (let i = 0; i < words.length; i++) {
+                    const span = document.createElement('span');
+                    span.textContent = words[i] + " ";
+                    span.style.opacity = '0';
+                    span.style.transition = 'opacity 0.2s ease';
+                    p.appendChild(span);
+
+                    // Reveal
+                    // small delay to let DOM render
+                    await new Promise(r => requestAnimationFrame(r));
+                    span.style.opacity = '1';
+
+                    await new Promise(r => setTimeout(r, 50)); // Typing speed per word
+                }
+                await new Promise(r => setTimeout(r, 300)); // Pause after line
             }
         }
     </script>
