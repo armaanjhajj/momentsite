@@ -1,42 +1,579 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Index</title>
+    <title>Moments</title>
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <meta name="description" content="Moments Home Screen">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
     <style>
-        body, html {
+        body,
+        html {
             height: 100%;
             margin: 0;
-            background-color: black;
+            background-color: #000000;
             color: white;
-            font-family: "Times New Roman", Times, serif;
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
         .container {
+            display: flex;
+            flex-direction: row;
+            gap: 32px;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 128px;
             text-align: center;
-            /* Optional: Add a fade-in animation for a premium feel */
-            animation: fadeIn 2s ease-in-out;
+            align-items: center;
+            /* Center horizontally for row */
+            justify-content: center;
         }
 
-        .main-text {
-            font-size: 4rem; /* Large and readable */
-            font-weight: normal; 
+        .zero {
+            font-variant-numeric: slashed-zero;
+            text-decoration: none;
+            cursor: default;
+            color: transparent;
+            background: linear-gradient(120deg,
+                    rgba(255, 255, 255, 0.25) 0%,
+                    rgba(255, 255, 255, 0.25) 35%,
+                    rgba(255, 255, 255, 0.7) 50%,
+                    rgba(255, 255, 255, 0.25) 65%,
+                    rgba(255, 255, 255, 0.25) 100%);
+            background-size: 200% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+
+            0%,
+            100% {
+                background-position: 200% center;
+            }
+
+            50% {
+                background-position: -200% center;
+            }
+        }
+
+        .other {
+            color: rgba(255, 255, 255, 0.25);
+        }
+
+        .countdown {
+            position: fixed;
+            bottom: 32px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 24px;
+            color: #ffffff;
+            letter-spacing: 0.1em;
+            z-index: 10;
+        }
+
+        .bottom-gradient {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 180px;
+            background: linear-gradient(to bottom, transparent, #000000);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .top-gradient {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 180px;
+            background: linear-gradient(to top, transparent, #000000);
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .admin-btn {
+            position: fixed;
+            top: 24px;
+            left: 32px;
+            z-index: 100;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            opacity: 0.15;
+            transition: opacity 0.2s ease;
+            padding: 4px;
+            line-height: 1;
+            color: #ffffff;
+        }
+
+        .admin-btn:hover {
+            opacity: 0.5;
+        }
+
+        .zero.enabled {
+            color: #ffffff;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            animation: none;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .zero.enabled:hover {
+            color: #eeeeee;
+        }
+
+        /* INFO button */
+        .info-btn {
+            position: fixed;
+            top: 24px;
+            right: 32px;
+            z-index: 100;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 64px;
+            text-transform: uppercase;
+            color: #ffffff;
+            background: none;
+            border: none;
+            cursor: pointer;
             letter-spacing: 0.05em;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.15s ease;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .info-btn:hover {
+            opacity: 0.7;
+        }
+
+
+
+        /* Popup overlay */
+        .info-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .info-overlay.open {
+            display: flex;
+        }
+
+        /* Popup box */
+        .info-popup {
+            background: #000000;
+            border: 2px solid #ffffff;
+            border-radius: 0;
+            padding: 48px 56px;
+            max-width: 960px;
+            width: 92%;
+            position: relative;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .info-popup .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 28px;
+            color: #ffffff;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+            transition: opacity 0.15s ease;
+            z-index: 10;
+        }
+
+        .info-popup .close-btn:hover {
+            opacity: 0.5;
+        }
+
+        /* Card grid */
+        .card-heading {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin: 0 0 20px 0;
+            color: #ffffff;
+        }
+
+        .card-desc {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 24px;
+            line-height: 1.6;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0 0 12px 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card-handle {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 14px;
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: none;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .card-handle:hover {
+            opacity: 0.6 !important;
+        }
+
+        .card-container.revealed .card-handle {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Flip card */
+        .flip-card {
+            width: 100%;
+            perspective: 1000px;
+            cursor: pointer;
+            aspect-ratio: 5 / 7;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .flip-card-front img,
+        .flip-card-back img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+
+        /* Mobile layout */
+        @media (max-width: 768px) {
+
+            body,
+            html {
+                align-items: flex-start;
+                padding-top: 100px;
+                padding-bottom: 100px;
+                height: auto;
+                min-height: 100%;
+            }
+
+            .container {
+                flex-direction: column;
+                gap: 24px;
+                margin: 0 auto;
+                align-items: center;
+            }
+
+            .info-btn {
+                top: 60px;
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 48px;
+            }
+
+            .info-popup {
+                padding: 20px;
+                max-width: 95%;
+            }
+
+            .card-heading {
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .card-handle {
+                font-size: 10px;
+            }
+
+            .bottom-gradient,
+            .top-gradient {
+                display: block;
+            }
+
+            .admin-btn {
+                top: auto;
+                left: auto;
+                bottom: 28px;
+                right: 16px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="main-text">march</div>
+    <!-- INFO Button -->
+    <button class="info-btn" id="infoBtn" aria-label="Info">
+        INFO
+    </button>
+
+    <!-- Info Popup Overlay -->
+    <div class="info-overlay" id="infoOverlay">
+        <div class="info-popup">
+            <button class="close-btn" id="closeBtn" aria-label="Close">✕</button>
+            <h2 class="card-heading">MOMENTS: a collective</h2>
+            <p class="card-desc">make more moments</p>
+            <h2 class="card-heading" style="margin-top: 24px;">CONTACT:</h2>
+            <div class="card-grid">
+                <div class="card-container" id="card-sim">
+                    <div class="flip-card" onclick="toggleCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><img src="/assets/cards/sim0.png" alt="Card front"></div>
+                            <div class="flip-card-back"><img src="/assets/cards/sim1.png" alt="SIM"></div>
+                        </div>
+                    </div>
+                    <a class="card-handle" href="https://instagram.com/_stthomas_" target="_blank">@_stthomas_</a>
+                </div>
+                <div class="card-container" id="card-maaj">
+                    <div class="flip-card" onclick="toggleCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><img src="/assets/cards/maaj0.png" alt="Card front"></div>
+                            <div class="flip-card-back"><img src="/assets/cards/maaj1.png" alt="MAAJ"></div>
+                        </div>
+                    </div>
+                    <a class="card-handle" href="https://instagram.com/armaanjhajj_" target="_blank">@armaanjhajj_</a>
+                </div>
+                <div class="card-container" id="card-mir">
+                    <div class="flip-card" onclick="toggleCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><img src="/assets/cards/mir0.png" alt="Card front"></div>
+                            <div class="flip-card-back"><img src="/assets/cards/mir1.png" alt="MIR"></div>
+                        </div>
+                    </div>
+                    <a class="card-handle" href="https://instagram.com/vtmntsmir" target="_blank">@vtmntsmir</a>
+                </div>
+                <div class="card-container" id="card-pop">
+                    <div class="flip-card" onclick="toggleCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front"><img src="/assets/cards/pop0.png" alt="Card front"></div>
+                            <div class="flip-card-back"><img src="/assets/cards/pop1.png" alt="POP"></div>
+                        </div>
+                    </div>
+                    <a class="card-handle" href="https://instagram.com/arjun._.popat" target="_blank">@arjun._.popat</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <div class="container">
+        <span class="zero">0</span>
+        <span class="other">1</span>
+        <span class="other">2</span>
+        <span class="other">3</span>
+        <span class="other">4</span>
+        <span class="other">5</span>
+    </div>
+
+    <div class="top-gradient"></div>
+    <div class="bottom-gradient"></div>
+    <div class="countdown" id="countdown"></div>
+    <button class="admin-btn" id="adminBtn" aria-label="Admin"><svg width="16" height="16" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="0"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg></button>
+
+    <script>
+        const infoBtn = document.getElementById('infoBtn');
+        const infoOverlay = document.getElementById('infoOverlay');
+        const closeBtn = document.getElementById('closeBtn');
+
+        function toggleCard(flipCard) {
+            flipCard.classList.toggle('flipped');
+            const container = flipCard.closest('.card-container');
+            if (flipCard.classList.contains('flipped')) {
+                container.classList.add('revealed');
+            } else {
+                container.classList.remove('revealed');
+            }
+        }
+
+        function resetCards() {
+            document.querySelectorAll('.flip-card').forEach(card => {
+                card.classList.remove('flipped');
+            });
+            document.querySelectorAll('.card-container').forEach(c => {
+                c.classList.remove('revealed');
+            });
+        }
+
+        infoBtn.addEventListener('click', () => {
+            infoOverlay.classList.add('open');
+        });
+
+        function closePopup() {
+            infoOverlay.classList.remove('open');
+            setTimeout(resetCards, 300);
+        }
+
+        closeBtn.addEventListener('click', closePopup);
+
+        infoOverlay.addEventListener('click', (e) => {
+            if (e.target === infoOverlay) {
+                closePopup();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closePopup();
+            }
+        });
+
+        // Countdown to March 18, 2026 00:00 EST
+        const targetDate = new Date('2026-03-18T00:00:00-05:00').getTime();
+        const countdownEl = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const now = Date.now();
+            const diff = targetDate - now;
+
+            if (diff <= 0) {
+                countdownEl.textContent = '00D 00H 00M 00S';
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            countdownEl.textContent =
+                String(days).padStart(2, '0') + 'D ' +
+                String(hours).padStart(2, '0') + 'H ' +
+                String(mins).padStart(2, '0') + 'M ' +
+                String(secs).padStart(2, '0') + 'S';
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Admin unlock
+        const adminBtn = document.getElementById('adminBtn');
+        const zeroEl = document.querySelector('.zero');
+        let adminSb = null;
+
+        adminBtn.addEventListener('click', async () => {
+            const pw = prompt('Enter admin password:');
+            if (pw === null) return;
+
+            if (!adminSb) {
+                alert('Still connecting... try again.');
+                return;
+            }
+
+            try {
+                const { data, error } = await adminSb.rpc('verify_admin_password', { pw });
+                if (error) {
+                    console.error('RPC error:', error);
+                    alert('Error verifying. Try again.');
+                    return;
+                }
+
+                if (data === true) {
+                    zeroEl.classList.add('enabled');
+                    const link = document.createElement('a');
+                    link.href = '/0';
+                    link.className = zeroEl.className;
+                    link.textContent = '0';
+                    link.style.textDecoration = 'none';
+                    zeroEl.replaceWith(link);
+                    adminBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="0"></rect><path d="M7 11V7a5 5 0 0 1 10 0"></path></svg>';
+                    adminBtn.style.opacity = '0.4';
+                    adminBtn.style.pointerEvents = 'none';
+                } else {
+                    alert('Incorrect password.');
+                }
+            } catch (err) {
+                console.error('Verify error:', err);
+                alert('Error verifying. Try again.');
+            }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"
+        onload="try { adminSb = window.supabase.createClient('https://pbknjttdonksujqfqano.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBia25qdHRkb25rc3VqcWZxYW5vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY4NzE3MTcsImV4cCI6MjA4MjQ0NzcxN30.uvBVzgeHfEES6mENu3dnNY2SbF7X8O879-pwJFaaZAY'); console.log('Admin Supabase ready'); } catch(e) { console.error('Admin Supabase init failed:', e); }"
+        onerror="console.error('Supabase CDN failed');">
+        </script>
 </body>
+
 </html>

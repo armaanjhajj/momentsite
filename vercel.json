@@ -1,5 +1,6 @@
 {
     "buildCommand": "echo 'Static deployment'",
     "outputDirectory": "public",
-    "framework": null
+    "framework": null,
+    "cleanUrls": true
 }

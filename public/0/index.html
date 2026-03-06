@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moments</title>
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            background-color: #000000;
+            overflow: hidden;
+            /* Prevent scrolling since everything is absolute */
+            position: relative;
+        }
+
+        .item {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        /* TITLE */
+        .title-text {
+            top: 5%;
+            left: 5%;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 96px;
+            color: white;
+            margin: 0;
+            z-index: 10;
+        }
+
+        /* EXCLAIM */
+        .exclaim {
+            top: 5%;
+            right: 5%;
+            width: 150px;
+            height: 150px;
+            background-image: url('/assets/0/EXLAIM.png');
+        }
+
+        /* SUN */
+        .sun {
+            bottom: 10%;
+            left: 5%;
+            width: 250px;
+            height: 250px;
+            background-image: url('/assets/0/SUN.png');
+            /* maybe add a slow spin */
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* GLASSES */
+        .glasses-left,
+        .glasses-center,
+        .glasses-right {
+            position: absolute;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .glasses-left {
+            left: 20%;
+            width: 400px;
+            height: 200px;
+            background-image: url('/assets/0/GLASSES/3a.png');
+        }
+
+        .glasses-center {
+            left: 50%;
+            width: 800px;
+            height: 400px;
+            background-image: url('/assets/0/GLASSES/showcase.gif');
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            z-index: 10;
+        }
+
+        .glasses-center:hover {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .glasses-right {
+            left: 80%;
+            width: 400px;
+            height: 200px;
+            background-image: url('/assets/0/GLASSES/1a.png');
+            transform: translate(-50%, -50%) scaleX(-1);
+        }
+
+        /* FINGER */
+        .finger {
+            bottom: 10%;
+            right: -10%;
+            width: 1000px;
+            height: 1000px;
+            background-image: url('/assets/0/FINGER.png');
+            background-position: bottom right;
+            transform-origin: bottom right;
+            animation: poke 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes poke {
+            0% {
+                transform: translate(30%, 30%) rotate(-60deg);
+            }
+
+            100% {
+                transform: translate(0%, 0%) rotate(-60deg);
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .title-text {
+                font-size: 48px;
+            }
+
+            .exclaim {
+                width: 100px;
+                height: 100px;
+            }
+
+            .sun {
+                width: 150px;
+                height: 150px;
+                bottom: 10%;
+            }
+
+            .glasses-left {
+                top: 75%;
+                left: 35%;
+                width: 250px;
+                height: 125px;
+                transform: translate(-50%, -50%) rotate(5deg);
+            }
+
+            .glasses-center {
+                top: 45%;
+                left: 50%;
+                width: 400px;
+                height: 200px;
+            }
+
+            .glasses-right {
+                top: 25%;
+                left: 80%;
+                width: 200px;
+                height: 100px;
+                transform: translate(-50%, -50%) rotate(-10deg) scaleX(-1);
+            }
+
+            .finger {
+                width: 500px;
+                height: 500px;
+                bottom: 5%;
+                right: -5%;
+                animation: poke-mobile 1.5s ease-in-out infinite alternate;
+            }
+
+            @keyframes poke-mobile {
+                0% {
+                    transform: translate(15%, 15%) rotate(-20deg);
+                }
+
+                100% {
+                    transform: translate(0%, 0%) rotate(-20deg);
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="item title-text">DROP 0</div>
+    <div class="item exclaim"></div>
+    <div class="item sun"></div>
+
+    <div class="item glasses-left"></div>
+    <a href="/0/0" class="item glasses-center"></a>
+    <div class="item glasses-right"></div>
+
+    <div class="item finger"></div>
+</body>
+
+</html>

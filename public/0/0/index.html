@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moments</title>
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            background-color: #000000;
+            color: white;
+            font-family: 'Roboto Mono', monospace;
+            overflow: hidden;
+        }
+
+        /* ===== STEP CONTAINER ===== */
+        .step {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .step.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ===== STEP 1: GLSS - 0 (Product Page) ===== */
+        #step1 {
+            position: relative;
+            padding: 0;
+        }
+
+        .step1-photo {
+            position: absolute;
+            top: 25%;
+            left: 12%;
+            width: 40%;
+            height: auto;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .step1-photo .base-img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .step1-photo-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain !important;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .step1-header {
+            position: absolute;
+            top: 15%;
+            left: 8%;
+            font-size: 112px;
+            font-weight: 700;
+            z-index: 3;
+            color: white;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+        }
+
+        .step1-mont {
+            position: absolute;
+            top: 30%;
+            right: 12%;
+            width: 420px;
+            z-index: 2;
+        }
+
+        .step1-mont img {
+            width: 100%;
+            height: auto;
+        }
+
+        .btn-get-now {
+            position: absolute;
+            bottom: 15%;
+            right: 10%;
+            background: #FFD700;
+            border: none;
+            cursor: pointer;
+            padding: 15px 30px;
+            z-index: 10;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .btn-get-now:hover {
+            transform: scale(1.05);
+            background: #ffe84d;
+        }
+
+        .btn-text {
+            position: relative;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 112px;
+            color: white;
+            z-index: 2;
+            display: inline-block;
+        }
+
+        .btn-text::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-text-stroke: 40px #000;
+            color: transparent;
+            z-index: -1;
+            transform-origin: center center;
+            animation: strokePulse 0.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes strokePulse {
+            0% {
+                transform: scale(0.96) scaleY(0.92);
+                filter: blur(1px);
+            }
+
+            100% {
+                transform: scale(1.04) scaleY(1.12);
+                filter: blur(3px);
+            }
+        }
+
+        /* ===== COMMON SPLIT LAYOUT ===== */
+        .step-split {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+
+        .split-left {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .split-right {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            background: #FFD700;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ===== STEP 2: SCHOOL SELECTION ===== */
+        .step2-glasses-stack {
+            display: flex;
+            flex-direction: column;
+            gap: -20px;
+            transform: rotate(-10deg) translateX(-10%);
+        }
+
+        .step2-glasses-stack img {
+            width: 250px;
+            margin-bottom: -40px;
+        }
+
+        .step2-title {
+            position: absolute;
+            top: 15%;
+            background: #000;
+            color: #fff;
+            font-weight: 700;
+            font-size: 32px;
+            padding: 8px 30px;
+            letter-spacing: 2px;
+        }
+
+        .school-option {
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 28px;
+            color: #000;
+            cursor: pointer;
+            padding: 8px 20px;
+            border: none;
+            background: transparent;
+            position: absolute;
+            transition: transform 0.15s ease;
+        }
+
+        .school-option:hover {
+            transform: scale(1.1);
+        }
+
+        .school-option.selected {
+            text-decoration: underline;
+        }
+
+        #opt-rutgers {
+            top: 35%;
+            left: 15%;
+        }
+
+        #opt-vt {
+            top: 45%;
+            right: 20%;
+        }
+
+        #opt-pton {
+            top: 60%;
+            left: 10%;
+        }
+
+        #opt-tcnj {
+            top: 75%;
+            left: 35%;
+        }
+
+        /* ===== STEP 3: MESSAGE INPUT ===== */
+        .step3-label {
+            position: absolute;
+            top: 30%;
+            font-size: 56px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+
+        .step3-disclaimer {
+            position: absolute;
+            top: 48%;
+            font-size: 16px;
+            color: #fff;
+            text-align: center;
+            opacity: 0.8;
+            max-width: 80%;
+            line-height: 2;
+        }
+
+        .step3-counter {
+            position: absolute;
+            top: 35%;
+            font-size: 36px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .step3-input-wrap {
+            position: absolute;
+            top: 50%;
+            width: 70%;
+        }
+
+        .step3-input {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            border: none;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 40px;
+            padding: 10px 20px;
+            outline: none;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .step3-input::placeholder {
+            color: #000;
+            opacity: 0.5;
+            -webkit-text-stroke: 1px #000;
+            color: transparent;
+        }
+
+        .step3-center-glasses {
+            position: absolute;
+            top: 70%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            z-index: 10;
+        }
+
+        .btn-next {
+            position: absolute;
+            top: 62%;
+            background: #000;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 32px;
+            padding: 15px 40px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.15s ease, opacity 0.3s ease;
+            z-index: 2;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .btn-next.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .btn-next:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== STEP 4: INFO FORM ===== */
+        .step4-glasses {
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .step4-right-content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 20px;
+            width: 60%;
+        }
+
+        .step4-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #000;
+            letter-spacing: 2px;
+            align-self: center;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0px;
+            width: 100%;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .form-group input {
+            background: #000;
+            color: #fff;
+            border: none;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 8px 12px;
+            outline: none;
+        }
+
+        .form-group input::placeholder {
+            color: #fff;
+        }
+
+        .btn-submit {
+            background: #000;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 32px;
+            padding: 8px 25px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+            align-self: center;
+            margin-top: 20px;
+        }
+
+        .btn-submit:hover {
+            transform: scale(1.05);
+        }
+
+        /* ===== STEP 5: TERMS OVERLAY ===== */
+        #step5 {
+            background: rgba(0, 0, 0, 0.7);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 50;
+        }
+
+        .terms-box {
+            background: #FFD700;
+            color: #000;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 4px solid #000;
+        }
+
+        .terms-title {
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 1.5;
+            color: #000;
+            text-align: center;
+        }
+
+        .terms-rules {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .terms-check {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            line-height: 1.6;
+        }
+
+        .terms-check input[type="checkbox"] {
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            accent-color: #000;
+            flex-shrink: 0;
+        }
+
+        .terms-footer {
+            font-size: 10px;
+            color: #000;
+            line-height: 1.4;
+            opacity: 0.8;
+            margin-left: 40px;
+        }
+
+        .btn-final-submit {
+            background: #000;
+            color: #FFD700;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: 700;
+            font-size: 32px;
+            padding: 10px 40px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.15s ease;
+            align-self: center;
+            margin-top: 10px;
+        }
+
+        .btn-final-submit:hover:not(:disabled) {
+            transform: scale(1.05);
+        }
+
+        .btn-final-submit:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* ===== MOBILE OVERRIDES ===== */
+        @media (max-width: 768px) {
+            .step-split {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .split-left,
+            .split-right {
+                position: relative;
+                width: 100% !important;
+                height: 50% !important;
+                top: 0 !important;
+                right: 0 !important;
+                left: 0 !important;
+            }
+
+            .step1-header {
+                font-size: 64px;
+                top: 12%;
+                left: 5%;
+            }
+
+            .step1-photo {
+                width: 80%;
+                height: 40%;
+                top: 30%;
+                left: 10%;
+            }
+
+            .step1-mont {
+                top: 15%;
+                right: 5%;
+                width: 140px;
+            }
+
+            .btn-get-now {
+                padding: 10px 20px;
+                bottom: 15%;
+                right: 5%;
+            }
+
+            .btn-text {
+                font-size: 48px;
+            }
+
+            .btn-text::before {
+                -webkit-text-stroke: 10px #000;
+            }
+
+            .step2-glasses-stack {
+                transform: scale(0.6) translateY(20%);
+            }
+
+            #opt-rutgers {
+                top: 20%;
+                left: 10%;
+            }
+
+            #opt-vt {
+                top: 40%;
+                right: 10%;
+            }
+
+            #opt-pton {
+                top: 60%;
+                left: 10%;
+            }
+
+            #opt-tcnj {
+                top: 80%;
+                right: 10%;
+            }
+
+            .step3-label {
+                top: 15%;
+                font-size: 36px;
+            }
+
+            .step3-disclaimer {
+                top: 40%;
+                max-width: 90%;
+                font-size: 13px;
+            }
+
+            .step3-input-wrap {
+                top: 30%;
+                width: 90%;
+            }
+
+            .step3-counter {
+                top: 10%;
+                font-size: 24px;
+            }
+
+            .btn-next {
+                font-size: 20px;
+                padding: 10px 20px;
+            }
+
+            .step3-center-glasses {
+                width: 200px;
+            }
+
+            .step4-right-content {
+                width: 90%;
+                align-items: center;
+            }
+
+            .form-group input {
+                width: 100%;
+            }
+
+            .step4-glasses {
+                max-width: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== STEP 1: GLSS - 0 ===== -->
+    <div id="step1" class="step active">
+        <div class="step1-photo">
+            <img src="/assets/0/MONT.gif" class="base-img" alt="MOMENTS Preview">
+            <!-- <img src="/assets/0/GLASSES/OVERLAY.png" class="step1-photo-overlay" alt="Overlay"> -->
+        </div>
+        <div class="step1-header">GLSS &nbsp;- &nbsp;0</div>
+        <div class="step1-mont">
+            <img src="/assets/0/GLASSES/2b.gif" alt="Hero Preview">
+        </div>
+        <button class="btn-get-now" onclick="goToStep(2)">
+            <span class="btn-text" data-text="GET NOW">GET NOW</span>
+        </button>
+    </div>
+
+    <!-- ===== STEP 2: SCHOOL ===== -->
+    <div id="step2" class="step step-split">
+        <div class="split-left">
+            <div class="step2-glasses-stack">
+                <img src="/assets/0/GLASSES/3a.png" alt="Glasses">
+                <img src="/assets/0/GLASSES/1a.png" alt="Glasses">
+                <img src="/assets/0/GLASSES/0a.png" alt="Glasses">
+            </div>
+        </div>
+        <div class="split-right">
+            <div class="step2-title">school</div>
+            <button class="school-option" id="opt-rutgers" onclick="selectSchool(this)">rutgers</button>
+            <button class="school-option" id="opt-vt" onclick="selectSchool(this)">vt</button>
+            <button class="school-option" id="opt-pton" onclick="selectSchool(this)">pton</button>
+            <button class="school-option" id="opt-tcnj" onclick="selectSchool(this)">tcnj</button>
+        </div>
+    </div>
+
+    <!-- ===== STEP 3: MESSAGE ===== -->
+    <div id="step3" class="step step-split">
+        <div class="split-left">
+            <div class="step3-label">message</div>
+            <div class="step3-disclaimer">
+                this will be drawn on your "MOMENTS GLASSES"<br>
+                user discretion is advised
+            </div>
+        </div>
+        <div class="split-right">
+            <div class="step3-counter" id="charCounter">0/10</div>
+            <div class="step3-input-wrap">
+                <input type="text" class="step3-input" id="messageInput" placeholder="TYPE HERE" maxlength="10"
+                    oninput="updateCounter()">
+            </div>
+            <button class="btn-next" id="msgNextBtn" onclick="goToStep(4)">NEXT</button>
+        </div>
+        <img src="/assets/0/GLASSES/0b.png" class="step3-center-glasses" id="step3glasses" alt="Blank Glasses">
+    </div>
+
+    <!-- ===== STEP 4: INFO FORM ===== -->
+    <div id="step4" class="step step-split">
+        <div class="split-left">
+            <img src="/assets/0/GLASSES/1b.png" class="step4-glasses" alt="MOMENTS">
+        </div>
+        <div class="split-right">
+            <div class="step4-right-content">
+                <div class="step4-title">INFO</div>
+                <div class="form-group">
+                    <label>name</label>
+                    <input type="text" id="nameInput" placeholder="enter">
+                </div>
+                <div class="form-group">
+                    <label>address</label>
+                    <input type="text" id="addressInput" placeholder="enter">
+                </div>
+                <div class="form-group">
+                    <label>contact</label>
+                    <input type="tel" id="contactInput" placeholder="+1">
+                </div>
+                <button class="btn-submit" onclick="goToStep(5)">SUBMIT</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== STEP 5: TERMS ===== -->
+    <div id="step5" class="step step-split">
+        <!-- Overlay Background matching Step 4 to look like a modal -->
+        <div class="split-left" style="opacity: 0.3;">
+            <img src="/assets/0/GLASSES/1b.png" class="step4-glasses" alt="MOMENTS">
+        </div>
+        <div class="split-right" style="opacity: 0.3;">
+            <div class="step4-right-content">
+                <div class="step4-title">INFO</div>
+                <div class="form-group"><label>name</label><input type="text" placeholder="enter" disabled></div>
+                <div class="form-group"><label>address</label><input type="text" placeholder="enter" disabled></div>
+                <div class="form-group"><label>contact</label><input type="tel" placeholder="+1" disabled></div>
+                <button class="btn-submit" disabled>SUBMIT</button>
+            </div>
+        </div>
+
+        <!-- The Modal Itself -->
+        <div class="terms-box"
+            style="position: absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:100;">
+            <div style="text-align: center; margin-bottom: -10px;">
+                <img src="/assets/0/FINGER.png" alt="Finger" style="width: 40px; transform: rotate(180deg);">
+            </div>
+            <div class="terms-title">
+                all participants must review and accept<br>
+                this TOS and end user agreement.
+            </div>
+            <div class="terms-rules">ALL USERS MUST:</div>
+            <label class="terms-check">
+                <input type="checkbox" id="check1" onchange="updateFinalSubmit()">
+                AGREE TO MAKE AT LEAST 1 NEW FRIEND
+            </label>
+            <label class="terms-check">
+                <input type="checkbox" id="check2" onchange="updateFinalSubmit()">
+                AGREE TO HAVE HUGE MOMENTS
+            </label>
+            <div class="terms-footer">
+                we wont sell or leak any of your info plz dont sue<br>
+                #trustusbrothers
+            </div>
+            <button class="btn-final-submit" id="finalSubmitBtn" disabled onclick="submitForm()">SUBMIT</button>
+        </div>
+    </div>
+
+    <script>
+        // ===== UI FUNCTIONS (load first, no dependencies) =====
+        function goToStep(num) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('step' + num).classList.add('active');
+        }
+
+        function selectSchool(el) {
+            document.querySelectorAll('.school-option').forEach(s => s.classList.remove('selected'));
+            el.classList.add('selected');
+            setTimeout(() => goToStep(3), 400);
+        }
+
+        function updateCounter() {
+            const input = document.getElementById('messageInput');
+            const counter = document.getElementById('charCounter');
+            const btn = document.getElementById('msgNextBtn');
+            const len = input.value.length;
+            counter.textContent = len + '/10';
+            if (len > 0) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        }
+
+        function updateFinalSubmit() {
+            const c1 = document.getElementById('check1').checked;
+            const c2 = document.getElementById('check2').checked;
+            document.getElementById('finalSubmitBtn').disabled = !(c1 && c2);
+        }
+
+        // ===== Supabase (loaded async, won't block UI) =====
+        let sb = null;
+
+        async function submitForm() {
+            const btn = document.getElementById('finalSubmitBtn');
+            btn.disabled = true;
+            btn.textContent = '...';
+
+            if (!sb) {
+                alert('Still connecting... please try again in a moment.');
+                btn.disabled = false;
+                btn.textContent = 'SUBMIT';
+                return;
+            }
+
+            const payload = {
+                school: document.querySelector('.school-option.selected')?.textContent || '',
+                message: document.getElementById('messageInput').value,
+                full_name: document.getElementById('nameInput').value,
+                address: document.getElementById('addressInput').value,
+                contact: document.getElementById('contactInput').value,
+                agreed_terms: true
+            };
+
+            try {
+                const { data, error } = await sb
+                    .from('orders')
+                    .insert([payload]);
+
+                if (error) {
+                    console.error('Supabase error:', error);
+                    alert('Something went wrong. Please try again.');
+                    btn.disabled = false;
+                    btn.textContent = 'SUBMIT';
+                    return;
+                }
+
+                console.log('Submitted:', data);
+                // Show the terms-box modal as success
+                document.querySelector('.terms-box[style]').innerHTML = `
+                    <div style="text-align:center; padding: 40px 0;">
+                        <div style="font-size: 48px; font-weight: 700; margin-bottom: 20px;">✓</div>
+                        <div style="font-size: 28px; font-weight: 700;">SUBMITTED</div>
+                        <div style="font-size: 14px; margin-top: 15px;">see you there.</div>
+                    </div>
+                `;
+            } catch (err) {
+                console.error('Submit error:', err);
+                alert('Something went wrong. Please try again.');
+                btn.disabled = false;
+                btn.textContent = 'SUBMIT';
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"
+        onload="try { sb = window.supabase.createClient('https://pbknjttdonksujqfqano.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBia25qdHRkb25rc3VqcWZxYW5vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjY4NzE3MTcsImV4cCI6MjA4MjQ0NzcxN30.uvBVzgeHfEES6mENu3dnNY2SbF7X8O879-pwJFaaZAY'); console.log('Supabase ready'); } catch(e) { console.error('Supabase init failed:', e); }"
+        onerror="console.error('Supabase CDN failed to load');">
+        </script>
+</body>
+
+</html>
