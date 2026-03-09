@@ -39,9 +39,8 @@ CREATE POLICY "Block all direct access" ON site_config
     FOR ALL
     USING (false);
 
--- Insert the admin password
-INSERT INTO site_config (key, value) VALUES ('admin_password', 'MNTQ2moon')
-ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value;
+-- Insert the admin password MANUALLY via Supabase SQL Editor:
+-- INSERT INTO site_config (key, value) VALUES ('admin_password', 'YOUR_PASSWORD_HERE');
 
 
 -- ===== RPC FUNCTION: verify admin password =====

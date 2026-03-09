@@ -350,13 +350,14 @@
             .info-overlay {
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
-                align-items: flex-start;
-                padding: 40px 0;
+                align-items: center;
+                padding: 24px 0;
             }
 
             .info-popup {
                 padding: 20px 16px;
                 max-width: 95%;
+                margin: auto;
             }
 
             .card-heading {
@@ -370,8 +371,19 @@
             }
 
             .card-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
+                display: flex;
+                flex-direction: row;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                gap: 14px;
+                padding-bottom: 8px;
+                scroll-snap-type: x mandatory;
+            }
+
+            .card-container {
+                flex: 0 0 52%;
+                min-width: 52%;
+                scroll-snap-align: start;
             }
 
             .card-handle {
@@ -512,8 +524,8 @@
             }
         });
 
-        // Countdown to March 18, 2026 00:00 EST
-        const targetDate = new Date('2026-03-18T00:00:00-05:00').getTime();
+        // Countdown to March 23, 2026 00:00 EST
+        const targetDate = new Date('2026-03-23T00:00:00-05:00').getTime();
         const countdownEl = document.getElementById('countdown');
 
         function updateCountdown() {
