@@ -2410,6 +2410,122 @@ body {
   }
 }
 
+/* ── Legal Pages (Terms, Privacy) ── */
+.legal-page {
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: left;
+}
+
+.legal-header {
+  margin-bottom: 40px;
+}
+
+.legal-back {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  margin-bottom: 24px;
+  transition: color 0.2s ease;
+}
+
+.legal-back:hover {
+  color: #ffffff;
+}
+
+.legal-title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 8px;
+}
+
+.legal-updated {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+.legal-intro {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 16px;
+}
+
+.legal-section {
+  margin-bottom: 36px;
+}
+
+.legal-section h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  margin: 0 0 14px;
+}
+
+.legal-section h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  margin: 20px 0 10px;
+  text-transform: none;
+}
+
+.legal-section p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.legal-section ul {
+  margin: 0 0 16px;
+  padding-left: 20px;
+}
+
+.legal-section li {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.65);
+  margin-bottom: 6px;
+}
+
+.legal-section strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.legal-link {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  transition: text-decoration-color 0.2s ease;
+}
+
+.legal-link:hover {
+  text-decoration-color: #ffffff;
+}
+
+.legal-contact {
+  padding: 16px 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
 /* ── Apply idle page ── */
 .apply-page {
   display: flex;

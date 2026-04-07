@@ -66,9 +66,6 @@ export function ProfileView({
 
   const [name, setName] = useState(user.name);
   const [headline, setHeadline] = useState(user.headline || "");
-  const [school, setSchool] = useState(user.school || "");
-  const [location, setLocation] = useState(user.location || "");
-  const [website, setWebsite] = useState(user.website || "");
 
   const initialMusic = taste
     .filter((t) => t.category === "music")
@@ -88,9 +85,6 @@ export function ProfileView({
   useEffect(() => {
     setName(user.name);
     setHeadline(user.headline || "");
-    setSchool(user.school || "");
-    setLocation(user.location || "");
-    setWebsite(user.website || "");
   }, [user]);
 
   async function handleSave() {
@@ -103,9 +97,6 @@ export function ProfileView({
       .update({
         name: name.trim(),
         headline: headline.trim() || null,
-        school: school.trim() || null,
-        location: location.trim() || null,
-        website: website.trim() || null,
       })
       .eq("id", session.user.id);
 
@@ -168,9 +159,6 @@ export function ProfileView({
   function handleCancel() {
     setName(user.name);
     setHeadline(user.headline || "");
-    setSchool(user.school || "");
-    setLocation(user.location || "");
-    setWebsite(user.website || "");
     setMusic(initialMusic);
     setFilm(initialFilm);
     setLiterature(initialLit);
@@ -304,12 +292,21 @@ export function ProfileView({
                   onClick={async () => {
                     if (!session) return;
                     setDeleting(true);
-                    const { error: delError } = await supabase
-                      .from("users")
-                      .delete()
-                      .eq("id", session.user.id);
-                    if (delError) {
-                      setError(delError.message);
+                    try {
+                      const res = await fetch("/api/delete-account", {
+                        method: "POST",
+                        headers: {
+                          Authorization: `Bearer ${session.access_token}`,
+                        },
+                      });
+                      if (!res.ok) {
+                        const data = await res.json().catch(() => ({}));
+                        throw new Error(data.error || "Failed to delete");
+                      }
+                    } catch (err) {
+                      setError(
+                        err instanceof Error ? err.message : "Failed to delete"
+                      );
                       setDeleting(false);
                       return;
                     }
@@ -333,31 +330,7 @@ export function ProfileView({
         </>
       )}
 
-      {editing ? (
-        <div className="profile-meta-edit">
-          <input
-            className="onboarding-input"
-            value={school}
-            onChange={(e) => setSchool(e.target.value)}
-            placeholder="School"
-            maxLength={50}
-          />
-          <input
-            className="onboarding-input"
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-            placeholder="Location"
-            maxLength={50}
-          />
-          <input
-            className="onboarding-input"
-            value={website}
-            onChange={(e) => setWebsite(e.target.value)}
-            placeholder="Website"
-            maxLength={100}
-          />
-        </div>
-      ) : (
+      {!editing && (
         <div className="public-profile-meta">
           {user.school && (
             <div className="public-meta-item">
