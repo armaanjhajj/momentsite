@@ -11,10 +11,12 @@ function ModalContent({
   eventSlug,
   eventTitle,
   onClose,
+  onSubmitted,
 }: {
   eventSlug: string;
   eventTitle: string;
   onClose: () => void;
+  onSubmitted?: () => void;
 }) {
   const [step, setStep] = useState<Step>("status");
   const [status, setStatus] = useState<"going" | "maybe" | null>(null);
@@ -61,6 +63,7 @@ function ModalContent({
     }
 
     setStep("done");
+    onSubmitted?.();
   }
 
   return (
@@ -196,11 +199,13 @@ export function RsvpModal({
   onClose,
   eventSlug,
   eventTitle,
+  onSubmitted,
 }: {
   open: boolean;
   onClose: () => void;
   eventSlug: string;
   eventTitle: string;
+  onSubmitted?: () => void;
 }) {
   const [mounted, setMounted] = useState(false);
 
@@ -215,6 +220,7 @@ export function RsvpModal({
       eventSlug={eventSlug}
       eventTitle={eventTitle}
       onClose={onClose}
+      onSubmitted={onSubmitted}
     />,
     document.body
   );

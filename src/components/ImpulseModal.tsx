@@ -36,8 +36,8 @@ const STAT_LABELS = [
   "Adventure",
 ] as const;
 
-function RadarChart({ stats, color }: { stats: Stats; color: string }) {
-  const values = [
+function statsToValues(stats: Stats) {
+  return [
     stats.energy,
     stats.openness,
     stats.discipline,
@@ -45,6 +45,19 @@ function RadarChart({ stats, color }: { stats: Stats; color: string }) {
     stats.social,
     stats.adventure,
   ];
+}
+
+function RadarChart({
+  stats,
+  color,
+  viewerStats,
+}: {
+  stats: Stats;
+  color: string;
+  viewerStats?: Stats | null;
+}) {
+  const values = statsToValues(stats);
+  const viewerValues = viewerStats ? statsToValues(viewerStats) : null;
   const size = 240;
   const center = size / 2;
   const radius = size / 2 - 40;
@@ -70,6 +83,13 @@ function RadarChart({ stats, color }: { stats: Stats; color: string }) {
 
   const dataPoints = values.map((v, i) => point(v, i));
   const dataPath = dataPoints.map((p) => `${p.x},${p.y}`).join(" ");
+
+  const viewerPoints = viewerValues
+    ? viewerValues.map((v, i) => point(v, i))
+    : null;
+  const viewerPath = viewerPoints
+    ? viewerPoints.map((p) => `${p.x},${p.y}`).join(" ")
+    : null;
 
   const gridRings = [0.25, 0.5, 0.75, 1].map((ratio) =>
     Array.from({ length: sides }, (_, i) => gridPoint(ratio, i))
@@ -111,10 +131,21 @@ function RadarChart({ stats, color }: { stats: Stats; color: string }) {
           />
         );
       })}
+      {viewerPath && (
+        <polygon
+          points={viewerPath}
+          fill="#ffffff"
+          fillOpacity="0.15"
+          stroke="#ffffff"
+          strokeWidth="1.5"
+          strokeDasharray="4 3"
+          strokeLinejoin="round"
+        />
+      )}
       <polygon
         points={dataPath}
         fill={`#${color}`}
-        fillOpacity="0.3"
+        fillOpacity="0.35"
         stroke={`#${color}`}
         strokeWidth="2"
         strokeLinejoin="round"
@@ -122,6 +153,10 @@ function RadarChart({ stats, color }: { stats: Stats; color: string }) {
       {dataPoints.map((p, i) => (
         <circle key={i} cx={p.x} cy={p.y} r="3" fill={`#${color}`} />
       ))}
+      {viewerPoints &&
+        viewerPoints.map((p, i) => (
+          <circle key={`v-${i}`} cx={p.x} cy={p.y} r="2.5" fill="#ffffff" />
+        ))}
       {labelPoints.map((p, i) => (
         <text
           key={i}
@@ -151,16 +186,36 @@ function ModalContent({
   onClose: () => void;
 }) {
   const [data, setData] = useState<ImpulseData | null>(null);
+  const [viewerStats, setViewerStats] = useState<Stats | null>(null);
+  const [viewerIsSelf, setViewerIsSelf] = useState(false);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function load() {
-      const { data } = await supabase
+      const { data: profileData } = await supabase
         .from("impulse")
         .select("mbti_type, synopsis, team_color, stats")
         .eq("user_id", userId)
         .maybeSingle();
-      setData(data);
+      setData(profileData);
+
+      // Fetch current viewer's stats for overlay
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        if (session.user.id === userId) {
+          setViewerIsSelf(true);
+        } else {
+          const { data: viewerData } = await supabase
+            .from("impulse")
+            .select("stats")
+            .eq("user_id", session.user.id)
+            .maybeSingle();
+          if (viewerData?.stats) {
+            setViewerStats(viewerData.stats);
+          }
+        }
+      }
+
       setLoading(false);
     }
     load();
@@ -223,7 +278,27 @@ function ModalContent({
               <p className="impulse-synopsis">{data.synopsis}</p>
             )}
 
-            <RadarChart stats={data.stats} color={color} />
+            <RadarChart
+              stats={data.stats}
+              color={color}
+              viewerStats={!viewerIsSelf ? viewerStats : null}
+            />
+
+            {!viewerIsSelf && viewerStats && (
+              <div className="impulse-legend">
+                <span className="impulse-legend-item">
+                  <span
+                    className="impulse-legend-dot"
+                    style={{ background: `#${color}` }}
+                  />
+                  {userName}
+                </span>
+                <span className="impulse-legend-item">
+                  <span className="impulse-legend-dot dashed" />
+                  You
+                </span>
+              </div>
+            )}
           </>
         )}
       </div>

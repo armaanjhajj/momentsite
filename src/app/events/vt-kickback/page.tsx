@@ -72,10 +72,7 @@ export default function VTKickback() {
       <RsvpLauncher
         eventSlug="vt-kickback"
         eventTitle="Moments in the 'Burg"
-        className="rsvp-btn"
-      >
-        RSVP
-      </RsvpLauncher>
+      />
     </div>
   );
 }
