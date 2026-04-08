@@ -1,24 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Logo } from "@/components/Logo";
-import { JoinModal } from "@/components/JoinModal";
-import { useAuth } from "@/lib/auth-context";
+import { WaitlistModal } from "@/components/WaitlistModal";
 
-const NAV_ITEMS = [
-  { label: "about", href: "/about" },
-  { label: "projects", href: "/projects" },
-  { label: "events", href: "/events" },
-];
+const NAV_ITEMS = [{ label: "events", href: "/events" }];
+const STORAGE_KEY = "moments-waitlist-joined";
 
 export function Nav() {
   const pathname = usePathname();
-  const { session, profile } = useAuth();
-  const [joinOpen, setJoinOpen] = useState(false);
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [joined, setJoined] = useState(false);
 
-  const initial = profile?.name?.charAt(0).toUpperCase() || "";
+  useEffect(() => {
+    setJoined(!!localStorage.getItem(STORAGE_KEY));
+  }, [waitlistOpen]);
 
   return (
     <>
@@ -37,24 +35,16 @@ export function Nav() {
         ))}
       </nav>
       <div className="header-right">
-        {session ? (
-          <Link
-            href="/profile"
-            className="user-avatar"
-            aria-label="Your profile"
-          >
-            {profile?.photo_url ? (
-              <img src={profile.photo_url} alt={profile.name} />
-            ) : (
-              <span>{initial}</span>
-            )}
-          </Link>
-        ) : (
-          <button className="header-signup" onClick={() => setJoinOpen(true)}>
-            JOIN
-          </button>
-        )}
-        <JoinModal open={joinOpen} onClose={() => setJoinOpen(false)} />
+        <button
+          className={`header-signup ${joined ? "joined" : ""}`}
+          onClick={() => setWaitlistOpen(true)}
+        >
+          {joined ? "ON THE LIST" : "JOIN"}
+        </button>
+        <WaitlistModal
+          open={waitlistOpen}
+          onClose={() => setWaitlistOpen(false)}
+        />
       </div>
     </>
   );

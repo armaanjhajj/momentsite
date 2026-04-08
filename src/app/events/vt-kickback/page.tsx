@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { RsvpLauncher } from "@/components/RsvpLauncher";
 
 export default function VTKickback() {
   return (
@@ -69,10 +68,6 @@ export default function VTKickback() {
         </p>
       </section>
 
-      <RsvpLauncher
-        eventSlug="vt-kickback"
-        eventTitle="Moments in the 'Burg"
-      />
     </div>
   );
 }
