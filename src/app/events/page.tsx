@@ -24,7 +24,6 @@ const events = [
 export default function Events() {
   return (
     <div className="section-wrapper">
-      <h2 className="section-title">EVENTS</h2>
       <div className="events-grid">
         {events.map((event) =>
           event.enabled ? (
