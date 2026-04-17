@@ -10,6 +10,8 @@ const RESERVED_HANDLES = new Set([
   "onboarding",
   "impulse",
   "apply",
+  "team",
+  "app",
   "terms",
   "privacy",
   "api",

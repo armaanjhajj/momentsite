@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moments — Graph View</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0a0a0f; overflow: hidden; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif; }
+
+#graph { width: 100vw; height: 100vh; }
+
+.node circle {
+  cursor: pointer;
+  transition: r 0.2s;
+}
+.node text {
+  pointer-events: none;
+  user-select: none;
+}
+.link {
+  stroke: rgba(255,255,255,0.06);
+  stroke-width: 0.8;
+  transition: stroke 0.2s, stroke-opacity 0.2s;
+}
+.link.highlighted {
+  stroke: rgba(255,255,255,0.35);
+  stroke-width: 1.2;
+}
+.link.dimmed {
+  stroke: rgba(255,255,255,0.015);
+}
+.node.dimmed circle { opacity: 0.15; }
+.node.dimmed text { opacity: 0.08; }
+.node.highlighted circle { filter: drop-shadow(0 0 8px currentColor); }
+
+/* UI */
+#ui {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Top bar */
+#topbar {
+  position: absolute;
+  top: 20px; left: 50%; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 12px;
+  pointer-events: all;
+}
+#search {
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  padding: 9px 16px 9px 36px;
+  color: #fff;
+  font-size: 13px;
+  width: 240px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+#search::placeholder { color: rgba(255,255,255,0.25); }
+#search:focus { border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); }
+.search-wrap { position: relative; }
+.search-icon {
+  position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+  opacity: 0.3; pointer-events: none;
+}
+.wordmark {
+  font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.08em;
+  font-family: 'SF Mono', monospace;
+}
+
+/* Sidebar */
+#sidebar {
+  position: absolute;
+  right: 20px; top: 50%; transform: translateY(-50%);
+  width: 260px;
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(12px);
+  border: 0.5px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 20px;
+  pointer-events: all;
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+#sidebar.visible { opacity: 1; }
+#sidebar-title {
+  font-size: 16px; font-weight: 600; color: #fff;
+  margin-bottom: 4px;
+}
+#sidebar-tag {
+  font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3); margin-bottom: 14px;
+  font-family: 'SF Mono', monospace;
+}
+#sidebar-body {
+  font-size: 13px; color: rgba(255,255,255,0.55);
+  line-height: 1.65; margin-bottom: 16px;
+}
+#sidebar-connections { display: flex; flex-wrap: wrap; gap: 6px; }
+.conn-pill {
+  font-size: 10px; padding: 4px 10px; border-radius: 100px;
+  background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.4);
+  border: 0.5px solid rgba(255,255,255,0.08);
+  font-family: 'SF Mono', monospace;
+  cursor: pointer; transition: background 0.15s;
+}
+.conn-pill:hover { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.7); }
+
+/* Legend */
+#legend {
+  position: absolute;
+  left: 20px; bottom: 20px;
+  display: flex; flex-direction: column; gap: 8px;
+  pointer-events: none;
+}
+.legend-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; color: rgba(255,255,255,0.3);
+  font-family: 'SF Mono', monospace;
+}
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* Controls */
+#controls {
+  position: absolute;
+  left: 20px; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 8px;
+  pointer-events: all;
+}
+.ctrl-btn {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: rgba(255,255,255,0.5);
+  font-size: 18px; line-height: 1;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s;
+  user-select: none;
+}
+.ctrl-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+
+/* Stats */
+#stats {
+  position: absolute;
+  left: 20px; top: 20px;
+  font-family: 'SF Mono', monospace;
+  font-size: 10px; color: rgba(255,255,255,0.2);
+  line-height: 1.8;
+  pointer-events: none;
+}
+
+/* Close btn */
+#close-sidebar {
+  position: absolute; top: 12px; right: 12px;
+  width: 22px; height: 22px;
+  background: rgba(255,255,255,0.06);
+  border: none; border-radius: 6px;
+  color: rgba(255,255,255,0.4); font-size: 14px;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  pointer-events: all;
+}
+#close-sidebar:hover { background: rgba(255,255,255,0.12); }
+</style>
+</head>
+<body>
+
+<svg id="graph"></svg>
+
+<div id="ui">
+  <div id="stats" id="stats-bar">
+    moments / graph view
+  </div>
+
+  <div id="topbar">
+    <div class="wordmark">moments</div>
+    <div class="search-wrap">
+      <svg class="search-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+        <circle cx="6" cy="6" r="4" stroke="white" stroke-width="1.2"/>
+        <path d="M9.5 9.5L12 12" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <input id="search" type="text" placeholder="search nodes..."/>
+    </div>
+  </div>
+
+  <div id="controls">
+    <button class="ctrl-btn" id="zoom-in">+</button>
+    <button class="ctrl-btn" id="zoom-out">−</button>
+    <button class="ctrl-btn" id="reset-zoom" title="reset">⌖</button>
+  </div>
+
+  <div id="sidebar">
+    <button id="close-sidebar">×</button>
+    <div id="sidebar-title"></div>
+    <div id="sidebar-tag"></div>
+    <div id="sidebar-body"></div>
+    <div style="font-size:10px;color:rgba(255,255,255,0.2);margin-bottom:8px;font-family:monospace;text-transform:uppercase;letter-spacing:0.1em;">connected to</div>
+    <div id="sidebar-connections"></div>
+  </div>
+
+  <div id="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#e8547a"></div>product</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4da6e8"></div>technical</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#4ecb87"></div>brand</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#a57ee8"></div>strategy</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#e8c84a"></div>research</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#888"></div>misc</div>
+  </div>
+</div>
+
+<script>
+const COLORS = {
+  product: '#e8547a',
+  technical: '#4da6e8',
+  brand: '#4ecb87',
+  strategy: '#a57ee8',
+  research: '#e8c84a',
+  misc: '#888'
+};
+
+const nodes = [
+  // Core
+  { id: 'Moments', tag: 'product', size: 22, body: 'A proximity-aware social tool. Not social media. Built to help you actually meet people — using where you go, what you listen to, who you are.' },
+  { id: 'Impulse Engine', tag: 'product', size: 16, body: 'The AI matching layer. Retrieves behavioral signals, finds high-affinity users nearby, generates a human-readable insight about why two people should meet.' },
+  { id: 'Radar', tag: 'product', size: 14, body: 'Home screen. Proximity visualization showing hotspot clusters of high-affinity people at real locations near you right now.' },
+  { id: 'Your Card', tag: 'product', size: 13, body: 'Your identity in the app. Front: name, photo, vibe. Back: signal profile — music, locations, interests. Shared via NameDrop.' },
+  { id: 'NameDrop', tag: 'product', size: 12, body: 'The physical connection gesture. Two phones close together to exchange cards. Connections only seal in real life.' },
+  { id: 'Events', tag: 'product', size: 11, body: 'Proximity-based, time-sensitive events. Shows how many network connections and matches are attending each one.' },
+  { id: 'Network', tag: 'product', size: 13, body: 'Your actual connections — people you\'ve NameDropped with. Each connection preserves context: where you met, when, what overlapped.' },
+
+  // Technical
+  { id: 'Vector Embeddings', tag: 'technical', size: 14, body: 'User signal profiles converted to high-dimensional vectors via text-embedding models. Enables semantic similarity search beyond hard attribute matching.' },
+  { id: 'pgvector', tag: 'technical', size: 11, body: 'Supabase-native vector database extension. Stores user embeddings and powers approximate nearest-neighbor search for match discovery.' },
+  { id: 'Knowledge Graph', tag: 'technical', size: 13, body: 'Heterogeneous graph: Users → Places → Events → Interests → Behaviors. Edge weights update in real time. Structural similarity powers matching.' },
+  { id: 'Geohash', tag: 'technical', size: 11, body: 'Timestamped location clusters that resolve to real places over time. Not just "user is here" but "user is here again, Tuesday mornings, for 45 min."' },
+  { id: 'RAG Pipeline', tag: 'technical', size: 13, body: 'Retrieval Augmented Generation. Vector search finds candidates → graph query pulls overlapping signals → LLM translates data into human-readable insight.' },
+  { id: 'Supabase', tag: 'technical', size: 12, body: 'Backend infrastructure. Handles auth, database, realtime, edge functions, and pgvector. Current stack for MVP.' },
+  { id: 'Temporal Modeling', tag: 'technical', size: 11, body: 'Pattern matching on when users do things. Fires insights at contextually relevant moments — before the behavior is about to repeat in real life.' },
+  { id: 'Supabase Realtime', tag: 'technical', size: 10, body: 'Live hotspot rendering on the Radar screen. Geohash-based proximity events push to connected clients in real time.' },
+  { id: 'SwiftUI', tag: 'technical', size: 10, body: 'iOS app framework. Current build target. Houses card components, CoreMotion gyro effects, and proximity-based UI.' },
+
+  // Brand
+  { id: 'One Moments LLC', tag: 'brand', size: 14, body: 'The legal entity. Staying LLC until fundraising. Co-founded by Armaan Jhajj and Simeon Thomas.' },
+  { id: 'Brand Content', tag: 'brand', size: 12, body: 'Art and media created to express the problem being solved. Audience-building with intent — not marketing, but cultural participation.' },
+  { id: 'Design System', tag: 'brand', size: 11, body: 'Named color palette: classicPink, electricBlue, impulsiveGreen, mambaYellow, stealthBlack, blank. Culturally specific naming intentional.' },
+  { id: 'Virginia Tech Launch', tag: 'brand', size: 13, body: 'First campus launch. Coordinated with co-founder Simeon Thomas on the ground. Proximity app strategy: high density, single campus, prove the loop.' },
+
+  // Strategy
+  { id: 'No Feed', tag: 'strategy', size: 13, body: 'Core product constraint. No algorithmic stranger browsing. No infinite scroll. Every surface pushes toward a real interaction, never deeper into the app.' },
+  { id: 'Scarcity Design', tag: 'strategy', size: 11, body: '3–7 Impulse cards per day max. Intentional scarcity makes each insight feel valuable. Prevents the dismissal reflex that kills notification-heavy apps.' },
+  { id: 'Proximity Only', tag: 'strategy', size: 12, body: 'Connections only possible when physically near. The constraint is the product. Forces real-world convergence rather than endless digital browsing.' },
+  { id: 'The Problem', tag: 'strategy', size: 16, body: 'A generational pandemic of loneliness driven by platforms optimized for engagement over connection. Instagram, TikTok, Twitter — broadcast tools, not social ones.' },
+  { id: 'Facebook Thesis', tag: 'strategy', size: 11, body: 'What Facebook was supposed to be before it became what it became. Moments is that original vision rebuilt with current technology — LLMs, semantic search, vector DBs.' },
+
+  // Research
+  { id: 'Loneliness Epidemic', tag: 'research', size: 13, body: 'Documented generational increase in loneliness, social anxiety, and weak-tie relationships correlated with rise of engagement-optimized social platforms.' },
+  { id: 'Social Graph Theory', tag: 'research', size: 11, body: 'Weak ties as the most valuable professional/social connections. Moments targets the gap between strong ties (friends) and total strangers (feed).' },
+  { id: 'Impulse Index', tag: 'research', size: 10, body: 'Internal metric tracking user social signal density. Data point the user consents to share — powers personalization and match quality over time.' },
+
+  // Misc
+  { id: 'MCAT', tag: 'misc', size: 8, body: 'Armaan\'s parallel track. Kaplan Biochemistry, CARS practice. Running alongside Moments build.' },
+  { id: 'Sony a6000', tag: 'misc', size: 8, body: 'Photography gear. Visual documentation of the Moments world and brand content creation.' },
+];
+
+const links = [
+  { source: 'Moments', target: 'Impulse Engine' },
+  { source: 'Moments', target: 'Radar' },
+  { source: 'Moments', target: 'Your Card' },
+  { source: 'Moments', target: 'NameDrop' },
+  { source: 'Moments', target: 'Events' },
+  { source: 'Moments', target: 'Network' },
+  { source: 'Moments', target: 'No Feed' },
+  { source: 'Moments', target: 'The Problem' },
+  { source: 'Moments', target: 'One Moments LLC' },
+  { source: 'Moments', target: 'Virginia Tech Launch' },
+  { source: 'Moments', target: 'Facebook Thesis' },
+  { source: 'Impulse Engine', target: 'RAG Pipeline' },
+  { source: 'Impulse Engine', target: 'Vector Embeddings' },
+  { source: 'Impulse Engine', target: 'Knowledge Graph' },
+  { source: 'Impulse Engine', target: 'Scarcity Design' },
+  { source: 'Impulse Engine', target: 'Temporal Modeling' },
+  { source: 'Impulse Engine', target: 'Impulse Index' },
+  { source: 'Radar', target: 'Geohash' },
+  { source: 'Radar', target: 'Supabase Realtime' },
+  { source: 'Radar', target: 'Proximity Only' },
+  { source: 'Your Card', target: 'Design System' },
+  { source: 'Your Card', target: 'NameDrop' },
+  { source: 'NameDrop', target: 'Proximity Only' },
+  { source: 'NameDrop', target: 'Network' },
+  { source: 'Network', target: 'Knowledge Graph' },
+  { source: 'Vector Embeddings', target: 'pgvector' },
+  { source: 'Vector Embeddings', target: 'RAG Pipeline' },
+  { source: 'pgvector', target: 'Supabase' },
+  { source: 'Knowledge Graph', target: 'Geohash' },
+  { source: 'Knowledge Graph', target: 'Social Graph Theory' },
+  { source: 'RAG Pipeline', target: 'Supabase' },
+  { source: 'Geohash', target: 'Supabase' },
+  { source: 'Supabase Realtime', target: 'Supabase' },
+  { source: 'SwiftUI', target: 'Your Card' },
+  { source: 'SwiftUI', target: 'Radar' },
+  { source: 'One Moments LLC', target: 'Virginia Tech Launch' },
+  { source: 'One Moments LLC', target: 'Brand Content' },
+  { source: 'Brand Content', target: 'Loneliness Epidemic' },
+  { source: 'Brand Content', target: 'The Problem' },
+  { source: 'Design System', target: 'One Moments LLC' },
+  { source: 'The Problem', target: 'Loneliness Epidemic' },
+  { source: 'The Problem', target: 'Facebook Thesis' },
+  { source: 'Facebook Thesis', target: 'No Feed' },
+  { source: 'No Feed', target: 'Scarcity Design' },
+  { source: 'Proximity Only', target: 'Scarcity Design' },
+  { source: 'Loneliness Epidemic', target: 'Social Graph Theory' },
+  { source: 'MCAT', target: 'Moments' },
+  { source: 'Sony a6000', target: 'Brand Content' },
+  { source: 'Temporal Modeling', target: 'Geohash' },
+  { source: 'Impulse Index', target: 'Vector Embeddings' },
+];
+
+const svg = d3.select('#graph');
+const W = window.innerWidth, H = window.innerHeight;
+svg.attr('width', W).attr('height', H);
+
+const g = svg.append('g');
+
+// Zoom
+const zoom = d3.zoom()
+  .scaleExtent([0.15, 4])
+  .on('zoom', e => g.attr('transform', e.transform));
+svg.call(zoom);
+
+// Simulation
+const sim = d3.forceSimulation(nodes)
+  .force('link', d3.forceLink(links).id(d => d.id).distance(d => {
+    const s = (d.source.size || 10) + (d.target.size || 10);
+    return s * 4 + 40;
+  }).strength(0.4))
+  .force('charge', d3.forceManyBody().strength(d => -d.size * 28))
+  .force('center', d3.forceCenter(W / 2, H / 2))
+  .force('collision', d3.forceCollide(d => d.size + 8));
+
+// Links
+const link = g.append('g').selectAll('line')
+  .data(links).join('line').attr('class', 'link');
+
+// Nodes
+const node = g.append('g').selectAll('g')
+  .data(nodes).join('g')
+  .attr('class', 'node')
+  .call(d3.drag()
+    .on('start', (e, d) => { if (!e.active) sim.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; })
+    .on('drag', (e, d) => { d.fx = e.x; d.fy = e.y; })
+    .on('end', (e, d) => { if (!e.active) sim.alphaTarget(0); d.fx = null; d.fy = null; })
+  );
+
+node.append('circle')
+  .attr('r', d => d.size)
+  .attr('fill', d => COLORS[d.tag] + '22')
+  .attr('stroke', d => COLORS[d.tag])
+  .attr('stroke-width', d => d.size > 14 ? 1.5 : 1)
+  .style('color', d => COLORS[d.tag]);
+
+node.append('text')
+  .text(d => d.id)
+  .attr('text-anchor', 'middle')
+  .attr('dy', d => d.size + 12)
+  .attr('fill', d => COLORS[d.tag])
+  .attr('font-size', d => d.size > 14 ? 11 : d.size > 10 ? 10 : 9)
+  .attr('opacity', 0.7)
+  .attr('font-family', 'SF Mono, monospace');
+
+sim.on('tick', () => {
+  link
+    .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+    .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+  node.attr('transform', d => `translate(${d.x},${d.y})`);
+});
+
+// Interaction
+const sidebar = document.getElementById('sidebar');
+let activeNode = null;
+
+function getConnected(d) {
+  return links
+    .filter(l => l.source.id === d.id || l.target.id === d.id)
+    .map(l => l.source.id === d.id ? l.target.id : l.source.id);
+}
+
+node.on('click', (e, d) => {
+  e.stopPropagation();
+  activeNode = d;
+  const connected = getConnected(d);
+
+  node.classed('dimmed', n => n.id !== d.id && !connected.includes(n.id));
+  node.classed('highlighted', n => n.id === d.id || connected.includes(n.id));
+  link.classed('highlighted', l => l.source.id === d.id || l.target.id === d.id);
+  link.classed('dimmed', l => l.source.id !== d.id && l.target.id !== d.id);
+
+  document.getElementById('sidebar-title').textContent = d.id;
+  document.getElementById('sidebar-tag').textContent = d.tag;
+  document.getElementById('sidebar-body').textContent = d.body;
+
+  const connDiv = document.getElementById('sidebar-connections');
+  connDiv.innerHTML = connected.map(c =>
+    `<span class="conn-pill" onclick="focusNode('${c}')">${c}</span>`
+  ).join('');
+
+  sidebar.classList.add('visible');
+});
+
+node.on('mouseenter', (e, d) => {
+  if (activeNode) return;
+  const connected = getConnected(d);
+  node.classed('dimmed', n => n.id !== d.id && !connected.includes(n.id));
+  link.classed('highlighted', l => l.source.id === d.id || l.target.id === d.id);
+  link.classed('dimmed', l => l.source.id !== d.id && l.target.id !== d.id);
+});
+
+node.on('mouseleave', () => {
+  if (activeNode) return;
+  node.classed('dimmed', false);
+  link.classed('highlighted', false).classed('dimmed', false);
+});
+
+svg.on('click', () => {
+  activeNode = null;
+  node.classed('dimmed', false).classed('highlighted', false);
+  link.classed('highlighted', false).classed('dimmed', false);
+  sidebar.classList.remove('visible');
+});
+
+window.focusNode = (id) => {
+  const d = nodes.find(n => n.id === id);
+  if (!d) return;
+  node.dispatch('click', { detail: d, bubbles: false });
+  const t = d3.zoomIdentity.translate(W/2 - d.x, H/2 - d.y).scale(1.2);
+  svg.transition().duration(600).call(zoom.transform, t);
+};
+
+document.getElementById('close-sidebar').addEventListener('click', e => {
+  e.stopPropagation();
+  activeNode = null;
+  node.classed('dimmed', false).classed('highlighted', false);
+  link.classed('highlighted', false).classed('dimmed', false);
+  sidebar.classList.remove('visible');
+});
+
+// Controls
+document.getElementById('zoom-in').addEventListener('click', () =>
+  svg.transition().duration(300).call(zoom.scaleBy, 1.4));
+document.getElementById('zoom-out').addEventListener('click', () =>
+  svg.transition().duration(300).call(zoom.scaleBy, 0.7));
+document.getElementById('reset-zoom').addEventListener('click', () =>
+  svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(W/2, H/2).scale(1)));
+
+// Search
+document.getElementById('search').addEventListener('input', e => {
+  const q = e.target.value.toLowerCase().trim();
+  if (!q) {
+    node.classed('dimmed', false);
+    return;
+  }
+  node.classed('dimmed', d => !d.id.toLowerCase().includes(q) && !d.tag.toLowerCase().includes(q));
+});
+
+// Resize
+window.addEventListener('resize', () => {
+  const W2 = window.innerWidth, H2 = window.innerHeight;
+  svg.attr('width', W2).attr('height', H2);
+  sim.force('center', d3.forceCenter(W2/2, H2/2)).alpha(0.1).restart();
+});
+</script>
+</body>
+</html>
