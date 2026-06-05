@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ExhibitClose } from "@/components/ExhibitClose";
 
 const events = [
   {
@@ -24,6 +25,8 @@ const events = [
 export default function Events() {
   return (
     <div className="section-wrapper">
+      <ExhibitClose />
+
       <div className="events-grid">
         {events.map((event) =>
           event.enabled ? (

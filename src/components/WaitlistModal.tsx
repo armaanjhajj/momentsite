@@ -2,10 +2,29 @@
 
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import Link from "next/link";
 import { Logo } from "@/components/Logo";
 import { supabase } from "@/lib/supabase";
 
 const STORAGE_KEY = "moments-waitlist-joined";
+
+// Always shown below the waitlist — the "build it with us" path.
+function TeamSection({ onClose }: { onClose: () => void }) {
+  return (
+    <>
+      <div className="modal-divider" />
+      <div className="modal-team">
+        <p className="modal-team-label">Want to help build it?</p>
+        <p className="modal-team-text">
+          <Link href="/apply" className="modal-team-link" onClick={onClose}>
+            Apply
+          </Link>{" "}
+          to join the Moments team.
+        </p>
+      </div>
+    </>
+  );
+}
 
 function ModalContent({ onClose }: { onClose: () => void }) {
   const [email, setEmail] = useState("");
@@ -60,7 +79,7 @@ function ModalContent({ onClose }: { onClose: () => void }) {
 
         {submitted ? (
           <div className="modal-success">
-            <h2 className="modal-title">You&apos;re in</h2>
+            <h2 className="modal-title">You&apos;re already on the waitlist</h2>
             <p
               className="modal-subtitle"
               style={{ fontSize: 14, fontWeight: 400 }}
@@ -101,6 +120,8 @@ function ModalContent({ onClose }: { onClose: () => void }) {
             </p>
           </form>
         )}
+
+        <TeamSection onClose={onClose} />
       </div>
     </div>
   );

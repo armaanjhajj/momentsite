@@ -1,9 +1,9 @@
-import Link from "next/link";
+import { ExhibitClose } from "@/components/ExhibitClose";
 
 export default function VTKickback() {
   return (
     <div className="section-wrapper event-page">
-      <Link href="/events" className="back-link">&larr; BACK</Link>
+      <ExhibitClose />
 
       <div className="event-hero">
         <img src="/logos/vt.png" alt="Virginia Tech" className="event-page-logo" />

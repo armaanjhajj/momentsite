@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moments — GLSS</title>
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            background: #000000;
+            overflow: hidden;
+        }
+
+        /* Full-bleed collage — everything absolutely placed, like the mock */
+        .web1 {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .item {
+            position: absolute;
+            display: block;
+        }
+
+        /* Left column — the MOMENTS / ✻✻ / MAD glasses stack */
+        .glasses-stack {
+            left: 4%;
+            top: 11%;
+            width: 21%;
+            max-width: 240px;
+        }
+
+        /* Top row — the three "real" white sunglasses */
+        .glasses-row {
+            left: 27%;
+            top: 9%;
+            width: 46%;
+            max-width: 620px;
+        }
+
+        /* !!! */
+        .exclaim {
+            right: 5%;
+            top: 15%;
+            width: 9%;
+            max-width: 95px;
+        }
+
+        /* Center — the looping MONTS montage */
+        .center-video {
+            left: 49%;
+            top: 56%;
+            transform: translate(-50%, -50%);
+            width: 38%;
+            max-width: 520px;
+            border-radius: 3px;
+        }
+
+        /* Bottom-left — spinning sun */
+        .sun {
+            left: 7%;
+            bottom: 9%;
+            width: 14%;
+            max-width: 155px;
+            animation: spin 9s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Right — finger pointing in and out at the montage */
+        .finger {
+            right: 1%;
+            bottom: 8%;
+            width: 27%;
+            max-width: 330px;
+            animation: point 1.5s ease-in-out infinite;
+        }
+
+        @keyframes point {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(-12%);
+            }
+        }
+
+        /* Back to exhibits */
+        .exhibit-x {
+            position: fixed;
+            top: 22px;
+            right: 26px;
+            z-index: 1000;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            line-height: 1;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.85);
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 50%;
+            transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+        }
+
+        .exhibit-x:hover {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.6);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="web1">
+        <a href="/exhibits" class="exhibit-x" aria-label="Back to exhibits">&times;</a>
+
+        <img class="item glasses-stack" src="/assets/0/web1/glasses-stack.png" alt="Moments glasses">
+        <img class="item glasses-row" src="/assets/0/web1/glasses-row.png" alt="Moments glasses">
+        <img class="item exclaim" src="/assets/0/web1/exclaim.png" alt="">
+
+        <video class="item center-video" src="/assets/0/MONT.mp4" autoplay loop muted playsinline></video>
+
+        <img class="item sun" src="/assets/0/web1/sun.png" alt="">
+        <img class="item finger" src="/assets/0/web1/finger.png" alt="">
+    </div>
+</body>
+
+</html>

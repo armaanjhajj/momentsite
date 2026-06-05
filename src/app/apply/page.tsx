@@ -12,7 +12,7 @@ export default function Apply() {
         We&apos;re not quite ready yet, but when we are, this is where
         you&apos;ll apply to join the team.
       </p>
-      <Link href="/about" className="apply-back">
+      <Link href="/#about" className="apply-back">
         &larr; Back to About
       </Link>
     </div>

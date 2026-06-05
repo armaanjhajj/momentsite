@@ -7,9 +7,9 @@ import { Logo } from "@/components/Logo";
 import { WaitlistModal } from "@/components/WaitlistModal";
 
 const NAV_ITEMS = [
-  { label: "about", href: "/about" },
-  { label: "apply", href: "https://tally.so/r/obVdvO" },
-  { label: "team", href: "/team" },
+  { label: "about", href: "/#about" },
+  { label: "exhibits", href: "/exhibits" },
+  { label: "contact", href: "/contact" },
 ];
 const STORAGE_KEY = "moments-waitlist-joined";
 
@@ -26,6 +26,17 @@ export function Nav() {
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
+
+  // Glass header on scroll
+  useEffect(() => {
+    const header = document.querySelector(".header");
+    if (!header) return;
+    const onScroll = () =>
+      header.classList.toggle("scrolled", window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <>
@@ -64,7 +75,7 @@ export function Nav() {
           className={`header-signup header-signup-desktop ${joined ? "joined" : ""}`}
           onClick={() => setWaitlistOpen(true)}
         >
-          {joined ? "ON THE LIST" : "JOIN"}
+          {joined ? "JOIN THE TEAM" : "JOIN"}
         </button>
 
         {/* Mobile only: hamburger */}
@@ -121,7 +132,7 @@ export function Nav() {
                 setWaitlistOpen(true);
               }}
             >
-              {joined ? "ON THE LIST" : "JOIN"}
+              {joined ? "JOIN THE TEAM" : "JOIN"}
             </button>
           </nav>
         </div>
