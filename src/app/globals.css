@@ -3651,6 +3651,25 @@ html {
   margin-bottom: 0;
 }
 
+/* Recap photo gallery — masonry-ish columns so mixed portrait/landscape
+   shots keep their natural aspect ratio instead of getting cropped. */
+.event-gallery {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 28px;
+  column-count: 2;
+  column-gap: 10px;
+}
+
+.event-gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  break-inside: avoid;
+}
+
 .event-perks {
   list-style: none;
   padding: 0;

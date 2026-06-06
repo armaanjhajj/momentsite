@@ -29,7 +29,7 @@ const EXHIBITS: Exhibit[] = [
   { title: "KUPIDEVENT", modal: "kupid" },
   { title: "PARTIES", modal: "parties" },
   { title: "GLASSES", href: "/glasses", static: true },
-  { title: "VTKICKOFF", href: "/events/vt-kickback" },
+  { title: "VTKICKBACK", href: "/events/vt-kickback" },
   { title: "KNOWLEDGEGRAPH", action: "graph" },
 ];
 

@@ -15,59 +15,60 @@ export default function VTKickback() {
         <p className="event-tagline">
           Blacksburg&apos;s first Moments kickback.
           <br />
-          Come through, grab a drink, meet someone new.
+          A lawn, some drinks, and a bunch of strangers who didn&apos;t stay
+          strangers.
         </p>
       </div>
 
-      <div className="event-info-grid">
-        <div className="event-info-block">
-          <span className="event-info-label">DATE</span>
-          <span className="event-info-value">April 11, 2026</span>
-        </div>
-        <div className="event-info-block">
-          <span className="event-info-label">TIME</span>
-          <span className="event-info-value">4:00 PM</span>
-        </div>
-        <div className="event-info-block">
-          <span className="event-info-label">LOCATION</span>
-          <a
-            href="https://maps.google.com/?q=37.223698,-80.420227"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="event-info-value event-info-link"
-          >
-            DX Lawn
-          </a>
-        </div>
-      </div>
-
+      {/* The flier that went out for the kickback */}
       <img
         src="/events/hoakie.png"
-        alt="Virginia Tech Hokie"
+        alt="Moments in the 'Burg kickback flier"
         className="event-hero-image"
       />
 
+      <p className="event-meta-line">
+        April 11, 2026
+        <span className="event-meta-dot">·</span>
+        DX Lawn
+        <span className="event-meta-dot">·</span>
+        Blacksburg, VA
+      </p>
+
       <section className="event-section">
-        <h2 className="event-section-title">What to expect</h2>
+        <h2 className="event-section-title">What it was</h2>
         <p className="event-section-body">
-          Handmade cold brew, Red Bull, and refreshers on us. Good music, lawn
-          games, open air. We&apos;re not running a schedule. Show up when you
-          want, stay as long as you want.
+          No stage, no schedule, no sign-in sheet. Just a kickback on the lawn.
+          We set up out on DX Lawn with handmade cold brew, a cooler of Red
+          Bull, and refreshers, put on some music, and let people show up
+          whenever they wanted and stay as long as they felt like.
+        </p>
+        <p className="event-section-body">
+          Lawn games, volleyball, and a folding table covered in snacks did the
+          rest. The whole point was an easy excuse to be outside and actually
+          talk to the person next to you.
         </p>
       </section>
 
+      <div className="event-gallery">
+        <img src="/exhibits/vtkickback/1.jpg" alt="Volleyball on DX Lawn at the kickback" />
+        <img src="/exhibits/vtkickback/3.jpg" alt="The snack and drink table" />
+        <img src="/exhibits/vtkickback/2.jpg" alt="The Moments crew in Blacksburg" />
+        <img src="/exhibits/vtkickback/4.png" alt="Hanging out on the lawn" />
+      </div>
+
       <section className="event-section">
-        <h2 className="event-section-title">Why</h2>
+        <h2 className="event-section-title">Why it mattered</h2>
         <p className="event-section-body">
-          Moments is a movement built around one idea that people are more
-          interesting in person than they are online. We&apos;re starting with
-          events like this one. Blacksburg is first.
+          Moments is built around one idea: people are more interesting in
+          person than they are online. Blacksburg was the first stop, and it
+          proved the thing we keep betting on, that a patch of grass and a few
+          drinks is all it takes to get people talking.
         </p>
         <p className="event-section-body">
           More cities. More campuses. More kickbacks. This is how it starts.
         </p>
       </section>
-
     </div>
   );
 }
