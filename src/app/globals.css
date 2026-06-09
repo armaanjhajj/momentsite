@@ -5056,6 +5056,34 @@ a.exhibit-row,
   display: flex;
   align-items: center;
   gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+  outline: none;
+}
+
+.admin-section-title::-webkit-details-marker {
+  display: none;
+}
+
+/* Disclosure chevron, pinned to the right of the summary row */
+.admin-section-title::after {
+  content: "";
+  margin-left: auto;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease;
+}
+
+details.admin-section[open] > .admin-section-title::after {
+  transform: rotate(45deg);
+}
+
+.admin-section-title:hover::after {
+  border-color: rgba(255, 255, 255, 0.85);
 }
 
 .admin-count {

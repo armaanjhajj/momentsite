@@ -85,38 +85,10 @@ export default async function AdminDashboard() {
         → Analytics &amp; Speed Insights tabs.
       </p>
 
-      <section className="admin-section">
-        <h2 className="admin-section-title">
-          Waitlist <span className="admin-count">{waitlist.length}</span>
-        </h2>
-        {waitlist.length === 0 ? (
-          <p className="admin-empty">No signups yet.</p>
-        ) : (
-          <div className="admin-table-wrap">
-            <table className="admin-table">
-              <thead>
-                <tr>
-                  <th>Email</th>
-                  <th>Joined</th>
-                </tr>
-              </thead>
-              <tbody>
-                {waitlist.map((row) => (
-                  <tr key={row.email}>
-                    <td>{row.email}</td>
-                    <td className="admin-td-muted">{fmtDate(row.created_at)}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
-      </section>
-
-      <section className="admin-section">
-        <h2 className="admin-section-title">
+      <details className="admin-section" open>
+        <summary className="admin-section-title">
           Inquiries <span className="admin-count">{inquiries.length}</span>
-        </h2>
+        </summary>
         {inquiries.length === 0 ? (
           <p className="admin-empty">No messages yet.</p>
         ) : (
@@ -146,7 +118,35 @@ export default async function AdminDashboard() {
             </table>
           </div>
         )}
-      </section>
+      </details>
+
+      <details className="admin-section">
+        <summary className="admin-section-title">
+          Waitlist <span className="admin-count">{waitlist.length}</span>
+        </summary>
+        {waitlist.length === 0 ? (
+          <p className="admin-empty">No signups yet.</p>
+        ) : (
+          <div className="admin-table-wrap">
+            <table className="admin-table">
+              <thead>
+                <tr>
+                  <th>Email</th>
+                  <th>Joined</th>
+                </tr>
+              </thead>
+              <tbody>
+                {waitlist.map((row) => (
+                  <tr key={row.email}>
+                    <td>{row.email}</td>
+                    <td className="admin-td-muted">{fmtDate(row.created_at)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </details>
     </div>
   );
 }
