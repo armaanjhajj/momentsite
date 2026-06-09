@@ -4725,3 +4725,118 @@ a.exhibit-row,
     display: none;
   }
 }
+
+/* ── App showcase pages (LYFSTYL / DSCVR) ── */
+.app-page {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 24px;
+  text-align: left;
+  animation: fadeIn 0.4s ease;
+}
+
+.app-back {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  margin-bottom: 40px;
+  transition: color 0.2s ease;
+}
+
+.app-back:hover {
+  color: #ffffff;
+}
+
+.app-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 0 18px;
+}
+
+.app-title {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: clamp(56px, 13vw, 124px);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.app-tagline {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 20px 0 0;
+}
+
+.app-body {
+  margin-top: 32px;
+}
+
+.app-body p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 16px;
+}
+
+.app-body p:last-child {
+  margin-bottom: 0;
+}
+
+.app-body strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.app-features {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 32px 0 0;
+  padding: 0;
+}
+
+.app-feature {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.65);
+  padding: 7px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.app-launch {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 36px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 10px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+}
+
+.app-launch-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34c759;
+  box-shadow: 0 0 10px rgba(52, 199, 89, 0.8);
+}
