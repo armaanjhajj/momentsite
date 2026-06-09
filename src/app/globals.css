@@ -4136,7 +4136,9 @@ a.exhibit-row,
 }
 
 .exhibit-row-soon:hover .exhibit-title,
-.exhibit-row-soon:hover .exhibit-num {
+.exhibit-row-soon:hover .exhibit-num,
+.exhibit-row-soon-lit .exhibit-title,
+.exhibit-row-soon-lit .exhibit-num {
   color: #ffffff;
 }
 

@@ -10,22 +10,27 @@ function randGlyph() {
 
 /**
  * Hacker-style decode text. By default every character is constantly scrambling.
- * When `active` (hovered), characters lock to the real word one at a time, left
- * to right. When `active` goes false again, they fall back into the scramble one
- * at a time, left to right. Falls back to static text under reduced motion.
+ * When `active`, characters lock to the real word one at a time, left to right;
+ * when `active` goes false they fall back into the scramble, left to right.
+ * `onResolved` fires once each time the word becomes fully decoded while active
+ * (used to navigate after the reveal on touch devices). Static under reduced motion.
  */
 export function ScrambleText({
   text,
   active,
+  onResolved,
   className,
 }: {
   text: string;
   active: boolean;
+  onResolved?: () => void;
   className?: string;
 }) {
   const [display, setDisplay] = useState(text);
   const activeRef = useRef(active);
   activeRef.current = active;
+  const onResolvedRef = useRef(onResolved);
+  onResolvedRef.current = onResolved;
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -34,15 +39,15 @@ export function ScrambleText({
     }
 
     const n = text.length;
-    // locked[i] === true -> char i shows its real letter; false -> scrambling.
-    const locked = new Array<boolean>(n).fill(false);
+    // Spaces start locked so they never scramble and don't block completion.
+    const locked = Array.from({ length: n }, (_, i) => text[i] === " ");
     const SWEEP_EVERY = 2; // advance the lock/unlock front every N frames (~90ms)
     let frame = 0;
+    let fired = false;
 
     const id = window.setInterval(() => {
       frame += 1;
 
-      // Move the reveal front one character per sweep, left to right.
       if (frame % SWEEP_EVERY === 0) {
         if (activeRef.current) {
           const next = locked.indexOf(false); // leftmost still-scrambling -> lock
@@ -54,11 +59,26 @@ export function ScrambleText({
       }
 
       let out = "";
+      let allLocked = true;
       for (let i = 0; i < n; i++) {
         const ch = text[i];
-        out += ch === " " || locked[i] ? ch : randGlyph();
+        if (ch === " " || locked[i]) {
+          out += ch;
+        } else {
+          out += randGlyph();
+          allLocked = false;
+        }
       }
       setDisplay(out);
+
+      if (activeRef.current) {
+        if (allLocked && !fired) {
+          fired = true;
+          onResolvedRef.current?.();
+        }
+      } else {
+        fired = false;
+      }
     }, 45);
 
     return () => window.clearInterval(id);

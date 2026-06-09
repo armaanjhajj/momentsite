@@ -1,7 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { KnowledgeGraph } from "@/components/KnowledgeGraph";
 import { ExhibitModal, type ExhibitContent } from "@/components/ExhibitModal";
 import { LegacyModal } from "@/components/LegacyModal";
@@ -49,16 +55,43 @@ function ExhibitRow({
   ex: Exhibit;
   onActivate: () => void;
 }) {
-  const [hovered, setHovered] = useState(false);
+  const router = useRouter();
+  const [active, setActive] = useState(false);
+  const [canHover, setCanHover] = useState(true);
+  const navigatingRef = useRef(false);
+  const navigatedRef = useRef(false);
+
+  // Touch devices report no hover; we only intercept taps there.
+  useEffect(() => {
+    setCanHover(window.matchMedia("(hover: hover)").matches);
+  }, []);
+
+  const go = () => {
+    if (navigatingRef.current && !navigatedRef.current && ex.href) {
+      navigatedRef.current = true;
+      router.push(ex.href);
+    }
+  };
+
+  // No-hover (touch): play the decode on tap, then navigate once it resolves.
+  const onSoonTap = (e: ReactMouseEvent) => {
+    if (!ex.href || navigatingRef.current) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    e.preventDefault();
+    navigatingRef.current = true;
+    setActive(true);
+    window.setTimeout(go, ex.title.length * 110 + 500); // safety net
+  };
+
   const linkClass = `exhibit-row exhibit-row-link${
     ex.soon ? " exhibit-row-soon" : ""
-  }`;
+  }${ex.soon && active ? " exhibit-row-soon-lit" : ""}`;
   const content = (
     <>
       <span className="exhibit-num">{pad(n)}</span>
       <span className="exhibit-title">
         {ex.soon ? (
-          <ScrambleText text={ex.title} active={hovered} />
+          <ScrambleText text={ex.title} active={active} onResolved={go} />
         ) : (
           ex.title
         )}
@@ -104,10 +137,11 @@ function ExhibitRow({
     <Link
       href={ex.href}
       className={linkClass}
-      onMouseEnter={ex.soon ? () => setHovered(true) : undefined}
-      onMouseLeave={ex.soon ? () => setHovered(false) : undefined}
-      onFocus={ex.soon ? () => setHovered(true) : undefined}
-      onBlur={ex.soon ? () => setHovered(false) : undefined}
+      onMouseEnter={ex.soon && canHover ? () => setActive(true) : undefined}
+      onMouseLeave={ex.soon && canHover ? () => setActive(false) : undefined}
+      onFocus={ex.soon && canHover ? () => setActive(true) : undefined}
+      onBlur={ex.soon && canHover ? () => setActive(false) : undefined}
+      onClick={ex.soon && !canHover ? onSoonTap : undefined}
     >
       {content}
     </Link>
