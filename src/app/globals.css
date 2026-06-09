@@ -4041,18 +4041,6 @@ html {
   background: rgba(255, 255, 255, 0.14);
 }
 
-.graph-overlay-hint {
-  position: fixed;
-  bottom: 26px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 210;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: rgba(255, 255, 255, 0.4);
-  pointer-events: none;
-}
-
 @media (max-width: 700px) {
   .landing-hero {
     padding: 32px 18px 110px;
@@ -4064,10 +4052,6 @@ html {
 
   .graph-section {
     padding: 20px 18px 100px;
-  }
-
-  .graph-overlay-hint {
-    display: none;
   }
 }
 
@@ -4141,34 +4125,24 @@ a.exhibit-row,
   color: #ffffff;
 }
 
-/* Next up — teased, dim, not interactive */
-.exhibit-row-next .exhibit-title {
+/* Soon — live but greyed out, with a constantly-scrambling title in the full
+   black weight (may jitter). Hovering lights it up and decodes left-to-right. */
+.exhibit-row-soon .exhibit-title {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+.exhibit-row-soon .exhibit-num {
   color: rgba(255, 255, 255, 0.16);
 }
 
-.exhibit-row-next .exhibit-num {
-  color: rgba(255, 255, 255, 0.14);
-}
-
-.exhibit-nextlabel {
-  align-self: center;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: rgba(255, 255, 255, 0.28);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 100px;
-  padding: 5px 12px;
-  white-space: nowrap;
+.exhibit-row-soon:hover .exhibit-title,
+.exhibit-row-soon:hover .exhibit-num {
+  color: #ffffff;
 }
 
 @media (max-width: 700px) {
   .exhibits-page {
     padding: 44px 18px 60px;
-  }
-
-  .exhibit-nextlabel {
-    display: none;
   }
 }
 
@@ -4799,26 +4773,6 @@ a.exhibit-row,
   font-weight: 600;
 }
 
-.app-features {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin: 32px 0 0;
-  padding: 0;
-}
-
-.app-feature {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.65);
-  padding: 7px 13px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-}
-
 .app-launch {
   display: inline-flex;
   align-items: center;
@@ -4839,4 +4793,79 @@ a.exhibit-row,
   border-radius: 50%;
   background: #34c759;
   box-shadow: 0 0 10px rgba(52, 199, 89, 0.8);
+}
+
+/* Inline footnote term + hover/focus tooltip (asterisked words on app pages) */
+.footnote {
+  position: relative;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px dotted rgba(255, 255, 255, 0.28);
+  cursor: help;
+  outline: none;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.footnote-mark {
+  margin-left: 1px;
+  font-size: 0.7em;
+  font-weight: 700;
+  line-height: 0;
+  color: #34c759;
+  vertical-align: super;
+}
+
+.footnote-pop {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 10px);
+  z-index: 50;
+  width: max-content;
+  max-width: min(264px, calc(100vw - 32px));
+  padding: 11px 13px;
+  font-size: 12.5px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: normal;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(18, 18, 18, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 11px;
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(6px);
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.footnote-pop::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 18px;
+  border: 5px solid transparent;
+  border-top-color: rgba(18, 18, 18, 0.97);
+}
+
+.footnote:hover,
+.footnote:focus-visible {
+  color: #ffffff;
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+.footnote:hover .footnote-pop,
+.footnote:focus .footnote-pop,
+.footnote:focus-within .footnote-pop {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footnote-pop {
+    transition: none;
+  }
 }

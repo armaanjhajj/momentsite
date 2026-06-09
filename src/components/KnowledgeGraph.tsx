@@ -395,11 +395,11 @@ export function KnowledgeGraph({
         <button
           className="graph-frame"
           onClick={() => setInternalExpanded(true)}
-          aria-label="View concept map exhibit"
+          aria-label="Expand artifact"
         >
           {!expanded && <svg ref={svgRef} className="graph-frame-svg" />}
           <div className="graph-frame-overlay">
-            <span className="graph-frame-cta">View exhibit</span>
+            <span className="graph-frame-cta">Expand artifact</span>
           </div>
         </button>
       )}
@@ -412,14 +412,10 @@ export function KnowledgeGraph({
           <button
             className="graph-overlay-close"
             onClick={close}
-            aria-label="Back to exhibits"
+            aria-label="Back to artifacts"
           >
             &times;
           </button>
-
-          <span className="graph-overlay-hint">
-            Drag to move · scroll to zoom · click a node
-          </span>
 
           {selectedNode && (
             <div className="graph-sidebar">

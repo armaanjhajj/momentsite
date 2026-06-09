@@ -5,6 +5,7 @@ import Link from "next/link";
 import { KnowledgeGraph } from "@/components/KnowledgeGraph";
 import { ExhibitModal, type ExhibitContent } from "@/components/ExhibitModal";
 import { LegacyModal } from "@/components/LegacyModal";
+import { ScrambleText } from "@/components/ScrambleText";
 
 type Exhibit = {
   title: string;
@@ -16,6 +17,8 @@ type Exhibit = {
   action?: "graph";
   // modal: key into the content map — opens an in-page blurb + media popup.
   modal?: string;
+  // soon: greyed-out row with a continuously scrambling title; still navigates.
+  soon?: boolean;
 };
 
 // #0 … #N — live exhibits. Items with an href navigate, items with an action
@@ -31,10 +34,9 @@ const EXHIBITS: Exhibit[] = [
   { title: "GLASSES", href: "/glasses", static: true },
   { title: "VTKICKBACK", href: "/events/vt-kickback" },
   { title: "KNOWLEDGEGRAPH", action: "graph" },
+  { title: "LYFSTYL", href: "/LYFSTYL", soon: true },
+  { title: "DSCVR", href: "/DSCVR", soon: true },
 ];
-
-// Next up — teased, not clickable.
-const NEXT_TITLE = "??????????";
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
@@ -47,10 +49,20 @@ function ExhibitRow({
   ex: Exhibit;
   onActivate: () => void;
 }) {
+  const [hovered, setHovered] = useState(false);
+  const linkClass = `exhibit-row exhibit-row-link${
+    ex.soon ? " exhibit-row-soon" : ""
+  }`;
   const content = (
     <>
       <span className="exhibit-num">{pad(n)}</span>
-      <span className="exhibit-title">{ex.title}</span>
+      <span className="exhibit-title">
+        {ex.soon ? (
+          <ScrambleText text={ex.title} active={hovered} />
+        ) : (
+          ex.title
+        )}
+      </span>
     </>
   );
 
@@ -59,7 +71,7 @@ function ExhibitRow({
     return (
       <button
         type="button"
-        className="exhibit-row exhibit-row-link"
+        className={linkClass}
         onClick={onActivate}
       >
         {content}
@@ -73,7 +85,7 @@ function ExhibitRow({
 
   if (ex.static) {
     return (
-      <a href={ex.href} className="exhibit-row exhibit-row-link">
+      <a href={ex.href} className={linkClass}>
         {content}
       </a>
     );
@@ -84,12 +96,19 @@ function ExhibitRow({
       href={ex.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="exhibit-row exhibit-row-link"
+      className={linkClass}
     >
       {content}
     </a>
   ) : (
-    <Link href={ex.href} className="exhibit-row exhibit-row-link">
+    <Link
+      href={ex.href}
+      className={linkClass}
+      onMouseEnter={ex.soon ? () => setHovered(true) : undefined}
+      onMouseLeave={ex.soon ? () => setHovered(false) : undefined}
+      onFocus={ex.soon ? () => setHovered(true) : undefined}
+      onBlur={ex.soon ? () => setHovered(false) : undefined}
+    >
       {content}
     </Link>
   );
@@ -227,12 +246,6 @@ export default function Exhibits() {
         {EXHIBITS.map((ex, i) => (
           <ExhibitRow key={ex.title} n={i} ex={ex} onActivate={() => activate(ex)} />
         ))}
-
-        <div className="exhibit-row exhibit-row-next">
-          <span className="exhibit-num">{pad(EXHIBITS.length)}</span>
-          <span className="exhibit-title">{NEXT_TITLE}</span>
-          <span className="exhibit-nextlabel">NEXT UP</span>
-        </div>
       </div>
 
       {/* Concept map — opens as a full-screen overlay over the list */}

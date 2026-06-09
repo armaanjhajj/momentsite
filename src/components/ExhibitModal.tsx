@@ -43,7 +43,7 @@ export function ExhibitModal({
       <button
         className="exhibit-modal-close"
         onClick={onClose}
-        aria-label="Back to exhibits"
+        aria-label="Back to artifacts"
       >
         &times;
       </button>
