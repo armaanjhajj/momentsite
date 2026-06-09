@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { track } from "@vercel/analytics";
 import { supabase } from "@/lib/supabase";
 import { TeamGrid } from "@/components/TeamGrid";
 
@@ -128,6 +129,7 @@ export default function Contact() {
       setError(insertError.message);
       return;
     }
+    track("inquiry_submit");
     setSubmitted(true);
   }
 

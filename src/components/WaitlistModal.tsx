@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
 import { Logo } from "@/components/Logo";
+import { track } from "@vercel/analytics";
 import { supabase } from "@/lib/supabase";
 
 const STORAGE_KEY = "moments-waitlist-joined";
@@ -16,7 +17,14 @@ function TeamSection({ onClose }: { onClose: () => void }) {
       <div className="modal-team">
         <p className="modal-team-label">Want to help build it?</p>
         <p className="modal-team-text">
-          <Link href="/apply" className="modal-team-link" onClick={onClose}>
+          <Link
+            href="/apply"
+            className="modal-team-link"
+            onClick={() => {
+              track("apply_click", { from: "waitlist_modal" });
+              onClose();
+            }}
+          >
             Apply
           </Link>{" "}
           to join the Moments team.
@@ -63,6 +71,7 @@ function ModalContent({ onClose }: { onClose: () => void }) {
     }
 
     localStorage.setItem(STORAGE_KEY, email.trim().toLowerCase());
+    track("waitlist_join");
     setSubmitted(true);
   }
 
