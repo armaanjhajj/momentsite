@@ -131,7 +131,7 @@ export default function Home() {
 
       {/* ── About ── */}
       <section className="about reveal" id="about" ref={aboutRef}>
-        <p className="about-eyebrow">An art &amp; tech collective</p>
+        <p className="about-eyebrow">An art &amp; tech collective that builds cool ways</p>
         <h2 className="about-headline">For people to connect.</h2>
 
         <div className="about-body">
