@@ -148,7 +148,7 @@ export default function Home() {
           <p>
             We&apos;re about a year young (est. 2025) and we&apos;ve been doing
             some pretty{" "}
-            <Link href="/exhibits" className="about-link">
+            <Link href="/artifacts" className="about-link">
               interesting stuff
             </Link>{" "}
             so far. Our goal now is to expand our team to people who share a

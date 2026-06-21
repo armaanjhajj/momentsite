@@ -5,7 +5,7 @@ import Link from "next/link";
 export function ExhibitClose() {
   return (
     <Link
-      href="/exhibits"
+      href="/artifacts"
       className="exhibit-close"
       aria-label="Back to artifacts"
     >

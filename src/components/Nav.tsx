@@ -8,7 +8,7 @@ import { WaitlistModal } from "@/components/WaitlistModal";
 
 const NAV_ITEMS = [
   { label: "about", href: "/#about" },
-  { label: "artifacts", href: "/exhibits" },
+  { label: "artifacts", href: "/artifacts" },
   { label: "contact", href: "/contact" },
 ];
 const STORAGE_KEY = "moments-waitlist-joined";
