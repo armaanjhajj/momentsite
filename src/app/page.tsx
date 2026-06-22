@@ -131,35 +131,27 @@ export default function Home() {
 
       {/* ── About ── */}
       <section className="about reveal" id="about" ref={aboutRef}>
-        <p className="about-eyebrow">An art &amp; tech collective that builds cool ways</p>
-        <h2 className="about-headline">For people to connect.</h2>
+        <p className="about-eyebrow">A network built for connection</p>
+        <h2 className="about-headline">New ways for people to connect.</h2>
 
         <div className="about-body">
           <p>
-            Moments is an art and tech collective started by a{" "}
-            <Link href="/team" className="about-link">
-              group
-            </Link>{" "}
-            of friends at university. Our goal is to make cool new ways for
-            people to connect. We gather like-minded people to make cool art,
-            software, and tools, building new and interesting ways for people to
-            make friends and actually connect.
+            Moments is a network of people obsessed with one thing: inventing
+            better ways for the world to
+            connect. Artists, engineers, and builders making art, software, and
+            tools that turn strangers into friends.
           </p>
           <p>
-            We&apos;re about a year young (est. 2025) and we&apos;ve been doing
-            some pretty{" "}
+            We&apos;re a year in and already made{" "}
             <Link href="/artifacts" className="about-link">
-              interesting stuff
-            </Link>{" "}
-            so far. Our goal now is to expand our team to people who share a
-            similar vision, so we can keep making connecting easier and the
-            world feel smaller.
+              things we&apos;re proud of
+            </Link>
+            . Now we&apos;re growing, and looking for people who get it.
           </p>
           <p>
-            We&apos;re working on some pretty cool stuff, so if you wanna learn
-            more or be part of the mission,{" "}
+            Want in on the mission?{" "}
             <Link href="/contact" className="about-link">
-              give us a shout.
+              Give us a shout.
             </Link>
           </p>
         </div>

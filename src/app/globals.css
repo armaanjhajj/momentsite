@@ -4059,6 +4059,11 @@ html {
     object-fit: cover;
   }
 
+  /* The scroll hint reads like a stray caption on mobile — hide it */
+  .landing-hero .scroll-invite {
+    display: none;
+  }
+
   .about {
     padding: 80px 18px;
   }
