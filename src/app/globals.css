@@ -3795,7 +3795,7 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 48px 24px 120px;
+  padding: 24px 24px 160px;
   overflow: hidden;
 }
 
@@ -4043,7 +4043,20 @@ html {
 
 @media (max-width: 700px) {
   .landing-hero {
-    padding: 32px 18px 110px;
+    padding: 16px 18px 80px;
+  }
+
+  /* Fill most of the screen on mobile — zoom/crop the image to cover */
+  .landing-hero .landing-image-wrap {
+    max-width: none;
+    width: 100%;
+    height: 74vh;
+  }
+
+  .landing-hero .landing-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .about {
