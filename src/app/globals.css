@@ -4343,15 +4343,9 @@ a.exhibit-row,
   gap: 14px;
 }
 
-/* toggle button — desktop hides it (demo always shown) */
+/* "Watch the demo" button — desktop hides it (demo shown inline) */
 .survey-demo-toggle {
   display: none;
-}
-
-.survey-demo-body {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
 }
 
 .survey-demo-frame {
@@ -4380,6 +4374,28 @@ a.exhibit-row,
   color: rgba(255, 255, 255, 0.35);
   text-align: center;
   margin: 0;
+}
+
+/* ── Demo popup (mobile) ── */
+.survey-demo-modal {
+  position: relative;
+  width: min(390px, 92vw);
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0;
+  padding: 40px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.survey-modal-iframe {
+  width: 100%;
+  aspect-ratio: 390 / 844;
+  max-height: 78vh;
+  border: 0;
+  display: block;
+  background: #000;
 }
 
 /* ── Right — form ── */
@@ -4641,10 +4657,13 @@ a.exhibit-row,
 
   .survey-demo {
     position: static;
-    gap: 0;
   }
 
-  /* collapsible: show the toggle, hide the demo until opened */
+  /* mobile: hide the inline demo, show a button that opens the popup */
+  .survey-demo-frame {
+    display: none;
+  }
+
   .survey-demo-toggle {
     all: unset;
     box-sizing: border-box;
@@ -4654,51 +4673,25 @@ a.exhibit-row,
     justify-content: space-between;
     gap: 12px;
     width: 100%;
-    padding: 16px 18px;
+    padding: 18px;
     font-size: 12px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #ffffff;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    background: rgba(255, 255, 255, 0.015);
-    transition: border-color 0.2s ease, background 0.2s ease;
+    color: #000000;
+    background: #ffffff;
+    border: 1px solid #ffffff;
+    transition: opacity 0.2s ease;
   }
 
   .survey-demo-toggle:hover {
-    border-color: rgba(255, 255, 255, 0.4);
+    opacity: 0.85;
   }
 
   .survey-demo-chevron {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
     flex-shrink: 0;
-    transition: transform 0.25s ease;
-  }
-
-  .survey-demo.open .survey-demo-chevron {
-    transform: rotate(180deg);
-  }
-
-  .survey-demo-body {
-    display: grid;
-    grid-template-rows: 0fr;
-    overflow: hidden;
-    transition: grid-template-rows 0.3s ease, margin-top 0.3s ease;
-  }
-
-  .survey-demo-body > * {
-    min-height: 0;
-  }
-
-  .survey-demo.open .survey-demo-body {
-    grid-template-rows: 1fr;
-    margin-top: 14px;
-  }
-
-  .survey-iframe {
-    max-width: 320px;
-    margin: 0 auto;
   }
 }
 

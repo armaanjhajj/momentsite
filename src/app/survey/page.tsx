@@ -1,10 +1,49 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { track } from "@vercel/analytics";
 import { supabase } from "@/lib/supabase";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!open) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [open, onClose]);
+
+  if (!open || !mounted) return null;
+
+  return createPortal(
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="survey-demo-modal" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label="Close">
+          &times;
+        </button>
+        <iframe
+          src="/moments-demo.html"
+          title="MOMENTS interactive demo"
+          className="survey-modal-iframe"
+        />
+      </div>
+    </div>,
+    document.body
+  );
+}
 
 const FIND_PEOPLE = [
   { value: "group_chat", label: "Group chat" },
@@ -74,15 +113,22 @@ export default function Survey() {
       </header>
 
       <div className="survey-grid">
-        {/* Left — the demo (collapsible on mobile) */}
-        <div className={`survey-demo ${demoOpen ? "open" : ""}`}>
+        {/* Left — the demo. Inline + sticky on desktop, popup on mobile. */}
+        <div className="survey-demo">
+          <div className="survey-demo-frame">
+            <iframe
+              src="/moments-demo.html"
+              title="MOMENTS interactive demo"
+              className="survey-iframe"
+              loading="lazy"
+            />
+          </div>
           <button
             type="button"
             className="survey-demo-toggle"
-            onClick={() => setDemoOpen((v) => !v)}
-            aria-expanded={demoOpen}
+            onClick={() => setDemoOpen(true)}
           >
-            <span>{demoOpen ? "Hide the demo" : "Watch the demo"}</span>
+            <span>Watch the demo</span>
             <svg
               className="survey-demo-chevron"
               viewBox="0 0 24 24"
@@ -92,19 +138,9 @@ export default function Survey() {
               strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <polyline points="6 9 12 15 18 9" />
+              <polygon points="7 5 19 12 7 19" fill="currentColor" stroke="none" />
             </svg>
           </button>
-          <div className="survey-demo-body">
-            <div className="survey-demo-frame">
-              <iframe
-                src="/moments-demo.html"
-                title="MOMENTS interactive demo"
-                className="survey-iframe"
-                loading="lazy"
-              />
-            </div>
-          </div>
         </div>
 
         {/* Right — the survey */}
@@ -232,6 +268,8 @@ export default function Survey() {
           )}
         </div>
       </div>
+
+      <DemoModal open={demoOpen} onClose={() => setDemoOpen(false)} />
     </div>
   );
 }
