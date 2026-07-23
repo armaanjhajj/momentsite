@@ -6,7 +6,7 @@ import { createPortal } from "react-dom";
 // The legacy F25 cohort — shown on the team page and linked from the ORG
 // exhibit. zIndex is elevated so it can stack above the exhibit modal (z 200).
 const LEGACY = [
-  "Ajit", "Val", "Amy", "Nidhi", "Aydin", "Dhruv", "Esha",
+  "Ajit", "Amy", "Nidhi", "Aydin", "Dhruv", "Esha",
   "Kaushi", "Siya", "Maggie", "Shruthi", "Jasmine", "Nila",
   "Julia", "Katelyn", "Anish", "David", "Meet", "Shivani",
 ];
