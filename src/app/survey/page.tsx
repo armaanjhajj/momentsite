@@ -7,8 +7,12 @@ import { supabase } from "@/lib/supabase";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const DEMO_W = 390;
+const DEMO_H = 844;
+
 function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const [mounted, setMounted] = useState(false);
+  const [scale, setScale] = useState(1);
 
   useEffect(() => {
     setMounted(true);
@@ -16,13 +20,24 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
 
   useEffect(() => {
     if (!open) return;
+
+    // Fit the native 390×844 demo into the available viewport.
+    const fit = () => {
+      const maxW = Math.min(DEMO_W, window.innerWidth * 0.94 - 20);
+      const maxH = window.innerHeight * 0.9 - 64;
+      setScale(Math.min(maxW / DEMO_W, maxH / DEMO_H, 1));
+    };
+    fit();
+
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", fit);
     return () => {
       document.body.style.overflow = prev;
       window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", fit);
     };
   }, [open, onClose]);
 
@@ -34,11 +49,21 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
         <button className="modal-close" onClick={onClose} aria-label="Close">
           &times;
         </button>
-        <iframe
-          src="/moments-demo.html"
-          title="MOMENTS interactive demo"
-          className="survey-modal-iframe"
-        />
+        <div
+          className="survey-modal-viewport"
+          style={{ width: DEMO_W * scale, height: DEMO_H * scale }}
+        >
+          <iframe
+            src="/moments-demo.html"
+            title="MOMENTS interactive demo"
+            className="survey-modal-iframe"
+            style={{
+              width: DEMO_W,
+              height: DEMO_H,
+              transform: `scale(${scale})`,
+            }}
+          />
+        </div>
       </div>
     </div>,
     document.body

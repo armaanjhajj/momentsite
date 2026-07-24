@@ -4379,23 +4379,27 @@ a.exhibit-row,
 /* ── Demo popup (mobile) ── */
 .survey-demo-modal {
   position: relative;
-  width: min(390px, 92vw);
   background: #000000;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
-  padding: 40px 16px 16px;
+  padding: 44px 10px 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+/* holds the scaled demo; JS sets its exact width/height */
+.survey-modal-viewport {
+  position: relative;
+  overflow: hidden;
+}
+
+/* native 390×844; JS transform-scales it to fit the viewport */
 .survey-modal-iframe {
-  width: 100%;
-  aspect-ratio: 390 / 844;
-  max-height: 78vh;
   border: 0;
   display: block;
   background: #000;
+  transform-origin: top left;
 }
 
 /* ── Right — form ── */
