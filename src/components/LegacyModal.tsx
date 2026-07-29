@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
-// The legacy F25 cohort — shown on the team page and linked from the ORG
+// The legacy F25 cohort. Shown on the team page and linked from the ORG
 // exhibit. zIndex is elevated so it can stack above the exhibit modal (z 200).
 const LEGACY = [
   "Ajit", "Amy", "Nidhi", "Aydin", "Dhruv", "Esha",

@@ -7,3 +7,14 @@ node_modules/
 .vercel
 *.tsbuildinfo
 .env*.local
+
+# Python toolchain for the SCENT model. The venv is 1.2 GB and is rebuilt by
+# python/setup-env.sh; the checkpoint and the atlas it produced are committed
+# because they cannot be rebuilt (no training log, no recorded epoch count).
+python/.venv/
+__pycache__/
+*.py[cod]
+
+# Any env file, not just the .local ones. next-env.d.ts does not match this.
+.env*
+!.env.example

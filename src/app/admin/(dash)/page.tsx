@@ -1,7 +1,7 @@
 import { supabaseAdmin } from "@/lib/supabase-admin";
 import { LogoutButton } from "./LogoutButton";
 
-// Always render fresh — this is a live dashboard of incoming data.
+// Always render fresh. This is a live dashboard of incoming data.
 export const dynamic = "force-dynamic";
 
 type WaitlistRow = { email: string; created_at: string };
@@ -68,7 +68,7 @@ export default async function AdminDashboard() {
   const rated = survey.filter((r) => r.would_go != null);
   const avgGo = rated.length
     ? (rated.reduce((s, r) => s + (r.would_go ?? 0), 0) / rated.length).toFixed(1)
-    : "—";
+    : "·";
 
   const weekAgo = Date.now() - WEEK_MS;
   const metrics = [
@@ -195,11 +195,11 @@ export default async function AdminDashboard() {
               <tbody>
                 {survey.map((row) => (
                   <tr key={row.id}>
-                    <td>{row.find_people ?? "—"}</td>
-                    <td>{row.openness ?? "—"}</td>
-                    <td>{row.would_go != null ? `${row.would_go}/5` : "—"}</td>
-                    <td className="admin-td-message">{row.spot ?? "—"}</td>
-                    <td className="admin-td-contact">{row.email ?? "—"}</td>
+                    <td>{row.find_people ?? "·"}</td>
+                    <td>{row.openness ?? "·"}</td>
+                    <td>{row.would_go != null ? `${row.would_go}/5` : "·"}</td>
+                    <td className="admin-td-message">{row.spot ?? "·"}</td>
+                    <td className="admin-td-contact">{row.email ?? "·"}</td>
                     <td className="admin-td-muted">{fmtDate(row.created_at)}</td>
                   </tr>
                 ))}

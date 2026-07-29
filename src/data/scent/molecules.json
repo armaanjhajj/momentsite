@@ -1,0 +1,2838 @@
+[
+ {
+  "id": "geosmin",
+  "name": "Geosmin",
+  "smiles": "OC12CCCCC1(C)CCCC2C",
+  "descriptors": [
+   "earthy",
+   "musty",
+   "mossy",
+   "green"
+  ],
+  "threshold": "5 parts per trillion in air",
+  "occurrences": [
+   "Rain falling on dry soil (petrichor)",
+   "Beetroot",
+   "Muddy-tasting freshwater fish",
+   "Damp basements"
+  ],
+  "fact": "Humans detect geosmin at around 5 parts per trillion, a more sensitive threshold than a shark has for blood. It is made by soil bacteria, and we are apparently built to notice them."
+ },
+ {
+  "id": "cis-3-hexenol",
+  "name": "cis-3-Hexen-1-ol",
+  "smiles": "CC/C=C\\CCO",
+  "descriptors": [
+   "green",
+   "grassy",
+   "fresh",
+   "herbal"
+  ],
+  "occurrences": [
+   "Freshly cut grass",
+   "Crushed leaves",
+   "Green tea",
+   "Unripe fruit"
+  ],
+  "fact": "Known as leaf alcohol. Plants release it within seconds of tissue damage. The smell of cut grass is a wound response, chemically a scream."
+ },
+ {
+  "id": "2-acetyl-1-pyrroline",
+  "name": "2-Acetyl-1-pyrroline",
+  "smiles": "CC(=O)C1=NCCC1",
+  "descriptors": [
+   "bready",
+   "roasted",
+   "nutty",
+   "sweet"
+  ],
+  "threshold": "0.02 parts per billion in water",
+  "occurrences": [
+   "The crust of fresh bread",
+   "Popcorn",
+   "Jasmine and basmati rice",
+   "Cooked white bread"
+  ],
+  "fact": "Popcorn, jasmine rice and bread crust smell related because they are literally the same molecule. Pandan leaves make it too."
+ },
+ {
+  "id": "vanillin",
+  "name": "Vanillin",
+  "smiles": "COc1cc(C=O)ccc1O",
+  "descriptors": [
+   "vanilla",
+   "sweet",
+   "creamy",
+   "balsamic"
+  ],
+  "occurrences": [
+   "Vanilla pods",
+   "Oak-aged whiskey and wine",
+   "Old books",
+   "Ice cream"
+  ],
+  "fact": "Ageing paper degrades into vanillin and other aromatics, which is a large part of why old libraries smell sweet."
+ },
+ {
+  "id": "ethylvanillin",
+  "name": "Ethylvanillin",
+  "smiles": "CCOc1cc(C=O)ccc1O",
+  "descriptors": [
+   "vanilla",
+   "sweet",
+   "creamy",
+   "powdery"
+  ],
+  "occurrences": [
+   "Confectionery",
+   "Cheap vanilla flavouring",
+   "Chocolate coatings"
+  ],
+  "fact": "Roughly three times stronger than vanillin, and not found in vanilla at all. It is a purely synthetic exaggeration of the note."
+ },
+ {
+  "id": "eugenol",
+  "name": "Eugenol",
+  "smiles": "C=CCc1ccc(O)c(OC)c1",
+  "descriptors": [
+   "clove",
+   "spicy",
+   "woody",
+   "medicinal",
+   "warm"
+  ],
+  "occurrences": [
+   "Clove oil",
+   "Cinnamon leaf",
+   "Dentists' offices",
+   "Bay leaves"
+  ],
+  "fact": "The dentist smell. Eugenol is mildly anaesthetic, which is why clove oil was a toothache remedy long before it was a flavouring."
+ },
+ {
+  "id": "limonene",
+  "name": "D-Limonene",
+  "smiles": "CC(=C)C1CCC(C)=CC1",
+  "descriptors": [
+   "citrus",
+   "fresh",
+   "fruity",
+   "sweet"
+  ],
+  "occurrences": [
+   "Orange and lemon peel",
+   "Cleaning products",
+   "Fresh-squeezed juice"
+  ],
+  "fact": "The spray you see when you bend orange peel is mostly limonene. Its mirror image smells of turpentine and pine instead."
+ },
+ {
+  "id": "linalool",
+  "name": "Linalool",
+  "smiles": "CC(C)=CCCC(C)(O)C=C",
+  "descriptors": [
+   "floral",
+   "lavender",
+   "citrus",
+   "fresh",
+   "woody"
+  ],
+  "occurrences": [
+   "Lavender",
+   "Coriander leaf",
+   "Bergamot",
+   "Roughly 200 other plants"
+  ],
+  "fact": "One of the most widely distributed scent molecules in the plant kingdom, and one of the most common ingredients in soap."
+ },
+ {
+  "id": "furaneol",
+  "name": "Furaneol",
+  "smiles": "CC1OC(C)=C(O)C1=O",
+  "descriptors": [
+   "caramellic",
+   "sweet",
+   "fruity",
+   "berry"
+  ],
+  "occurrences": [
+   "Ripe strawberries",
+   "Pineapple",
+   "Roasted coffee",
+   "Soy sauce"
+  ],
+  "fact": "Also called strawberry furanone. At high concentration it smells burnt and caramel; dilute it and it turns into ripe fruit."
+ },
+ {
+  "id": "beta-damascenone",
+  "name": "β-Damascenone",
+  "smiles": "CC=CC(=O)C1=C(C)C=CCC1(C)C",
+  "descriptors": [
+   "rose",
+   "fruity",
+   "floral",
+   "honey",
+   "tobacco"
+  ],
+  "threshold": "0.002 parts per billion in water",
+  "occurrences": [
+   "Rose oil",
+   "Red wine",
+   "Cooked apple",
+   "Beer"
+  ],
+  "fact": "Present in rose oil at well under a tenth of a percent, yet it contributes more to the smell of a rose than almost anything else in the bottle."
+ },
+ {
+  "id": "indole",
+  "name": "Indole",
+  "smiles": "c1ccc2c(c1)cc[nH]2",
+  "descriptors": [
+   "floral",
+   "jasmine",
+   "animalic",
+   "fecal"
+  ],
+  "occurrences": [
+   "Jasmine flowers",
+   "Orange blossom",
+   "Faeces",
+   "Coal tar"
+  ],
+  "fact": "Concentrated it is unmistakably faecal. Diluted it becomes the warm, almost narcotic body of jasmine. Same molecule, opposite verdict."
+ },
+ {
+  "id": "skatole",
+  "name": "Skatole",
+  "smiles": "Cc1c[nH]c2ccccc12",
+  "descriptors": [
+   "fecal",
+   "animalic",
+   "floral",
+   "musty"
+  ],
+  "occurrences": [
+   "Mammalian faeces",
+   "Civet",
+   "Jasmine absolute",
+   "Cigarette smoke"
+  ],
+  "fact": "Its name comes from the Greek for dung. It is nonetheless used in trace amounts in perfumery and in vanilla and strawberry flavourings."
+ },
+ {
+  "id": "ibmp",
+  "name": "2-Isobutyl-3-methoxypyrazine",
+  "smiles": "COc1nccnc1CC(C)C",
+  "descriptors": [
+   "green",
+   "vegetable",
+   "earthy",
+   "peppery"
+  ],
+  "threshold": "0.002 parts per billion in water",
+  "occurrences": [
+   "Green bell pepper",
+   "Under-ripe Cabernet Sauvignon",
+   "Peas"
+  ],
+  "fact": "One of the most potent odorants known. A single drop dispersed in an Olympic swimming pool would still be detectable."
+ },
+ {
+  "id": "ipmp",
+  "name": "2-Isopropyl-3-methoxypyrazine",
+  "smiles": "COc1nccnc1C(C)C",
+  "descriptors": [
+   "green",
+   "earthy",
+   "vegetable",
+   "musty"
+  ],
+  "occurrences": [
+   "Raw potato",
+   "Ladybird taint in wine",
+   "Carrot"
+  ],
+  "fact": "The compound behind ladybird taint, a handful of beetles harvested with the grapes is enough to ruin a tank of wine."
+ },
+ {
+  "id": "diacetyl",
+  "name": "Diacetyl",
+  "smiles": "CC(=O)C(=O)C",
+  "descriptors": [
+   "buttery",
+   "creamy",
+   "sweet",
+   "fatty"
+  ],
+  "occurrences": [
+   "Butter",
+   "Microwave popcorn",
+   "Chardonnay",
+   "Beer"
+  ],
+  "fact": "The butter note in artificial butter flavouring. Inhaling it industrially causes a lung disease nicknamed popcorn worker's lung."
+ },
+ {
+  "id": "acetoin",
+  "name": "Acetoin",
+  "smiles": "CC(O)C(C)=O",
+  "descriptors": [
+   "buttery",
+   "creamy",
+   "sweet",
+   "bready"
+  ],
+  "occurrences": [
+   "Butter",
+   "Yoghurt",
+   "Sweetcorn",
+   "Apples"
+  ],
+  "fact": "The precursor to diacetyl, and softer than it. The difference between cream and butter in flavour terms."
+ },
+ {
+  "id": "isoamyl-acetate",
+  "name": "Isoamyl acetate",
+  "smiles": "CC(=O)OCCC(C)C",
+  "descriptors": [
+   "banana",
+   "fruity",
+   "sweet",
+   "solvent"
+  ],
+  "occurrences": [
+   "Ripe bananas",
+   "Pear drops",
+   "Hefeweizen beer",
+   "Nail polish remover"
+  ],
+  "fact": "Also a honeybee alarm pheromone. A bee that stings releases it, marking you as a target for the rest of the hive."
+ },
+ {
+  "id": "bmfds",
+  "name": "Bis(2-methyl-3-furyl) disulfide",
+  "smiles": "Cc1occc1SSc1ccoc1C",
+  "descriptors": [
+   "meaty",
+   "roasted",
+   "sulfurous",
+   "savoury"
+  ],
+  "occurrences": [
+   "Cooked beef",
+   "Roast chicken",
+   "Savoury seasonings"
+  ],
+  "fact": "One of the most intense meat odorants known, and a staple of vegetarian beef flavourings."
+ },
+ {
+  "id": "guaiacol",
+  "name": "Guaiacol",
+  "smiles": "COc1ccccc1O",
+  "descriptors": [
+   "smoky",
+   "phenolic",
+   "woody",
+   "medicinal",
+   "burnt"
+  ],
+  "occurrences": [
+   "Wood smoke",
+   "Roasted coffee",
+   "Whisky",
+   "Smoked meat"
+  ],
+  "fact": "The core of the campfire smell. It comes from lignin breaking down as wood burns, which is why almost all smoke smells related."
+ },
+ {
+  "id": "4-ethylguaiacol",
+  "name": "4-Ethylguaiacol",
+  "smiles": "CCc1ccc(O)c(OC)c1",
+  "descriptors": [
+   "smoky",
+   "spicy",
+   "phenolic",
+   "medicinal"
+  ],
+  "occurrences": [
+   "Smoked foods",
+   "Brett-affected wine",
+   "Soy sauce",
+   "Bourbon"
+  ],
+  "fact": "In small amounts it reads as smoky complexity in wine; a little more and tasters start calling it band-aid or barnyard."
+ },
+ {
+  "id": "4-vinylguaiacol",
+  "name": "4-Vinylguaiacol",
+  "smiles": "C=Cc1ccc(O)c(OC)c1",
+  "descriptors": [
+   "clove",
+   "spicy",
+   "smoky",
+   "phenolic"
+  ],
+  "occurrences": [
+   "Wheat beer",
+   "Clove",
+   "Roasted coffee",
+   "Aged orange juice"
+  ],
+  "fact": "The clove note in a Bavarian wheat beer is this compound, produced by the yeast rather than by any spice."
+ },
+ {
+  "id": "creosol",
+  "name": "Creosol",
+  "smiles": "Cc1ccc(O)c(OC)c1",
+  "descriptors": [
+   "smoky",
+   "phenolic",
+   "woody",
+   "spicy",
+   "leather"
+  ],
+  "occurrences": [
+   "Wood smoke",
+   "Whisky",
+   "Creosote-treated timber"
+  ],
+  "fact": "A large part of what makes a peated Islay whisky smell like a bonfire on a beach."
+ },
+ {
+  "id": "syringol",
+  "name": "Syringol",
+  "smiles": "COc1cccc(OC)c1O",
+  "descriptors": [
+   "smoky",
+   "phenolic",
+   "burnt",
+   "woody"
+  ],
+  "occurrences": [
+   "Hardwood smoke",
+   "Smoked fish",
+   "Barbecue"
+  ],
+  "fact": "Hardwood lignin produces syringol; softwood produces mostly guaiacol. It is why oak smoke and pine smoke smell different."
+ },
+ {
+  "id": "thymol",
+  "name": "Thymol",
+  "smiles": "Cc1ccc(C(C)C)c(O)c1",
+  "descriptors": [
+   "herbal",
+   "medicinal",
+   "phenolic",
+   "spicy",
+   "camphoreous"
+  ],
+  "occurrences": [
+   "Thyme",
+   "Oregano",
+   "Mouthwash",
+   "Antiseptic wipes"
+  ],
+  "fact": "Listerine was built around thymol. Its antiseptic smell is not a coincidence. It genuinely is an antiseptic."
+ },
+ {
+  "id": "carvacrol",
+  "name": "Carvacrol",
+  "smiles": "Cc1ccc(C(C)C)cc1O",
+  "descriptors": [
+   "herbal",
+   "spicy",
+   "phenolic",
+   "woody"
+  ],
+  "occurrences": [
+   "Oregano",
+   "Savory",
+   "Wild thyme",
+   "Pizza"
+  ],
+  "fact": "The smell most people file under pizza is largely carvacrol from dried oregano."
+ },
+ {
+  "id": "menthol",
+  "name": "Menthol",
+  "smiles": "CC(C)C1CCC(C)CC1O",
+  "descriptors": [
+   "minty",
+   "cooling",
+   "fresh",
+   "camphoreous"
+  ],
+  "occurrences": [
+   "Peppermint",
+   "Cough drops",
+   "Cigarettes",
+   "Muscle rubs"
+  ],
+  "fact": "Menthol does not lower temperature. It binds the TRPM8 receptor that reports cold, so your nerves report a chill that is not there."
+ },
+ {
+  "id": "carvone-r",
+  "name": "(R)-(−)-Carvone",
+  "smiles": "CC(=C)[C@@H]1CC=C(C)C(=O)C1",
+  "descriptors": [
+   "minty",
+   "fresh",
+   "herbal",
+   "sweet"
+  ],
+  "occurrences": [
+   "Spearmint",
+   "Toothpaste",
+   "Chewing gum"
+  ],
+  "fact": "Identical to its mirror image in every 2D structural sense, and it smells unmistakably of spearmint while the mirror smells of caraway."
+ },
+ {
+  "id": "carvone-s",
+  "name": "(S)-(+)-Carvone",
+  "smiles": "CC(=C)[C@H]1CC=C(C)C(=O)C1",
+  "descriptors": [
+   "anise",
+   "spicy",
+   "herbal",
+   "woody"
+  ],
+  "occurrences": [
+   "Caraway seed",
+   "Dill",
+   "Rye bread"
+  ],
+  "fact": "The exact mirror image of the spearmint molecule, and it smells of caraway instead. Your olfactory receptors are themselves chiral, so they can tell left from right."
+ },
+ {
+  "id": "menthone",
+  "name": "Menthone",
+  "smiles": "CC(C)C1CCC(C)CC1=O",
+  "descriptors": [
+   "minty",
+   "fresh",
+   "herbal",
+   "woody"
+  ],
+  "occurrences": [
+   "Peppermint oil",
+   "Geranium",
+   "Pennyroyal"
+  ],
+  "fact": "Drier and less sweet than menthol, and without the cooling trick. It smells of mint but does not feel cold."
+ },
+ {
+  "id": "pulegone",
+  "name": "Pulegone",
+  "smiles": "CC1CCC(=C(C)C)C(=O)C1",
+  "descriptors": [
+   "minty",
+   "camphoreous",
+   "herbal",
+   "sweet"
+  ],
+  "occurrences": [
+   "Pennyroyal",
+   "Peppermint",
+   "Catnip"
+  ],
+  "fact": "Sharp and slightly medicinal. The note that makes cheap mint flavourings smell harsh."
+ },
+ {
+  "id": "eucalyptol",
+  "name": "Eucalyptol",
+  "smiles": "CC12CCC(CC1)C(C)(C)O2",
+  "descriptors": [
+   "camphoreous",
+   "fresh",
+   "minty",
+   "cooling",
+   "medicinal"
+  ],
+  "occurrences": [
+   "Eucalyptus",
+   "Vapour rub",
+   "Rosemary",
+   "Tea tree"
+  ],
+  "fact": "Also called 1,8-cineole. It is what makes a blocked nose feel briefly open. The sensation is nerve signalling, not actual airflow."
+ },
+ {
+  "id": "camphor",
+  "name": "Camphor",
+  "smiles": "CC1(C)C2CCC1(C)C(=O)C2",
+  "descriptors": [
+   "camphoreous",
+   "medicinal",
+   "cooling",
+   "woody"
+  ],
+  "occurrences": [
+   "Camphor laurel",
+   "Mothballs",
+   "Chest rubs",
+   "Old wardrobes"
+  ],
+  "fact": "The smell of a grandmother's linen closet in much of the world, where camphor blocks were the standard moth repellent."
+ },
+ {
+  "id": "borneol",
+  "name": "Borneol",
+  "smiles": "CC1(C)C2CCC1(C)C(O)C2",
+  "descriptors": [
+   "camphoreous",
+   "woody",
+   "earthy",
+   "medicinal"
+  ],
+  "occurrences": [
+   "Rosemary",
+   "Ginger",
+   "Traditional Chinese medicine",
+   "Incense"
+  ],
+  "fact": "Camphor's alcohol counterpart. Softer, earthier, and a fixture of temple incense."
+ },
+ {
+  "id": "alpha-pinene",
+  "name": "α-Pinene",
+  "smiles": "CC1=CCC2CC1C2(C)C",
+  "descriptors": [
+   "pine",
+   "resinous",
+   "woody",
+   "fresh",
+   "camphoreous"
+  ],
+  "occurrences": [
+   "Pine needles",
+   "Turpentine",
+   "Rosemary",
+   "Forest air"
+  ],
+  "fact": "The dominant volatile in coniferous forest air, and a measurable contributor to the haze over pine-covered mountains."
+ },
+ {
+  "id": "beta-pinene",
+  "name": "β-Pinene",
+  "smiles": "C=C1CCC2CC1C2(C)C",
+  "descriptors": [
+   "pine",
+   "woody",
+   "resinous",
+   "herbal"
+  ],
+  "occurrences": [
+   "Pine resin",
+   "Hops",
+   "Cumin",
+   "Juniper"
+  ],
+  "fact": "Drier and less sharp than α-pinene. Together the two are most of what people mean by the smell of a Christmas tree."
+ },
+ {
+  "id": "myrcene",
+  "name": "β-Myrcene",
+  "smiles": "C=CC(=C)CCC=C(C)C",
+  "descriptors": [
+   "herbal",
+   "resinous",
+   "woody",
+   "fruity",
+   "peppery"
+  ],
+  "occurrences": [
+   "Hops",
+   "Bay leaves",
+   "Mango",
+   "Thyme"
+  ],
+  "fact": "The single most abundant terpene in hops, and a large part of why an IPA smells resinous."
+ },
+ {
+  "id": "p-cymene",
+  "name": "p-Cymene",
+  "smiles": "Cc1ccc(C(C)C)cc1",
+  "descriptors": [
+   "woody",
+   "citrus",
+   "spicy",
+   "solvent"
+  ],
+  "occurrences": [
+   "Cumin",
+   "Thyme",
+   "Eucalyptus oil",
+   "Aged citrus oils"
+  ],
+  "fact": "Forms when other terpenes oxidise, which is why an old bottle of lemon oil starts to smell dusty and turpentine-like."
+ },
+ {
+  "id": "beta-caryophyllene",
+  "name": "β-Caryophyllene",
+  "smiles": "CC1=CCCC(=C)C2CC(C)(C)C2CC1",
+  "descriptors": [
+   "peppery",
+   "woody",
+   "spicy",
+   "resinous"
+  ],
+  "occurrences": [
+   "Black pepper",
+   "Cloves",
+   "Hops",
+   "Cannabis"
+  ],
+  "fact": "The only common scent molecule that also binds a cannabinoid receptor, a smell that is, technically, a drug."
+ },
+ {
+  "id": "geraniol",
+  "name": "Geraniol",
+  "smiles": "CC(C)=CCCC(C)=CCO",
+  "descriptors": [
+   "rose",
+   "floral",
+   "sweet",
+   "citrus",
+   "waxy"
+  ],
+  "occurrences": [
+   "Rose oil",
+   "Geranium",
+   "Citronella",
+   "Honeybee scent glands"
+  ],
+  "fact": "Honeybees release geraniol to mark flowers worth visiting and to help nestmates find the hive entrance."
+ },
+ {
+  "id": "nerol",
+  "name": "Nerol",
+  "smiles": "CC(C)=CCC/C(C)=C\\CO",
+  "descriptors": [
+   "rose",
+   "floral",
+   "fresh",
+   "citrus"
+  ],
+  "occurrences": [
+   "Neroli oil",
+   "Rose",
+   "Lemongrass",
+   "Hops"
+  ],
+  "fact": "Geraniol's cis isomer, same atoms, one bond flipped, and the result is fresher and less sweet."
+ },
+ {
+  "id": "citronellol",
+  "name": "Citronellol",
+  "smiles": "CC(CCC=C(C)C)CCO",
+  "descriptors": [
+   "rose",
+   "floral",
+   "citrus",
+   "fresh"
+  ],
+  "occurrences": [
+   "Rose oil",
+   "Geranium",
+   "Citronella candles",
+   "Insect repellent"
+  ],
+  "fact": "Pleasant to us and repellent to mosquitoes, which is the entire premise of the citronella candle."
+ },
+ {
+  "id": "citral",
+  "name": "Citral",
+  "smiles": "CC(C)=CCCC(C)=CC=O",
+  "descriptors": [
+   "citrus",
+   "fresh",
+   "sweet",
+   "aldehydic"
+  ],
+  "occurrences": [
+   "Lemongrass",
+   "Lemon peel",
+   "Lemon myrtle",
+   "Ginger"
+  ],
+  "fact": "The definitive lemon note. Cats find it aversive, which is why citrus sprays are sold as deterrents."
+ },
+ {
+  "id": "alpha-terpineol",
+  "name": "α-Terpineol",
+  "smiles": "CC(C)(O)C1CCC(C)=CC1",
+  "descriptors": [
+   "floral",
+   "pine",
+   "fresh",
+   "woody",
+   "sweet"
+  ],
+  "occurrences": [
+   "Lilac",
+   "Pine oil",
+   "Cajuput",
+   "Household cleaners"
+  ],
+  "fact": "Simultaneously lilac and pine-cleaner, which is roughly the smell of a freshly mopped floor."
+ },
+ {
+  "id": "linalyl-acetate",
+  "name": "Linalyl acetate",
+  "smiles": "CC(=O)OC(C)(C=C)CCC=C(C)C",
+  "descriptors": [
+   "lavender",
+   "floral",
+   "fruity",
+   "fresh",
+   "sweet"
+  ],
+  "occurrences": [
+   "Lavender",
+   "Bergamot",
+   "Clary sage",
+   "Earl Grey tea"
+  ],
+  "fact": "With linalool, it is what makes lavender smell like lavender rather than like generic flowers."
+ },
+ {
+  "id": "nerolidol",
+  "name": "Nerolidol",
+  "smiles": "C=CC(C)(O)CC/C=C(C)/CCC=C(C)C",
+  "descriptors": [
+   "woody",
+   "floral",
+   "fresh",
+   "waxy",
+   "citrus"
+  ],
+  "occurrences": [
+   "Neroli",
+   "Ginger",
+   "Jasmine",
+   "Tea tree"
+  ],
+  "fact": "A quiet molecule that mostly does structural work. It holds other floral notes in place rather than announcing itself."
+ },
+ {
+  "id": "farnesol",
+  "name": "Farnesol",
+  "smiles": "CC(C)=CCC/C(C)=C/CC/C(C)=C/CO",
+  "descriptors": [
+   "floral",
+   "sweet",
+   "waxy",
+   "green"
+  ],
+  "occurrences": [
+   "Rose",
+   "Lemongrass",
+   "Tuberose",
+   "Balsam"
+  ],
+  "fact": "Used in perfumery to soften and round out florals, and doubles as a signalling molecule in fungi."
+ },
+ {
+  "id": "phenylethanol",
+  "name": "2-Phenylethanol",
+  "smiles": "OCCc1ccccc1",
+  "descriptors": [
+   "rose",
+   "floral",
+   "sweet",
+   "honey"
+  ],
+  "occurrences": [
+   "Rose petals",
+   "Bread dough",
+   "Beer",
+   "Honey"
+  ],
+  "fact": "The single largest component of rose oil by weight, and also a yeast by-product, which is why rising dough has a faintly floral edge."
+ },
+ {
+  "id": "phenylacetaldehyde",
+  "name": "Phenylacetaldehyde",
+  "smiles": "O=CCc1ccccc1",
+  "descriptors": [
+   "floral",
+   "honey",
+   "sweet",
+   "green"
+  ],
+  "occurrences": [
+   "Hyacinth",
+   "Honey",
+   "Buckwheat",
+   "Chocolate"
+  ],
+  "fact": "The green, almost metallic edge on hyacinth and narcissus that stops them smelling merely sweet."
+ },
+ {
+  "id": "beta-ionone",
+  "name": "β-Ionone",
+  "smiles": "CC1=C(C=CC(=O)C)C(C)(C)CCC1",
+  "descriptors": [
+   "violet",
+   "floral",
+   "woody",
+   "berry",
+   "powdery"
+  ],
+  "occurrences": [
+   "Violets",
+   "Raspberries",
+   "Roses",
+   "Carrots"
+  ],
+  "fact": "It saturates its own receptor almost instantly, so violets seem to vanish and reappear as you smell them. The flower is not fading; you are."
+ },
+ {
+  "id": "alpha-ionone",
+  "name": "α-Ionone",
+  "smiles": "CC(=O)C=CC1C(C)=CCCC1(C)C",
+  "descriptors": [
+   "violet",
+   "floral",
+   "woody",
+   "berry",
+   "sweet"
+  ],
+  "occurrences": [
+   "Violet flowers",
+   "Orris root",
+   "Raspberry",
+   "Tobacco"
+  ],
+  "fact": "Softer and more powdery than β-ionone. Closer to the smell of face powder and old cosmetics."
+ },
+ {
+  "id": "cis-jasmone",
+  "name": "cis-Jasmone",
+  "smiles": "CC/C=C\\CC1=C(C)CCC1=O",
+  "descriptors": [
+   "jasmine",
+   "floral",
+   "woody",
+   "herbal",
+   "fruity"
+  ],
+  "occurrences": [
+   "Jasmine flowers",
+   "Mint",
+   "Cooked vegetables",
+   "Black tea"
+  ],
+  "fact": "Plants nearby that detect it start ramping up their own defences, one of the clearest cases of plants using smell to talk."
+ },
+ {
+  "id": "methyl-jasmonate",
+  "name": "Methyl jasmonate",
+  "smiles": "CC/C=C\\CC1C(CC(=O)OC)CCC1=O",
+  "descriptors": [
+   "jasmine",
+   "floral",
+   "green",
+   "woody"
+  ],
+  "occurrences": [
+   "Jasmine absolute",
+   "Damaged plant tissue",
+   "Rosemary"
+  ],
+  "fact": "A plant stress hormone that travels through air. A wounded plant emits it and its neighbours pre-emptively arm themselves."
+ },
+ {
+  "id": "hedione",
+  "name": "Hedione",
+  "smiles": "CCCCCC1C(CC(=O)OC)CCC1=O",
+  "descriptors": [
+   "jasmine",
+   "floral",
+   "fresh",
+   "citrus"
+  ],
+  "occurrences": [
+   "Jasmine",
+   "Modern fine fragrance",
+   "Eau Sauvage"
+  ],
+  "fact": "Introduced commercially in 1966 and now in a huge share of fine fragrance. It reads as transparency more than as a smell."
+ },
+ {
+  "id": "benzyl-acetate",
+  "name": "Benzyl acetate",
+  "smiles": "CC(=O)OCc1ccccc1",
+  "descriptors": [
+   "jasmine",
+   "floral",
+   "sweet",
+   "fruity"
+  ],
+  "occurrences": [
+   "Jasmine",
+   "Ylang-ylang",
+   "Pear",
+   "Cheap floral perfume"
+  ],
+  "fact": "The most-used jasmine substitute in soap and detergent, where the real material would be prohibitively expensive."
+ },
+ {
+  "id": "methyl-anthranilate",
+  "name": "Methyl anthranilate",
+  "smiles": "COC(=O)c1ccccc1N",
+  "descriptors": [
+   "grape",
+   "fruity",
+   "sweet",
+   "orangeblossom",
+   "floral"
+  ],
+  "occurrences": [
+   "Concord grapes",
+   "Grape soda",
+   "Orange blossom",
+   "Bird repellent"
+  ],
+  "fact": "Artificial grape flavour does not smell like table grapes because it is built on Concord grapes, and this is their signature."
+ },
+ {
+  "id": "linalool-oxide",
+  "name": "Anethole",
+  "smiles": "COc1ccc(/C=C/C)cc1",
+  "descriptors": [
+   "anise",
+   "sweet",
+   "spicy",
+   "herbal"
+  ],
+  "occurrences": [
+   "Star anise",
+   "Fennel",
+   "Absinthe",
+   "Liquorice"
+  ],
+  "fact": "Thirteen times sweeter than sugar to the tongue, and the reason pastis turns cloudy when water is added."
+ },
+ {
+  "id": "estragole",
+  "name": "Estragole",
+  "smiles": "C=CCc1ccc(OC)cc1",
+  "descriptors": [
+   "anise",
+   "herbal",
+   "sweet",
+   "green"
+  ],
+  "occurrences": [
+   "Tarragon",
+   "Basil",
+   "Fennel",
+   "Pine oil"
+  ],
+  "fact": "The anise edge in fresh basil. The thing that makes basil taste of more than just green."
+ },
+ {
+  "id": "cinnamaldehyde",
+  "name": "Cinnamaldehyde",
+  "smiles": "O=C/C=C/c1ccccc1",
+  "descriptors": [
+   "cinnamon",
+   "spicy",
+   "sweet",
+   "warm"
+  ],
+  "occurrences": [
+   "Cinnamon bark",
+   "Cassia",
+   "Mulled wine",
+   "Chewing gum"
+  ],
+  "fact": "Cinnamon's warmth is not a metaphor. Cinnamaldehyde activates the same TRPA1 channel that reports irritation and heat."
+ },
+ {
+  "id": "isoeugenol",
+  "name": "Isoeugenol",
+  "smiles": "COc1cc(/C=C/C)ccc1O",
+  "descriptors": [
+   "clove",
+   "spicy",
+   "floral",
+   "woody",
+   "vanilla"
+  ],
+  "occurrences": [
+   "Ylang-ylang",
+   "Nutmeg",
+   "Clove",
+   "Carnation"
+  ],
+  "fact": "Most industrial vanillin was once made from isoeugenol out of clove oil, before the process moved to wood pulp."
+ },
+ {
+  "id": "safrole",
+  "name": "Safrole",
+  "smiles": "C=CCc1ccc2OCOc2c1",
+  "descriptors": [
+   "anise",
+   "sweet",
+   "woody",
+   "spicy"
+  ],
+  "occurrences": [
+   "Sassafras",
+   "Nutmeg",
+   "Star anise",
+   "Old root beer"
+  ],
+  "fact": "Root beer tasted different before 1960, when sassafras oil was banned from food and the recipe had to be rebuilt without it."
+ },
+ {
+  "id": "piperonal",
+  "name": "Piperonal",
+  "smiles": "O=Cc1ccc2OCOc2c1",
+  "descriptors": [
+   "floral",
+   "sweet",
+   "almond",
+   "vanilla",
+   "powdery"
+  ],
+  "occurrences": [
+   "Heliotrope flowers",
+   "Vanilla",
+   "Cherry flavouring",
+   "Marzipan"
+  ],
+  "fact": "Known as heliotropin. It smells of cherry, almond and vanilla at once, which is roughly the smell of a Play-Doh tub."
+ },
+ {
+  "id": "benzaldehyde",
+  "name": "Benzaldehyde",
+  "smiles": "O=Cc1ccccc1",
+  "descriptors": [
+   "almond",
+   "sweet",
+   "cherry",
+   "fruity"
+  ],
+  "occurrences": [
+   "Bitter almonds",
+   "Apricot and cherry pits",
+   "Marzipan",
+   "Amaretto"
+  ],
+  "fact": "Released alongside cyanide when amygdalin in a crushed almond breaks down. The marzipan smell is a warning label."
+ },
+ {
+  "id": "coumarin",
+  "name": "Coumarin",
+  "smiles": "O=c1ccc2ccccc2o1",
+  "descriptors": [
+   "hay",
+   "sweet",
+   "vanilla",
+   "almond",
+   "tobacco"
+  ],
+  "occurrences": [
+   "Freshly mown hay",
+   "Tonka beans",
+   "Sweet clover",
+   "Woodruff"
+  ],
+  "fact": "The smell of drying hay. It is also a precursor to warfarin. Spoiled sweet clover killed cattle before anyone worked out why."
+ },
+ {
+  "id": "methyl-salicylate",
+  "name": "Methyl salicylate",
+  "smiles": "COC(=O)c1ccccc1O",
+  "descriptors": [
+   "minty",
+   "medicinal",
+   "sweet",
+   "herbal",
+   "cooling"
+  ],
+  "occurrences": [
+   "Wintergreen",
+   "Root beer",
+   "Deep heat rubs",
+   "Birch bark"
+  ],
+  "fact": "In North America it reads as sweets and root beer; in Britain it mostly reads as liniment. Same molecule, different childhood."
+ },
+ {
+  "id": "raspberry-ketone",
+  "name": "Raspberry ketone",
+  "smiles": "CC(=O)CCc1ccc(O)cc1",
+  "descriptors": [
+   "berry",
+   "fruity",
+   "sweet",
+   "floral"
+  ],
+  "occurrences": [
+   "Raspberries",
+   "Cranberries",
+   "Rhubarb",
+   "Yew berries"
+  ],
+  "fact": "One of the most expensive natural flavour compounds to extract, roughly a kilogram of raspberries yields a few milligrams."
+ },
+ {
+  "id": "zingerone",
+  "name": "Zingerone",
+  "smiles": "COc1cc(CCC(C)=O)ccc1O",
+  "descriptors": [
+   "spicy",
+   "sweet",
+   "vanilla",
+   "warm"
+  ],
+  "occurrences": [
+   "Cooked ginger",
+   "Gingerbread",
+   "Ginger snaps"
+  ],
+  "fact": "Forms when raw ginger is cooked, which is why gingerbread smells sweet and warm rather than sharp like fresh root."
+ },
+ {
+  "id": "sotolon",
+  "name": "Sotolon",
+  "smiles": "CC1OC(=O)C(O)=C1C",
+  "descriptors": [
+   "caramellic",
+   "maple",
+   "sweet",
+   "nutty",
+   "spicy"
+  ],
+  "occurrences": [
+   "Fenugreek",
+   "Maple syrup",
+   "Aged sake",
+   "Vin jaune"
+  ],
+  "fact": "In 2005 a maple-syrup smell repeatedly blanketed Manhattan. The source was a New Jersey plant processing fenugreek seed."
+ },
+ {
+  "id": "abhexon",
+  "name": "Abhexon",
+  "smiles": "CCC1OC(=O)C(O)=C1C",
+  "descriptors": [
+   "caramellic",
+   "nutty",
+   "roasted",
+   "savoury",
+   "sweet"
+  ],
+  "occurrences": [
+   "Roasted coffee",
+   "Beef broth",
+   "Yeast extract"
+  ],
+  "fact": "Sotolon's ethyl relative, less maple, more stock cube."
+ },
+ {
+  "id": "maltol",
+  "name": "Maltol",
+  "smiles": "Cc1occc(=O)c1O",
+  "descriptors": [
+   "caramellic",
+   "sweet",
+   "bready",
+   "cocoa"
+  ],
+  "occurrences": [
+   "Baked bread",
+   "Roasted malt",
+   "Caramel",
+   "Chicory"
+  ],
+  "fact": "Makes things taste sweeter without being sweet itself, so it is added to reduced-sugar products as a kind of olfactory illusion."
+ },
+ {
+  "id": "ethyl-maltol",
+  "name": "Ethyl maltol",
+  "smiles": "CCc1occc(=O)c1O",
+  "descriptors": [
+   "caramellic",
+   "sweet",
+   "fruity",
+   "cocoa"
+  ],
+  "occurrences": [
+   "Candy floss",
+   "Fairground food",
+   "Vape liquid",
+   "Confectionery"
+  ],
+  "fact": "Does not occur in nature at all. It is the smell most people would call candy floss, and it was invented."
+ },
+ {
+  "id": "cyclotene",
+  "name": "Cyclotene",
+  "smiles": "CC1=C(O)C(=O)CC1",
+  "descriptors": [
+   "caramellic",
+   "maple",
+   "sweet",
+   "roasted",
+   "nutty"
+  ],
+  "occurrences": [
+   "Maple syrup",
+   "Roasted coffee",
+   "Caramel",
+   "Toasted oak"
+  ],
+  "fact": "Works with sotolon to build the maple accord, and adds the burnt-sugar edge to dark roast coffee."
+ },
+ {
+  "id": "furfural",
+  "name": "Furfural",
+  "smiles": "O=Cc1ccco1",
+  "descriptors": [
+   "almond",
+   "bready",
+   "sweet",
+   "woody",
+   "roasted"
+  ],
+  "occurrences": [
+   "Roasted coffee",
+   "Bran",
+   "Aged whiskey",
+   "Toasted bread"
+  ],
+  "fact": "Produced whenever sugars in plant material are heated, which makes it one of the most common markers of anything cooked."
+ },
+ {
+  "id": "5-methylfurfural",
+  "name": "5-Methylfurfural",
+  "smiles": "Cc1ccc(C=O)o1",
+  "descriptors": [
+   "caramellic",
+   "sweet",
+   "almond",
+   "spicy"
+  ],
+  "occurrences": [
+   "Caramel",
+   "Coffee",
+   "Aged rum",
+   "Baked goods"
+  ],
+  "fact": "One of the compounds that separates the smell of caramel from the smell of plain sugar."
+ },
+ {
+  "id": "2-pentylfuran",
+  "name": "2-Pentylfuran",
+  "smiles": "CCCCCc1ccco1",
+  "descriptors": [
+   "green",
+   "vegetable",
+   "fruity",
+   "buttery"
+  ],
+  "occurrences": [
+   "Cooked soybeans",
+   "Roasted peanuts",
+   "Stale oil"
+  ],
+  "fact": "A marker of fat oxidation. The beany, cardboard note in oil that has been sitting too long."
+ },
+ {
+  "id": "2-acetylpyrazine",
+  "name": "2-Acetylpyrazine",
+  "smiles": "CC(=O)c1cnccn1",
+  "descriptors": [
+   "roasted",
+   "nutty",
+   "bready",
+   "cocoa"
+  ],
+  "occurrences": [
+   "Popcorn",
+   "Roasted nuts",
+   "Bread crust",
+   "Cocoa"
+  ],
+  "fact": "One of the Maillard reaction's signature products, formed only once a surface is hot enough to brown."
+ },
+ {
+  "id": "25-dimethylpyrazine",
+  "name": "2,5-Dimethylpyrazine",
+  "smiles": "Cc1cnc(C)cn1",
+  "descriptors": [
+   "roasted",
+   "nutty",
+   "cocoa",
+   "earthy"
+  ],
+  "occurrences": [
+   "Roasted coffee",
+   "Cocoa",
+   "Potato crisps",
+   "Fried onion"
+  ],
+  "fact": "Common to almost everything browned. If a food smells toasted, some pyrazine is doing the work."
+ },
+ {
+  "id": "edmp",
+  "name": "2-Ethyl-3,5-dimethylpyrazine",
+  "smiles": "CCc1nc(C)cnc1C",
+  "descriptors": [
+   "roasted",
+   "earthy",
+   "nutty",
+   "cocoa"
+  ],
+  "occurrences": [
+   "Espresso",
+   "Roasted hazelnuts",
+   "Dark chocolate"
+  ],
+  "fact": "One of the most powerful roast odorants in coffee, detectable well below a part per billion."
+ },
+ {
+  "id": "2-acetylpyrrole",
+  "name": "2-Acetylpyrrole",
+  "smiles": "CC(=O)c1ccc[nH]1",
+  "descriptors": [
+   "bready",
+   "nutty",
+   "sweet",
+   "roasted"
+  ],
+  "occurrences": [
+   "Bread crust",
+   "Roasted barley",
+   "Liquorice",
+   "Tea"
+  ],
+  "fact": "Adds the faintly musty, biscuity depth underneath fresher bread notes."
+ },
+ {
+  "id": "2-acetylthiazole",
+  "name": "2-Acetylthiazole",
+  "smiles": "CC(=O)c1nccs1",
+  "descriptors": [
+   "roasted",
+   "nutty",
+   "bready",
+   "sulfurous"
+  ],
+  "occurrences": [
+   "Popcorn",
+   "Roasted sesame",
+   "Cooked rice",
+   "Bread"
+  ],
+  "fact": "A sulfur-bearing cousin of the popcorn molecule, contributing the savoury edge to toasted grain."
+ },
+ {
+  "id": "2-furfurylthiol",
+  "name": "2-Furfurylthiol",
+  "smiles": "SCc1ccco1",
+  "descriptors": [
+   "coffee",
+   "roasted",
+   "sulfurous",
+   "burnt"
+  ],
+  "threshold": "0.01 parts per billion in water",
+  "occurrences": [
+   "Freshly roasted coffee",
+   "Roast meat",
+   "Popcorn"
+  ],
+  "fact": "The smell of coffee the moment the bag opens. It degrades within hours, which is why fresh coffee smells so much better than old."
+ },
+ {
+  "id": "methional",
+  "name": "Methional",
+  "smiles": "CSCCC=O",
+  "descriptors": [
+   "vegetable",
+   "sulfurous",
+   "meaty",
+   "buttery"
+  ],
+  "occurrences": [
+   "Boiled potato",
+   "Potato crisps",
+   "Cheddar",
+   "Tomato"
+  ],
+  "fact": "The smell of a boiled potato, near-singlehandedly. Remove it and potatoes smell of almost nothing."
+ },
+ {
+  "id": "dimethyl-sulfide",
+  "name": "Dimethyl sulfide",
+  "smiles": "CSC",
+  "descriptors": [
+   "marine",
+   "vegetable",
+   "sulfurous",
+   "sour"
+  ],
+  "occurrences": [
+   "The seaside",
+   "Cooked cabbage",
+   "Sweetcorn",
+   "Truffles"
+  ],
+  "fact": "The smell of the sea is mostly phytoplankton breaking down. Seabirds navigate by it, tracking it to find food."
+ },
+ {
+  "id": "dimethyl-disulfide",
+  "name": "Dimethyl disulfide",
+  "smiles": "CSSC",
+  "descriptors": [
+   "alliaceous",
+   "sulfurous",
+   "vegetable",
+   "meaty"
+  ],
+  "occurrences": [
+   "Onions",
+   "Cooked cabbage",
+   "Decaying matter",
+   "Garlic"
+  ],
+  "fact": "Carrion flowers emit it to imitate rotting flesh and recruit flies instead of bees."
+ },
+ {
+  "id": "dimethyl-trisulfide",
+  "name": "Dimethyl trisulfide",
+  "smiles": "CSSSC",
+  "descriptors": [
+   "sulfurous",
+   "alliaceous",
+   "meaty",
+   "fecal"
+  ],
+  "occurrences": [
+   "Cooked onion",
+   "Aged cheese",
+   "Decomposition",
+   "Truffles"
+  ],
+  "fact": "One of the first volatiles released by decomposing bodies. In parts per trillion it reads instead as savoury depth in cooked onion."
+ },
+ {
+  "id": "methanethiol",
+  "name": "Methanethiol",
+  "smiles": "CS",
+  "descriptors": [
+   "sulfurous",
+   "fecal",
+   "vegetable",
+   "cheesy"
+  ],
+  "occurrences": [
+   "Bad breath",
+   "Cooked cabbage",
+   "Ripe cheese",
+   "Natural gas odorant"
+  ],
+  "fact": "A major component of halitosis, and produced in your own gut. Also used to give odorless natural gas its warning smell."
+ },
+ {
+  "id": "allicin",
+  "name": "Allicin",
+  "smiles": "C=CCS(=O)SCC=C",
+  "descriptors": [
+   "alliaceous",
+   "sulfurous",
+   "spicy",
+   "peppery"
+  ],
+  "occurrences": [
+   "Crushed garlic",
+   "Garlic bread"
+  ],
+  "fact": "Does not exist in an intact garlic clove. Cutting one triggers an enzyme that makes it within seconds. The smell is a defence being deployed."
+ },
+ {
+  "id": "diallyl-disulfide",
+  "name": "Diallyl disulfide",
+  "smiles": "C=CCSSCC=C",
+  "descriptors": [
+   "alliaceous",
+   "sulfurous",
+   "meaty",
+   "green"
+  ],
+  "occurrences": [
+   "Garlic",
+   "Onion",
+   "Chives",
+   "Leeks"
+  ],
+  "fact": "Passes into the bloodstream and out through the lungs, which is why garlic breath survives brushing your teeth."
+ },
+ {
+  "id": "propanethial-s-oxide",
+  "name": "syn-Propanethial S-oxide",
+  "smiles": "CCC=S=O",
+  "descriptors": [
+   "alliaceous",
+   "sulfurous",
+   "sour",
+   "green"
+  ],
+  "occurrences": [
+   "Cut onions"
+  ],
+  "fact": "The onion lachrymator. It forms only when an onion is cut, drifts up, and reacts with the water film on your eye to make sulfuric acid."
+ },
+ {
+  "id": "4mmp",
+  "name": "4-Mercapto-4-methylpentan-2-one",
+  "smiles": "CC(=O)CC(C)(C)S",
+  "descriptors": [
+   "green",
+   "vegetable",
+   "sulfurous",
+   "tropical"
+  ],
+  "occurrences": [
+   "Sauvignon Blanc",
+   "Boxwood hedges",
+   "Blackcurrant buds",
+   "Cat urine"
+  ],
+  "fact": "Called cat ketone in the trade. Above threshold it smells like a litter tray; below it, like blackcurrant and boxwood."
+ },
+ {
+  "id": "3mh",
+  "name": "3-Mercaptohexan-1-ol",
+  "smiles": "CCCC(S)CCO",
+  "descriptors": [
+   "tropical",
+   "fruity",
+   "sulfurous",
+   "citrus"
+  ],
+  "occurrences": [
+   "Passionfruit",
+   "Grapefruit",
+   "Sauvignon Blanc",
+   "Hops"
+  ],
+  "fact": "The passionfruit note in a New Zealand Sauvignon is a thiol, chemically closer to skunk than to fruit."
+ },
+ {
+  "id": "grapefruit-mercaptan",
+  "name": "Grapefruit mercaptan",
+  "smiles": "CC1=CCC(CC1)C(C)(C)S",
+  "descriptors": [
+   "citrus",
+   "sulfurous",
+   "tropical",
+   "fresh"
+  ],
+  "threshold": "0.0001 parts per billion in water",
+  "occurrences": [
+   "Grapefruit",
+   "Grapefruit juice"
+  ],
+  "fact": "Among the most powerful odorants ever measured. A few tenths of a gram would scent an Olympic swimming pool."
+ },
+ {
+  "id": "2-butene-1-thiol",
+  "name": "2-Butene-1-thiol",
+  "smiles": "C/C=C/CS",
+  "descriptors": [
+   "sulfurous",
+   "animalic",
+   "burnt",
+   "fecal"
+  ],
+  "occurrences": [
+   "Skunk spray",
+   "Skunked beer"
+  ],
+  "fact": "A main component of skunk spray. The same class of compound forms when light hits hops in a clear beer bottle."
+ },
+ {
+  "id": "benzothiazole",
+  "name": "Benzothiazole",
+  "smiles": "c1ccc2scnc2c1",
+  "descriptors": [
+   "rubbery",
+   "sulfurous",
+   "medicinal",
+   "roasted"
+  ],
+  "occurrences": [
+   "Rubber tyres",
+   "Cooked meat",
+   "Coffee",
+   "Tea"
+  ],
+  "fact": "The smell of a new tyre shop, and simultaneously a trace flavour compound in roasted coffee."
+ },
+ {
+  "id": "1-octen-3-ol",
+  "name": "1-Octen-3-ol",
+  "smiles": "CCCCCC(O)C=C",
+  "descriptors": [
+   "mushroom",
+   "earthy",
+   "green",
+   "musty"
+  ],
+  "occurrences": [
+   "Raw mushrooms",
+   "Forest floor",
+   "Damp buildings",
+   "Human sweat"
+  ],
+  "fact": "Called mushroom alcohol, and also present in human breath and sweat. Mosquitoes use it to find us."
+ },
+ {
+  "id": "1-octen-3-one",
+  "name": "1-Octen-3-one",
+  "smiles": "CCCCCC(=O)C=C",
+  "descriptors": [
+   "metallic",
+   "mushroom",
+   "earthy",
+   "green"
+  ],
+  "occurrences": [
+   "Blood",
+   "Metal handled with wet skin",
+   "Mushrooms",
+   "Oxidised dairy"
+  ],
+  "fact": "Metal has no smell. What you smell handling a coin is your own skin oils breaking down on iron, largely into this."
+ },
+ {
+  "id": "hexanal",
+  "name": "Hexanal",
+  "smiles": "CCCCCC=O",
+  "descriptors": [
+   "green",
+   "grassy",
+   "fatty",
+   "apple"
+  ],
+  "occurrences": [
+   "Cut grass",
+   "Green apple",
+   "Stale crisps",
+   "Fresh peas"
+  ],
+  "fact": "A reliable marker of fat going rancid. The cardboard note in an old packet of crisps."
+ },
+ {
+  "id": "trans-2-hexenal",
+  "name": "(E)-2-Hexenal",
+  "smiles": "CCC/C=C/C=O",
+  "descriptors": [
+   "green",
+   "grassy",
+   "apple",
+   "fresh"
+  ],
+  "occurrences": [
+   "Unripe fruit",
+   "Tomato leaf",
+   "Olive oil",
+   "Cut grass"
+  ],
+  "fact": "Called leaf aldehyde. The bitter green bite in good extra-virgin olive oil is largely this."
+ },
+ {
+  "id": "trans-2-nonenal",
+  "name": "(E)-2-Nonenal",
+  "smiles": "CCCCCC/C=C/C=O",
+  "descriptors": [
+   "fatty",
+   "waxy",
+   "green",
+   "cucumber",
+   "musty"
+  ],
+  "occurrences": [
+   "Stale beer",
+   "Buckwheat",
+   "Old cardboard",
+   "Ageing human skin"
+  ],
+  "fact": "Rises measurably in human skin after about age forty. In Japan the resulting smell has its own word: kareishū."
+ },
+ {
+  "id": "24-decadienal",
+  "name": "(E,E)-2,4-Decadienal",
+  "smiles": "CCCCC/C=C/C=C/C=O",
+  "descriptors": [
+   "fatty",
+   "fried",
+   "green",
+   "citrus",
+   "meaty"
+  ],
+  "occurrences": [
+   "Deep-fried food",
+   "Chicken fat",
+   "Fried chips",
+   "Coriander"
+  ],
+  "fact": "The smell of a fryer. It is the single most important compound in what people recognise as fried food."
+ },
+ {
+  "id": "nonanal",
+  "name": "Nonanal",
+  "smiles": "CCCCCCCCC=O",
+  "descriptors": [
+   "aldehydic",
+   "waxy",
+   "citrus",
+   "soapy",
+   "floral"
+  ],
+  "occurrences": [
+   "Citrus peel",
+   "Rose",
+   "Human skin",
+   "Clean laundry"
+  ],
+  "fact": "One of the aldehydes that gives clean-laundry fragrances their particular squeaky brightness."
+ },
+ {
+  "id": "decanal",
+  "name": "Decanal",
+  "smiles": "CCCCCCCCCC=O",
+  "descriptors": [
+   "citrus",
+   "aldehydic",
+   "waxy",
+   "soapy",
+   "fresh"
+  ],
+  "occurrences": [
+   "Orange peel",
+   "Coriander",
+   "Buckwheat",
+   "Fine fragrance"
+  ],
+  "fact": "Part of the aldehyde accord that made Chanel No. 5 sound like nothing else in 1921."
+ },
+ {
+  "id": "octanal",
+  "name": "Octanal",
+  "smiles": "CCCCCCCC=O",
+  "descriptors": [
+   "citrus",
+   "aldehydic",
+   "fresh",
+   "waxy",
+   "green"
+  ],
+  "occurrences": [
+   "Orange oil",
+   "Lemon peel",
+   "Honey",
+   "Buckwheat"
+  ],
+  "fact": "One of the compounds that makes fresh orange juice smell different from concentrate. It disappears with processing."
+ },
+ {
+  "id": "3-methylbutanal",
+  "name": "3-Methylbutanal",
+  "smiles": "CC(C)CC=O",
+  "descriptors": [
+   "bready",
+   "nutty",
+   "cheesy",
+   "roasted",
+   "sour"
+  ],
+  "occurrences": [
+   "Bread crust",
+   "Dark chocolate",
+   "Aged cheese",
+   "Malt"
+  ],
+  "fact": "A Strecker degradation product. Evidence that amino acids have been heated with sugar."
+ },
+ {
+  "id": "2-methylbutanal",
+  "name": "2-Methylbutanal",
+  "smiles": "CCC(C)C=O",
+  "descriptors": [
+   "cocoa",
+   "nutty",
+   "roasted",
+   "bready"
+  ],
+  "occurrences": [
+   "Cocoa",
+   "Coffee",
+   "Roasted almonds",
+   "Cheese"
+  ],
+  "fact": "Together with its isomer it forms much of the smell of chocolate that has been properly conched."
+ },
+ {
+  "id": "isovaleric-acid",
+  "name": "Isovaleric acid",
+  "smiles": "CC(C)CC(=O)O",
+  "descriptors": [
+   "cheesy",
+   "sour",
+   "sweaty",
+   "animalic"
+  ],
+  "occurrences": [
+   "Sweaty feet",
+   "Parmesan",
+   "Aged cheddar",
+   "Valerian root"
+  ],
+  "fact": "Foot odor and mature cheese converge here, both are the same bacteria doing the same thing to the same fatty acids."
+ },
+ {
+  "id": "butyric-acid",
+  "name": "Butyric acid",
+  "smiles": "CCCC(=O)O",
+  "descriptors": [
+   "cheesy",
+   "sour",
+   "fatty",
+   "buttery"
+  ],
+  "occurrences": [
+   "Rancid butter",
+   "Vomit",
+   "Parmesan",
+   "Human sweat"
+  ],
+  "fact": "The smell of vomit, and simultaneously an essential note in Parmesan. Context decides everything."
+ },
+ {
+  "id": "hexanoic-acid",
+  "name": "Hexanoic acid",
+  "smiles": "CCCCCC(=O)O",
+  "descriptors": [
+   "cheesy",
+   "sour",
+   "fatty",
+   "sweaty",
+   "animalic"
+  ],
+  "occurrences": [
+   "Goat cheese",
+   "Sweat",
+   "Ginkgo fruit",
+   "Ripe cheese"
+  ],
+  "fact": "Named for goats. Caproic acid, from the Latin caper. It is largely why goat cheese smells like goats."
+ },
+ {
+  "id": "acetic-acid",
+  "name": "Acetic acid",
+  "smiles": "CC(=O)O",
+  "descriptors": [
+   "sour",
+   "solvent",
+   "fresh"
+  ],
+  "occurrences": [
+   "Vinegar",
+   "Pickles",
+   "Sourdough starter",
+   "Kombucha"
+  ],
+  "fact": "The simplest smell most people can name instantly, and the second-simplest carboxylic acid there is."
+ },
+ {
+  "id": "ethyl-butyrate",
+  "name": "Ethyl butyrate",
+  "smiles": "CCCC(=O)OCC",
+  "descriptors": [
+   "fruity",
+   "sweet",
+   "apple",
+   "banana"
+  ],
+  "occurrences": [
+   "Pineapple",
+   "Orange juice",
+   "Fruit sweets",
+   "Ripe apples"
+  ],
+  "fact": "Added back into orange juice after pasteurisation strips it out, so the carton smells like the fruit again."
+ },
+ {
+  "id": "ethyl-hexanoate",
+  "name": "Ethyl hexanoate",
+  "smiles": "CCCCCC(=O)OCC",
+  "descriptors": [
+   "fruity",
+   "apple",
+   "sweet",
+   "winey"
+  ],
+  "occurrences": [
+   "Ripe apple",
+   "Pineapple",
+   "Wine",
+   "Sake"
+  ],
+  "fact": "One of the esters that makes a young white wine smell of fruit that is not in the bottle."
+ },
+ {
+  "id": "ethyl-2-methylbutyrate",
+  "name": "Ethyl 2-methylbutyrate",
+  "smiles": "CCC(C)C(=O)OCC",
+  "descriptors": [
+   "apple",
+   "fruity",
+   "sweet",
+   "berry"
+  ],
+  "occurrences": [
+   "Apples",
+   "Strawberry",
+   "Mango",
+   "Blueberry"
+  ],
+  "fact": "The single most apple-smelling compound in an apple, and detectable at fractions of a part per billion."
+ },
+ {
+  "id": "hexyl-acetate",
+  "name": "Hexyl acetate",
+  "smiles": "CCCCCCOC(C)=O",
+  "descriptors": [
+   "fruity",
+   "apple",
+   "green",
+   "sweet"
+  ],
+  "occurrences": [
+   "Apple skin",
+   "Pear",
+   "Banana",
+   "Plum"
+  ],
+  "fact": "Green and fruity at once. The smell of biting through the skin rather than the flesh."
+ },
+ {
+  "id": "cis-3-hexenyl-acetate",
+  "name": "(Z)-3-Hexenyl acetate",
+  "smiles": "CC/C=C\\CCOC(C)=O",
+  "descriptors": [
+   "green",
+   "grassy",
+   "fruity",
+   "fresh"
+  ],
+  "occurrences": [
+   "Cut grass",
+   "Green apple",
+   "Pear",
+   "Kiwi"
+  ],
+  "fact": "Cut grass with a fruity edge. Predatory insects use it to locate plants currently being eaten by prey."
+ },
+ {
+  "id": "gamma-decalactone",
+  "name": "γ-Decalactone",
+  "smiles": "CCCCCCC1CCC(=O)O1",
+  "descriptors": [
+   "fruity",
+   "creamy",
+   "coconut",
+   "sweet"
+  ],
+  "occurrences": [
+   "Peaches",
+   "Apricots",
+   "Strawberry",
+   "Butter"
+  ],
+  "fact": "The definitive peach compound. The reason peach flavourings smell slightly creamy rather than simply fruity."
+ },
+ {
+  "id": "gamma-nonalactone",
+  "name": "γ-Nonalactone",
+  "smiles": "CCCCCC1CCC(=O)O1",
+  "descriptors": [
+   "coconut",
+   "creamy",
+   "sweet",
+   "fruity"
+  ],
+  "occurrences": [
+   "Coconut",
+   "Peach",
+   "Sun cream",
+   "Aged rum"
+  ],
+  "fact": "Marketed for decades as aldehyde C-18 despite not being an aldehyde. It is the smell most people file under holiday."
+ },
+ {
+  "id": "delta-decalactone",
+  "name": "δ-Decalactone",
+  "smiles": "CCCCCC1CCCC(=O)O1",
+  "descriptors": [
+   "creamy",
+   "coconut",
+   "buttery",
+   "sweet"
+  ],
+  "occurrences": [
+   "Butter",
+   "Cream",
+   "Coconut",
+   "Milk"
+  ],
+  "fact": "The lactone that makes dairy smell rich rather than merely fatty."
+ },
+ {
+  "id": "massoia-lactone",
+  "name": "Massoia lactone",
+  "smiles": "CCCCCC1CC=CC(=O)O1",
+  "descriptors": [
+   "coconut",
+   "creamy",
+   "sweet",
+   "woody"
+  ],
+  "occurrences": [
+   "Massoia bark",
+   "Coconut",
+   "Cured tobacco"
+  ],
+  "fact": "Intensely creamy at low levels and skin-irritating at high ones, so its use is tightly capped."
+ },
+ {
+  "id": "exaltolide",
+  "name": "Pentadecanolide",
+  "smiles": "O=C1CCCCCCCCCCCCCCO1",
+  "descriptors": [
+   "musk",
+   "powdery",
+   "sweet",
+   "waxy",
+   "animalic"
+  ],
+  "occurrences": [
+   "Angelica root",
+   "Fine fragrance",
+   "Fabric softener"
+  ],
+  "fact": "A macrocyclic musk. Sensitivity to it varies enormously between people, some cannot smell it at all."
+ },
+ {
+  "id": "muscone",
+  "name": "Muscone",
+  "smiles": "CC1CCCCCCCCCCCCC(=O)C1",
+  "descriptors": [
+   "musk",
+   "animalic",
+   "powdery",
+   "sweet",
+   "woody"
+  ],
+  "occurrences": [
+   "Musk deer gland",
+   "Classical perfumery",
+   "Modern synthetics"
+  ],
+  "fact": "The original musk, once harvested from musk deer. It is now made synthetically, which is why the deer still exist."
+ },
+ {
+  "id": "civetone",
+  "name": "Civetone",
+  "smiles": "O=C1CCCCCCC/C=C\\CCCCCCC1",
+  "descriptors": [
+   "musk",
+   "animalic",
+   "sweet",
+   "powdery",
+   "fecal"
+  ],
+  "occurrences": [
+   "Civet gland",
+   "Vintage perfumery"
+  ],
+  "fact": "Foul at full strength and warmly skin-like when diluted a thousandfold. Perfumery is largely the art of that difference."
+ },
+ {
+  "id": "androstenone",
+  "name": "Androstenone",
+  "smiles": "CC12CCC3C(CCC4CC(=O)CCC34C)C1CC=C2",
+  "descriptors": [
+   "animalic",
+   "musk",
+   "sweaty",
+   "urinous"
+  ],
+  "occurrences": [
+   "Boar saliva",
+   "Human sweat",
+   "Truffles",
+   "Celery"
+  ],
+  "fact": "Roughly a third of people smell urine, a third smell something sweet and floral, and a third smell nothing at all, a single gene decides which."
+ },
+ {
+  "id": "trimethylamine",
+  "name": "Trimethylamine",
+  "smiles": "CN(C)C",
+  "descriptors": [
+   "fishy",
+   "ammoniacal",
+   "sour",
+   "animalic"
+  ],
+  "occurrences": [
+   "Spoiling fish",
+   "Bacterial vaginosis",
+   "Rotting seaweed"
+  ],
+  "fact": "Fresh fish does not smell fishy. Trimethylamine builds up only as bacteria break the flesh down, so the fish smell is a clock."
+ },
+ {
+  "id": "cadaverine",
+  "name": "Cadaverine",
+  "smiles": "NCCCCCN",
+  "descriptors": [
+   "fecal",
+   "animalic",
+   "ammoniacal",
+   "meaty"
+  ],
+  "occurrences": [
+   "Decomposing tissue",
+   "Bad breath",
+   "Semen",
+   "Some flowers"
+  ],
+  "fact": "Named for exactly what you would guess. It and putrescine are the two compounds most associated with decay."
+ },
+ {
+  "id": "putrescine",
+  "name": "Putrescine",
+  "smiles": "NCCCCN",
+  "descriptors": [
+   "fecal",
+   "animalic",
+   "ammoniacal",
+   "musty"
+  ],
+  "occurrences": [
+   "Rotting meat",
+   "Halitosis",
+   "Ripe cheese"
+  ],
+  "fact": "Produced by your own body in small amounts, where it is essential to cell growth. The name is unhelpfully absolute."
+ },
+ {
+  "id": "p-cresol",
+  "name": "p-Cresol",
+  "smiles": "Cc1ccc(O)cc1",
+  "descriptors": [
+   "phenolic",
+   "animalic",
+   "leather",
+   "medicinal",
+   "fecal"
+  ],
+  "occurrences": [
+   "Horse stables",
+   "Pig manure",
+   "Leather",
+   "Coal tar soap"
+  ],
+  "fact": "The horse-stable note. Used in trace amounts in perfumery to give jasmine and narcissus an animal warmth."
+ },
+ {
+  "id": "phenol",
+  "name": "Phenol",
+  "smiles": "Oc1ccccc1",
+  "descriptors": [
+   "phenolic",
+   "medicinal",
+   "plastic",
+   "smoky"
+  ],
+  "occurrences": [
+   "Antiseptic",
+   "Coal tar soap",
+   "Smoked fish",
+   "Islay whisky"
+  ],
+  "fact": "Lister's original surgical antiseptic. Its smell is still the shorthand for hospital in most people's memory."
+ },
+ {
+  "id": "4-ethylphenol",
+  "name": "4-Ethylphenol",
+  "smiles": "CCc1ccc(O)cc1",
+  "descriptors": [
+   "leather",
+   "phenolic",
+   "animalic",
+   "smoky",
+   "medicinal"
+  ],
+  "occurrences": [
+   "Brettanomyces-affected wine",
+   "Leather",
+   "Smoked foods",
+   "Horse blanket"
+  ],
+  "fact": "The classic barnyard fault in red wine. A little is described as complexity; more of it and the bottle is written off."
+ },
+ {
+  "id": "acetophenone",
+  "name": "Acetophenone",
+  "smiles": "CC(=O)c1ccccc1",
+  "descriptors": [
+   "almond",
+   "sweet",
+   "floral",
+   "plastic",
+   "solvent"
+  ],
+  "occurrences": [
+   "Cherry",
+   "Almond",
+   "Castoreum",
+   "Plastic resin"
+  ],
+  "fact": "Sweet and almondy but with a hard plastic edge. The smell of a cheap cherry sweet."
+ },
+ {
+  "id": "anisaldehyde",
+  "name": "Anisaldehyde",
+  "smiles": "COc1ccc(C=O)cc1",
+  "descriptors": [
+   "anise",
+   "sweet",
+   "floral",
+   "almond",
+   "vanilla"
+  ],
+  "occurrences": [
+   "Anise",
+   "Vanilla",
+   "Hawthorn blossom",
+   "Liquorice"
+  ],
+  "fact": "Sits between anise and vanilla, and is used to round both out."
+ },
+ {
+  "id": "cuminaldehyde",
+  "name": "Cuminaldehyde",
+  "smiles": "CC(C)c1ccc(C=O)cc1",
+  "descriptors": [
+   "spicy",
+   "green",
+   "herbal",
+   "sweaty"
+  ],
+  "occurrences": [
+   "Cumin",
+   "Eucalyptus",
+   "Myrrh",
+   "Curry powder"
+  ],
+  "fact": "Cumin's characteristic sweaty edge is not an accident of cooking. It is in the seed."
+ },
+ {
+  "id": "beta-damascone",
+  "name": "β-Damascone",
+  "smiles": "CC=CC(=O)C1=C(C)CCCC1(C)C",
+  "descriptors": [
+   "rose",
+   "fruity",
+   "tobacco",
+   "woody",
+   "sweet"
+  ],
+  "occurrences": [
+   "Rose",
+   "Cured tobacco",
+   "Black tea",
+   "Apple"
+  ],
+  "fact": "Fruitier and drier than damascenone. It is what gives pipe tobacco its plummy sweetness."
+ },
+ {
+  "id": "nootkatone",
+  "name": "Nootkatone",
+  "smiles": "CC1CC2=CC(=O)CCC2(C)CC1C(=C)C",
+  "descriptors": [
+   "citrus",
+   "woody",
+   "fresh",
+   "spicy"
+  ],
+  "occurrences": [
+   "Grapefruit",
+   "Vetiver",
+   "Alaskan yellow cedar"
+  ],
+  "fact": "The bitter-woody backbone of grapefruit, and effective enough as an insect repellent to have been developed against ticks."
+ },
+ {
+  "id": "cyclamen-aldehyde",
+  "name": "Cyclamen aldehyde",
+  "smiles": "CC(Cc1ccc(C(C)C)cc1)C=O",
+  "descriptors": [
+   "floral",
+   "green",
+   "fresh",
+   "melon",
+   "soapy"
+  ],
+  "occurrences": [
+   "Fine fragrance",
+   "Shampoo",
+   "Cyclamen accord",
+   "Detergent"
+  ],
+  "fact": "Does not occur in cyclamen, or anywhere in nature. It was named after the flower it was invented to imitate."
+ },
+ {
+  "id": "lilial",
+  "name": "Lilial",
+  "smiles": "CC(Cc1ccc(C(C)(C)C)cc1)C=O",
+  "descriptors": [
+   "floral",
+   "powdery",
+   "fresh",
+   "soapy",
+   "sweet"
+  ],
+  "occurrences": [
+   "Lily of the valley accord",
+   "Detergent",
+   "Shampoo"
+  ],
+  "fact": "For decades the default clean-laundry floral, until it was restricted in the EU in 2022 and had to be designed out of thousands of products."
+ },
+ {
+  "id": "calone",
+  "name": "Calone",
+  "smiles": "Cc1ccc2OCC(=O)COc2c1",
+  "descriptors": [
+   "marine",
+   "ozone",
+   "melon",
+   "fresh",
+   "aldehydic"
+  ],
+  "occurrences": [
+   "1990s fragrance",
+   "Aquatic accords",
+   "Melon flavour"
+  ],
+  "fact": "Invented in 1966, ignored for twenty years, then defined the smell of the entire 1990s. Almost every ocean-scented product traces back to it."
+ },
+ {
+  "id": "dihydromyrcenol",
+  "name": "Dihydromyrcenol",
+  "smiles": "C=CC(C)CCCC(C)(C)O",
+  "descriptors": [
+   "citrus",
+   "fresh",
+   "soapy",
+   "floral",
+   "ozone"
+  ],
+  "occurrences": [
+   "Cool Water",
+   "Men's deodorant",
+   "Laundry detergent"
+  ],
+  "fact": "The smell of the entire men's fragrance aisle since 1988. Sharp, clean, faintly metallic citrus."
+ },
+ {
+  "id": "isoamyl-alcohol",
+  "name": "Isoamyl alcohol",
+  "smiles": "CC(C)CCO",
+  "descriptors": [
+   "solvent",
+   "winey",
+   "fruity",
+   "sour"
+  ],
+  "occurrences": [
+   "Beer",
+   "Whisky",
+   "Banana",
+   "Fermentation"
+  ],
+  "fact": "The main fusel alcohol in most fermentation, and a large part of why a brewery smells like a brewery."
+ },
+ {
+  "id": "ethyl-acetate",
+  "name": "Ethyl acetate",
+  "smiles": "CCOC(C)=O",
+  "descriptors": [
+   "solvent",
+   "fruity",
+   "sweet",
+   "ethereal"
+  ],
+  "occurrences": [
+   "Nail polish remover",
+   "Glue",
+   "Wine",
+   "Overripe fruit"
+  ],
+  "fact": "Fruity in trace amounts and unmistakably solvent above them. In wine it is the first sign of spoilage."
+ },
+ {
+  "id": "2-heptanone",
+  "name": "2-Heptanone",
+  "smiles": "CCCCCC(C)=O",
+  "descriptors": [
+   "cheesy",
+   "fruity",
+   "solvent",
+   "spicy"
+  ],
+  "occurrences": [
+   "Blue cheese",
+   "Bananas",
+   "Coconut",
+   "Bee alarm pheromone"
+  ],
+  "fact": "Honeybees use it as a marker for already-visited flowers, and it may double as a mild anaesthetic when they bite pests."
+ },
+ {
+  "id": "2-nonanone",
+  "name": "2-Nonanone",
+  "smiles": "CCCCCCCC(C)=O",
+  "descriptors": [
+   "cheesy",
+   "fruity",
+   "waxy",
+   "green",
+   "floral"
+  ],
+  "occurrences": [
+   "Blue cheese",
+   "Clove oil",
+   "Milk fat",
+   "Guava"
+  ],
+  "fact": "Part of the ketone family that makes blue cheeses smell blue rather than just old."
+ },
+ {
+  "id": "hexanol",
+  "name": "1-Hexanol",
+  "smiles": "CCCCCCO",
+  "descriptors": [
+   "green",
+   "grassy",
+   "fruity",
+   "waxy"
+  ],
+  "occurrences": [
+   "Freshly cut grass",
+   "Green tea",
+   "Wine",
+   "Apple"
+  ],
+  "fact": "Softer than the leaf alcohols above it. The green note that lingers after grass has been cut for an hour."
+ },
+ {
+  "id": "octanol",
+  "name": "1-Octanol",
+  "smiles": "CCCCCCCCO",
+  "descriptors": [
+   "waxy",
+   "citrus",
+   "green",
+   "floral",
+   "fatty"
+  ],
+  "occurrences": [
+   "Citrus peel",
+   "Coconut",
+   "Wine",
+   "Lovage"
+  ],
+  "fact": "Its oil-water partition is used as the industry standard for predicting whether a molecule will cross a cell membrane."
+ },
+ {
+  "id": "ethanol",
+  "name": "Ethanol",
+  "smiles": "CCO",
+  "descriptors": [
+   "ethereal",
+   "solvent",
+   "sweet",
+   "winey"
+  ],
+  "occurrences": [
+   "Every alcoholic drink",
+   "Hand sanitiser",
+   "Hospitals",
+   "Ripe fruit"
+  ],
+  "fact": "The smell of a hospital ward is mostly this, and after 2020 it became one of the most globally recognised smells alive."
+ },
+ {
+  "id": "acetaldehyde",
+  "name": "Acetaldehyde",
+  "smiles": "CC=O",
+  "descriptors": [
+   "ethereal",
+   "fruity",
+   "green",
+   "sour",
+   "apple"
+  ],
+  "occurrences": [
+   "Bruised apple",
+   "Sherry",
+   "Hangovers",
+   "Yoghurt"
+  ],
+  "fact": "The compound your liver makes from alcohol before it can finish the job. The hangover is largely acetaldehyde poisoning."
+ },
+ {
+  "id": "isobutyraldehyde",
+  "name": "Isobutyraldehyde",
+  "smiles": "CC(C)C=O",
+  "descriptors": [
+   "green",
+   "bready",
+   "roasted",
+   "solvent",
+   "nutty"
+  ],
+  "occurrences": [
+   "Bread",
+   "Coffee",
+   "Malt",
+   "Beer"
+  ],
+  "fact": "Grainy and slightly sharp, a supporting player in almost anything malted."
+ },
+ {
+  "id": "butyl-acetate",
+  "name": "Butyl acetate",
+  "smiles": "CCCCOC(C)=O",
+  "descriptors": [
+   "fruity",
+   "apple",
+   "solvent",
+   "sweet",
+   "banana"
+  ],
+  "occurrences": [
+   "Apples",
+   "Paint thinner",
+   "Nail varnish",
+   "Bananas"
+  ],
+  "fact": "Simultaneously the smell of a fresh apple and of a spray-paint booth, which says something about how weak our categories are."
+ },
+ {
+  "id": "phenylethyl-acetate",
+  "name": "Phenylethyl acetate",
+  "smiles": "CC(=O)OCCc1ccccc1",
+  "descriptors": [
+   "rose",
+   "floral",
+   "honey",
+   "sweet",
+   "fruity"
+  ],
+  "occurrences": [
+   "Rose",
+   "Honey",
+   "Wine",
+   "Cocoa"
+  ],
+  "fact": "Rose with the sharp edges filed off. Sweeter and more honeyed than phenylethanol itself."
+ },
+ {
+  "id": "fenchone",
+  "name": "Fenchone",
+  "smiles": "CC1(C)C2CCC(C)(C2)C1=O",
+  "descriptors": [
+   "camphoreous",
+   "anise",
+   "herbal",
+   "medicinal"
+  ],
+  "occurrences": [
+   "Fennel",
+   "Absinthe",
+   "Thuja",
+   "Bitter fennel oil"
+  ],
+  "fact": "Camphor-like and slightly bitter. The medicinal undertow in absinthe."
+ },
+ {
+  "id": "octanoic-acid",
+  "name": "Octanoic acid",
+  "smiles": "CCCCCCCC(=O)O",
+  "descriptors": [
+   "cheesy",
+   "sour",
+   "fatty",
+   "waxy",
+   "animalic"
+  ],
+  "occurrences": [
+   "Goat milk",
+   "Coconut oil",
+   "Beer",
+   "Sweat"
+  ],
+  "fact": "Along with hexanoic acid, one of the trio of goat-named fatty acids behind the smell of aged cheese."
+ },
+ {
+  "id": "naphthalene",
+  "name": "Naphthalene",
+  "smiles": "c1ccc2ccccc2c1",
+  "descriptors": [
+   "tarry",
+   "camphoreous",
+   "medicinal",
+   "plastic",
+   "smoky"
+  ],
+  "occurrences": [
+   "Mothballs",
+   "Coal tar",
+   "Old wardrobes",
+   "Tarmac and creosote"
+  ],
+  "fact": "The mothball smell. It sublimes straight from solid to gas at room temperature, which is why a mothball vanishes without ever going wet."
+ },
+ {
+  "id": "styrene",
+  "name": "Styrene",
+  "smiles": "C=Cc1ccccc1",
+  "descriptors": [
+   "plastic",
+   "solvent",
+   "balsamic",
+   "sweet",
+   "rubbery"
+  ],
+  "occurrences": [
+   "New plastic",
+   "Polystyrene foam",
+   "Fibreglass workshops",
+   "Storax resin"
+  ],
+  "fact": "The sweet, faintly balsamic smell of a brand-new plastic appliance out of the box."
+ },
+ {
+  "id": "2-methylbutanoic-acid",
+  "name": "2-Methylbutanoic acid",
+  "smiles": "CCC(C)C(=O)O",
+  "descriptors": [
+   "cheesy",
+   "sour",
+   "sweaty",
+   "fruity"
+  ],
+  "occurrences": [
+   "Aged cheese",
+   "Sweat",
+   "Strawberry",
+   "Roasted cocoa"
+  ],
+  "fact": "Sour and sweaty on its own, and yet part of what makes a ripe strawberry smell ripe."
+ },
+ {
+  "id": "toluene",
+  "name": "Toluene",
+  "smiles": "Cc1ccccc1",
+  "descriptors": [
+   "solvent",
+   "sweet",
+   "plastic",
+   "ethereal",
+   "phenolic"
+  ],
+  "occurrences": [
+   "Fresh paint",
+   "Car interiors",
+   "Model glue",
+   "Permanent markers"
+  ],
+  "fact": "The sweet, slightly sickly top note of a freshly painted room, and one of the largest single contributors to new car interior air.",
+  "threshold": "8 parts per million in air"
+ },
+ {
+  "id": "m-xylene",
+  "name": "m-Xylene",
+  "smiles": "Cc1cccc(C)c1",
+  "descriptors": [
+   "solvent",
+   "sweet",
+   "plastic",
+   "ethereal",
+   "woody"
+  ],
+  "occurrences": [
+   "Paint thinner",
+   "Leather treatments",
+   "Car interiors",
+   "Printing ink"
+  ],
+  "fact": "Heavier and sweeter than toluene, and the note that keeps a new interior smelling of solvent for weeks after the car leaves the factory.",
+  "threshold": "1 part per million in air"
+ },
+ {
+  "id": "ethylbenzene",
+  "name": "Ethylbenzene",
+  "smiles": "CCc1ccccc1",
+  "descriptors": [
+   "solvent",
+   "plastic",
+   "ethereal",
+   "sweet",
+   "tarry"
+  ],
+  "occurrences": [
+   "Foam cushions",
+   "Car seats",
+   "Petrol",
+   "Polystyrene manufacture"
+  ],
+  "fact": "Outgasses from seat foam and reads as faintly petrol-like, which is why a new interior can smell like a forecourt without any fuel present.",
+  "threshold": "2 parts per million in air"
+ },
+ {
+  "id": "2-ethylhexanol",
+  "name": "2-Ethylhexanol",
+  "smiles": "CCCCC(CC)CO",
+  "descriptors": [
+   "solvent",
+   "waxy",
+   "plastic",
+   "sweet",
+   "floral"
+  ],
+  "occurrences": [
+   "Vinyl flooring",
+   "PVC dashboards",
+   "Shower curtains",
+   "New car interiors"
+  ],
+  "fact": "The plasticiser alcohol behind the smell of new vinyl. If a dashboard smells of anything, a good share of it is this.",
+  "threshold": "0.3 parts per million in air"
+ }
+]

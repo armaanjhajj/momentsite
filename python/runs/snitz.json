@@ -1,0 +1,24 @@
+{
+  "pairs_used": 77,
+  "pairs_total": 77,
+  "molecules": 50,
+  "embedding": {
+    "dims": 256,
+    "note": "the model's native output, not what the site ships",
+    "spearman_rho": 0.5772911299227088,
+    "pearson_r": 0.6145013172187485,
+    "permutation_p": 9.999000099990002e-05
+  },
+  "shipped_embedding": {
+    "dims": 48,
+    "note": "src/data/scent/embedding.json, PCA fitted on the GS-LF atlas",
+    "spearman_rho": 0.553393974446606,
+    "pearson_r": 0.5922131333397468,
+    "permutation_p": 9.999000099990002e-05
+  },
+  "morgan_fingerprint_baseline": {
+    "spearman_rho": 0.20468931949581004,
+    "permutation_p": 0.0736926307369263
+  },
+  "permutations": 10000
+}

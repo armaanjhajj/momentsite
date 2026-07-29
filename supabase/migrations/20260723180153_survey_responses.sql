@@ -12,7 +12,7 @@ create table if not exists public.survey_responses (
   id              uuid primary key default gen_random_uuid(),
   -- 1..5 overall impression of the demo
   rating          smallint check (rating between 1 and 5),
-  -- 'yes' | 'maybe' | 'no' — would you use MOMENTS
+  -- 'yes' | 'maybe' | 'no': would you use MOMENTS
   would_use       text,
   -- which activity they'd drop first (hoop / food / study / other label)
   top_activity    text,

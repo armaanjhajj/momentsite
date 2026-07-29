@@ -10,7 +10,12 @@ export function Footnote({
   note,
 }: {
   children: ReactNode;
-  note: string;
+  /**
+   * A plain string for a one-line aside, or elements when the note needs a
+   * title and structure. Widening from `string` is backward compatible, since
+   * every existing caller passes a string and a string is a valid ReactNode.
+   */
+  note: ReactNode;
 }) {
   return (
     <span className="footnote" tabIndex={0}>

@@ -1,0 +1,41 @@
+[project]
+name = "scent"
+version = "0.1.0"
+description = "Message-passing GNN over odorant molecules; the embedding is the artifact."
+requires-python = ">=3.10"
+
+dependencies = [
+    # data
+    "pyrfume>=0.9",
+    "pandas>=2.0",
+    "numpy>=1.24",
+    # chemistry
+    "rdkit>=2023.9",
+    # model
+    "torch>=2.2",
+    "torch-geometric>=2.5",
+    # metrics / analysis
+    "scikit-learn>=1.3",
+    "scipy>=1.11",
+    "iterative-stratification>=0.1.7",
+    "umap-learn>=0.5",
+    # export
+    "onnx>=1.15",
+]
+
+[project.optional-dependencies]
+# Kept optional so a plain training run does not require accounts or a
+# hyperparameter search.
+tracking = ["wandb>=0.16", "optuna>=3.5"]
+
+[tool.uv]
+# torch-geometric compiles against the installed torch, so it must not be
+# resolved in the same pass.
+no-build-isolation-package = ["torch-geometric"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["scent"]

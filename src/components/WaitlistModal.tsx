@@ -9,7 +9,7 @@ import { supabase } from "@/lib/supabase";
 
 const STORAGE_KEY = "moments-waitlist-joined";
 
-// Always shown below the waitlist — the "build it with us" path.
+// Always shown below the waitlist. The "build it with us" path.
 function TeamSection({ onClose }: { onClose: () => void }) {
   return (
     <>

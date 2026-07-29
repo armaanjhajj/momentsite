@@ -92,7 +92,7 @@ export default function Contact() {
   const trimmedEmail = email.trim();
   const trimmedPhone = phone.trim();
 
-  // Phone OR email required — whichever is filled, the other is optional.
+  // Phone OR email required. Whichever is filled, the other is optional.
   const hasContact = trimmedEmail.length > 0 || trimmedPhone.length > 0;
   const emailOk = trimmedEmail.length === 0 || EMAIL_RE.test(trimmedEmail);
   const phoneOk =
@@ -144,7 +144,7 @@ export default function Contact() {
       </header>
 
       <div className="contact-grid">
-        {/* Left — reach us */}
+        {/* Left: reach us */}
         <div className="contact-left">
           <div className="contact-block">
             <span className="contact-block-label">PLATFORMS</span>
@@ -186,7 +186,7 @@ export default function Contact() {
           </div>
         </div>
 
-        {/* Right — inquiry box */}
+        {/* Right: the inquiry box */}
         <div className="contact-right">
           {submitted ? (
             <div className="contact-success">

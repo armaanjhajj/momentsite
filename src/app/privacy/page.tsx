@@ -177,27 +177,27 @@ export default function Privacy() {
         </p>
         <ul>
           <li>
-            <strong>Supabase</strong> — database, authentication, file storage.
+            <strong>Supabase</strong>: database, authentication, file storage.
           </li>
           <li>
-            <strong>Twilio</strong> — SMS delivery for OTP verification.
+            <strong>Twilio</strong>: SMS delivery for OTP verification.
           </li>
           <li>
-            <strong>OpenAI</strong> — vector embeddings and Impulse insight
+            <strong>OpenAI</strong>: vector embeddings and Impulse insight
             generation. Data sent to OpenAI is subject to their API data
             handling policies. OpenAI has committed to not training on API
             data by default.
           </li>
           <li>
-            <strong>Anthropic</strong> — AI-powered features within the
+            <strong>Anthropic</strong>: AI-powered features within the
             Impulse Engine.
           </li>
           <li>
-            <strong>Vercel</strong> — hosting, deployment, and serverless
+            <strong>Vercel</strong>: hosting, deployment, and serverless
             functions.
           </li>
           <li>
-            <strong>Deezer, OMDb, Open Library</strong> — third-party APIs
+            <strong>Deezer, OMDb, Open Library</strong>: third-party APIs
             for music, film/TV, and book search. We pass your search queries
             to these APIs to return results.
           </li>

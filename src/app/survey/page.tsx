@@ -138,7 +138,7 @@ export default function Survey() {
       </header>
 
       <div className="survey-grid">
-        {/* Left — the demo. Inline + sticky on desktop, popup on mobile. */}
+        {/* Left: the demo. Inline and sticky on desktop, popup on mobile. */}
         <div className="survey-demo">
           <div className="survey-demo-frame">
             <iframe
@@ -168,7 +168,7 @@ export default function Survey() {
           </button>
         </div>
 
-        {/* Right — the survey */}
+        {/* Right: the survey */}
         <div className="survey-right">
           {submitted ? (
             <div className="survey-success">
@@ -182,7 +182,7 @@ export default function Survey() {
             <form className="survey-form" onSubmit={handleSubmit}>
               <h2 className="survey-form-title">A few questions</h2>
 
-              {/* Q1 — find people */}
+              {/* Q1: find people */}
               <div className="survey-field">
                 <label className="survey-label">
                   1. How do you usually find people to hang out with?{" "}
@@ -204,7 +204,7 @@ export default function Survey() {
                 </div>
               </div>
 
-              {/* Q2 — openness */}
+              {/* Q2: openness */}
               <div className="survey-field">
                 <label className="survey-label">
                   2. How open are you to meeting new people?
@@ -225,7 +225,7 @@ export default function Survey() {
                 </div>
               </div>
 
-              {/* Q3 — would you go (1-5) */}
+              {/* Q3: would you go, 1 to 5 */}
               <div className="survey-field">
                 <label className="survey-label">
                   3. Free afternoon, someone new invites you to try something.
@@ -249,7 +249,7 @@ export default function Survey() {
                 </div>
               </div>
 
-              {/* Q4 — the spot */}
+              {/* Q4: the spot */}
               <div className="survey-field">
                 <label className="survey-label" htmlFor="s-spot">
                   4. What&apos;s your &ldquo;I know a spot&rdquo; spot?
@@ -267,7 +267,7 @@ export default function Survey() {
               {/* Email */}
               <div className="survey-field">
                 <label className="survey-label" htmlFor="s-email">
-                  Email <span className="survey-opt">— optional</span>
+                  Email <span className="survey-opt">(optional)</span>
                 </label>
                 <input
                   id="s-email"

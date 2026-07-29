@@ -5,9 +5,17 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "scent:build:legacy": "node scripts/build-scent-embedding.mjs",
+    "scent:zones": "node scripts/build-scent-zones.mjs",
+    "scent:check": "tsx scripts/scent-spotcheck.ts",
+    "scent:naming": "tsx scripts/naming-eval.ts",
+    "scent:stamp": "node scripts/stamp-map-version.mjs",
+    "scent:rezone": "tsx scripts/rezone-posts.ts",
+    "scent:demand": "tsx scripts/demand.ts"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.115.0",
     "@supabase/supabase-js": "^2.101.1",
     "@types/d3": "^7.4.3",
     "@vercel/analytics": "^2.0.1",
@@ -16,12 +24,14 @@
     "face-api.js": "^0.22.2",
     "next": "15.5.9",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "smiles-drawer": "^2.4.1"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "tsx": "^4.23.1",
     "typescript": "^5"
   }
 }

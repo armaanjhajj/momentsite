@@ -18,7 +18,7 @@ if (!url) {
 }
 if (!serviceRoleKey) {
   throw new Error(
-    "Missing SUPABASE_SERVICE_ROLE_KEY — add it to .env.local and Vercel env"
+    "Missing SUPABASE_SERVICE_ROLE_KEY: add it to .env.local and Vercel env"
   );
 }
 

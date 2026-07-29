@@ -1,0 +1,807 @@
+{
+ "_note": "How to actually smell these. `kitchen` is a household stand-in you could find tonight; molecules with no honest household source are simply absent from that field rather than given an invented one. `supplier` is the kind of place that sells the real aroma chemical. `dilution` is a sane starting strength. The very potent materials are unusable neat and several are unpleasant or hazardous at full strength.",
+ "geosmin": {
+  "kitchen": "Raw beetroot, scrubbed and cut",
+  "supplier": "Sigma-Aldrich / Pell Wall",
+  "dilution": "0.001%, one of the most potent materials in perfumery",
+  "caution": "Overdoses instantly to 'damp cellar'",
+  "thresholdProvenance": "literature"
+ },
+ "cis-3-hexenol": {
+  "kitchen": "Crushed grass or a torn green leaf",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "2-acetyl-1-pyrroline": {
+  "kitchen": "A pandan leaf, or the crust torn off hot bread",
+  "supplier": "Specialist flavour houses only",
+  "dilution": "0.01%",
+  "caution": "Unstable; degrades within months even refrigerated",
+  "thresholdProvenance": "literature"
+ },
+ "vanillin": {
+  "kitchen": "Vanilla extract, or an old paperback held open at the spine",
+  "supplier": "Any baking aisle; Pell Wall for crystals",
+  "dilution": "10%"
+ },
+ "ethylvanillin": {
+  "kitchen": "Cheap 'vanilla flavour' essence",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "5%"
+ },
+ "eugenol": {
+  "kitchen": "Clove oil from the pharmacy, or whole cloves crushed",
+  "supplier": "Pell Wall / Hermitage Oils",
+  "dilution": "1%",
+  "caution": "Skin sensitiser"
+ },
+ "limonene": {
+  "kitchen": "Orange peel, bent sharply near your nose",
+  "supplier": "Any citrus oil; Hermitage Oils",
+  "dilution": "10%",
+  "caution": "Oxidises to a sensitiser (keep it cold)"
+ },
+ "linalool": {
+  "kitchen": "Fresh coriander leaf, or lavender",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "5%"
+ },
+ "furaneol": {
+  "kitchen": "A very ripe strawberry",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "beta-damascenone": {
+  "kitchen": "Stewed apple, or a glass of aged red wine",
+  "supplier": "Pell Wall",
+  "dilution": "0.01% (extraordinarily strong)",
+  "thresholdProvenance": "literature"
+ },
+ "indole": {
+  "kitchen": "Jasmine tea, brewed strong",
+  "supplier": "Pell Wall",
+  "dilution": "0.1%",
+  "caution": "Faecal above ~1%"
+ },
+ "skatole": {
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%",
+  "caution": "Unambiguously faecal neat"
+ },
+ "ibmp": {
+  "kitchen": "Green bell pepper, sliced open",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.001%",
+  "thresholdProvenance": "estimated"
+ },
+ "ipmp": {
+  "kitchen": "A raw potato, freshly peeled",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.001%"
+ },
+ "diacetyl": {
+  "kitchen": "Real butter, warmed",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.1%",
+  "caution": "Do not inhale concentrated (causes bronchiolitis obliterans)"
+ },
+ "acetoin": {
+  "kitchen": "Plain yoghurt",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "isoamyl-acetate": {
+  "kitchen": "A very ripe banana, or pear-drop sweets",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "bmfds": {
+  "kitchen": "Beef stock reduced hard",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.001%"
+ },
+ "guaiacol": {
+  "kitchen": "Smoked paprika, or lapsang souchong tea",
+  "supplier": "Pell Wall",
+  "dilution": "1%"
+ },
+ "4-ethylguaiacol": {
+  "kitchen": "Soy sauce",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.5%"
+ },
+ "4-vinylguaiacol": {
+  "kitchen": "A German wheat beer",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.1%"
+ },
+ "creosol": {
+  "kitchen": "A peated Islay whisky",
+  "supplier": "Pell Wall",
+  "dilution": "0.5%"
+ },
+ "syringol": {
+  "kitchen": "Smoked fish, or barbecue smoke on clothing",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.5%"
+ },
+ "thymol": {
+  "kitchen": "Fresh thyme, or original Listerine",
+  "supplier": "Pell Wall",
+  "dilution": "1%"
+ },
+ "carvacrol": {
+  "kitchen": "Dried oregano, rubbed between fingers",
+  "supplier": "Hermitage Oils",
+  "dilution": "1%"
+ },
+ "menthol": {
+  "kitchen": "Peppermint oil, or a strong mint",
+  "supplier": "Any pharmacy",
+  "dilution": "2%"
+ },
+ "carvone-r": {
+  "kitchen": "Spearmint gum, or fresh spearmint",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "carvone-s": {
+  "kitchen": "Caraway seeds, crushed (smell them beside spearmint)",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "menthone": {
+  "kitchen": "Peppermint essential oil",
+  "supplier": "Hermitage Oils",
+  "dilution": "1%"
+ },
+ "pulegone": {
+  "kitchen": "Pennyroyal or cheap mint flavouring",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.5%",
+  "caution": "Hepatotoxic; restricted in food"
+ },
+ "eucalyptol": {
+  "kitchen": "Eucalyptus oil, or a vapour rub",
+  "supplier": "Any pharmacy",
+  "dilution": "5%"
+ },
+ "camphor": {
+  "kitchen": "A camphor block, or chest rub",
+  "supplier": "Pharmacy",
+  "dilution": "2%"
+ },
+ "borneol": {
+  "kitchen": "Rosemary, crushed hard",
+  "supplier": "Hermitage Oils",
+  "dilution": "1%"
+ },
+ "alpha-pinene": {
+  "kitchen": "Snapped pine needles",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "5%"
+ },
+ "beta-pinene": {
+  "kitchen": "Juniper berries, crushed (or neat gin)",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "5%"
+ },
+ "myrcene": {
+  "kitchen": "Hop pellets from a homebrew shop",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "2%"
+ },
+ "p-cymene": {
+  "kitchen": "Cumin seed",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "2%"
+ },
+ "beta-caryophyllene": {
+  "kitchen": "Black pepper, coarsely ground",
+  "supplier": "Hermitage Oils",
+  "dilution": "2%"
+ },
+ "geraniol": {
+  "kitchen": "Rose water, or a geranium leaf",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "5%"
+ },
+ "nerol": {
+  "kitchen": "Neroli or petitgrain oil",
+  "supplier": "Hermitage Oils",
+  "dilution": "5%"
+ },
+ "citronellol": {
+  "kitchen": "A citronella candle, unlit",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "5%"
+ },
+ "citral": {
+  "kitchen": "Lemongrass, bruised",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%",
+  "caution": "Sensitiser at high levels"
+ },
+ "alpha-terpineol": {
+  "kitchen": "Pine-scented floor cleaner",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "5%"
+ },
+ "linalyl-acetate": {
+  "kitchen": "Lavender oil, or bergamot from Earl Grey",
+  "supplier": "Hermitage Oils",
+  "dilution": "5%"
+ },
+ "nerolidol": {
+  "kitchen": "Fresh ginger, grated",
+  "supplier": "Pell Wall",
+  "dilution": "2%"
+ },
+ "farnesol": {
+  "supplier": "Pell Wall",
+  "dilution": "1%"
+ },
+ "phenylethanol": {
+  "kitchen": "Rose water from a Middle Eastern grocer",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "10%"
+ },
+ "phenylacetaldehyde": {
+  "kitchen": "Hyacinth flowers, or buckwheat honey",
+  "supplier": "Pell Wall",
+  "dilution": "0.1%"
+ },
+ "beta-ionone": {
+  "kitchen": "Violet sweets, or a raspberry",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.1%"
+ },
+ "alpha-ionone": {
+  "kitchen": "Orris-scented face powder",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.5%"
+ },
+ "cis-jasmone": {
+  "kitchen": "Jasmine tea leaves, dry",
+  "supplier": "Pell Wall",
+  "dilution": "0.5%"
+ },
+ "methyl-jasmonate": {
+  "supplier": "Pell Wall",
+  "dilution": "0.5%"
+ },
+ "hedione": {
+  "supplier": "Pell Wall / Perfumer's Apprentice",
+  "dilution": "20% (unusually gentle, used generously)"
+ },
+ "benzyl-acetate": {
+  "kitchen": "Cheap jasmine soap",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "5%"
+ },
+ "methyl-anthranilate": {
+  "kitchen": "Grape soda, or Concord grape juice",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "linalool-oxide": {
+  "kitchen": "Star anise, or a splash of pastis",
+  "supplier": "Hermitage Oils",
+  "dilution": "1%"
+ },
+ "estragole": {
+  "kitchen": "Fresh basil, or tarragon",
+  "supplier": "Hermitage Oils",
+  "dilution": "1%"
+ },
+ "cinnamaldehyde": {
+  "kitchen": "Cinnamon bark, scraped",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%",
+  "caution": "Strong skin irritant"
+ },
+ "isoeugenol": {
+  "kitchen": "Ylang-ylang oil, or nutmeg",
+  "supplier": "Pell Wall",
+  "dilution": "1%",
+  "caution": "Restricted sensitiser"
+ },
+ "safrole": {
+  "supplier": "Restricted (not generally purchasable)",
+  "dilution": "n/a",
+  "caution": "Banned in food; regulated precursor"
+ },
+ "piperonal": {
+  "kitchen": "A tub of Play-Doh, or cherry cough syrup",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "2%"
+ },
+ "benzaldehyde": {
+  "kitchen": "Almond extract, or marzipan",
+  "supplier": "Any baking aisle",
+  "dilution": "1%"
+ },
+ "coumarin": {
+  "kitchen": "Hay, or tonka-scented tobacco",
+  "supplier": "Pell Wall",
+  "dilution": "2%",
+  "caution": "Restricted in food"
+ },
+ "methyl-salicylate": {
+  "kitchen": "Deep Heat, or wintergreen mints",
+  "supplier": "Pharmacy",
+  "dilution": "1%",
+  "caution": "Toxic if swallowed (small volumes matter)"
+ },
+ "raspberry-ketone": {
+  "kitchen": "Fresh raspberries, warmed in the hand",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "zingerone": {
+  "kitchen": "Gingerbread, or cooked ginger",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "1%"
+ },
+ "sotolon": {
+  "kitchen": "Fenugreek seed, or maple syrup",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.001%"
+ },
+ "abhexon": {
+  "kitchen": "A crumbled stock cube",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.001%"
+ },
+ "maltol": {
+  "kitchen": "Malt extract, or toasted bread",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "ethyl-maltol": {
+  "kitchen": "Candy floss, or a sweet vape liquid",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.5%"
+ },
+ "cyclotene": {
+  "kitchen": "Maple syrup, or dark roast coffee",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.5%"
+ },
+ "furfural": {
+  "kitchen": "Bran, toasted in a dry pan",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.5%"
+ },
+ "5-methylfurfural": {
+  "kitchen": "Caramel sauce",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.5%"
+ },
+ "2-pentylfuran": {
+  "kitchen": "Stale cooking oil",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.1%"
+ },
+ "2-acetylpyrazine": {
+  "kitchen": "Popcorn, freshly popped",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.05%"
+ },
+ "25-dimethylpyrazine": {
+  "kitchen": "Roasted peanuts",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.1%"
+ },
+ "edmp": {
+  "kitchen": "Espresso grounds",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.01%"
+ },
+ "2-acetylpyrrole": {
+  "kitchen": "Roasted barley, or malt loaf",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.5%"
+ },
+ "2-acetylthiazole": {
+  "kitchen": "Toasted sesame seeds",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.01%"
+ },
+ "2-furfurylthiol": {
+  "kitchen": "A bag of coffee, opened and smelled immediately",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.0001%",
+  "caution": "Repulsive above threshold",
+  "thresholdProvenance": "literature"
+ },
+ "methional": {
+  "kitchen": "A boiled potato, still steaming",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.001%"
+ },
+ "dimethyl-sulfide": {
+  "kitchen": "Cooked cabbage water, or the seaside",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.001%"
+ },
+ "dimethyl-disulfide": {
+  "kitchen": "Boiled cabbage",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.001%"
+ },
+ "dimethyl-trisulfide": {
+  "kitchen": "Onion left too long in the fridge",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.0001%"
+ },
+ "methanethiol": {
+  "supplier": "Sigma-Aldrich (gas)",
+  "dilution": "n/a",
+  "caution": "Toxic gas (not a home material)"
+ },
+ "allicin": {
+  "kitchen": "A garlic clove, crushed and left 30 seconds",
+  "supplier": "Not sold (unstable)",
+  "dilution": "n/a"
+ },
+ "diallyl-disulfide": {
+  "kitchen": "Garlic oil",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%"
+ },
+ "propanethial-s-oxide": {
+  "kitchen": "An onion, cut (this is the one that makes you cry)",
+  "supplier": "Not sold (forms and decays in seconds)",
+  "dilution": "n/a"
+ },
+ "4mmp": {
+  "kitchen": "A New Zealand Sauvignon Blanc",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.00001%",
+  "caution": "Cat-urine at any excess"
+ },
+ "3mh": {
+  "kitchen": "Passionfruit pulp",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.00001%"
+ },
+ "grapefruit-mercaptan": {
+  "kitchen": "Fresh grapefruit peel",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.00001% (among the strongest known)",
+  "thresholdProvenance": "estimated"
+ },
+ "2-butene-1-thiol": {
+  "supplier": "Sigma-Aldrich",
+  "dilution": "n/a",
+  "caution": "Skunk. Genuinely difficult to remove from a room"
+ },
+ "benzothiazole": {
+  "kitchen": "A new rubber tyre or inner tube",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.05%"
+ },
+ "1-octen-3-ol": {
+  "kitchen": "Raw button mushrooms",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.1%"
+ },
+ "1-octen-3-one": {
+  "kitchen": "A coin held in a damp palm",
+  "supplier": "Specialist flavour houses",
+  "dilution": "0.0001%"
+ },
+ "hexanal": {
+  "kitchen": "Stale crisps, or a cut green apple",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.1%"
+ },
+ "trans-2-hexenal": {
+  "kitchen": "Peppery extra-virgin olive oil",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.1%"
+ },
+ "trans-2-nonenal": {
+  "kitchen": "Old cardboard, or stale beer",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.001%"
+ },
+ "24-decadienal": {
+  "kitchen": "A used deep-fryer",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.001%"
+ },
+ "nonanal": {
+  "kitchen": "Fresh laundry, or citrus peel",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.5%"
+ },
+ "decanal": {
+  "kitchen": "Orange peel",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.1%"
+ },
+ "octanal": {
+  "kitchen": "Fresh orange juice, not from concentrate",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.1%"
+ },
+ "3-methylbutanal": {
+  "kitchen": "Dark chocolate, or malt",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.05%"
+ },
+ "2-methylbutanal": {
+  "kitchen": "Cocoa powder",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.05%"
+ },
+ "isovaleric-acid": {
+  "kitchen": "Well-aged parmesan, or old trainers",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%"
+ },
+ "butyric-acid": {
+  "kitchen": "Parmesan rind",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%",
+  "caution": "Vomit-like neat; hard to unsmell"
+ },
+ "hexanoic-acid": {
+  "kitchen": "Goat cheese",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%"
+ },
+ "acetic-acid": {
+  "kitchen": "Vinegar",
+  "supplier": "Any supermarket",
+  "dilution": "5%"
+ },
+ "ethyl-butyrate": {
+  "kitchen": "Pineapple, or orange squash",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "ethyl-hexanoate": {
+  "kitchen": "A ripe apple",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "ethyl-2-methylbutyrate": {
+  "kitchen": "A crisp apple, bitten",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.5%"
+ },
+ "hexyl-acetate": {
+  "kitchen": "Apple skin",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "cis-3-hexenyl-acetate": {
+  "kitchen": "A green pear, or cut grass",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.5%"
+ },
+ "gamma-decalactone": {
+  "kitchen": "A ripe peach",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "gamma-nonalactone": {
+  "kitchen": "Coconut sun cream",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "delta-decalactone": {
+  "kitchen": "Full-fat cream",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "massoia-lactone": {
+  "supplier": "Pell Wall",
+  "dilution": "0.1%",
+  "caution": "Skin irritant"
+ },
+ "exaltolide": {
+  "supplier": "Pell Wall",
+  "dilution": "10%",
+  "caution": "Many people cannot smell it at all"
+ },
+ "muscone": {
+  "supplier": "Pell Wall (synthetic)",
+  "dilution": "1%"
+ },
+ "civetone": {
+  "supplier": "Pell Wall (synthetic)",
+  "dilution": "1%"
+ },
+ "androstenone": {
+  "kitchen": "Celery, or a truffle, if you're one of the people who can smell it",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%"
+ },
+ "trimethylamine": {
+  "kitchen": "Fish left out of the fridge",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.001%"
+ },
+ "cadaverine": {
+  "supplier": "Sigma-Aldrich",
+  "dilution": "n/a",
+  "caution": "Exactly what the name says"
+ },
+ "putrescine": {
+  "supplier": "Sigma-Aldrich",
+  "dilution": "n/a",
+  "caution": "Exactly what the name says"
+ },
+ "p-cresol": {
+  "kitchen": "A horse stable, or coal-tar soap",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%"
+ },
+ "phenol": {
+  "kitchen": "Coal-tar soap, or carbolic",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.1%",
+  "caution": "Corrosive"
+ },
+ "4-ethylphenol": {
+  "kitchen": "A funky natural red wine",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%"
+ },
+ "acetophenone": {
+  "kitchen": "Cheap cherry sweets",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.5%"
+ },
+ "anisaldehyde": {
+  "kitchen": "Aniseed sweets",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "cuminaldehyde": {
+  "kitchen": "Ground cumin",
+  "supplier": "Hermitage Oils",
+  "dilution": "0.5%"
+ },
+ "beta-damascone": {
+  "kitchen": "Pipe tobacco, unlit",
+  "supplier": "Pell Wall",
+  "dilution": "0.01%"
+ },
+ "nootkatone": {
+  "kitchen": "Grapefruit pith",
+  "supplier": "Pell Wall",
+  "dilution": "0.5%"
+ },
+ "cyclamen-aldehyde": {
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "1%"
+ },
+ "lilial": {
+  "supplier": "Restricted in the EU since 2022",
+  "dilution": "n/a",
+  "caution": "Reprotoxic; being designed out of products"
+ },
+ "calone": {
+  "kitchen": "A 1990s aquatic aftershave",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "0.5%"
+ },
+ "dihydromyrcenol": {
+  "kitchen": "Almost any men's deodorant",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "5%"
+ },
+ "isoamyl-alcohol": {
+  "kitchen": "The head of a homebrew",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "1%"
+ },
+ "ethyl-acetate": {
+  "kitchen": "Nail-polish remover",
+  "supplier": "Any pharmacy",
+  "dilution": "1%"
+ },
+ "2-heptanone": {
+  "kitchen": "Blue cheese",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.1%"
+ },
+ "2-nonanone": {
+  "kitchen": "Blue cheese rind",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.1%"
+ },
+ "hexanol": {
+  "kitchen": "Cut grass, an hour later",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.5%"
+ },
+ "octanol": {
+  "kitchen": "Lovage, or citrus pith",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.5%"
+ },
+ "ethanol": {
+  "kitchen": "Vodka, or hand sanitiser",
+  "supplier": "Anywhere",
+  "dilution": "n/a (this is the solvent)"
+ },
+ "acetaldehyde": {
+  "kitchen": "A bruised apple",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%"
+ },
+ "isobutyraldehyde": {
+  "kitchen": "Malt extract",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.05%"
+ },
+ "butyl-acetate": {
+  "kitchen": "Nail varnish, or a ripe apple",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "1%"
+ },
+ "phenylethyl-acetate": {
+  "kitchen": "Rose-flavoured Turkish delight",
+  "supplier": "Perfumer's Apprentice",
+  "dilution": "2%"
+ },
+ "fenchone": {
+  "kitchen": "Fennel seed, crushed",
+  "supplier": "Hermitage Oils",
+  "dilution": "1%"
+ },
+ "octanoic-acid": {
+  "kitchen": "Goat's milk",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%"
+ },
+ "2-methylbutanoic-acid": {
+  "kitchen": "Aged cheddar",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.01%"
+ },
+ "naphthalene": {
+  "kitchen": "A mothball from the back of a wardrobe",
+  "supplier": "Hardware shops",
+  "dilution": "1%",
+  "caution": "Possible carcinogen; ventilate"
+ },
+ "styrene": {
+  "kitchen": "A brand-new plastic appliance, unboxed",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.1%",
+  "caution": "Neurotoxic in quantity"
+ },
+ "toluene": {
+  "kitchen": "An uncapped permanent marker",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.1%",
+  "caution": "Neurotoxic on repeated inhalation. Ventilate.",
+  "thresholdProvenance": "estimated"
+ },
+ "m-xylene": {
+  "kitchen": "Paint thinner from a hardware shop",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.1%",
+  "caution": "Neurotoxic on repeated inhalation. Ventilate.",
+  "thresholdProvenance": "estimated"
+ },
+ "ethylbenzene": {
+  "supplier": "Sigma-Aldrich",
+  "dilution": "0.1%",
+  "caution": "Neurotoxic on repeated inhalation. Ventilate.",
+  "thresholdProvenance": "estimated"
+ },
+ "2-ethylhexanol": {
+  "kitchen": "A new shower curtain, still folded",
+  "supplier": "Sigma-Aldrich",
+  "dilution": "1%",
+  "thresholdProvenance": "estimated"
+ }
+}

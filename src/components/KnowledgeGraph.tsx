@@ -390,7 +390,7 @@ export function KnowledgeGraph({
 
   return (
     <>
-      {/* Preview card — click to expand (skipped when externally controlled) */}
+ {/* Preview card. Click to expand (skipped when externally controlled) */}
       {renderTrigger && (
         <button
           className="graph-frame"

@@ -1718,7 +1718,7 @@ html {
   margin: 0 0 12px;
 }
 
-/* ── Join the team — shown under the waitlist ── */
+/* ── Join the team: shown under the waitlist ── */
 .modal-divider {
   width: 100%;
   height: 1px;
@@ -3485,7 +3485,7 @@ html {
   gap: 0;
 }
 
-/* Exhibit dismiss — top-right × on exhibit subpages, routes to /exhibits.
+/* Exhibit dismiss. Top-right × on exhibit subpages, routes to /exhibits.
    align-self handles flex parents, margin-left:auto handles block parents. */
 .exhibit-close {
   align-self: flex-end;
@@ -3651,7 +3651,7 @@ html {
   margin-bottom: 0;
 }
 
-/* Recap photo gallery — masonry-ish columns so mixed portrait/landscape
+/* Recap photo gallery. Masonry-ish columns so mixed portrait/landscape
    shots keep their natural aspect ratio instead of getting cropped. */
 .event-gallery {
   width: 100%;
@@ -3687,7 +3687,7 @@ html {
 }
 
 .event-perks li::before {
-  content: "—  ";
+  content: " (";)
   color: rgba(255, 255, 255, 0.2);
 }
 
@@ -3773,7 +3773,7 @@ html {
 }
 
 /* ════════════════════════════════════════════════════════════
-   REVAMPED HOME — landing + collective + knowledge graph
+   REVAMPED HOME (landing + collective + knowledge graph)
    ════════════════════════════════════════════════════════════ */
 
 /* Let the home page own its full-width scrolling layout */
@@ -3814,7 +3814,7 @@ html {
   will-change: transform, opacity;
 }
 
-/* Scroll invite — peeking at the bottom of the first screen */
+/* Scroll invite, peeking at the bottom of the first screen */
 .scroll-invite {
   position: absolute;
   bottom: 34px;
@@ -3938,7 +3938,7 @@ html {
   font-family: 'Inter', -apple-system, sans-serif;
 }
 
-/* Preview card — view exhibit */
+/* Preview card: view exhibit */
 .graph-frame {
   all: unset;
   position: relative;
@@ -4046,7 +4046,7 @@ html {
     padding: 16px 18px 80px;
   }
 
-  /* Fill most of the screen on mobile — zoom/crop the image to cover */
+  /* Fill most of the screen on mobile: zoom/crop the image to cover */
   .landing-hero .landing-image-wrap {
     max-width: none;
     width: 100%;
@@ -4059,7 +4059,7 @@ html {
     object-fit: cover;
   }
 
-  /* The scroll hint reads like a stray caption on mobile — hide it */
+  /* The scroll hint reads like a stray caption on mobile: hide it */
   .landing-hero .scroll-invite {
     display: none;
   }
@@ -4074,7 +4074,7 @@ html {
 }
 
 /* ════════════════════════════════════════════════════════════
-   EXHIBITS — clean numbered index
+   EXHIBITS (clean numbered index)
    ════════════════════════════════════════════════════════════ */
 
 .home:has(.exhibits-page) {
@@ -4136,14 +4136,14 @@ a.exhibit-row,
   transition: color 0.18s ease;
 }
 
-/* Hover — just turn the row white */
+/* Hover: just turn the row white */
 .exhibit-row-link:hover .exhibit-title,
 .exhibit-row-link:hover .exhibit-num,
 .exhibit-row-static:hover .exhibit-title {
   color: #ffffff;
 }
 
-/* Soon — live but greyed out, with a constantly-scrambling title in the full
+/* Soon. Live but greyed out, with a constantly-scrambling title in the full
    black weight (may jitter). Hovering lights it up and decodes left-to-right. */
 .exhibit-row-soon .exhibit-title {
   color: rgba(255, 255, 255, 0.22);
@@ -4167,7 +4167,7 @@ a.exhibit-row,
 }
 
 /* ════════════════════════════════════════════════════════════
-   EXHIBIT MODAL — blurb + media gallery popup (door, impulse)
+ EXHIBIT MODAL. Blurb + media gallery popup (door, impulse)
    ════════════════════════════════════════════════════════════ */
 
 .exhibit-modal-overlay {
@@ -4213,7 +4213,7 @@ a.exhibit-row,
   margin: 0 0 26px;
 }
 
-/* Inline links inside a blurb — works for both <a> and <button> */
+/* Inline links inside a blurb: works for both <a> and <button> */
 .exhibit-modal-inline-link {
   appearance: none;
   -webkit-appearance: none;
@@ -4284,7 +4284,7 @@ a.exhibit-row,
 }
 
 /* ════════════════════════════════════════════════════════════
-   SURVEY — interactive demo + feedback questions
+   SURVEY (interactive demo + feedback questions)
    ════════════════════════════════════════════════════════════ */
 
 .home:has(.survey-page) {
@@ -4334,7 +4334,7 @@ a.exhibit-row,
   align-items: start;
 }
 
-/* ── Left — demo ── */
+/* ── Left: demo ── */
 .survey-demo {
   position: sticky;
   top: 96px;
@@ -4343,7 +4343,7 @@ a.exhibit-row,
   gap: 14px;
 }
 
-/* "Watch the demo" button — desktop hides it (demo shown inline) */
+/* "Watch the demo" button: desktop hides it (demo shown inline) */
 .survey-demo-toggle {
   display: none;
 }
@@ -4402,7 +4402,7 @@ a.exhibit-row,
   transform-origin: top left;
 }
 
-/* ── Right — form ── */
+/* ── Right: form ── */
 .survey-right {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
@@ -4729,7 +4729,7 @@ a.exhibit-row,
 }
 
 /* ════════════════════════════════════════════════════════════
-   CONTACT — inquiry + reach us, team via popup
+   CONTACT (inquiry + reach us, team via popup)
    ════════════════════════════════════════════════════════════ */
 
 .home:has(.contact-page) {
@@ -4886,7 +4886,7 @@ a.exhibit-row,
   transform: translate(2px, -2px);
 }
 
-/* ── Right column — form ── */
+/* ── Right column: form ── */
 .contact-right {
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 0;
@@ -5616,4 +5616,2716 @@ details.admin-section[open] > .admin-section-title::after {
   min-width: 240px;
   white-space: pre-wrap;
   word-break: break-word;
+}
+
+/* ════════════════════════════════════════════════════════════
+   SCENT (the odor map artifact)
+   ════════════════════════════════════════════════════════════ */
+
+.scent-page {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 56px 28px 120px;
+  font-family: 'Inter', -apple-system, sans-serif;
+  text-align: left;
+  animation: fadeIn 0.4s ease;
+}
+
+/* ── hero ── */
+.scent-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0 0 18px;
+}
+
+/* ── the trail ──
+   Sits where the eyebrow used to, so the hero keeps its shape, but says where
+   the page is rather than only what it is called. */
+
+.scent-crumbs {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin: 0 0 18px;
+}
+
+.scent-crumbs > span {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.scent-crumb {
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.scent-crumb:hover {
+  color: #ffffff;
+}
+
+.scent-crumb-on {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.scent-crumb-sep {
+  color: rgba(255, 255, 255, 0.18);
+  padding: 0 9px;
+  /* The chevron carries the tracking of the word before it otherwise, which
+     pushes it off centre between the two. */
+  letter-spacing: 0;
+}
+
+.scent-title {
+  font-size: clamp(56px, 13vw, 124px);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.scent-tagline {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 18px 0 0;
+}
+
+.scent-premise {
+  margin-top: 30px;
+  max-width: 620px;
+}
+
+.scent-premise p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0 0 14px;
+}
+
+.scent-premise p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── input ── */
+.scent-form {
+  display: flex;
+  align-items: stretch;
+  /* Wraps because SURPRISE ME at the input's size is wide; on a narrow screen
+     it drops to its own line rather than crushing the input. */
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 40px;
+  max-width: 620px;
+}
+
+.scent-input {
+  flex: 1 1 240px;
+  min-width: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: clamp(17px, 2.4vw, 22px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  padding: 18px 20px;
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.scent-input::placeholder {
+  color: rgba(255, 255, 255, 0.26);
+}
+
+.scent-input:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.scent-submit {
+  flex-shrink: 0;
+  width: 62px;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.scent-submit:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+/* ── seed chips ── */
+.scent-seeds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  max-width: 700px;
+}
+
+.scent-seed {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.5);
+  font-family: inherit;
+  font-size: 12.5px;
+  letter-spacing: 0.01em;
+  padding: 8px 13px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.scent-seed:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.scent-empty {
+  margin-top: 34px;
+  max-width: 620px;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.scent-empty em {
+  color: rgba(255, 255, 255, 0.85);
+  font-style: normal;
+}
+
+/* ── sections ── */
+.scent-results {
+  margin-top: 76px;
+}
+
+.scent-section {
+  margin-bottom: 76px;
+}
+
+.scent-h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.015em;
+  color: #ffffff;
+  margin: 0 0 10px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scent-h2-num {
+  font-size: 0.6em;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.scent-sub {
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 16px 0 28px;
+  max-width: 620px;
+}
+
+/* ── descriptor bars ── */
+.scent-bars {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 640px;
+}
+
+.scent-bar-row {
+  display: grid;
+  grid-template-columns: 128px 1fr 44px;
+  align-items: center;
+  gap: 14px;
+  padding: 7px 0;
+}
+
+.scent-bar-label {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: right;
+  letter-spacing: -0.01em;
+}
+
+.scent-bar-track {
+  height: 7px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.scent-bar-fill {
+  display: block;
+  height: 100%;
+  transition: width 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scent-bar-value {
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* ── molecule cards ── */
+.scent-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+
+.scent-card {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease;
+}
+
+.scent-card:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.scent-card-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.scent-card-rank {
+  font-size: 12px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.28);
+  flex-shrink: 0;
+}
+
+.scent-card-id h3 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.scent-card-score {
+  display: block;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 3px;
+}
+
+.scent-structure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px 0 10px;
+  min-height: 180px;
+}
+
+.scent-structure canvas {
+  max-width: 100%;
+  height: auto !important;
+}
+
+.scent-structure-fallback code {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  word-break: break-all;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ── descriptor chips ── */
+.scent-chips {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin: 0 0 16px;
+  padding: 0;
+}
+
+.scent-chip {
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.scent-chip-on {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ── card body ── */
+.scent-card-where {
+  margin-top: auto;
+}
+
+.scent-card-where-label {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  margin-bottom: 7px;
+}
+
+.scent-card-where ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.scent-card-where li {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.scent-card-where li::before {
+  content: "·";
+  color: rgba(255, 255, 255, 0.3);
+  margin-right: 7px;
+}
+
+.scent-card-threshold {
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.scent-card-fact {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 10px 0 0;
+  font-style: italic;
+}
+
+/* ── the map ── */
+.scent-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.035), transparent 68%);
+  overflow: hidden;
+}
+
+.scent-map canvas {
+  display: block;
+  cursor: crosshair;
+}
+
+.scent-map-tip {
+  position: absolute;
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 7px 10px;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.scent-map-tip strong {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.scent-map-tip span {
+  display: block;
+  font-size: 10.5px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+/* ── the honest bits ── */
+.scent-caveat {
+  border-left: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 4px 0 4px 22px;
+  margin-bottom: 60px;
+  max-width: 640px;
+}
+
+.scent-caveat h3 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.scent-caveat p {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0;
+}
+
+.scent-method {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 26px;
+  max-width: 680px;
+}
+
+.scent-method p {
+  font-size: 12.5px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.42);
+  margin: 0 0 14px;
+}
+
+.scent-method p:last-child {
+  margin-bottom: 0;
+}
+
+.scent-method strong {
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 600;
+}
+
+.scent-method em {
+  color: rgba(255, 255, 255, 0.7);
+  font-style: italic;
+}
+
+.scent-method code {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 1px 5px;
+}
+
+/* ── mobile ── */
+@media (max-width: 700px) {
+  .scent-page {
+    padding: 40px 18px 90px;
+  }
+
+  .scent-results {
+    margin-top: 54px;
+  }
+
+  .scent-section {
+    margin-bottom: 56px;
+  }
+
+  .scent-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .scent-bar-row {
+    grid-template-columns: 92px 1fr 38px;
+    gap: 10px;
+  }
+
+  .scent-bar-label {
+    font-size: 12px;
+  }
+
+  .scent-map {
+    aspect-ratio: 1 / 1;
+  }
+
+  .scent-form {
+    gap: 8px;
+  }
+
+  .scent-submit {
+    width: 52px;
+  }
+}
+
+/* ── polygon ── */
+.scent-polygon {
+  display: block;
+  overflow: visible;
+}
+
+.scent-profile {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+.scent-poly-pair {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.scent-poly-key {
+  font-size: 11.5px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 12px 0 0;
+  list-style: none;
+  text-align: center;
+}
+
+.scent-card .scent-polygon {
+  margin: 0 auto 12px;
+  opacity: 0.85;
+}
+
+/* ── distance ── */
+.scent-distance {
+  text-align: center;
+  padding: 24px 0 8px;
+}
+
+.scent-distance-value {
+  font-size: clamp(64px, 14vw, 128px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+}
+
+.scent-distance-cap {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 14px 0 0;
+}
+
+.scent-distance-cap em {
+  color: #ffffff;
+  font-style: normal;
+}
+
+.scent-distance-scale {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 440px;
+  margin: 30px auto 0;
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.scent-distance-bar {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.scent-distance-dot {
+  position: absolute;
+  top: 50%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -50%);
+  transition: left 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── walk ── */
+.scent-walk {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.scent-walk-poly {
+  display: flex;
+  justify-content: center;
+}
+
+.scent-walk-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: step;
+}
+
+.scent-walk-step {
+  display: grid;
+  grid-template-columns: 26px 1fr auto;
+  align-items: baseline;
+  gap: 12px;
+  padding: 9px 12px;
+  border-left: 2px solid rgba(255, 255, 255, 0.1);
+  cursor: default;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.scent-walk-step-on {
+  border-left-color: #ffffff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.scent-walk-idx {
+  font-size: 10.5px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.scent-walk-name {
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.55);
+  transition: color 0.2s ease;
+}
+
+.scent-walk-step-on .scent-walk-name {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.scent-walk-score {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── make it ── */
+.scent-make {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.scent-formula {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.scent-formula th {
+  text-align: left;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 10px 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.scent-formula td {
+  padding: 13px 10px 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  vertical-align: top;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.scent-formula .scent-num {
+  text-align: right;
+  position: relative;
+  white-space: nowrap;
+}
+
+.scent-formula-name {
+  display: block;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.scent-formula-caution {
+  display: block;
+  font-size: 10.5px;
+  color: hsl(14, 80%, 68%);
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.scent-formula-pct {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.scent-formula-barfill {
+  position: absolute;
+  left: 0;
+  bottom: 6px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.35);
+  max-width: 100%;
+}
+
+.scent-formula-dim {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.scent-kitchen {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 22px;
+}
+
+.scent-kitchen h3 {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.scent-kitchen p {
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.48);
+  margin: 0 0 14px;
+}
+
+.scent-kitchen ol {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.scent-kitchen li {
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 9px;
+}
+
+.scent-kitchen li strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.scent-kitchen li span {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.scent-kitchen-gap {
+  font-size: 11.5px !important;
+  color: rgba(255, 255, 255, 0.32) !important;
+  margin: 14px 0 0 !important;
+}
+
+@media (max-width: 860px) {
+  .scent-profile,
+  .scent-walk,
+  .scent-make {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    justify-items: center;
+  }
+
+  .scent-profile .scent-bars,
+  .scent-walk-steps {
+    width: 100%;
+  }
+
+  .scent-formula {
+    font-size: 12px;
+  }
+}
+
+
+/* ── SCENT: the thinking state ──
+   Only shown on the slow path (lexicon miss -> model call). The shape is
+   decorative and the copy says what is actually happening. */
+
+.scent-thinking {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 30px;
+  margin-top: 38px;
+  padding: 26px 28px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    radial-gradient(circle at 12% 50%, rgba(255, 255, 255, 0.045), transparent 62%);
+  animation: scentThinkIn 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes scentThinkIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.scent-thinking-viz {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 190px;
+  height: 190px;
+}
+
+.scent-thinking-viz .scent-polygon {
+  position: relative;
+  z-index: 1;
+}
+
+/* slow breathing halo behind the morphing shape */
+.scent-thinking-pulse {
+  position: absolute;
+  inset: 26%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 70%);
+  animation: scentPulse 2.6s ease-in-out infinite;
+}
+
+@keyframes scentPulse {
+  0%, 100% { transform: scale(0.82); opacity: 0.35; }
+  50%      { transform: scale(1.18); opacity: 0.75; }
+}
+
+.scent-thinking-body {
+  min-width: 0;
+}
+
+.scent-thinking-stage {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.scent-thinking-scan {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 14px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.scent-thinking-scan-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.28);
+  flex-shrink: 0;
+}
+
+.scent-thinking-word {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  /* fixed box so the rapid word changes do not jitter the layout */
+  min-width: 130px;
+}
+
+.scent-thinking-track {
+  position: relative;
+  height: 2px;
+  margin-top: 16px;
+  background: rgba(255, 255, 255, 0.09);
+  overflow: hidden;
+}
+
+/* Indeterminate by design: there is no honest percentage to show. */
+.scent-thinking-sweep {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 38%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.85),
+    transparent
+  );
+  animation: scentSweep 1.5s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+@keyframes scentSweep {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(365%); }
+}
+
+.scent-thinking-meta {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 12px 0 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* button spinner */
+.scent-submit-spin {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid rgba(0, 0, 0, 0.22);
+  border-top-color: #000000;
+  border-radius: 50%;
+  animation: scentSpin 0.62s linear infinite;
+}
+
+@keyframes scentSpin {
+  to { transform: rotate(360deg); }
+}
+
+.scent-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 700px) {
+  .scent-thinking {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 18px;
+    padding: 22px 18px;
+  }
+  .scent-thinking-viz { width: 150px; height: 150px; }
+  .scent-thinking-scan { justify-content: center; }
+  .scent-thinking-word { min-width: 0; }
+}
+
+/* Respect reduced motion: keep the state legible, drop the movement. */
+@media (prefers-reduced-motion: reduce) {
+  .scent-thinking,
+  .scent-thinking-pulse,
+  .scent-thinking-sweep,
+  .scent-submit-spin {
+    animation: none;
+  }
+  .scent-thinking-sweep {
+    width: 100%;
+    opacity: 0.4;
+  }
+  .scent-submit-spin {
+    border-top-color: rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ── SCENT: what the thing actually is ──
+   Sits above the decomposition, because "White Monster" means nothing to a
+   reader until someone says it is an energy drink. Absent when the model does
+ not recognise the input. It is told to omit rather than invent. */
+
+.scent-identity {
+  margin-top: 42px;
+  padding: 24px 26px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 2px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.025);
+  max-width: 680px;
+  animation: scentReveal 0.62s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+/* One entrance, reused. The page unfolds top to bottom instead of every
+   block appearing at once, which reads as arriving rather than snapping. */
+@keyframes scentReveal {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* `backwards`, not `both`. Both of them hold the from-keyframe through the
+   delay, which is the whole point of the entrance, but `both` also keeps
+   filling after the animation ends, and a filling transform animation leaves
+   the element a stacking context for good. That made every section its own
+   layer, so section 02 painted over a tooltip belonging to section 01 no
+   matter how high that tooltip's z-index went. `backwards` fills only before
+   the animation starts, so once each section has arrived it is ordinary
+   content again. */
+
+.scent-results {
+  animation: scentReveal 0.62s cubic-bezier(0.16, 1, 0.3, 1) 0.09s backwards;
+}
+
+.scent-results > .scent-section:nth-of-type(1) {
+  animation: scentReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.16s backwards;
+}
+.scent-results > .scent-section:nth-of-type(2) {
+  animation: scentReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.24s backwards;
+}
+.scent-results > .scent-section:nth-of-type(3) {
+  animation: scentReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.32s backwards;
+}
+.scent-results > .scent-section:nth-of-type(4) {
+  animation: scentReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.4s backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scent-identity,
+  .scent-results,
+  .scent-results > .scent-section {
+    animation: none;
+  }
+}
+
+.scent-identity-eyebrow {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
+  margin-bottom: 12px;
+}
+
+.scent-identity-label {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: clamp(20px, 3.2vw, 27px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+}
+
+.scent-identity-kind {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.scent-identity-summary {
+  font-size: 14.5px;
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.66);
+  margin: 14px 0 0;
+}
+
+@media (max-width: 700px) {
+  .scent-identity {
+    padding: 20px 18px;
+    margin-top: 32px;
+  }
+}
+
+/* ── SCENT: shuffle ──
+   Square icon button sitting beside the send arrow. Outlined rather than
+   filled so the primary action stays the obvious one. */
+
+.scent-shuffle {
+  flex-shrink: 0;
+  width: 62px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.62);
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.scent-or {
+  flex-shrink: 0;
+  align-self: center;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 2px;
+  user-select: none;
+}
+
+.scent-shuffle svg {
+  display: block;
+}
+
+.scent-shuffle:hover:not(:disabled) {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.scent-shuffle:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+/* the arrow is an svg now, so centre it properly */
+.scent-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scent-submit svg {
+  display: block;
+}
+
+/* ── SCENT: the inverse note ──
+   Words rather than a chart. A coordinate on the far side of the map is not
+   something anyone can picture, but "rose" is, and it is clickable. */
+
+.scent-inverse {
+  margin: 30px 0 0;
+  padding: 18px 20px;
+  border-left: 2px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.02);
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 660px;
+}
+
+.scent-inverse-label {
+  display: block;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
+  margin-bottom: 8px;
+}
+
+.scent-inverse-note {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.scent-inverse-link {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.45);
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.scent-inverse-link:hover {
+  border-bottom-color: #ffffff;
+  color: #ffffff;
+}
+
+.scent-inverse-link::after {
+  content: " ↗";
+  font-size: 0.8em;
+  opacity: 0.55;
+}
+
+@media (max-width: 700px) {
+  .scent-shuffle {
+    width: 52px;
+  }
+  .scent-inverse {
+    padding: 14px 16px;
+    font-size: 13px;
+  }
+}
+
+
+
+/* ── SCENT: MSI ──
+   The headline metric. A percentile against the corpus, so the number means
+   the same thing in every session. Lower is closer. */
+
+.scent-msi {
+  /* The heading no longer has a subtitle under it, so the number needs its
+     own breathing room below the rule. */
+  padding: 26px 0 4px;
+}
+
+.scent-msi-value {
+  font-size: clamp(64px, 15vw, 140px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+}
+
+.scent-msi-cap {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 16px 0 0;
+}
+
+.scent-msi-cap strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.scent-msi-scale {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 460px;
+  margin: 26px 0 0;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.scent-msi-bar {
+  position: relative;
+  flex: 1;
+  height: 2px;
+  /* Denser at the left so the scale reads as "closer is better" at a glance. */
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.1)
+  );
+}
+
+.scent-msi-dot {
+  position: absolute;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.9);
+  transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The footnote asterisk sits on a heavy uppercase heading here, so it needs
+   more room than it does in body copy. */
+.scent-h2 .footnote {
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── SCENT: structured footnote content ──
+   The note is a titled block rather than a paragraph, so the popup has to lay
+   its children out instead of running them together inline. */
+
+.scent-note {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  /* The drawer can push the note past the top of the viewport, since the popup
+     opens upward. Cap and scroll here rather than on .footnote-pop, because
+     overflow on the popup would clip its arrow and its hover bridge. */
+  max-height: min(70vh, 520px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  /* Scrolling clips both axes, not just the one asked for. The negative margin
+     buys back a few pixels on each side so an italic overhang and the
+     scrollbar cannot shave the edges off the content. */
+  padding-inline: 3px;
+  margin-inline: -3px;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+}
+
+.scent-note-title {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-bottom: 9px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.scent-note-lede {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.scent-note-math {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 7px;
+}
+
+.scent-note-math em {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.scent-note-eq {
+  margin-top: 5px;
+  padding-top: 7px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.scent-note-foot {
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── SCENT: the five sense bands, folded ──
+   The definition has to fit in a hover popup, so everything past the opening
+   paragraph lives behind these rows. Four of the five are dead on purpose. */
+
+.scent-note-more {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.scent-note-more-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.34);
+  margin-bottom: 5px;
+}
+
+.scent-sense {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  /* Buttons get border-box from the UA stylesheet and spans do not, and there
+     is no global reset here, so the padding has to be counted the same way for
+     both or the four spans come out 18px wider than the button. Cross-axis
+     stretch fills the row, so no width is needed at all. */
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: 11.5px;
+  text-align: left;
+  padding: 6px 9px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* Only band 1 is a button, so only band 1 gets a pointer and a hover state. */
+button.scent-sense {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.07);
+  transition: background 0.16s ease, color 0.16s ease;
+}
+
+button.scent-sense:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.scent-sense-n {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.6;
+}
+
+.scent-sense-chev {
+  margin-left: auto;
+  opacity: 0.55;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scent-sense-on .scent-sense-chev {
+  transform: rotate(180deg);
+}
+
+.scent-sense-body {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 10px 9px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  animation: scentDrawer 0.24s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.scent-sense-text {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@keyframes scentDrawer {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scent-sense-body {
+    animation: none;
+  }
+  .scent-sense-chev {
+    transition: none;
+  }
+}
+
+.scent-note-why {
+  font-size: 11.5px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.62);
+  padding-top: 9px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* The MSI note carries the whole definition now that it is not a subheading,
+   so it needs more room than the default 264px body-copy popup. */
+.scent-h2 .footnote-pop {
+  /* A fixed width, not max-content. The note scrolls, and a scroll container
+     contributes almost nothing to intrinsic width, so max-content sized this
+     to the prose and cut the row labels off at the right. */
+  width: min(420px, calc(100vw - 32px));
+  max-width: none;
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 14px 15px;
+  text-align: left;
+  /* The popup opens upward and the header is sticky at z-index 100, so a
+     heading near the top of the viewport would otherwise slide its tooltip
+     underneath the nav. */
+  z-index: 120;
+}
+
+.scent-h2 .footnote-mark {
+  font-size: 0.5em;
+  margin-left: 3px;
+}
+
+/* Every other footnote on the site is read-only, so the shared popup sets
+   pointer-events: none and a hover on it does nothing. This one has a control
+   inside it, so it takes the clicks back, but only while it is actually
+   visible. Otherwise an invisible box would sit over the heading. */
+.scent-h2 .footnote:hover .footnote-pop,
+.scent-h2 .footnote:focus-within .footnote-pop {
+  pointer-events: auto;
+}
+
+/* The popup floats 10px above the term. Without a bridge across that gap the
+   pointer leaves the hover target on its way up and the popup closes before
+   it can be reached. */
+.scent-h2 .footnote-pop::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 12px;
+}
+
+/* ── SCENT: the note, flipped ──
+   MSI is the first heading on the page, so upward often means underneath the
+   sticky header. MsiFootnote measures the room and adds this class when the
+   space below is the better of the two. Everything anchored to the bottom
+   edge has to move to the top edge, the arrow included. */
+
+.scent-fn-below .footnote-pop {
+  top: calc(100% + 10px);
+  bottom: auto;
+  /* Enters from above now, so the hidden offset reverses. The hover rule that
+     lands it at 0 is more specific, so it still wins on open. */
+  transform: translateY(-6px);
+}
+
+.scent-fn-below .footnote-pop::after {
+  top: auto;
+  bottom: 100%;
+  border-top-color: transparent;
+  border-bottom-color: rgba(18, 18, 18, 0.97);
+}
+
+.scent-fn-below .footnote-pop::before {
+  top: auto;
+  bottom: 100%;
+}
+
+@media (max-width: 700px) {
+  .scent-msi-cap {
+    font-size: 13px;
+  }
+  .scent-msi-scale {
+    gap: 10px;
+  }
+}
+
+/* ── SCENT: MSI postcode ── */
+
+.scent-msi-code {
+  font-size: clamp(76px, 17vw, 168px);
+  font-weight: 900;
+  letter-spacing: -0.055em;
+  line-height: 0.85;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+}
+
+/* The sense band is part of the code but not the part that varies here, so it
+   sits back and lets the three zone digits carry the weight. */
+.scent-msi-band {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.scent-msi-band-dot {
+  /* The separator is a divider, not a digit, so it gets tightened on both
+     sides rather than inheriting the display face's letter spacing. */
+  display: inline-block;
+  padding: 0 0.04em;
+  transform: translateY(-0.08em);
+  font-size: 0.62em;
+  vertical-align: middle;
+}
+
+.scent-msi-region {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: clamp(15px, 2.4vw, 20px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: rgba(255, 255, 255, 0.86);
+  margin: 20px 0 0;
+}
+
+.scent-msi-sep {
+  color: rgba(255, 255, 255, 0.32);
+  font-weight: 400;
+}
+
+.scent-msi-edge {
+  font-size: 12.5px;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.45);
+  margin: 12px 0 0;
+  padding-left: 12px;
+  border-left: 2px solid rgba(255, 255, 255, 0.18);
+}
+
+.scent-msi-foot {
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.35);
+  margin: 22px 0 0;
+  max-width: 520px;
+}
+
+/* ── SCENT: map controls and legend ── */
+
+.scent-map-controls {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.scent-map-level {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.45);
+  font-family: inherit;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 7px 13px;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.scent-map-level:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.scent-map-level-on {
+  color: #000000;
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.scent-map-legend {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 6px 18px;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.scent-map-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.scent-map-swatch {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.scent-map-legend-num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 700px) {
+  .scent-msi-region {
+    font-size: 15px;
+  }
+  .scent-map-legend {
+    grid-template-columns: 1fr 1fr;
+    font-size: 10.5px;
+  }
+}
+
+/* ── SCENT: collapsed molecules ── */
+
+.scent-more {
+  position: relative;
+  margin-top: 18px;
+}
+
+/* The mask goes on the clip wrapper, never on the container that also holds
+   the button, or the gradient fades the button away with the cards. */
+.scent-more-clip {
+  overflow: hidden;
+  /* max-height rather than height so the open state does not need a measured
+     pixel value; 2600px is comfortably past three cards at any width. */
+  max-height: 2600px;
+  transition: max-height 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scent-more:not(.scent-more-open) .scent-more-clip {
+  max-height: 150px;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 30%, transparent 96%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 30%, transparent 96%);
+}
+
+.scent-more {
+  padding-bottom: 30px;
+}
+
+/* The cards rise in behind the expanding container, staggered, so opening
+   reads as a reveal rather than a jump cut. */
+.scent-more-open .scent-more-clip .scent-card {
+  animation: scentReveal 0.55s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+.scent-more-open .scent-more-clip .scent-card:nth-child(1) {
+  animation-delay: 0.06s;
+}
+.scent-more-open .scent-more-clip .scent-card:nth-child(2) {
+  animation-delay: 0.14s;
+}
+.scent-more-open .scent-more-clip .scent-card:nth-child(3) {
+  animation-delay: 0.22s;
+}
+
+.scent-more-chev {
+  transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0.7;
+}
+
+.scent-more-open .scent-more-chev {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scent-more-clip,
+  .scent-more-chev {
+    transition: none;
+  }
+  .scent-more-open .scent-more-clip .scent-card {
+    animation: none;
+  }
+}
+
+.scent-more-btn {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 10, 10, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.scent-more-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.scent-more-count {
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* ── SCENT: find it ── */
+
+.scent-findit {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: #ffffff;
+  border: none;
+  color: #000000;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 9px 15px;
+  cursor: pointer;
+  transition: opacity 0.18s ease;
+}
+
+.scent-findit:hover {
+  opacity: 0.85;
+}
+
+.scent-findit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.82);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 56px 20px;
+  overflow-y: auto;
+  animation: fadeIn 0.2s ease;
+}
+
+.scent-findit-modal {
+  position: relative;
+  width: 100%;
+  max-width: 660px;
+  background: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 14px;
+  padding: 30px 30px 34px;
+}
+
+.scent-findit-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.scent-findit-close:hover {
+  color: #ffffff;
+}
+
+.scent-findit-eyebrow {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
+  margin: 0 0 10px;
+}
+
+.scent-findit-title {
+  font-size: clamp(19px, 3vw, 25px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin: 0 0 26px;
+  line-height: 1.2;
+}
+
+.scent-findit-block {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scent-findit-block:first-of-type {
+  margin-top: 0;
+}
+
+.scent-findit-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.scent-findit-head h4 {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.scent-copy {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.75);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 13px;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.scent-copy:hover {
+  color: #000000;
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+.scent-findit-hint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.42);
+  margin: 8px 0 12px;
+}
+
+.scent-findit-pre {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11.5px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 14px 15px;
+  margin: 0;
+  max-height: 260px;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.scent-findit-pre-short {
+  max-height: none;
+}
+
+.scent-findit-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.scent-findit-links a {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 7px 14px;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.scent-findit-links a:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ── SCENT: map zoom readout ── */
+
+.scent-map-zoom {
+  font-size: 10.5px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+  align-self: center;
+  margin-left: 4px;
+}
+
+.scent-map-hint {
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.28);
+  align-self: center;
+  margin-left: auto;
+}
+
+.scent-map canvas {
+  display: block;
+  touch-action: none;
+}
+
+@media (max-width: 700px) {
+  .scent-findit-modal {
+    padding: 24px 18px 28px;
+  }
+  .scent-map-hint {
+    display: none;
+  }
+  .scent-findit {
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   THE MSI BOARD
+   /scent section 06 and /board. Sharp corners throughout, to
+   match the rest of the exhibit: nothing here is a pill.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── shared button ── */
+
+.scent-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.82);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 11px 18px;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.scent-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.scent-btn-solid {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+}
+
+.scent-btn-solid:hover {
+  background: rgba(255, 255, 255, 0.86);
+  border-color: rgba(255, 255, 255, 0.86);
+  color: #000000;
+}
+
+.scent-btn:disabled {
+  opacity: 0.32;
+  cursor: not-allowed;
+}
+
+.scent-btn-solid:disabled:hover {
+  background: #ffffff;
+  border-color: #ffffff;
+}
+
+/* ── share ── */
+
+.scent-share {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.5);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 8px 13px;
+  cursor: pointer;
+  transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.scent-share:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Confirmation has to be visible without moving anything, since the label
+   swaps width when it changes. Colour carries it instead of layout. */
+.scent-share-done,
+.scent-share-done:hover {
+  color: #34c759;
+  border-color: rgba(52, 199, 89, 0.5);
+}
+
+.scent-share-compact {
+  padding: 6px;
+  border-color: transparent;
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.scent-share-compact:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* The heading share sits on an uppercase display line, so it needs its own
+   scale rather than inheriting one meant for 30px type. */
+.scent-h2 .scent-share {
+  margin-left: auto;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+}
+
+/* ── share a memory ──
+   Sits directly under the identity card, laid out like an email: where it is
+   going, a subject line, a body. Nothing else, because everything else about
+   the post is computed. */
+
+.scent-share-box {
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-left: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.025);
+  padding: 6px 22px 20px;
+  margin-top: 22px;
+  animation: scentReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.06s backwards;
+}
+
+.scent-field {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.scent-field-body {
+  border-bottom: 0;
+  align-items: start;
+}
+
+.scent-field label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.scent-field input,
+.scent-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 15.5px;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  outline: none;
+}
+
+.scent-field textarea {
+  resize: vertical;
+  min-height: 66px;
+}
+
+.scent-field input::placeholder,
+.scent-field textarea::placeholder {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+/* The caret is the only affordance on a borderless field, so focus has to
+   show somewhere. The label lights instead of adding a box. */
+.scent-field:focus-within label {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.scent-field-msi-value {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 15.5px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+
+.scent-field-msi-value span {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Far right of the top row, so the address line also points at the place all
+   the addresses live. */
+.scent-field-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.scent-field-link:hover {
+  color: #ffffff;
+}
+
+.scent-share-foot {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.scent-share-error {
+  margin: 0 auto 0 0;
+  font-size: 12px;
+  color: #ff6b6b;
+}
+
+.scent-share-sent {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  padding: 20px 22px;
+  border-left-color: #34c759;
+}
+
+.scent-share-tick {
+  display: inline-flex;
+  color: #34c759;
+}
+
+.scent-share-sent p {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.scent-share-sent strong {
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+}
+
+.scent-share-sent .scent-btn {
+  margin-left: auto;
+}
+
+/* ── similar memories ──
+   Heading and cards, nothing else. No count, no explanation and no empty
+   state: the section does not render until it has something in it. */
+
+.scent-near {
+  margin-top: 34px;
+}
+
+.scent-near-title {
+  margin: 0 0 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.scent-near-list,
+.board-feed {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+
+/* ── a post ── */
+
+.scent-post {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 16px 18px;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  animation: scentReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.scent-post:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* The anchor a shared link lands on. It has to be findable without a
+   scroll-position guess, so it announces itself for a beat. */
+.scent-post:target {
+  border-color: rgba(255, 255, 255, 0.6);
+  animation: scentTarget 1.6s ease 0.2s 2;
+}
+
+@keyframes scentTarget {
+  0%, 100% { background: rgba(255, 255, 255, 0.02); }
+  50% { background: rgba(255, 255, 255, 0.11); }
+}
+
+.scent-post-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 10.5px;
+}
+
+.scent-post-code {
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+}
+
+.scent-post-region {
+  color: rgba(255, 255, 255, 0.42);
+  letter-spacing: 0.02em;
+}
+
+.scent-post-match {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(52, 199, 89, 0.85);
+  font-variant-numeric: tabular-nums;
+}
+
+.scent-post-time {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.24);
+}
+
+/* The subject line. Carries the weight; the description reads under it. */
+.scent-post-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: #ffffff;
+  overflow-wrap: anywhere;
+}
+
+.scent-post-title + .scent-post-memory {
+  margin-top: -4px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.scent-post-memory {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: -0.01em;
+  color: rgba(255, 255, 255, 0.9);
+  /* Someone else's words, unwrapped and unedited, including whatever line
+     breaks they typed. */
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.scent-post-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 4px;
+}
+
+.scent-post-chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+
+.scent-post-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  border: 1px solid;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+}
+
+.scent-post-chip-w {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.5;
+}
+
+.scent-post-mol {
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.scent-post-foot .scent-share {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* ── the zone link on the MSI section ── */
+
+.scent-msi-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 22px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.scent-msi-link:hover {
+  color: #ffffff;
+}
+
+/* ── the sense picker ──
+   Five rows, one of them live. The dead four are shown rather than hidden
+   because the numbering is a fixed namespace, and the leading digit of every
+   code the board will ever issue comes from this list. */
+
+.sense-modal {
+  max-width: 460px;
+}
+
+.sense-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sense-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  padding: 14px 16px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.26);
+}
+
+.sense-row-live {
+  cursor: pointer;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.16);
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.sense-row-live:hover,
+.sense-row-live:focus-visible {
+  background: rgba(255, 255, 255, 0.13);
+  border-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+
+.sense-n {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.55;
+}
+
+.sense-name {
+  min-width: 0;
+}
+
+.sense-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: auto;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.sense-row-live:hover .sense-go {
+  color: #ffffff;
+}
+
+/* ── /board ── */
+
+.board-hero {
+  padding-bottom: 44px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  animation: scentReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.board-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  margin-top: 32px;
+}
+
+.board-count {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.board-count strong {
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  color: #ffffff;
+}
+
+.board-section {
+  margin-top: 52px;
+}
+
+.board-empty {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  padding: 44px;
+  text-align: center;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scent-post,
+  .scent-share-box,
+  .board-hero {
+    animation: none;
+  }
+  .scent-post:target {
+    animation: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .scent-near-list,
+  .board-feed {
+    grid-template-columns: 1fr;
+  }
+  .scent-share-sent .scent-btn {
+    margin-left: 0;
+  }
+  .scent-share-box {
+    padding: 4px 16px 18px;
+  }
+  /* Labels above their fields once the two-column grid stops fitting. */
+  .scent-field {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+}
+
+/* ── SCENT: the corpus tier ──
+   Retrieval covers all 5,548 molecules; only 156 have a written card. These
+   are the rest: same frame, less inside it, and labelled as such rather than
+   quietly padded out. */
+
+.scent-truest {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  margin: 22px 0 0;
+  padding: 14px 16px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.025);
+  border-left: 2px solid rgba(255, 255, 255, 0.28);
+}
+
+.scent-truest-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.scent-truest strong {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12px;
+  font-weight: 600;
+  color: #ffffff;
+  overflow-wrap: anywhere;
+}
+
+.scent-tier2 {
+  margin-top: 44px;
+  padding-top: 26px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.scent-tier2-head {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin: 0 0 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.scent-tier2-head span {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: none;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* A card with fewer sections should read as deliberately shorter, not as one
+   that failed to load. */
+.scent-card-thin {
+  border-style: dashed;
+}
+
+.scent-card-thin h3 {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.scent-card-unannotated {
+  margin: auto 0 0;
+  padding-top: 12px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.24);
+}
+
+/* Threshold provenance. A number nobody verified should not sit in the same
+   type as one that was measured. */
+.scent-prov {
+  margin-left: 6px;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 1px 5px;
+  vertical-align: 1px;
 }

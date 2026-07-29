@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+data_cache/
+.venv/
+uv.lock
+
+# runs/ was ignored wholesale, which would have discarded the only copy of the
+# trained checkpoint and the metric files computed from it. There is no
+# training log and no recorded epoch count, so best.pt cannot be rebuilt.
+# Track the artifacts, ignore everything transient alongside them.
+runs/*
+!runs/best.pt
+!runs/report.json
+!runs/snitz.json
+!runs/snitz_48.json
+!runs/README.md

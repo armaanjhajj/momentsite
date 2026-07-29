@@ -21,13 +21,13 @@ type Exhibit = {
   // so it needs a hard navigation rather than a client-side <Link>.
   static?: boolean;
   action?: "graph";
-  // modal: key into the content map — opens an in-page blurb + media popup.
+  // modal: key into the content map. Opens an in-page blurb + media popup.
   modal?: string;
   // soon: greyed-out row with a continuously scrambling title; still navigates.
   soon?: boolean;
 };
 
-// #0 … #N — live exhibits. Items with an href navigate, items with an action
+// #0 … #N. Live exhibits. Items with an href navigate, items with an action
 // or modal open something in-page; the rest are listed but not up yet.
 const EXHIBITS: Exhibit[] = [
   { title: "IMPULSE", modal: "impulse" },
@@ -40,8 +40,10 @@ const EXHIBITS: Exhibit[] = [
   { title: "GLASSES", href: "/glasses", static: true },
   { title: "VTKICKBACK", href: "/events/vt-kickback" },
   { title: "KNOWLEDGEGRAPH", action: "graph" },
-  { title: "LYFSTYL", href: "/LYFSTYL", soon: true },
-  { title: "DSCVR", href: "/DSCVR", soon: true },
+  { title: "THE BOARD", href: "/board" },
+  // Hidden from the list for now; the pages still live at /LYFSTYL and /DSCVR.
+  // { title: "LYFSTYL", href: "/LYFSTYL", soon: true },
+  // { title: "DSCVR", href: "/DSCVR", soon: true },
 ];
 
 const pad = (n: number) => String(n).padStart(2, "0");
@@ -282,7 +284,7 @@ export default function Exhibits() {
         ))}
       </div>
 
-      {/* Concept map — opens as a full-screen overlay over the list */}
+      {/* Concept map. Opens as a full-screen overlay over the list */}
       <KnowledgeGraph
         open={graphOpen}
         onClose={() => setGraphOpen(false)}
@@ -295,7 +297,7 @@ export default function Exhibits() {
         onClose={() => setModalKey(null)}
       />
 
-      {/* Legacy roster — same popup as the team page, opened from ORG's blurb */}
+      {/* Legacy roster: same popup as the team page, opened from ORG's blurb */}
       <LegacyModal open={legacyOpen} onClose={() => setLegacyOpen(false)} />
     </div>
   );

@@ -22,7 +22,7 @@ function getSessionSecret(): string {
   const secret = process.env.ADMIN_SESSION_SECRET;
   if (!secret || secret.length < 16) {
     throw new Error(
-      "Missing/short ADMIN_SESSION_SECRET — set a long random string in env"
+      "Missing/short ADMIN_SESSION_SECRET: set a long random string in env"
     );
   }
   return secret;
@@ -43,7 +43,7 @@ function safeEqual(a: string, b: string): boolean {
 export function isPasswordValid(submitted: string): boolean {
   const expected = process.env.ADMIN_PASSWORD;
   if (!expected) {
-    throw new Error("Missing ADMIN_PASSWORD — set it in env to enable /admin");
+    throw new Error("Missing ADMIN_PASSWORD: set it in env to enable /admin");
   }
   return safeEqual(submitted, expected);
 }

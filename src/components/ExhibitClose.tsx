@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-// Top-right dismiss shared by artifact subpages — always routes back to the
+// Top-right dismiss shared by artifact subpages. Always routes back to the
 // artifacts index rather than deeper into the site.
 export function ExhibitClose() {
   return (
