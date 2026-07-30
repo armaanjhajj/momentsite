@@ -7903,24 +7903,6 @@ button.scent-sense:hover {
   margin-left: auto;
 }
 
-/* ── similar memories ──
-   Heading and cards, nothing else. No count, no explanation and no empty
-   state: the section does not render until it has something in it. */
-
-.scent-near {
-  margin-top: 34px;
-}
-
-.scent-near-title {
-  margin: 0 0 16px;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.scent-near-list,
 .board-feed {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -8215,7 +8197,6 @@ button.scent-sense:hover {
 }
 
 @media (max-width: 700px) {
-  .scent-near-list,
   .board-feed {
     grid-template-columns: 1fr;
   }

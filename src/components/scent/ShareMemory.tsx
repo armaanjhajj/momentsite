@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { Msi } from "@/lib/scent/msi";
-import { POSTED_EVENT, type ScentPost } from "@/lib/scent/board";
+import type { ScentPost } from "@/lib/scent/board";
 
 const MEMORY_MAX = 200;
 const DESC_MAX = 600;
@@ -61,12 +61,6 @@ export function ShareMemory({
       }
 
       setPosted(data.post as ScentPost);
-      // The nearest feed lives in another section and should show this
-      // immediately. An event beats threading state through the page for one
-      // message that travels in one direction.
-      window.dispatchEvent(
-        new CustomEvent(POSTED_EVENT, { detail: data.post as ScentPost })
-      );
     } catch {
       setError("Could not reach the board.");
     } finally {

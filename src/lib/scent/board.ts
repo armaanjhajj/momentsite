@@ -18,14 +18,6 @@ const headers = (extra?: Record<string, string>) => ({
   ...extra,
 });
 
-/**
- * Fired on `window` after a memory is shared, carrying the new post. The
- * compose box and the nearest feed sit in different sections of the page and
- * this message only ever travels one way, so an event is lighter than lifting
- * state through both of them.
- */
-export const POSTED_EVENT = "scent:posted";
-
 export type PostMolecule = { id: string; name: string; score: number };
 
 export type ScentPost = {
@@ -94,31 +86,4 @@ export function recentPosts(limit = 24): Promise<ScentPost[]> {
 
 export function totalPosts(): Promise<number> {
   return count("scent_posts?select=id");
-}
-
-/**
- * Closest to yours.
- *
- * Ordered by position in the embedding, not by time, which is the one feed a
- * board without coordinates could not produce. Runs as a SQL function because
- * the comparison has to happen next to the rows.
- */
-export async function nearestPosts(
-  vec: number[],
-  k = 12,
-  skip?: string
-): Promise<ScentPost[]> {
-  if (!URL_BASE || !ANON) return [];
-  try {
-    const res = await fetch(`${REST}/rpc/scent_nearest`, {
-      method: "POST",
-      headers: headers({ "content-type": "application/json" }),
-      body: JSON.stringify({ q: vec, k, skip: skip ?? null }),
-      cache: "no-store",
-    });
-    if (!res.ok) return [];
-    return (await res.json()) as ScentPost[];
-  } catch {
-    return [];
-  }
 }

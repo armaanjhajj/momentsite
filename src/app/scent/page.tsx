@@ -10,7 +10,6 @@ import { ScentThinking } from "@/components/scent/ScentThinking";
 import { FindIt } from "@/components/scent/FindIt";
 import { Crumbs } from "@/components/scent/Crumbs";
 import { ShareMemory } from "@/components/scent/ShareMemory";
-import { NearestMemories } from "@/components/scent/NearestMemories";
 import { descriptorColor, descriptorLabel } from "@/data/scent/descriptors";
 import { toFamilyVector, moleculeFamilyVector } from "@/data/scent/families";
 import { decompose, mergeWeights, topWeights } from "@/lib/scent/decompose";
@@ -425,8 +424,6 @@ export default function Scent() {
               )}
 
             </div>
-
-            <NearestMemories vec={result.a.vec} msi={result.msi} />
           </section>
 
           {/* ── profile ──────────────────────────────────────────── */}
