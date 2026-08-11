@@ -12,7 +12,8 @@
     "scent:naming": "tsx scripts/naming-eval.ts",
     "scent:stamp": "node scripts/stamp-map-version.mjs",
     "scent:rezone": "tsx scripts/rezone-posts.ts",
-    "scent:demand": "tsx scripts/demand.ts"
+    "scent:demand": "tsx scripts/demand.ts",
+    "scent:anchors": "tsx scripts/build-cohere-anchors.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.115.0",

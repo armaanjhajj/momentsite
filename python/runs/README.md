@@ -31,16 +31,19 @@ artifact, which is why it is committed here despite its size.
 
 ## What is not recorded, and cannot be recovered
 
-- **Epoch count.** `train.py` defaults to `--epochs 120`, but the value passed
-  at invocation was never captured. The checkpoint may or may not have been
-  trained for 120 epochs.
+- ~~**Epoch count.**~~ Correction, 2026-07-29: it *is* recorded. `best.pt`
+  carries an `args` dict with the full invocation: `epochs: 120`,
+  `batch_size: 64`, `lr: 0.001`, `hidden: 300`, `depth: 4`,
+  `embedding_dim: 256`, `dropout: 0.15`, `gamma: 2.0`, `seed: 0`. An earlier
+  version of this file claimed otherwise because it was written from mtimes
+  without opening the checkpoint.
 - **Wall time.** No timing was taken. The only bracket available is that
   `python/runs/` was created at 14:02 and `best.pt` written at 14:03, which
   gives an end time, not a duration.
 - **Per-epoch loss and validation curves.** `train.py:197` logs these to
   stdout. That stdout was not redirected to a file. No log exists anywhere
   under `python/`.
-- **Random seed.** Not verified as captured in the checkpoint metadata.
+- ~~**Random seed.**~~ Also recorded: `seed: 0`, in the same `args` dict.
 - **Hardware.** No CUDA on the machine that ran it, so CPU or MPS. Which one is
   unknown.
 - **Weights & Biases / Optuna.** Both are wired into `train.py` behind flags
