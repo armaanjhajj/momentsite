@@ -66,6 +66,10 @@ type Anchors = {
 type Probs = {
   labels: string[];
   topK: number;
+  // Human names from the GoodScents and Leffingwell archives. atlas.json
+  // carries structures and no names, so without these an unannotated molecule
+  // renders as a SMILES string.
+  names: string[];
   rows: Array<{ i: number[]; p: number[] }>;
 };
 type Atlas = { labels: string[]; molecules: Array<{ id: string; smiles: string; e: number[] }> };
@@ -305,7 +309,9 @@ export async function POST(req: Request) {
       atlasIndex: m,
       atlasId: mol.id,
       smiles: mol.smiles,
-      name: curated?.name ?? null,
+      // Curated name first, since those are the ones written for people; then
+      // the archive name; SMILES only when neither exists.
+      name: curated?.name ?? P!.names?.[m] ?? null,
       curated: Boolean(curated),
       msi: msiFor(mol.e).label,
       embedScore: Number(scores[m].toFixed(4)),

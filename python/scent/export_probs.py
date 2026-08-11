@@ -23,14 +23,19 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+import re
 from pathlib import Path
 
 import numpy as np
 import torch
 
+from rdkit import Chem, RDLogger
+
 from .data import load_gslf
 from .embed import load_model
 from .featurize import featurize
+
+RDLogger.DisableLog("rdApp.*")
 
 log = logging.getLogger(__name__)
 
@@ -42,6 +47,61 @@ PUBLIC = ROOT / "public" / "scent"
 # is mostly the model hedging.
 TOP_K = 24
 ROUND = 4
+
+
+# Some archive rows carry a registry identifier where a name should be:
+# "unii-55494k367r", "nsc-12345", bare CAS numbers. Those are not names, and
+# showing one to a reader is worse than showing the structure.
+REGISTRY = re.compile(
+    r"^(unii[-\s]|nsc[-\s]|cid[-\s]|schembl|dtxsid|chebi|zinc\d|"
+    r"\d{2,7}-\d{2}-\d$)",
+    re.IGNORECASE,
+)
+
+
+def is_registry_code(v: str) -> bool:
+    v = v.strip()
+    if REGISTRY.match(v):
+        return True
+    # A long unbroken alphanumeric run with no vowel pattern reads as a hash.
+    return bool(re.fullmatch(r"[a-z0-9]{10,}", v, re.IGNORECASE)) and " " not in v
+
+
+def gslf_names() -> dict[str, str]:
+    """Canonical SMILES to a human name, from the source archives.
+
+    atlas.json carries structures and no names, so an unannotated molecule
+    renders as a SMILES string, which is unreadable. Both GoodScents and
+    Leffingwell ship a `name` column and usually an `IUPACName`; the archives
+    key on their own IsomericSMILES, so both sides are canonicalised here
+    before joining, the same lesson as the curated map.
+    """
+    import pyrfume
+
+    out: dict[str, str] = {}
+    for arch in ("goodscents", "leffingwell"):
+        try:
+            df = pyrfume.load_data(f"{arch}/molecules.csv")
+        except Exception:
+            continue
+        for _, r in df.iterrows():
+            smi = r.get("IsomericSMILES")
+            if not isinstance(smi, str):
+                continue
+            mol = Chem.MolFromSmiles(smi)
+            if mol is None:
+                continue
+            canon = Chem.MolToSmiles(mol)
+            # Prefer the common name; fall back to IUPAC. First archive to
+            # supply a name wins, so GoodScents takes precedence.
+            if canon in out:
+                continue
+            for col in ("name", "IUPACName"):
+                v = r.get(col)
+                if isinstance(v, str) and v.strip() and not is_registry_code(v):
+                    out[canon] = v.strip()
+                    break
+    return out
 
 
 def main() -> None:
@@ -80,6 +140,10 @@ def main() -> None:
     P = torch.cat(out).numpy() if out else np.zeros((0, len(labels)))
     log.info("  scored %d molecules", P.shape[0])
 
+    names_by_smiles = gslf_names()
+    names = [names_by_smiles.get(s, "") for s in kept]
+    log.info("  named %d/%d molecules", sum(1 for n in names if n), len(names))
+
     k = min(args.top_k, P.shape[1])
     idx = np.argsort(-P, axis=1)[:, :k]
 
@@ -105,6 +169,7 @@ def main() -> None:
         "topK": k,
         "molecules": len(rows),
         "smiles": kept,
+        "names": names,
         "rows": rows,
     }
 
