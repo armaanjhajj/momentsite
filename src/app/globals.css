@@ -8310,3 +8310,323 @@ button.scent-sense:hover {
   padding: 1px 5px;
   vertical-align: 1px;
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   SCENT ON A PHONE
+
+   The page was laid out for a desktop column and then allowed to
+   reflow, which is not the same as being designed for a phone. This
+   block is the difference: one column, thumb-sized targets, nothing
+   that can push the viewport sideways, and the search bar behaving
+   like an app's rather than like a wrapped flex row.
+   ══════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 700px) {
+  /* Nothing inside the exhibit may widen the viewport. A single overflowing
+     canvas or table turns every section into a sideways scroll. */
+  .scent-page {
+    padding: 26px 16px 72px;
+    overflow-x: clip;
+  }
+
+  /* ── hero ── */
+
+  .scent-title {
+    font-size: clamp(46px, 15vw, 76px);
+    letter-spacing: 0.01em;
+  }
+
+  .scent-tagline {
+    font-size: 15px;
+    margin-top: 12px;
+  }
+
+  .scent-crumbs {
+    font-size: 9.5px;
+    letter-spacing: 0.16em;
+    margin-bottom: 14px;
+  }
+
+  /* ── the search bar ──
+     Explicit two-row grid instead of a wrapping flex row. Flex wrap put the
+     input on one line and left the send, the OR and the shuffle to fall
+     wherever they fit, which is what made this look unfinished. Row one is
+     the field and its action; row two is the alternative, right aligned so
+     the two buttons stack in one column. */
+
+  .scent-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 56px;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .scent-input {
+    grid-area: 1 / 1;
+    /* 16px is the floor. Below it iOS zooms the whole page on focus and the
+       layout you designed is not the layout anyone sees. */
+    font-size: 16px;
+    padding: 15px 16px;
+  }
+
+  .scent-submit {
+    grid-area: 1 / 2;
+    width: 56px;
+  }
+
+  .scent-or {
+    grid-area: 2 / 1;
+    justify-self: end;
+    align-self: center;
+    padding: 0 4px 0 0;
+  }
+
+  .scent-shuffle {
+    grid-area: 2 / 2;
+    width: 56px;
+    height: 46px;
+  }
+
+  .scent-empty {
+    margin-top: 24px;
+    font-size: 14px;
+  }
+
+  /* ── sections ── */
+
+  .scent-section {
+    margin-bottom: 46px;
+  }
+
+  .scent-h2 {
+    font-size: 19px;
+    gap: 10px;
+    padding-bottom: 12px;
+  }
+
+  /* The MSI popup is anchored to the word MSI, which sits about 25px in from
+     the left edge. At the desktop width of min(420px, 100vw - 32px) it then
+     runs past the right edge of a phone. Narrower, so it fits from wherever
+     the word happens to start. */
+  .scent-h2 .footnote-pop {
+    width: min(300px, calc(100vw - 80px));
+  }
+
+  /* ── MSI ──
+     Five digits and a separator, so the desktop clamp overflows a narrow
+     screen. Sized off the viewport instead. */
+
+  .scent-msi {
+    padding-top: 18px;
+  }
+
+  .scent-msi-code {
+    font-size: clamp(54px, 19vw, 92px);
+    letter-spacing: -0.045em;
+  }
+
+  .scent-msi-region {
+    font-size: 14.5px;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .scent-msi-sep {
+    padding: 0 2px;
+  }
+
+  .scent-msi-edge {
+    font-size: 12px;
+  }
+
+  /* ── the polygon ──
+     Rendered at a fixed pixel size with a viewBox, so it needs telling that
+     it may shrink. Without this it is 340px wide inside a 328px column on a
+     360px phone. */
+
+  .scent-profile svg,
+  .scent-polygon svg {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .scent-bar-label {
+    font-size: 11px;
+  }
+
+  /* ── cards ── */
+
+  .scent-cards {
+    gap: 14px;
+  }
+
+  .scent-card {
+    padding: 16px;
+  }
+
+  /* smiles-drawer paints at devicePixelRatio and relies on CSS to scale back
+     down, so the canvas needs the same permission as the polygon. */
+  .scent-card canvas {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .scent-chips {
+    gap: 5px;
+  }
+
+  /* ── the formula table ──
+     Four columns do not fit. Scroll it rather than crushing the material
+     names, and keep enough width that the columns stay readable. */
+
+  .scent-formula-scroll {
+    /* The parent grid sets justify-items: center below 860px, which would
+       shrink this to its content and defeat both the scrolling and the
+       edge-to-edge bleed. */
+    justify-self: stretch;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    /* Bleeds to the viewport edge so the scroll affordance is obvious and the
+       table is not scrolling inside a 16px inset. */
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+
+  .scent-formula {
+    min-width: 430px;
+  }
+
+  /* ── the map ──
+     16:10 leaves 200px of height on a phone, which is a strip rather than a
+     map. Nearly square gives the point cloud room. */
+
+  .scent-map {
+    aspect-ratio: 4 / 5;
+  }
+
+  .scent-map-controls {
+    gap: 6px;
+  }
+
+  .scent-map-level {
+    flex: 1;
+    padding: 11px 8px;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  .scent-map-zoom {
+    display: none;
+  }
+
+  /* ── share box ── */
+
+  .scent-share-box {
+    padding: 4px 14px 16px;
+  }
+
+  .scent-field input,
+  .scent-field textarea {
+    font-size: 16px;
+  }
+
+  .scent-share-foot {
+    justify-content: stretch;
+  }
+
+  .scent-share-foot .scent-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  /* ── modals ──
+     Full height minus a margin, scrolling inside, so a long modal cannot
+     strand its close button off screen. */
+
+  .scent-findit-overlay {
+    padding: 16px 12px;
+    align-items: flex-start;
+  }
+
+  .scent-findit-modal {
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .sense-row {
+    padding: 15px 14px;
+    font-size: 15px;
+  }
+
+  /* ── thumb-sized targets ──
+     Anything tappable gets to 44px, and the grey flash that makes a web page
+     feel like a web page goes away. */
+
+  .scent-btn,
+  .scent-share,
+  .scent-more-btn,
+  .scent-findit,
+  .scent-map-level,
+  .scent-submit,
+  .scent-shuffle,
+  .sense-row,
+  .scent-post-code,
+  .scent-crumb {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .scent-btn {
+    padding: 13px 18px;
+  }
+
+  .scent-more-btn {
+    padding: 12px 22px;
+  }
+
+  .scent-findit {
+    padding: 10px 14px;
+  }
+
+  /* ── the corpus tier ── */
+
+  .scent-truest {
+    padding: 12px 14px;
+    font-size: 12px;
+  }
+
+  .scent-tier2 {
+    margin-top: 34px;
+  }
+
+  .scent-method {
+    font-size: 12px;
+  }
+}
+
+/* Very narrow phones. The 360px class, where a fixed 340px polygon and a
+   two-up legend both stop fitting. */
+@media (max-width: 400px) {
+  .scent-page {
+    padding: 22px 13px 64px;
+  }
+
+  .scent-msi-code {
+    font-size: clamp(48px, 18vw, 74px);
+  }
+
+  .scent-map-legend {
+    grid-template-columns: 1fr;
+  }
+
+  .scent-formula-scroll {
+    margin: 0 -13px;
+    padding: 0 13px;
+  }
+
+  .scent-card {
+    padding: 14px;
+  }
+}

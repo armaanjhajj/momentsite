@@ -40,7 +40,7 @@ const EXHIBITS: Exhibit[] = [
   { title: "GLASSES", href: "/glasses", static: true },
   { title: "VTKICKBACK", href: "/events/vt-kickback" },
   { title: "KNOWLEDGEGRAPH", action: "graph" },
-  { title: "THE BOARD", href: "/board" },
+  { title: "SCENT", href: "/scent" },
   // Hidden from the list for now; the pages still live at /LYFSTYL and /DSCVR.
   // { title: "LYFSTYL", href: "/LYFSTYL", soon: true },
   // { title: "DSCVR", href: "/DSCVR", soon: true },

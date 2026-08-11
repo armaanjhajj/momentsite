@@ -983,6 +983,9 @@ function MakeIt({ result }: { result: Result }) {
       </h2>
 
       <div className="scent-make">
+        {/* Four columns will not fit a phone. Scrolling the table beats
+            crushing the material names to two characters. */}
+        <div className="scent-formula-scroll">
         <table className="scent-formula">
           <thead>
             <tr>
@@ -1014,6 +1017,7 @@ function MakeIt({ result }: { result: Result }) {
             ))}
           </tbody>
         </table>
+        </div>
 
         {formula.kitchen.length > 0 && (
           <div className="scent-kitchen">
