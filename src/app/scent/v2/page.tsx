@@ -181,25 +181,15 @@ export default function ScentV2() {
           </div>
           <div>
             <dt>v2</dt>
-            <dd>No lexicon. No reasoning at runtime. Deterministic.</dd>
+            <dd>Deterministic, no reasoning at runtime.</dd>
           </div>
           <div>
             <dt>Bridge</dt>
             <dd>
-              The GNN scores every molecule against 150 descriptors. Those 150
-              names also embed as text. Your phrase embeds into the same space.
+              GNN scores every molecule against 150 descriptors which are also
+              embedded as text. Query phrase embeds into the same space and
+              produces a dot product for each.
             </dd>
-          </div>
-          <div>
-            <dt>Runtime</dt>
-            <dd>
-              One embed call. 150 dot products. 5,548 weighted sums. One rerank
-              call. Nothing is generated.
-            </dd>
-          </div>
-          <div>
-            <dt>Repeat</dt>
-            <dd>Same phrase, same vector, same order. Cached after the first run.</dd>
           </div>
         </dl>
       </header>
@@ -439,17 +429,6 @@ function Trace({ d }: { d: V2 }) {
         )}
       </Step>
 
-      <p className="v2-determinism">
-        {d.determinism}{" "}
-        <strong>
-          Measured caveat: Cohere Embed is not bit exact. Two calls with the
-          same string returned vectors differing around the fourth decimal,
-          enough to swap two near tied anchors and reorder the shortlist. So the
-          first vector for a phrase is stored and replayed forever, which is
-          what makes the rest of this page reproducible rather than merely
-          usually the same.
-        </strong>
-      </p>
     </div>
   );
 }

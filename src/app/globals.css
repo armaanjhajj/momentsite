@@ -9059,16 +9059,6 @@ button.scent-sense:hover {
   font-variant-numeric: tabular-nums;
 }
 
-.v2-determinism {
-  margin: 40px 0 0;
-  padding: 16px 18px;
-  font-size: 12.5px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.55);
-  border: 1px dashed rgba(255, 255, 255, 0.16);
-  max-width: 660px;
-}
-
 @media (max-width: 700px) {
   .v2-step {
     padding-left: 16px;
