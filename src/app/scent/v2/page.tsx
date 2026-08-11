@@ -170,25 +170,38 @@ export default function ScentV2() {
 
       <header className="scent-hero">
         <p className="scent-eyebrow">Moments Sense Index · bench</p>
-        <h1 className="scent-title">SCENT V2</h1>
-        <p className="scent-tagline">
-          The same question, asked without a lexicon.
-        </p>
+        <h1 className="scent-title">
+          SCENT<span className="v2-mark">V2</span>
+        </h1>
 
-        <div className="v2-premise">
-          <p>
-            v1 turns your words into descriptors with a hand-written phrase
-            table, and asks Claude when the table misses. Both halves are
-            authored by me, and the second one is not deterministic.
-          </p>
-          <p>
-            v2 has no table and does no reasoning at query time. The GNN already
-            maps every molecule to 150 descriptor probabilities. Those 150 names
-            also exist as English, so they work as anchors: embed the names once,
-            embed your phrase, and the two land in the same space. What follows
-            is arithmetic, and arithmetic gives the same answer every time.
-          </p>
-        </div>
+        <dl className="v2-facts">
+          <div>
+            <dt>v1</dt>
+            <dd>Hand-written lexicon. Claude API failsafe when it misses.</dd>
+          </div>
+          <div>
+            <dt>v2</dt>
+            <dd>No lexicon. No reasoning at runtime. Deterministic.</dd>
+          </div>
+          <div>
+            <dt>Bridge</dt>
+            <dd>
+              The GNN scores every molecule against 150 descriptors. Those 150
+              names also embed as text. Your phrase embeds into the same space.
+            </dd>
+          </div>
+          <div>
+            <dt>Runtime</dt>
+            <dd>
+              One embed call. 150 dot products. 5,548 weighted sums. One rerank
+              call. Nothing is generated.
+            </dd>
+          </div>
+          <div>
+            <dt>Repeat</dt>
+            <dd>Same phrase, same vector, same order. Cached after the first run.</dd>
+          </div>
+        </dl>
       </header>
 
       <form
@@ -261,18 +274,7 @@ export default function ScentV2() {
 function Trace({ d }: { d: V2 }) {
   return (
     <div className="scent-results v2-trace">
-      <div className="v2-summary">
-        <Stat
-          label="API calls"
-          value={String(d.apiCalls)}
-          note={d.cached ? "replayed from cache" : "one embed, one rerank"}
-        />
-        <Stat label="Total" value={`${d.totalMs} ms`} note="server side" />
-        <Stat label="Corpus" value={d.scoring.molecules.toLocaleString()} note="molecules compared" />
-        <Stat label="Reasoning" value="none" note="at query time" />
-      </div>
-
-      <Step n="01" title="Your phrase becomes a vector" ms={d.embed.ms} api="Cohere Embed">
+      <Step n="01" title="Query embedding" ms={d.embed.ms} api="Cohere Embed">
         <dl className="v2-kv">
           <div><dt>model</dt><dd>{d.embed.model}</dd></div>
           <div><dt>input_type</dt><dd>{d.embed.inputType}</dd></div>
@@ -286,7 +288,7 @@ function Trace({ d }: { d: V2 }) {
         </p>
       </Step>
 
-      <Step n="02" title="The vector meets the 150 anchors" ms={d.anchors.ms} api="local">
+      <Step n="02" title="Anchor projection" ms={d.anchors.ms} api="local">
         <p className="v2-note">
           Each of the GNN&apos;s 150 descriptor names was embedded once, as
           <em> {d.anchors.template}</em>. This is a dot product against each,
@@ -311,7 +313,7 @@ function Trace({ d }: { d: V2 }) {
         </p>
       </Step>
 
-      <Step n="03" title="Which is a descriptor profile" ms={0} api="local">
+      <Step n="03" title="Descriptor profile" ms={0} api="local">
         <p className="v2-note">{d.profile.note}</p>
         <p className="v2-note v2-note-dim">
           Top {d.profile.anchorsKept} anchors kept, sharpened at T={d.profile.sharpen}.
@@ -328,11 +330,13 @@ function Trace({ d }: { d: V2 }) {
 
       <Step
         n="04"
-        title={`Scored against ${d.scoring.molecules.toLocaleString()} molecules`}
+        title="Corpus scoring"
         ms={d.scoring.ms}
         api="local"
       >
-        <p className="v2-note">{d.scoring.note}.</p>
+        <p className="v2-note">
+          {d.scoring.molecules.toLocaleString()} molecules. {d.scoring.note}.
+        </p>
         <p className="v2-note v2-note-dim">
           Each molecule carries its top {d.scoring.topK} descriptor probabilities
           from the GNN&apos;s classifier head, the part the deployed site throws
@@ -342,7 +346,7 @@ function Trace({ d }: { d: V2 }) {
         <CandTable rows={d.scoring.preRerank} mode="embed" />
       </Step>
 
-      <Step n="05" title="Reranked" ms={d.rerank.ms} api="Cohere Rerank">
+      <Step n="05" title="Rerank" ms={d.rerank.ms} api="Cohere Rerank">
         {d.rerank.error ? (
           <p className="v2-error">rerank failed: {d.rerank.error}</p>
         ) : (
@@ -397,7 +401,7 @@ function Trace({ d }: { d: V2 }) {
         </div>
       </Step>
 
-      <Step n="07" title="What v1 does with the same phrase" ms={0} api="deployed site">
+      <Step n="07" title="v1 comparison" ms={0} api="deployed site">
         <dl className="v2-kv">
           <div><dt>lexicon matched</dt><dd>{d.v1.matched.length ? d.v1.matched.join(", ") : "nothing"}</dd></div>
           <div><dt>confidence</dt><dd>{d.v1.confidence}</dd></div>
@@ -451,16 +455,6 @@ function Trace({ d }: { d: V2 }) {
 }
 
 /* ── small pieces ────────────────────────────────────────────────── */
-
-function Stat({ label, value, note }: { label: string; value: string; note: string }) {
-  return (
-    <div className="v2-stat">
-      <span className="v2-stat-label">{label}</span>
-      <strong>{value}</strong>
-      <span className="v2-stat-note">{note}</span>
-    </div>
-  );
-}
 
 function Step({
   n,
