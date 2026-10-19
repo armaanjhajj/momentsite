@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSelectedLayoutSegment } from "next/navigation";
 import { Logo } from "@/components/Logo";
 import { WaitlistModal } from "@/components/WaitlistModal";
 
@@ -15,6 +15,10 @@ const STORAGE_KEY = "moments-waitlist-joined";
 
 export function Nav() {
   const pathname = usePathname();
+  // On LYFESTYL pages (also served from lyfestyl.1moments.com) the site links
+  // are plain anchors: on the subdomain they redirect to the main site, which
+  // a client-side prefetch can't follow.
+  const hardNav = useSelectedLayoutSegment() === "lyfestyl";
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   const [joined, setJoined] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -55,6 +59,10 @@ export function Nav() {
               rel="noopener noreferrer"
               className="nav-item"
             >
+              {item.label}
+            </a>
+          ) : hardNav ? (
+            <a key={item.href} href={item.href} className="nav-item">
               {item.label}
             </a>
           ) : (
@@ -108,6 +116,15 @@ export function Nav() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="mobile-menu-item"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  {item.label}
+                </a>
+              ) : hardNav ? (
+                <a
+                  key={item.href}
+                  href={item.href}
                   className="mobile-menu-item"
                   onClick={() => setMenuOpen(false)}
                 >

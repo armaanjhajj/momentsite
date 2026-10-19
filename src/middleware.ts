@@ -27,9 +27,12 @@ export function middleware(req: NextRequest) {
   const host = req.headers.get("host") ?? "";
   if (!host.startsWith(SUBDOMAIN)) return NextResponse.next();
 
-  // Already a LYFESTYL route (in-page links use /lyfestyl/...).
+  // In-page links point at /lyfestyl/...; on the subdomain, drop the prefix
+  // so the address bar shows lyfestyl.1moments.com/privacy.
   if (pathname === "/lyfestyl" || pathname.startsWith("/lyfestyl/")) {
-    return NextResponse.next();
+    const url = req.nextUrl.clone();
+    url.pathname = pathname.slice("/lyfestyl".length) || "/";
+    return NextResponse.redirect(url, 308);
   }
 
   const target = APP_PATHS[pathname];
@@ -39,6 +42,8 @@ export function middleware(req: NextRequest) {
     return NextResponse.rewrite(url);
   }
 
+  // Everything else lives on the main site. (Locally this can't be tried:
+  // Next treats any loopback redirect as same-host and makes it relative.)
   const mainHost = host.slice(SUBDOMAIN.length);
   return NextResponse.redirect(
     new URL(`${pathname}${search}`, `${req.nextUrl.protocol}//${mainHost}`),
