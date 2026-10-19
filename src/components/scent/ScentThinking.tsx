@@ -91,7 +91,7 @@ export function ScentThinking({ stage }: { stage: string }) {
           size={190}
           morph={!reduced}
           showLabels={false}
-          series={[{ values: profile, color: "rgba(255,255,255,0.9)" }]}
+          series={[{ values: profile, color: "rgba(75,94,99,0.9)" }]}
         />
         <span className="scent-thinking-pulse" />
       </div>

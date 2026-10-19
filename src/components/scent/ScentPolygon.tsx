@@ -113,7 +113,7 @@ export function ScentPolygon({
             key={k}
             points={pointsFor(new Array(FAMILY_COUNT).fill(rr / r), cx, cy, r)}
             fill="none"
-            stroke="rgba(255,255,255,0.07)"
+            stroke="rgba(75,94,99,0.07)"
             strokeWidth={1}
           />
         );
@@ -129,7 +129,7 @@ export function ScentPolygon({
             y1={cy}
             x2={x}
             y2={y}
-            stroke="rgba(255,255,255,0.07)"
+            stroke="rgba(75,94,99,0.07)"
             strokeWidth={1}
           />
         );
@@ -187,7 +187,7 @@ export function ScentPolygon({
               fill={
                 active
                   ? `hsl(${f.hue}, 70%, 70%)`
-                  : "rgba(255,255,255,0.28)"
+                  : "rgba(75,94,99,0.28)"
               }
             >
               {f.label}

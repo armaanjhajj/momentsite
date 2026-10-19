@@ -83,7 +83,7 @@ function ModalContent({ onClose }: { onClose: () => void }) {
         </button>
 
         <div className="modal-logo">
-          <Logo color="white" size={36} strokeWidth={18} />
+          <Logo color="var(--ink)" size={36} strokeWidth={18} />
         </div>
 
         {submitted ? (

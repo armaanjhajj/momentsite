@@ -194,7 +194,7 @@ export function OdorMap({ highlight, query, queryMsi }: Props) {
 
     // 1b. the wider corpus, behind everything interactive
     if (backdrop) {
-      ctx.fillStyle = "rgba(255,255,255,0.16)";
+      ctx.fillStyle = "rgba(75,94,99,0.16)";
       const r = view.zoom >= SHOW_MOLECULE_NAMES ? 1.1 : 0.8;
       for (const xy of backdrop.xy) {
         const [x, y] = toPixel(xy);
@@ -214,8 +214,8 @@ export function OdorMap({ highlight, query, queryMsi }: Props) {
         if (!p) continue;
         const [x, y] = toPixel(p.xy);
         const g = ctx.createLinearGradient(qp[0], qp[1], x, y);
-        g.addColorStop(0, "rgba(255,255,255,0.4)");
-        g.addColorStop(1, "rgba(255,255,255,0.04)");
+        g.addColorStop(0, "rgba(75,94,99,0.4)");
+        g.addColorStop(1, "rgba(75,94,99,0.04)");
         ctx.strokeStyle = g;
         ctx.beginPath();
         ctx.moveTo(qp[0], qp[1]);
@@ -250,14 +250,14 @@ export function OdorMap({ highlight, query, queryMsi }: Props) {
       ctx.fill();
       if (lit) {
         ctx.lineWidth = 1.2;
-        ctx.strokeStyle = "rgba(0,0,0,0.55)";
+        ctx.strokeStyle = "rgba(253,246,227,0.55)";
         ctx.stroke();
       }
 
       // At the deepest zoom the molecules name themselves.
       if (view.zoom >= SHOW_MOLECULE_NAMES) {
         ctx.font = "9px Inter, sans-serif";
-        ctx.fillStyle = lit ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.4)";
+        ctx.fillStyle = lit ? "rgba(75,94,99,0.9)" : "rgba(75,94,99,0.4)";
         ctx.fillText(p.molecule.name, x + 7, y + 3);
       }
     }
@@ -276,7 +276,7 @@ export function OdorMap({ highlight, query, queryMsi }: Props) {
         ctx.fillText(`${s.zone}xx`, x, y - 6);
 
         ctx.font = "500 9.5px Inter, sans-serif";
-        ctx.fillStyle = "rgba(255,255,255,0.55)";
+        ctx.fillStyle = "rgba(75,94,99,0.55)";
         ctx.fillText(MACRO_NAMES[s.zone], x, y + 7);
         ctx.textAlign = "left";
       }
@@ -286,18 +286,18 @@ export function OdorMap({ highlight, query, queryMsi }: Props) {
     if (qp) {
       ctx.beginPath();
       ctx.arc(qp[0], qp[1], 10, 0, Math.PI * 2);
-      ctx.strokeStyle = "rgba(255,255,255,0.95)";
+      ctx.strokeStyle = "rgba(75,94,99,0.95)";
       ctx.lineWidth = 1.8;
       ctx.stroke();
       ctx.beginPath();
       ctx.arc(qp[0], qp[1], 2.4, 0, Math.PI * 2);
-      ctx.fillStyle = "#ffffff";
+      ctx.fillStyle = "#4b5e63";
       ctx.fill();
 
       if (queryMsi) {
         ctx.font = "700 11px Inter, sans-serif";
         ctx.textAlign = "center";
-        ctx.fillStyle = "#ffffff";
+        ctx.fillStyle = "#4b5e63";
         ctx.fillText(queryMsi, qp[0], qp[1] - 16);
         ctx.textAlign = "left";
       }
