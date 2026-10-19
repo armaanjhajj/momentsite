@@ -5,7 +5,7 @@ export default function Apply() {
   return (
     <div className="section-wrapper apply-page">
       <div className="apply-logo">
-        <Logo color="var(--ink)" size={48} strokeWidth={16} />
+        <Logo color="white" size={48} strokeWidth={16} />
       </div>
       <h1 className="apply-title">Applications open soon</h1>
       <p className="apply-sub">

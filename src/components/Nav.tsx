@@ -45,7 +45,7 @@ export function Nav() {
   return (
     <>
       <Link href="/" className="header-logo" aria-label="Home">
-        <Logo color="var(--ink)" size={28} strokeWidth={20} />
+        <Logo size={28} strokeWidth={20} />
       </Link>
 
       {/* Desktop nav */}

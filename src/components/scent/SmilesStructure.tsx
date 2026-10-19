@@ -26,21 +26,21 @@ function loadLib(): Promise<SmilesDrawerModule> {
   return libPromise;
 }
 
-// Solarized ink and accents on transparent, tuned to sit on the site's beige rather than on the
+// White-on-transparent, tuned to sit on the site's black rather than on the
 // library's default white card.
 const THEME = {
-  C: "#4b5e63",
-  O: "#dc322f",
-  N: "#268bd2",
-  S: "#b58900",
-  P: "#cb4b16",
-  F: "#2aa198",
-  CL: "#2aa198",
-  BR: "#cb4b16",
-  I: "#6c71c4",
-  H: "#4b5e63",
-  B: "#4b5e63",
-  SI: "#4b5e63",
+  C: "#ffffff",
+  O: "#ff7a7a",
+  N: "#7aa8ff",
+  S: "#ffd166",
+  P: "#ff9f6e",
+  F: "#8ef0c0",
+  CL: "#8ef0c0",
+  BR: "#d3a06a",
+  I: "#c99bff",
+  H: "#ffffff",
+  B: "#ffffff",
+  SI: "#ffffff",
   BACKGROUND: "#00000000",
 };
 

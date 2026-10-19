@@ -436,7 +436,7 @@ export default function Scent() {
               <ScentPolygon
                 size={340}
                 series={[
-                  { values: toFamilyVector(result.a.dec.weights), color: "#4b5e63" },
+                  { values: toFamilyVector(result.a.dec.weights), color: "#ffffff" },
                 ]}
               />
 
@@ -689,7 +689,7 @@ function MoleculeCard({
         series={[
           {
             values: moleculeFamilyVector(n.molecule.descriptors),
-            color: "rgba(75,94,99,0.75)",
+            color: "rgba(255,255,255,0.75)",
           },
         ]}
       />

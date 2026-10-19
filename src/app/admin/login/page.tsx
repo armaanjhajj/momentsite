@@ -38,7 +38,7 @@ export default function AdminLogin() {
     <div className="admin-login">
       <form className="admin-login-card" onSubmit={handleSubmit}>
         <div className="admin-login-logo">
-          <Logo color="var(--ink)" size={36} strokeWidth={18} />
+          <Logo color="white" size={36} strokeWidth={18} />
         </div>
         <h1 className="admin-login-title">Admin</h1>
         <p className="admin-login-sub">Enter the password to continue.</p>

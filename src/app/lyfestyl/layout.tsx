@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 
 // LYFESTYL lives at /lyfestyl and, through src/middleware.ts, at the root of
 // lyfestyl.1moments.com. The icon files in this folder give it its own favicon.
+// .lyfestyl-theme gives these pages the app's colors and type; the rest of
+// the site stays black and white (see "LYFESTYL theme" in globals.css).
 
 export const metadata: Metadata = {
   title: {
@@ -18,5 +20,5 @@ export default function LyfestylLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <div className="lyfestyl-theme">{children}</div>;
 }

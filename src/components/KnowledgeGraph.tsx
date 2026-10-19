@@ -182,7 +182,7 @@ export function KnowledgeGraph({
       .attr("result", "blur");
     filter
       .append("feFlood")
-      .attr("flood-color", "#4b5e63")
+      .attr("flood-color", "#ffffff")
       .attr("flood-opacity", "0.35")
       .attr("result", "color");
     filter
@@ -201,7 +201,7 @@ export function KnowledgeGraph({
       .selectAll("line")
       .data(linkData)
       .join("line")
-      .attr("stroke", "rgba(75,94,99,0.18)")
+      .attr("stroke", "rgba(255,255,255,0.08)")
       .attr("stroke-width", 0.8);
 
     // Nodes
@@ -236,8 +236,8 @@ export function KnowledgeGraph({
     node
       .append("circle")
       .attr("r", (d) => d.size)
-      .attr("fill", (d) => (d.size >= 28 ? "rgba(75,94,99,0.18)" : "rgba(75,94,99,0.03)"))
-      .attr("stroke", "#4b5e63")
+      .attr("fill", (d) => (d.size >= 28 ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.03)"))
+      .attr("stroke", "#ffffff")
       .attr("stroke-opacity", (d) => (d.size >= 28 ? 0.5 : d.size >= 16 ? 0.3 : 0.18))
       .attr("stroke-width", (d) => (d.size >= 28 ? 2 : d.size >= 16 ? 1.5 : 1));
 
@@ -246,7 +246,7 @@ export function KnowledgeGraph({
       .text((d) => d.id.toUpperCase())
       .attr("text-anchor", "middle")
       .attr("dy", (d) => d.size + 16)
-      .attr("fill", "#4b5e63")
+      .attr("fill", "#ffffff")
       .attr("fill-opacity", (d) => (d.size >= 28 ? 1 : d.size >= 16 ? 0.75 : 0.55))
       .attr("font-size", (d) =>
         d.size >= 28 ? 11 : d.size >= 16 ? 9 : 8
@@ -288,8 +288,8 @@ export function KnowledgeGraph({
           .attr("stroke", (l) =>
             (l.source as NodeDatum).id === d.id ||
             (l.target as NodeDatum).id === d.id
-              ? "rgba(75,94,99,0.35)"
-              : "rgba(75,94,99,0.02)"
+              ? "rgba(255,255,255,0.35)"
+              : "rgba(255,255,255,0.02)"
           )
           .attr("stroke-width", (l) =>
             (l.source as NodeDatum).id === d.id ||
@@ -324,7 +324,7 @@ export function KnowledgeGraph({
       link
         .transition()
         .duration(200)
-        .attr("stroke", "rgba(75,94,99,0.18)")
+        .attr("stroke", "rgba(255,255,255,0.08)")
         .attr("stroke-width", 0.8);
     }
 
