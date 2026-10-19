@@ -9196,3 +9196,181 @@ button.scent-sense:hover {
   text-transform: uppercase;
   letter-spacing: 0.02em;
 }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ── LYFESTYL (/lyfestyl and lyfestyl.1moments.com) ──
+   Builds on the .app-page showcase layout. */
+.lyfestyl-page {
+  max-width: 720px;
+}
+
+.lyfestyl-icon {
+  display: block;
+  width: 96px;
+  height: 96px;
+  border-radius: 22.5%;
+  margin: 0 0 28px;
+  box-shadow: 0 8px 24px rgba(var(--shadow-rgb), 0.12),
+    0 0 0 1px rgba(var(--ink-rgb), 0.08);
+}
+
+.lyfestyl-wordmark {
+  display: inline-block;
+}
+
+.lyfestyl-lyfe {
+  color: var(--blue);
+}
+
+.lyfestyl-styl {
+  color: var(--green);
+}
+
+.lyfestyl-features {
+  list-style: none;
+  margin: 36px 0 0;
+  padding: 4px 20px;
+  background: var(--surface);
+  border-radius: 18px;
+}
+
+.lyfestyl-features li {
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--text);
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(var(--ink-rgb), 0.1);
+}
+
+.lyfestyl-features li:last-child {
+  border-bottom: 0;
+}
+
+.lyfestyl-private {
+  margin-top: 40px;
+}
+
+.lyfestyl-h2 {
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+.lyfestyl-private p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
+}
+
+.lyfestyl-shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 44px;
+}
+
+.lyfestyl-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 26px;
+  background: var(--surface);
+  box-shadow: 0 10px 30px rgba(var(--shadow-rgb), 0.12),
+    0 0 0 1px rgba(var(--ink-rgb), 0.08);
+}
+
+.lyfestyl-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 44px;
+  min-height: 54px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.lyfestyl-req {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 14px 0 0;
+}
+
+.lyfestyl-legal {
+  display: flex;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.lyfestyl-legal a {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(var(--ink-rgb), 0.25);
+  padding-bottom: 2px;
+}
+
+.lyfestyl-legal a:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.lyfestyl-credit {
+  font-size: 11px;
+  color: var(--muted);
+  margin: 20px 0 0;
+}
+
+@media (max-width: 600px) {
+  .lyfestyl-shots {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: 4px 24px 24px;
+    scrollbar-width: none;
+  }
+
+  .lyfestyl-shots::-webkit-scrollbar {
+    display: none;
+  }
+
+  .lyfestyl-shot {
+    flex: 0 0 62%;
+    width: 62%;
+    min-width: 0;
+    scroll-snap-align: center;
+  }
+
+  .lyfestyl-cta {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}

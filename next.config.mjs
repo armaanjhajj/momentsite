@@ -7,6 +7,13 @@ const nextConfig = {
       { source: "/glasses", destination: "/0/0/index.html" },
     ];
   },
+  async redirects() {
+    return [
+      // The old app page. Sources match case-insensitively, so this also
+      // covers /lyfstyl; /LYFESTYL is handled in src/middleware.ts.
+      { source: "/LYFSTYL", destination: "/lyfestyl", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

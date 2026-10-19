@@ -41,8 +41,8 @@ const EXHIBITS: Exhibit[] = [
   { title: "VTKICKBACK", href: "/events/vt-kickback" },
   { title: "KNOWLEDGEGRAPH", action: "graph" },
   { title: "SCENT", href: "/scent" },
-  // Hidden from the list for now; the pages still live at /LYFSTYL and /DSCVR.
-  // { title: "LYFSTYL", href: "/LYFSTYL", soon: true },
+  { title: "LYFESTYL", href: "/lyfestyl" },
+  // Hidden from the list for now; the page still lives at /DSCVR.
   // { title: "DSCVR", href: "/DSCVR", soon: true },
 ];
 
