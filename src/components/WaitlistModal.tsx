@@ -124,7 +124,7 @@ function ModalContent({ onClose }: { onClose: () => void }) {
 
             <p className="modal-legal">
               By joining, you agree to our{" "}
-              <a href="/terms">Terms of Service</a> and{" "}
+              <a href="/terms">Terms of Use</a> and{" "}
               <a href="/privacy">Privacy Policy</a>.
             </p>
           </form>
