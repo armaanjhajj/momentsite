@@ -1,9 +1,27 @@
+"use client";
+
+import Link from "next/link";
+import { useSelectedLayoutSegment } from "next/navigation";
+
 export function Footer() {
+  // The route segment, not the URL, so this is right on lyfestyl.1moments.com
+  // too, where the middleware rewrites "/privacy" onto /lyfestyl/privacy.
+  const lyfestyl = useSelectedLayoutSegment() === "lyfestyl";
+
   return (
     <footer className="footer">
       <div className="footer-links">
-        <a href="/terms">Terms</a>
-        <a href="/privacy">Privacy</a>
+        {lyfestyl ? (
+          <>
+            <Link href="/lyfestyl/terms">Terms</Link>
+            <Link href="/lyfestyl/privacy">Privacy</Link>
+          </>
+        ) : (
+          <>
+            <Link href="/terms">Terms</Link>
+            <Link href="/privacy">Privacy</Link>
+          </>
+        )}
       </div>
       <div className="footer-social">
         <a href="https://instagram.com/letsmakemoments" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
