@@ -1,13 +1,31 @@
 import Link from "next/link";
 import { LyfestylWordmark } from "@/components/LyfestylWordmark";
 
-const FEATURES = [
-  "Snap a meal, get calories and macros for each food.",
-  "Reads the label on packaged food.",
-  "Fix anything with a slider, then log.",
-  "Search, recents, or type it in.",
-  "Today, the last 7 days, and your history.",
-  "Syncs with iCloud. Apple Health if you want it.",
+const FAQ = [
+  {
+    q: "How does it work?",
+    a: "Take a photo of your food. You get calories and macros for each item.",
+  },
+  {
+    q: "What about packaged food?",
+    a: "Point it at the label and it reads it.",
+  },
+  {
+    q: "What if it gets something wrong?",
+    a: "Adjust it with a slider before logging.",
+  },
+  {
+    q: "Can I log without a photo?",
+    a: "Yes. Search, pick from recents, or type it in.",
+  },
+  {
+    q: "Where do I see my history?",
+    a: "Today, the last 7 days and everything before that.",
+  },
+  {
+    q: "Does it sync?",
+    a: "Yes, with iCloud. Apple Health too if you turn it on.",
+  },
 ];
 
 const SHOTS = [
@@ -31,13 +49,16 @@ export default function Lyfestyl() {
       <h1 className="app-title lyfestyl-title">
         <LyfestylWordmark />
       </h1>
-      <p className="app-tagline">Calorie tracking from a photo.</p>
+      <p className="app-tagline">Snap a photo, get calorie estimates.</p>
 
-      <ul className="lyfestyl-features">
-        {FEATURES.map((f) => (
-          <li key={f}>{f}</li>
+      <div className="lyfestyl-features lyfestyl-faq">
+        {FAQ.map(({ q, a }) => (
+          <details key={q}>
+            <summary>{q}</summary>
+            <p>{a}</p>
+          </details>
         ))}
-      </ul>
+      </div>
 
       <div className="lyfestyl-private">
         <h2 className="lyfestyl-h2">Private by design</h2>
