@@ -9245,29 +9245,6 @@ button.scent-sense:hover {
     0 0 0 1px rgba(var(--ink-rgb), 0.08);
 }
 
-.lyfestyl-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 44px;
-  min-height: 54px;
-  padding: 0 30px;
-  border-radius: 999px;
-  background: var(--accent);
-  color: var(--on-accent);
-  font-size: 15px;
-  font-weight: 900;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.lyfestyl-req {
-  font-size: 13px;
-  color: var(--muted);
-  margin: 14px 0 0;
-}
-
 .lyfestyl-legal {
   display: flex;
   gap: 24px;
@@ -9317,12 +9294,6 @@ button.scent-sense:hover {
     width: 62%;
     min-width: 0;
     scroll-snap-align: center;
-  }
-
-  .lyfestyl-cta {
-    display: flex;
-    width: 100%;
-    box-sizing: border-box;
   }
 }
 

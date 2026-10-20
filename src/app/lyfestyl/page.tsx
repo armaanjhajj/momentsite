@@ -82,12 +82,6 @@ export default function Lyfestyl() {
         ))}
       </div>
 
-      {/* TODO: swap for the App Store link once LYFESTYL is live. */}
-      <span className="lyfestyl-cta" aria-disabled="true">
-        Coming to the App Store
-      </span>
-      <p className="lyfestyl-req">Needs an iPhone with Apple Intelligence.</p>
-
       <nav className="lyfestyl-legal" aria-label="LYFESTYL legal">
         <Link href="/lyfestyl/privacy">Privacy</Link>
         <Link href="/lyfestyl/terms">Terms</Link>
