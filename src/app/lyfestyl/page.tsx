@@ -85,6 +85,7 @@ export default function Lyfestyl() {
       <nav className="lyfestyl-legal" aria-label="LYFESTYL legal">
         <Link href="/lyfestyl/privacy">Privacy</Link>
         <Link href="/lyfestyl/terms">Terms</Link>
+        <Link href="/lyfestyl/support">Support</Link>
       </nav>
 
       <p className="lyfestyl-credit">

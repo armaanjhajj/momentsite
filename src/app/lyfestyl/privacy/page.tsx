@@ -69,8 +69,9 @@ export default function LyfestylPrivacy() {
           </li>
         </ul>
         <p>
-          This is kept on your iPhone and in your iCloud account. Nothing is
-          sent to us.
+          Meals, goals and profile are kept on your iPhone and in your iCloud
+          account. The body profile stays on your iPhone only. Nothing is sent
+          to us.
         </p>
       </section>
 
@@ -78,8 +79,10 @@ export default function LyfestylPrivacy() {
         <h2>iCloud</h2>
         <p>
           Meals sync between your devices through your iCloud private database
-          (CloudKit). Goals, body profile, name and profile photo sync through
-          iCloud key-value storage. Both belong to your Apple Account, and we
+          (CloudKit). Goals, name and profile photo sync through iCloud
+          key-value storage. Your body profile, which can include values read
+          from Apple Health, is never stored in iCloud. Both stores belong to
+          your Apple Account, and we
           have no access to either. If iCloud is off, everything stays on your
           iPhone. Apple&apos;s handling of iCloud data is covered by
           Apple&apos;s privacy policy.
@@ -96,7 +99,7 @@ export default function LyfestylPrivacy() {
           </li>
           <li>
             Reads your height, weight, date of birth and sex, only to suggest
-            goals.
+            goals. These stay on your iPhone.
           </li>
         </ul>
         <p>

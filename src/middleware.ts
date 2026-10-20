@@ -12,6 +12,7 @@ const APP_PATHS: Record<string, string> = {
   "/": "/lyfestyl",
   "/privacy": "/lyfestyl/privacy",
   "/terms": "/lyfestyl/terms",
+  "/support": "/lyfestyl/support",
 };
 
 export function middleware(req: NextRequest) {
